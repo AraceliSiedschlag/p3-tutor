@@ -1,0 +1,55 @@
+{
+  "id": "cake-baking",
+  "title": "TODO: the topic's title",
+  "learner_summary": "TODO: who the learner is and what they already know, in two or three sentences",
+  "minutes": 30,
+  "teach_objective": "O2",
+  "quiz_objective": "O3",
+  "graded_quiz": "0001",
+  "submissions": [
+    "s1"
+  ],
+  "objectives": [
+    {
+      "id": "O1",
+      "text": "TODO: what the learner can do after this objective, as one sentence (the graded quiz covers it)"
+    },
+    {
+      "id": "O2",
+      "text": "TODO: what the learner can do after this objective, as one sentence (the bench teaches it)"
+    },
+    {
+      "id": "O3",
+      "text": "TODO: what the learner can do after this objective, as one sentence (the bench writes a quiz on it)"
+    }
+  ],
+  "facts": [
+    {
+      "id": "F2.1",
+      "objective": "O2",
+      "text": "TODO: one checkable statement a lesson on O2 must get right"
+    },
+    {
+      "id": "F2.2",
+      "objective": "O2",
+      "text": "TODO: one checkable statement a lesson on O2 must get right"
+    },
+    {
+      "id": "F2.3",
+      "objective": "O2",
+      "text": "TODO: one checkable statement a lesson on O2 must get right"
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "M1",
+      "text": "TODO: a mistaken belief a learner may hold",
+      "correction": "TODO: what is true instead"
+    },
+    {
+      "id": "M2",
+      "text": "TODO: a mistaken belief a learner may hold",
+      "correction": "TODO: what is true instead"
+    }
+  ]
+}
