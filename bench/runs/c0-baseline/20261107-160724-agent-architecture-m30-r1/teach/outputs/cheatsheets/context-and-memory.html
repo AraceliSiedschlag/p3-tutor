@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --ok: #2f6b3a; --ok-soft: #e7f2e9; --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e; --accent: #eaa77a;
+              --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22; --ok: #9fd3a8; --ok-soft: #1c2a1f; --code-bg: #23211e; }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 18px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.55; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2.5rem 1.25rem 3rem; }
+    h1 { font-size: 1.7rem; margin: 0 0 0.3rem; }
+    .kicker { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    h2 { font-size: 1.1rem; margin: 2rem 0 0.5rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+    dfn { font-style: normal; font-weight: 700; color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.75rem 0; font-family: var(--sans); }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    code { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 4px; padding: 0.1em 0.3em; }
+    .flow { border: 1px solid var(--rule); border-radius: 8px; padding: 1rem 1.25rem; font-family: var(--sans); font-size: 0.95rem; }
+    .flow ol { padding-left: 1.3rem; margin: 0.5rem 0; }
+    .flow li { margin: 0.5rem 0; }
+    .tag { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 10px; margin-right: 0.3rem; }
+    .tag.context { background: var(--accent-soft); color: var(--accent); }
+    .tag.retrieval { background: var(--ok-soft); color: var(--ok); }
+    .tag.memory { background: var(--warn-soft); color: var(--warn); }
+    footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 0.85rem; color: var(--muted); }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2;
+              --warn: #000; --warn-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --code-bg: #f2f2f2; }
+      main { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div class="kicker">Cheat sheet &middot; from lesson 0001</div>
+  <h1>Context and memory, at a glance</h1>
+
+  <h2>Four terms</h2>
+  <table>
+    <tr><th>Term</th><th>What it is</th></tr>
+    <tr><td><dfn>Token</dfn></td><td>The smallest unit of text a model processes; roughly 3.5&ndash;4 characters of English.</td></tr>
+    <tr><td><dfn>Context window</dfn></td><td>Everything the model can see in one call: system prompt, tool definitions, conversation/tool history so far, current input, and its own output. All of it is billed; none of it persists on its own.</td></tr>
+    <tr><td><dfn>Context rot</dfn></td><td>Recall accuracy drifts down, gradually, as token count in the window grows &mdash; not a cliff, but never a reason more context is automatically safer.</td></tr>
+    <tr><td><dfn>Memory</dfn></td><td>Anything saved outside the context window on purpose (a file, a database row, a note) so a later session can read it back in. Nothing crosses a session boundary unless something does this.</td></tr>
+    <tr><td><dfn>Retrieval</dfn></td><td>Searching a large, mostly static store (manuals, docs) at question time and pulling in only the matching piece, instead of holding the whole store in context.</td></tr>
+  </table>
+
+  <h2>Deciding what goes where</h2>
+  <div class="flow">
+    <ol>
+      <li><span class="tag context">Context</span> Does the model need this fact for <em>this</em> call only, and is it already small? Just include it &mdash; the current question, a single tool result, the last couple of turns.</li>
+      <li><span class="tag retrieval">Retrieve</span> Is the fact sitting in a large, mostly unchanging document (a manual, a policy, past tickets)? Don't paste the document &mdash; add a search tool and pull in only the matching chunk, on demand.</li>
+      <li><span class="tag memory">Save as memory</span> Does the fact need to survive past this session, or describe state about a person/thing that no document contains (a student's training date, a machine's known quirk)? Write it to a file or database when it becomes true, and read it back in at the start of later sessions.</li>
+    </ol>
+  </div>
+
+  <h2>Two mix-ups to catch yourself making</h2>
+  <p><strong>M3</strong> &mdash; "it'll remember, it's the same assistant": no. Every call, and every new session, starts from only what's explicitly put in front of it. Continuity within a session is the program resending a growing history, not the model remembering.</p>
+  <p><strong>M2</strong> &mdash; "there's room, so just paste it all in": no. Bigger context, used carelessly, costs more (everything resends every step) and tends to recall worse (context rot), even with room to spare. Curate first; retrieve or save instead of dumping.</p>
+
+  <footer>
+    From <code>lessons/0001-context-and-memory.html</code>. Sources: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic, "Effective context engineering for AI agents"</a>; <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows">Claude Platform Docs, "Context windows"</a>.
+  </footer>
+</main>
+</body>
+</html>

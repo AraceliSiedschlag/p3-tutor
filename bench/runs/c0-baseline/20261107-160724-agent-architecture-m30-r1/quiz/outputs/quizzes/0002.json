@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows vs agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "What is the one line that separates a workflow from an agent?",
+      "options": [
+        {"id": "a", "text": "Whether the system calls a language model at any point in the process"},
+        {"id": "b", "text": "Who decides what happens next at each step: code written in advance, or the model reasoning in the moment"},
+        {"id": "c", "text": "Whether the system keeps a memory of what happened in earlier sessions"},
+        {"id": "d", "text": "How many different tools the system is able to call over the course of a task"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your team writes a program that calls the model once to pull a machine name and a date out of a student's message, then always calls check_calendar next, and then, only if check_calendar reports the slot is free, always calls book_equipment. Is this a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "An agent, because a language model is involved in reading the student's message"},
+        {"id": "b", "text": "An agent, because the program calls more than one tool before it is done"},
+        {"id": "c", "text": "An agent, because the booking only happens for some messages and not others"},
+        {"id": "d", "text": "A workflow, because the program's code decides which function runs next at every point, not the model"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A student asks, \"Can you help me find a project that uses the parts I've already checked out, and get it approved?\" Answering could take a search of the parts list, a look through project write-ups, and maybe a follow-up question to the student, and your team cannot say in advance how many of these steps, or which order, any one request will need. Should your team build this as a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "An agent, because the needed steps and their order cannot be known in advance, so the model has to decide what to check next"},
+        {"id": "b", "text": "A workflow, because a workflow is always the cheaper, safer choice to build first"},
+        {"id": "c", "text": "A workflow, because the assistant already has a tool ready for every step it might need"},
+        {"id": "d", "text": "An agent, because the student's request is written in plain language rather than a fixed form"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your team has a workflow that does a job in three fixed steps. You rebuild it as an agent that decides its own steps for the same job. Compared with the workflow, what should your team expect from the agent version, in general?",
+      "options": [
+        {"id": "a", "text": "Lower cost and lower latency, since the model is free to skip steps a workflow would always run"},
+        {"id": "b", "text": "About the same cost and latency, since the model is still called a similar number of times either way"},
+        {"id": "c", "text": "Higher cost and latency, and more chances for errors to compound across steps, in exchange for being able to handle cases you didn't plan for"},
+        {"id": "d", "text": "Higher cost, but lower latency, because the model runs several of its steps at the same time instead of one after another"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Every booking request your assistant handles must: pull the machine name and date from the message, check the calendar, and, if it's free, reserve the slot — always in that order, and your team has not found an exception yet. In one or two sentences, should this be built as a workflow or an agent, and why, in terms of who decides what runs next?"
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A student describes a 3D printer problem that could have several different causes. Answering may need searches of different manual sections and maybe a follow-up question, and your team cannot say in advance how many of these steps any one case will need. In one or two sentences, should this be built as a workflow or an agent, and why, in terms of who decides what to check next?"
+    }
+  ]
+}

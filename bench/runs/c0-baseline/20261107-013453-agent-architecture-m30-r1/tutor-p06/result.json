@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 41863,
+  "num_turns": 9,
+  "stop_reason": "end_turn",
+  "session_id": "e705d593-2274-4416-ba7f-152b643f2042",
+  "total_cost_usd": 0.3121149,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 39183,
+    "cache_read_input_tokens": 79713,
+    "output_tokens": 3539,
+    "output_tokens_details": {
+      "thinking_tokens": 2121
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 39183,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 2401,
+        "cache_read_input_tokens": 42270,
+        "cache_creation_input_tokens": 2553,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2553
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 6,
+      "outputTokens": 3539,
+      "cacheReadInputTokens": 79713,
+      "cacheCreationInputTokens": 39183,
+      "webSearchRequests": 0,
+      "costUSD": 0.3121149,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Picture the makerspace assistant checking \"is the laser cutter free Friday?\" The model is like a receptionist at the front desk. A student asks her this, but she has no way to see the actual booking calendar herself — it's locked in a back office. So instead of guessing, she fills out a request slip: *\"Tool: check_calendar. Equipment: laser cutter. Date: Friday.\"* She hands that slip through a window to the clerk in back.\n\nThat filled-out slip is a **tool call**: a request from the model to run one specific action, naming exactly which one (the tool) and the details it needs to run (the arguments). The important part — and this is the bit worth nailing down — the receptionist never touches the calendar herself. She can't; she only has a pen and a slip. The **clerk** (your program, the thing running the assistant) is the one who actually opens the calendar, looks it up, and does the real work. The model can only ever ask; something else outside the model carries the action out.\n\nThe clerk checks, writes \"free 2–4pm\" on a result slip, and passes it back through the window. The receptionist reads it — to her, it's now just more text in front of her, same as anything else — and turns it into an answer: \"Yes, 2 to 4pm is open.\" If she'd needed another fact first, like whether the student is trained on the laser cutter, she'd have filled out a second slip before answering. That back-and-forth is the loop you already traced for me last time; a tool call is what each \"ask for an action\" step actually is under the hood.\n\nQuick check: in your assistant, who actually holds the key to the real booking calendar — the model, or the program running it?",
+  "ttft_ms": 2164,
+  "ttft_stream_ms": 661,
+  "time_to_request_ms": 26,
+  "type": "result",
+  "duration_ms": 41935,
+  "uuid": "2bb7779a-9a40-4865-943f-600e4756f1c2"
+}

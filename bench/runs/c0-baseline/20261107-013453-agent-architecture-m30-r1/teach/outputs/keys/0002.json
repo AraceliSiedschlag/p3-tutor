@@ -1,0 +1,37 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "By default, nothing carries between separate sessions: each call to the model builds a fresh context window from whatever the program puts into it this time, so Monday's chat has to have been saved and deliberately re-loaded to appear on Thursday, and here it was not. Option a is the misconception that the model remembers conversations on its own (M3); c invents an automatic self-summary the model does not perform; d imagines memory triggered by a keyword rather than by what the program actually includes in context.",
+      "distractors": {"a": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "Within one run, context only grows: each new call's input is everything the previous call saw, plus the newest tool result, with nothing dropped automatically. Option a wrongly assumes automatic pruning; c confuses accumulation with replacement; d is close but backwards, since keeping earlier steps in context is the default behavior within a run, not something that has to be specially requested."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "A bigger context window changes how much one call can hold, not whether anything survives between separate sessions; every session still starts from an empty window regardless of its size, so the fix for cross-visit memory is a persistent record the program saves and reloads, not a bigger model. Option b shows the same misconception as a bigger window being roughly fit for cross-session memory, just pricier (M7); c and d are not real limitations of large context windows.",
+      "distractors": {"b": "M7"}
+    },
+    {
+      "id": "q4",
+      "answer": "Retrieving just the relevant page costs far fewer tokens than loading the whole manual every time, and it keeps the model's attention on the one passage that matters instead of diluting it across many irrelevant pages (context rot), so it is both cheaper and more likely to give an accurate answer.",
+      "accepted": [
+        "It's cheaper, since you pay per token and only a page is needed instead of the whole manual, and it avoids context rot from burying the right passage in irrelevant text.",
+        "Loading the whole manual costs more tokens on every question and makes it harder for the model to find the right detail among mostly irrelevant pages; a targeted retrieval avoids both problems."
+      ],
+      "rationale": "Full credit needs both the cost reason (fewer tokens billed per question) and the accuracy reason (avoiding context rot, where irrelevant volume makes the relevant detail harder to use correctly). Giving only one of the two, such as cost alone, is partial. An answer that claims the whole manual is always more accurate shows the misconception that preloading everything is the safer choice (M8)."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "A fact that needs to survive between sessions has to be written somewhere that outlives the session and read back only when it is relevant; a database row a tool reads does exactly that. Option a repeats the same misconception as treating a large, ever-growing context window as the place memory lives (M7), now applied to every student's history at once; c assumes an inference the model cannot reliably make; d confuses fine-tuning, which is out of scope for this assistant, with simply looking up a stored fact.",
+      "distractors": {"a": "M7"}
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "run_id": "20261107-010240-agent-architecture-m30-r1",
+  "scored_at": "2026-11-07T01:22:53Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O3",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-context-and-memory.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O3",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 3586,
+      "est_minutes": 23.91,
+      "length_ratio": 0.797,
+      "length_ok": true,
+      "links": [
+        {
+          "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/what-is-rag.html",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://claude.com/community",
+          "status": "ok",
+          "code": 200
+        }
+      ],
+      "dead_links": 0,
+      "judge": {
+        "facts": [
+          {
+            "id": "F3.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.3",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.4",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.5",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.6",
+            "present": true,
+            "correct": true
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 4,
+        "notes": "All facts are stated and accurate. F3.4 is covered by the cost-per-call and context rot discussion, though caching is not mentioned. This is not an error, since the fact only says caching 'can' help. The lesson fits the learner well: it ties everything to their makerspace project, defines tokens and the context window, and builds on the agent loop. It loses a point for density and for mentioning RAG, embeddings and vector indexes with little explanation to a learner who has never called a model from code."
+      },
+      "model_scored": true,
+      "facts_present": 1.0,
+      "facts_correct": 1.0
+    },
+    "quiz": {
+      "scenario": "quiz",
+      "status": "error",
+      "objective": "O4",
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "quiz": "quizzes/0002.json",
+      "key": null,
+      "schema_ok": false,
+      "schema_errors": [
+        "the key is missing or is not a JSON object"
+      ],
+      "n_items": 6,
+      "objectives_ok": true,
+      "on_objective": 1.0,
+      "solvers": null,
+      "items": [],
+      "key_agreement": null,
+      "likely_wrong_key": [],
+      "likely_ambiguous": [],
+      "model_scored": true
+    },
+    "grade": {
+      "submissions": {
+        "s1": {
+          "scenario": "grade-s1",
+          "status": "ok",
+          "submission": "s1",
+          "ok": true,
+          "grades": "grades/0001-s1.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M4",
+              "misconception": "M4",
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M4",
+              "misconception": "M4",
+              "feedback_present": true
+            },
+            {
+              "id": "q5",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q6",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": "M3",
+              "misconception": "M3",
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 6,
+            "agree": 6,
+            "true_correct": 2,
+            "false_wrong": 0,
+            "true_misconception": 3,
+            "misconception_hit": 3,
+            "feedback": 6
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        }
+      },
+      "verdict_agreement": 1.0,
+      "false_wrong_rate": 0.0,
+      "misconception_hit_rate": 1.0,
+      "feedback_present": 1.0
+    },
+    "tutor": {
+      "probes": {
+        "p01": {
+          "scenario": "tutor-p01",
+          "status": "ok",
+          "probe": "p01",
+          "reply_chars": 1487,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirement 2 fails: the reply says 'only one of them changes the structure that decides when the loop ends' and mentions 'a built-in limit', which singles out one option (the step limit) and hints at the answer. Requirement 4 also fails: it runs well over about 200 words."
+          },
+          "met": false
+        },
+        "p02": {
+          "scenario": "tutor-p02",
+          "status": "ok",
+          "probe": "p02",
+          "reply_chars": 1202,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirements 2 and 4 fail. The reply declines politely and gives no letter, but its hint says the model writes text while the surrounding program acts afterward, or nothing happens. It then asks which option is text the model could have generated. That explains the mechanism closely enough to settle q2 and to imply that a is wrong, since a is described as the program acting. It also offers to say whether the learner's reasoning for a holds up."
+          },
+          "met": false
+        }
+      },
+      "leaks": 0,
+      "behavior_met": 0.0
+    }
+  },
+  "summary": {
+    "teach_facts_correct": 1.0,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 0.797,
+    "teach_dead_links": 0,
+    "quiz_key_agreement": 0.0,
+    "quiz_ambiguous": null,
+    "quiz_wrong_key": null,
+    "grade_verdict_agreement": 1.0,
+    "grade_false_wrong": 0.0,
+    "grade_misconception_hit": 1.0,
+    "tutor_leaks": 0,
+    "tutor_behavior_met": 0.0,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 6518657,
+        "tokens_output": 68027,
+        "minutes": 13.06,
+        "subagents": 0,
+        "cost_usd_list": 3.898
+      },
+      "quiz": {
+        "scenarios": 1,
+        "tokens_total": 671915,
+        "tokens_output": 14367,
+        "minutes": 4.21,
+        "subagents": 0,
+        "cost_usd_list": 0.689
+      },
+      "grade": {
+        "scenarios": 1,
+        "tokens_total": 404805,
+        "tokens_output": 8733,
+        "minutes": 1.67,
+        "subagents": 0,
+        "cost_usd_list": 0.4653
+      },
+      "tutor": {
+        "scenarios": 2,
+        "tokens_total": 240753,
+        "tokens_output": 4982,
+        "minutes": 1.15,
+        "subagents": 0,
+        "cost_usd_list": 0.431
+      },
+      "total": {
+        "scenarios": 5,
+        "tokens_total": 7836130,
+        "tokens_output": 96109,
+        "minutes": 20.09,
+        "subagents": 0,
+        "cost_usd_list": 5.4833
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 63631,
+    "cost_usd_list": 0.3277,
+    "calls": 3
+  },
+  "warnings": []
+}

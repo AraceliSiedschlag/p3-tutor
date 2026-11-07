@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 71270,
+  "num_turns": 10,
+  "stop_reason": "end_turn",
+  "session_id": "308becbd-4dde-449d-a975-0a57d6a6ba33",
+  "total_cost_usd": 0.31201290000000004,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 29697,
+    "cache_read_input_tokens": 175053,
+    "output_tokens": 5419,
+    "output_tokens_details": {
+      "thinking_tokens": 3452
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 29697,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 483,
+        "cache_read_input_tokens": 44732,
+        "cache_creation_input_tokens": 4050,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4050
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 10,
+      "outputTokens": 5419,
+      "cacheReadInputTokens": 175053,
+      "cacheCreationInputTokens": 29697,
+      "webSearchRequests": 0,
+      "costUSD": 0.31201290000000004,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Here's another way to picture it, since the laser-cutter trace didn't quite land.\n\nImagine a hotel concierge. A guest asks, \"Is room 412 ready?\" The concierge has no key, no computer, can't walk over and look. So they write a slip — \"check room 412\" — and hand it to housekeeping. Housekeeping is the one who actually walks to the room, looks, and writes back: \"ready now.\" The concierge reads that slip and tells the guest.\n\nThat handoff is tool calling. The concierge (the model) never checks the room itself — it only writes down which helper it wants (\"housekeeping\") and exactly what to ask them (\"room 412\"). Housekeeping does the real work in the real world and writes back a result. The concierge then reads that result as new information before deciding what to say or do next.\n\nA \"tool\" is one specific service with a fixed slip: housekeeping only ever takes a room number, and only ever answers \"ready\" or \"not ready, ready by [time].\" The concierge can't invent a new service or ask for something off the slip — only what the form allows.\n\nWhere the analogy breaks: housekeeping is a person using judgment; a real tool is a fixed bit of code that does exactly one thing, no judgment involved. And each time a slip comes back, it's really a fresh consultation — the concierge is handed the guest's original question plus every slip so far, and thinks it through again from scratch.\n\nQuick check: in this picture, who actually walks to the room and looks — the concierge, or housekeeping?",
+  "ttft_ms": 2729,
+  "ttft_stream_ms": 1197,
+  "time_to_request_ms": 24,
+  "type": "result",
+  "duration_ms": 72857,
+  "uuid": "e2ce400e-2f2c-4272-a8be-968a0c82c5b0"
+}

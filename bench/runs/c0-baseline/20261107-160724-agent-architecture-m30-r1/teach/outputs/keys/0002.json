@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A new session starts from an empty context window, built fresh from the system prompt, tool definitions, and today's question; nothing from yesterday's session is in it unless something was deliberately saved and read back in. Picking (a) or (c) treats the assistant as if it automatically remembers or summarizes across sessions, which it does not; (d) invents an automatic trimming behaviour that has no basis here.",
+      "distractors": {"a": "M3", "c": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "Recall accuracy tends to drift down as token count grows (context rot), even well below the hard limit, and every token in context is resent and billed again on every later call in the session, so padding \"because there's room\" has a real cost with no accuracy benefit. The API does not reject large-but-within-limit requests (c), and models do not automatically filter out irrelevant pages on their own (d); picking (a) treats more context as free upside, which it is not.",
+      "distractors": {"a": "M2", "d": "M2"}
+    },
+    {
+      "id": "q3",
+      "answer": "Save the training record to a file or database when it's confirmed, and have the program read that record back in and add it to the new session's context before the model answers.",
+      "accepted": [
+        "Write the fact to storage outside the model when it happens, then load it into context at the start of the next session.",
+        "Store it in a database or file as memory, and fetch it into the new session's context before answering."
+      ],
+      "rationale": "Full credit needs both halves: something durable was written outside the model when the fact became true, and the program reads it back into the new session's context before the model needs it. An answer that just says \"the assistant remembers it\" or \"the model keeps it in mind\" is wrong, since that is exactly the automatic-memory misconception (M3) this objective corrects."
+    },
+    {
+      "id": "q4",
+      "answer": 1500,
+      "tolerance": 0,
+      "rationale": "The second call resends everything from the first call (1,200 tokens of input plus the 300-token result it received, 1,500 tokens) before adding anything new of its own: 1,200 + 300 = 1,500. An answer of 300 treats the second call as if it only sends the newest result, which misses that the whole history accumulates and is resent each step."
+    },
+    {
+      "id": "q5",
+      "answer": "Search only finds things that already exist in writing somewhere in the manuals; a specific student's training status isn't written in any manual, so there's nothing for search to find until the program saves that fact as memory when it happens.",
+      "accepted": [
+        "Retrieval searches a large, mostly fixed store like the manuals; it can't retrieve a fact about one student's history that was never written down in a document, so that has to be saved separately as memory.",
+        "Search works over existing documents, but a student's training status is session-specific state, not something in the manuals, so it needs to be written and read back in as memory instead."
+      ],
+      "rationale": "Full credit names both the limit of search (it only finds what's already written in the store it searches, here the manuals) and the reason memory is still needed (the fact in question, a specific student's status, was never written into that store at all). An answer that just says \"because memory is more reliable\" or similar, without naming what search can't reach, is partial."
+    }
+  ]
+}

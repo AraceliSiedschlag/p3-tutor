@@ -1,0 +1,47 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A workflow's path through tools and model calls is written in code before any request arrives; an agent's model looks at the request and what has happened so far and picks its own next action. Option a shows M7, mistaking the number of tools called for who decides the order. Option c shows M1, the idea that model size or capability (not the loop's structure) is what makes something an agent. Option d shows M8, treating agents as a strictly safer or better choice rather than the better fit for some tasks.",
+      "distractors": {"a": "M7", "c": "M1", "d": "M8"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "The three steps and their order never change from request to request, so nothing needs deciding at runtime: a workflow can do this for less and more reliably than an agent would. Option a shows M7 (counting tools, not who decides their order). Option c overstates what calling a model for one message requires; writing a short message doesn't by itself need an agent's dynamic control. Option d shows M9, treating 'workflows cost less' as a blanket rule instead of a consequence of the steps being predictable.",
+      "distractors": {"a": "M7", "d": "M9"}
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Here the number and choice of steps genuinely depend on what the student describes, so the model needs to decide them as the request unfolds, which is what an agent is for. Option a underestimates the task: a follow-up question or a judgment call about which section is relevant isn't a fixed text search. Option c mistakes 'always the same procedure' for quality, when the procedure itself has to vary here. Option d shows M8, treating agents as across-the-board more accurate rather than better suited to tasks that need flexibility.",
+      "distractors": {"d": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "What makes it a workflow and not an agent is that the order of the three tool calls was decided in the code ahead of time; no model call sits between them choosing what happens next. Options a and d both show M7, in opposite directions: a assumes several tools means it must be an agent, d assumes a workflow is capped at one tool. Option b is wrong because a model being involved somewhere doesn't make the system's control flow dynamic; here the model may still be called elsewhere, but not to choose this sequence.",
+      "distractors": {"a": "M7", "b": "M7", "d": "M7"}
+    },
+    {
+      "id": "q5",
+      "answer": "Because the workflow's steps are already fixed in code, it doesn't spend a model call deciding what to do at each step the way an agent does; it only pays for the calls that actually do the work.",
+      "accepted": [
+        "A workflow skips the extra model calls an agent uses to choose its next action, since the sequence is already decided in code, so it uses fewer tokens and calls for the same task.",
+        "An agent spends a model call at each step deciding what to do next; a workflow already knows what to do next, so it needs fewer calls and less time."
+      ],
+      "rationale": "The cost and speed difference comes from where the deciding happens: an agent pays for a model call to choose each next step, while a workflow's steps are already decided, so it runs straight through them. An answer that just says 'workflows are simpler' without saying why (no decision needed at runtime) is partial."
+    },
+    {
+      "id": "q6",
+      "answer": "A workflow, because the steps and their order are the same for every return, so nothing needs to be decided at runtime.",
+      "accepted": [
+        "A fixed workflow, since the sequence (look up, mark returned, clear the hold) never changes between returns, so the code can just run it without the model choosing anything.",
+        "Workflow, because this is always the same three steps in the same order regardless of what was checked out."
+      ],
+      "rationale": "This matches the booking example from q2: a short, predictable sequence that never varies with the request is exactly what a fixed workflow is for. Answering 'agent' shows the task's predictability was not weighed, and a correct answer with no reason given is partial."
+    }
+  ]
+}

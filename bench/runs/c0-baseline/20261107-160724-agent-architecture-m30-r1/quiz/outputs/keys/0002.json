@@ -1,0 +1,47 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A workflow and an agent can both call a model, use several tools and even hold memory; what separates them is who chooses the next step as the system runs. In a workflow, that choice is code you wrote in advance. In an agent, the model makes that choice itself, in the moment, from what has happened so far.",
+      "distractors": {"a": "M7", "c": "M3", "d": "M8"}
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "At every point in this system, the next function to run is fixed by the program: always check_calendar after the extraction step, and book_equipment only inside an if-branch the programmer wrote. The model is used for one step (reading the message), but it never chooses what runs after it, which is what makes this a workflow rather than an agent.",
+      "distractors": {"a": "M7", "b": "M8", "c": "M10"}
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Nobody can say ahead of time how many searches this will take, whether a follow-up question is needed, or in what order — so there is no fixed sequence to write into code. The model has to look at what it finds at each step and decide what to do next, which is exactly what an agent is for.",
+      "distractors": {"b": "M11", "c": "M12", "d": "M7"}
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "Letting the model decide its own steps means it can take extra steps, retries or detours a fixed workflow never would, each of which costs tokens and time and gives an error one more chance to feed into the next step. That is the trade an agent makes: more cost, latency and risk of compounding mistakes, for the ability to handle cases nobody wrote a path for.",
+      "distractors": {"a": "M9", "b": "M13", "d": "M14"}
+    },
+    {
+      "id": "q5",
+      "answer": "A workflow, because the steps and their order are always the same and already known, so the program's code can decide what runs next instead of the model.",
+      "accepted": [
+        "A fixed workflow: the sequence never changes, so you write that sequence into the code and let the model only pull out the machine and date, rather than having it choose what happens next.",
+        "Workflow, because there is one fixed order of steps with no exceptions found yet, so code can own the control flow instead of the model."
+      ],
+      "rationale": "Full credit needs both the conclusion (workflow) and the reason: the steps and their order are fixed and known in advance, so the program's code can decide what runs next, which is cheaper and more predictable than letting the model decide. An answer of 'workflow' with no reason tied to who decides is partial. An answer of 'agent', or a reason like 'it's more capable' with no mention of the fixed order, shows M9 or M11."
+      },
+    {
+      "id": "q6",
+      "answer": "An agent, because the steps needed and their order cannot be predicted in advance, so the model has to decide at each point what to check next, rather than following a sequence fixed in the code.",
+      "accepted": [
+        "An agent: you can't know ahead of time how many manual sections to search or whether a follow-up question is needed, so the model, not fixed code, has to choose the next step as it goes.",
+        "Agent, because the number and order of steps vary case by case, so the control flow has to be the model's to decide."
+      ],
+      "rationale": "Full credit needs both the conclusion (agent) and the reason: the steps and their order can't be known in advance, so the model must own the control flow at each point rather than a path fixed in code. 'Agent' with a reason like 'it's more flexible' but no mention of unpredictable steps is partial. An answer of 'workflow' shows M11, treating the safer-sounding option as right even where the task has no fixed structure to write into code."
+    }
+  ]
+}

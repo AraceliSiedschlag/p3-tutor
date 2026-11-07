@@ -1,0 +1,76 @@
+{
+  "is_error": false,
+  "duration_api_ms": 81134,
+  "num_turns": 17,
+  "stop_reason": "end_turn",
+  "session_id": "0a2ff12b-a935-48a3-8458-214ddbba4f93",
+  "total_cost_usd": 0.6188097,
+  "usage": {
+    "input_tokens": 16,
+    "cache_creation_input_tokens": 68365,
+    "cache_read_input_tokens": 310739,
+    "output_tokens": 7690,
+    "output_tokens_details": {
+      "thinking_tokens": 3005
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 68365,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 351,
+        "cache_read_input_tokens": 54522,
+        "cache_creation_input_tokens": 1075,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1075
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 16,
+      "outputTokens": 7690,
+      "cacheReadInputTokens": 310739,
+      "cacheCreationInputTokens": 68365,
+      "webSearchRequests": 0,
+      "costUSD": 0.6188097,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01Nrqs1YFhdj12f4JXHaAGs9",
+      "tool_input": {
+        "command": "cd \"/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-jjgj67hb\" && ls GLOSSARY.md 2>/dev/null; echo \"done\"; mkdir -p grades"
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I've graded submission s1 against quiz 0001 and written `grades/0001-s1.json`.\n\n**Results:** correct on q1 and q3 (the loop shape, stopping conditions), partial on q5 and q6 (right core idea, missing a piece or carrying a wrong extra claim), wrong on q2 and q4 (both show the same misconception — that the model runs tools itself, rather than just requesting them for the program to run).\n\nI also wrote `learning-records/0003-the-model-does-not-run-tools-itself.md`, since this cleanly resolves the open question from record 0002, and updated `NOTES.md` with what this grade shows and the recommendation to correct M4 before moving into context and memory, since that next topic depends on Riley seeing clearly what the model actually receives as input versus what the surrounding program does.\n\nNext step: it'd be worth walking through the laser-cutter trace again, narrating out loud which step belongs to the model and which to the program, before starting the context/memory lesson. Want me to do that now, or grade `s2` first since it's also waiting?",
+  "ttft_ms": 2385,
+  "ttft_stream_ms": 1211,
+  "time_to_request_ms": 163,
+  "type": "result",
+  "duration_ms": 82885,
+  "uuid": "b051ef10-7c94-4937-940e-96339ebee891"
+}

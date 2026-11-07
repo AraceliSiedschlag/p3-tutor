@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 118740,
+  "num_turns": 18,
+  "stop_reason": "end_turn",
+  "session_id": "0a9f73ed-fbfa-4db9-a151-dbd2906b8b83",
+  "total_cost_usd": 0.47660340000000007,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 39063,
+    "cache_read_input_tokens": 248598,
+    "output_tokens": 11174,
+    "output_tokens_details": {
+      "thinking_tokens": 6227
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 39063,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 329,
+        "cache_read_input_tokens": 57158,
+        "cache_creation_input_tokens": 990,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 990
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 12,
+      "outputTokens": 11174,
+      "cacheReadInputTokens": 248598,
+      "cacheCreationInputTokens": 39063,
+      "webSearchRequests": 0,
+      "costUSD": 0.47660340000000007,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Graded `submissions/s2.json` for quiz 0001 — written to `grades/0001-s2.json`.\n\n**Score: 3 correct, 2 partial, 1 wrong** (q1, q2, q5 correct; q4, q6 partial; q3 wrong).\n\nHighlight: q5 shows real improvement over the first attempt four days ago — Riley now gives both the \"what\" and the \"why\" of the tool-result round trip, not just the what. Two related gaps to work on: Riley still underestimates that a stuck agent loop needs a hard stop rather than more time (q3, M6), and in free text (not multiple choice) still writes as if the model itself runs tools or remembers past sessions on its own (q4, q6 — M4/M3), even though the same facts are answered correctly when asked directly as mcq.\n\nI added three learning records (0003–0005) and updated `NOTES.md` with these findings. `submissions/s1.json` is still ungraded if you want that one done too — want me to grade it next?",
+  "ttft_ms": 4036,
+  "ttft_stream_ms": 1277,
+  "time_to_request_ms": 55,
+  "type": "result",
+  "duration_ms": 120404,
+  "uuid": "6c2ebe4e-a5dc-4f61-8150-f937e89509f1"
+}

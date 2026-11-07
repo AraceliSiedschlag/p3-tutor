@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right - d. An agent is defined by the loop itself: the model picks an action, the program runs it, and the result comes back for the next step. A longer prompt or a bigger context window changes what one call can do, not the basic shape of the system."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right - c. When the model decides to use check_calendar, it doesn't touch the booking system itself; it just outputs a structured request naming the tool and the arguments, here the laser cutter and tomorrow's date. The program is what actually runs the tool and gets the real answer."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked c - that left running, it will eventually fix the bug. Forty steps making the same edit against the same failing test isn't progress, it's a loop with no new information, so more time won't change the outcome. The real safeguard is a stopping condition, like a step limit, that ends the loop and hands the problem to a person."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "The number is right - four calls - and your counting logic is correct: three tool requests plus the final answer. But \"the model can only run one tool itself\" isn't quite how it works: the model only asks for one tool per call, by naming it and its arguments, and the program is what actually runs check_calendar, search_manuals and check_training_record and hands each result back. Keep the count, drop the idea that the model is the one executing anything."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, and both halves are there: the result becomes part of the model's next input, and the model takes another turn with it in front of it so it can decide what to do next. The \"reply in a group chat\" image is a good one to keep - each turn only makes sense because the model can see what came before it."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "The first half is exactly right: the model picks a tool from the name and description it's given, matching that to what the request needs. But it doesn't remember its past tool choices on its own between sessions - without something built to save and load that, each call starts from the tool descriptions alone, with no memory of earlier questions. That's worth catching now, since the makerspace assistant will need you to design that memory on purpose, not assume the model carries it for free."
+    }
+  ],
+  "summary": "Solid spaced-practice result: q1, q2 and q5 are clean, and q5 in particular is a real improvement over your first attempt - you now give both what happens to a tool's result and why, not just the what. Two things to tighten, and they're related: you still slip into language that has the model running tools itself (q4) or remembering things across sessions on its own (q6), and you underestimate how badly a stuck agent needs a hard stop rather than more time (q3). All three come down to the same boundary - what the model decides versus what the surrounding program actually does and keeps track of. Next step: before your next lesson, try writing one sentence for each of \"the model decides,\" \"the program does,\" and \"the program remembers\" using the makerspace assistant as the example."
+}

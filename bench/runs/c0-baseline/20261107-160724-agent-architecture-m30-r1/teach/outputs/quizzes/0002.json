@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in the makerspace assistant",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant answers a question using three tool calls in one session yesterday afternoon. This morning, a different student asks an unrelated question, starting a new session. What does that new session's context window start with?",
+      "options": [
+        {"id": "a", "text": "Yesterday's question, plus all three tool results from that session"},
+        {"id": "b", "text": "Only the system prompt, tool definitions, and today's new question"},
+        {"id": "c", "text": "A summary the model automatically wrote for itself at session's end"},
+        {"id": "d", "text": "Half of yesterday's tokens, trimmed automatically to make room"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant's context window is nowhere near its limit. A teammate suggests pasting the entire 45-page manual into every question anyway, since there's room. Do you agree, and why?",
+      "options": [
+        {"id": "a", "text": "Agreed, since any extra room in the window can only help the model"},
+        {"id": "b", "text": "Disagreed, since accuracy tends to drop and every extra token is billed repeatedly"},
+        {"id": "c", "text": "Disagreed, since the API always rejects requests containing a full 45-page manual"},
+        {"id": "d", "text": "Agreed, since the model will automatically ignore any pages that are irrelevant"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A student's training record from eight weeks ago needs to inform today's answer, but a model call is stateless and nothing carries over automatically between sessions. In one or two sentences, how does the assistant make sure that record is available today?"
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "In one session, the first model call sends 1,200 tokens of input and gets back a 300-token tool result. The next model call in that same session resends everything from the first call, plus that new result. At minimum, how many tokens of input does that second call send?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your assistant already has a search tool that can retrieve any page of the manuals on demand. A teammate asks: \"If we already have search, why do we also need a separate way to remember a student's training status?\" Answer in one or two sentences."
+    }
+  ]
+}

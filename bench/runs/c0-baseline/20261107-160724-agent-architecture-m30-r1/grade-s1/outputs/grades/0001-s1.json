@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by that loop: the model picks an action, the program runs it, and the result feeds back in, repeating until a stopping condition is met. A bigger model, a longer prompt, or automatic memory would change what one step can do, but none of them turn a single call into a loop."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. The model never opens the booking system itself — when it decides to use a tool, its output is just a structured request naming check_calendar with arguments like the laser cutter and tomorrow's date. The program is the one that actually runs the tool and gets the calendar entries back. This is the slip of picturing the model as reaching out and acting in the world, when it only asks and the program acts."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. Once the loop is stuck repeating the same failed edit, more steps or a bigger context won't fix it — a step limit that stops the loop and reports back is the safeguard, since it hands the problem to a person instead of letting it spin forever."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong — the answer is 4, not 1. Each model call ends in either one tool request or the final answer, so three tool requests (check_calendar, search_manuals, check_training_record) take three calls, plus a fourth for the final answer. Your answer has the model running all three tools itself inside one call, but that's the program's job: every tool result has to go back to the model as a fresh call before it can take its next step."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. You have half of it: the result does go back to the model. What's missing is the other half — the program calls the model again with that result as part of its new input, which is what lets the model actually use it to decide the next step or write the final answer. For full credit on these, state both the what and the why."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Partial. The first part is exactly right: the model picks a tool from the descriptions it's given — name and what it does — matching the one that fits the request. But the claim that it 'remembers on its own which tool it picked in earlier sessions' isn't true: there's no automatic memory across sessions, so each request only works from what's actually fed into it this time. That's the same idea you correctly ruled out in q1's option b — don't let it back in here."
+    }
+  ],
+  "summary": "You're solid on the loop's structure (q1, q3), and q5 and q6 show you're close on the mechanics — you know what moves where, you just need to pair the what with the why, and leave automatic cross-session memory out of it. The pattern to fix is q2 and q4: both put the model itself in the driver's seat, running tools or opening systems directly, when the model only ever asks and the program acts. Before we move to context and memory, re-read learning record 0002 and re-trace the laser-cutter example out loud, naming for every step whether it's the model or the program doing it."
+}

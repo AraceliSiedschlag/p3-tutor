@@ -1,0 +1,44 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The line between a workflow and an agent is who decides the next step: a workflow's code fixes the steps and their order ahead of time, while an agent's model chooses, at each step, what to do next and when to stop. Tool count (a) and tool list length (d) describe how big a system is, not who is in charge of it, and a workflow can absolutely call a model for one step (c) without the model controlling the sequence.",
+      "distractors": {"a": "M10", "c": "M8", "d": "M10"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "The steps and their order are decided by the code in advance and never change from request to request, so the code owns the control flow: that is a workflow, even though a model is called inside one of its steps. Calling more than one tool (a) and using a model for one step (c) do not make something an agent, and human approval downstream (d) has nothing to do with who decided the order of the steps.",
+      "distractors": {"a": "M10", "c": "M7"}
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Here the model itself picks which tool to call, in what order, and when to stop, turn by turn; that is the model owning the control flow, which is what makes it an agent. Using pre-built tools (a) does not fix who decides to call them, producing one final answer (c) is true of workflows and agents alike, and there is no tool-count threshold that turns a workflow into an agent (d).",
+      "distractors": {"a": "M10", "c": "M11", "d": "M10"}
+    },
+    {
+      "id": "q4",
+      "answer": "In a workflow, the code decides ahead of time which steps run and in what order; in an agent, the model itself decides, at each step, what to do next, so the model owns the control flow instead of the code.",
+      "accepted": [
+        "A workflow's steps and their order are fixed by the program in advance; an agent's model chooses its own next step each time, so control passes to the model rather than staying with the code.",
+        "Owning the control flow means deciding what happens next. Code does that in a workflow; the model does that in an agent."
+      ],
+      "rationale": "Full credit needs both halves: that a workflow's code fixes the steps and order in advance, and that an agent's model chooses its own next step instead. Naming only one half, such as 'the model decides' with no contrast to the workflow's fixed code, is partial. Describing the difference as how many tools or steps are involved, rather than who decides the next one, shows M10."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "When the sequence is fixed and well understood, a workflow reaches the same result without paying for a model call to make a decision that was never actually in doubt, and its behaviour is predictable step to step; an agent adds flexibility you are not using here, at extra cost and with less predictable behaviour. Treating an agent as strictly better (a) ignores that tradeoff and is the misconception that agents are always the right default; tool access (c) and the presence of a model step (d) are not what separates the two architectures.",
+      "distractors": {"a": "M9", "c": "M7", "d": "M8"}
+    },
+    {
+      "id": "q6",
+      "answer": "a",
+      "rationale": "This task's steps and their order cannot be fixed in advance, because they depend on what the student actually asks; that unpredictability is exactly what an agent is for. The other three are each a single, predictable lookup or action with one fixed outcome, so a workflow step handles them more cheaply and predictably, with no need for the model to decide anything.",
+      "distractors": {"b": "M9", "c": "M9", "d": "M9"}
+    }
+  ]
+}

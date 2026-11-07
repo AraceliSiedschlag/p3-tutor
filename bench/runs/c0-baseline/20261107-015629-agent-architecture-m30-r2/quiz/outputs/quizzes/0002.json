@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows vs. agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your assistant can handle a booking question in one of two ways. Design A always calls check_calendar, then search_manuals, then writes the answer, in that order, every time. Design B lets the model decide, after each result comes back, which tool (if any) to call next, until it decides it has enough to answer. What is the key difference between these two designs?",
+      "options": [
+        {"id": "a", "text": "Design B uses a larger or more capable model than Design A"},
+        {"id": "b", "text": "In Design A, the sequence of steps is fixed in the code; in Design B, the model decides the next step itself, at run time"},
+        {"id": "c", "text": "Design A cannot call a language model at any step, since its steps are fixed in advance"},
+        {"id": "d", "text": "Design B counts as an agent because it uses tools; Design A is not an agent, because its tool calls happen in a fixed order that never changes"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "The task 'check if a machine is free, check whether the student has completed training, then say whether they can book it' always follows the same three steps, in the same order, for every student. Why does a fixed workflow suit a task like this better than an agent would?",
+      "options": [
+        {"id": "a", "text": "The steps are fixed and known ahead of time, so a predefined path gives predictable results without needing the model to decide, at run time, what to do next"},
+        {"id": "b", "text": "This counts as a workflow only because no language model writes the final answer; it just states facts"},
+        {"id": "c", "text": "A workflow runs on a smaller, cheaper model, while an agent always needs the most capable model available"},
+        {"id": "d", "text": "This task has no room for conditional logic, such as skipping the booking step when training is incomplete, and only a fixed workflow can be written without conditionals"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Give one task you might build into your makerspace assistant where you would choose an agent over a fixed workflow. Name the one factor, from your source on workflows and agents, that makes an agent the better fit there."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A teammate says: \"Our code has an if/else: call the model one way when the student's training is complete, and another way when it is not. That means this isn't a fixed workflow anymore, it's an agent, because it branches.\" Are they right?",
+      "options": [
+        {"id": "a", "text": "Yes, a fixed workflow's code can never contain a branch; adding any conditional logic makes it an agent"},
+        {"id": "b", "text": "Yes, calling the model from inside an if/else statement makes the system an agent, no matter who wrote the branch"},
+        {"id": "c", "text": "No, the developer wrote and fixed that branch in advance; the model did not decide, at run time, to take one path over the other"},
+        {"id": "d", "text": "No, but only because this branch is simple; a workflow stops being a workflow once it has more than a couple of conditions"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your sponsor gave you a small budget for model calls. All else being equal, why would building a well-defined task as a fixed workflow, instead of an agent, tend to help with that budget?",
+      "options": [
+        {"id": "a", "text": "A fixed workflow never calls a language model, so it costs nothing to run"},
+        {"id": "b", "text": "An agent is always the cheaper option per request, so budget is not really a reason to prefer a workflow here"},
+        {"id": "c", "text": "A workflow is cheaper only because you would choose a lower-quality, cheaper model for it than you would for an agent"},
+        {"id": "d", "text": "The number and order of steps is fixed in advance, so it does not take an open-ended, unpredictable number of model calls to decide what to do next"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A student messages the assistant: \"Can you check if the laser cutter is free this week, and if it is, book me the first open slot and email me the machine's safety checklist?\" Would you build this as a fixed workflow or an agent? Name the one factor that should decide it."
+    }
+  ]
+}

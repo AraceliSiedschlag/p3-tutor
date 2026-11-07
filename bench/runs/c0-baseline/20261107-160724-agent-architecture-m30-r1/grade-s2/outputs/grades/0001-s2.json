@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. What makes it an agent is the loop itself: the model picks an action, the action runs, the result comes back to the model, and this repeats until it stops. A longer prompt or a bigger context window changes what one call can do, not that underlying structure."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. When the model decides to use check_calendar, what it outputs is a structured request naming the tool and its arguments, not the calendar data itself. The program is the one that actually runs the tool and sends the result back."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Wrong. You picked \"left to run longer, it will eventually fix the bug,\" which assumes the loop will sort itself out with no stopping condition. But a loop that is just repeating the same failed edit will not break out of that on its own; the fix is a step limit that ends the loop and hands the problem back to a person. More steps alone do not stop a repetition."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your count is right: 4 calls, one for each of the three tool results plus the final answer. But the reasoning slips: you wrote that the model \"can only run one tool itself\" per call. The model never runs a tool; it only requests one (naming check_calendar and its arguments), and the program is what actually runs it and hands the result back. That is exactly why each result needs a fresh model call: the model has to see the result before it can decide what happens next."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct, and the group-chat comparison is a good one. The tool's result becomes part of the model's next input, and the model is called again so it can use that result to decide its next step or write the final answer."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. The name is a clue, but it is not enough on its own, since a tool's name can mislead. The model actually reads the whole description it is given: the name, what the tool does, and its parameters, and picks the one that best matches the request. Lean on the full description, not just the name."
+    }
+  ],
+  "summary": "Three clean answers (q1, q2, q5): you have the loop itself, what the model outputs when it calls a tool, and what the program does with a tool's result. The one you got wrong, q3, is worth fixing first: a repeating loop needs a step limit, not more patience. The two partials (q4, q6) share one root cause worth tackling next: you keep letting the model's role slide into \"running\" or \"recognizing\" a tool by name alone, when really it only ever works from what it is given (a request it writes, or a description it reads). Next time you trace a tool call, say out loud what the model is given and what it outputs at each step, before you say what happens to it."
+}

@@ -1,0 +1,47 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "Both designs call the same tools; what differs is who decides the order. In Design A, the developer fixed the sequence in the code ahead of time: a workflow. In Design B, the model looks at each result and chooses the next step itself, while the program is running: an agent. Model size (a) is a separate choice from this architecture. Design A still calls a language model, just along a path someone wrote in advance (c). And tool use alone does not make something an agent (d): Design A uses tools too, in a fixed order; what makes Design B an agent is that the model, not the code, picks what happens next.",
+      "distractors": {"a": "M7", "c": "M8", "d": "M9"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "A fixed workflow fits best when the task can be cleanly decomposed into subtasks whose number and order you already know, because then a predefined path gives predictable, consistent results without paying for the model to re-decide the route on every request. A workflow can still call a language model to write the final answer (b); the point is that the code decides when to call it, not whether it is called at all. The cost difference comes from not needing an open-ended decision loop, not from swapping in a cheaper model (c). And a workflow's fixed path can include conditionals, such as skipping the booking step when training is incomplete (d); fixed means the branches are written in advance, not that there are no branches.",
+      "distractors": {"b": "M8", "c": "M7", "d": "M10"}
+    },
+    {
+      "id": "q3",
+      "answer": "A task whose steps and their order cannot be predicted in advance, such as diagnosing why a 3D print keeps failing and walking the student through fixes, is a better fit for an agent, because the model has to decide what to check next based on what it finds, not follow a route written ahead of time.",
+      "accepted": [
+        "A diagnostic or troubleshooting task where the number of steps is not known up front, because an agent is needed when the required steps can't be predicted or cleanly fixed in advance.",
+        "Any open-ended task, like helping a student debug a failed print or plan an unfamiliar project, where the path depends on what is found along the way rather than being fixed beforehand."
+      ],
+      "rationale": "Full credit needs a plausible open-ended makerspace task plus the actual reason: the number or order of steps can't be predicted or cleanly fixed in advance, so the model must decide its own path as it goes. A task that just sounds 'more complex' or 'more important,' without that reasoning, is partial credit at best; answers like 'agents are smarter' or 'agents are more flexible' with no mention of unpredictable steps show the task has not yet connected the choice to control flow."
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "What makes code a fixed workflow is that a person wrote and fixed its branches ahead of time; the model never decides, while running, to take the if-branch instead of the else-branch. That stays true whether the branch is simple or has several conditions (d), and whether or not a language model is called inside it (b); calling a model from a predetermined branch is still a predetermined path. A workflow's code can absolutely contain conditionals (a); fixed describes who set the branches, not whether any branches exist.",
+      "distractors": {"a": "M10", "b": "M9", "d": "M10"}
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "A workflow for a well-defined task already knows how many steps it needs and in what order, so it spends model calls only on the steps that are actually needed, rather than on a loop that re-evaluates what to do next after every result. It still calls a language model, so it is not free to run (a). Agents are not categorically cheaper; agentic systems typically trade cost and latency for the ability to handle unpredictable tasks (b). And the saving comes from skipping the open-ended decision loop, not from quietly downgrading to a cheaper model (c): you could run a workflow and an agent on the very same model and the workflow would still tend to use fewer calls.",
+      "distractors": {"a": "M8", "b": "M11", "c": "M7"}
+    },
+    {
+      "id": "q6",
+      "answer": "A fixed workflow: checking the calendar, booking the first open slot, and emailing the checklist always happen in the same order, so the whole path can be written in advance; the model does not need to decide what to do next at any point.",
+      "accepted": [
+        "Workflow, because despite having three steps it is still a fixed, predictable sequence (check, book, email) rather than a task whose steps can't be known ahead of time.",
+        "A workflow, since the number and order of steps are fixed and known in advance, which is exactly when a predefined path is the better choice."
+      ],
+      "rationale": "This task has several steps, which can make it feel like it needs an agent, but every one of those steps and their order are fixed and known ahead of time: check the calendar, book the first free slot, send the checklist. That is exactly the case for a fixed workflow, however many steps it has. An answer of 'agent' that points only to the step count, without noticing that the sequence never varies, shows the misconception that more steps or more apparent complexity, rather than unpredictability, is what calls for an agent."
+    }
+  ]
+}

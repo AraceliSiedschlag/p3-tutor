@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 74695,
+  "num_turns": 19,
+  "stop_reason": "end_turn",
+  "session_id": "33766147-6818-4e4e-9e00-b5aa5d2c4538",
+  "total_cost_usd": 0.4104089999999999,
+  "usage": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 34322,
+    "cache_read_input_tokens": 377160,
+    "output_tokens": 6085,
+    "output_tokens_details": {
+      "thinking_tokens": 1833
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 34322,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 346,
+        "cache_read_input_tokens": 52612,
+        "cache_creation_input_tokens": 795,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 795
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 18,
+      "outputTokens": 6085,
+      "cacheReadInputTokens": 377160,
+      "cacheCreationInputTokens": 34322,
+      "webSearchRequests": 0,
+      "costUSD": 0.4104089999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Grading's done — `grades/0001-s1.json` written, along with a learning record and a `NOTES.md` update.\n\n**Summary:** Riley is 2/6 correct, 2/6 partial, 2/6 wrong on quiz 0001. The loop itself (q1) and the need for a stopping condition (q3) are solid. The two misses (q2, q4) both come from the same place: Riley still pictures the model directly running tools or reading the calendar itself, rather than just requesting an action that the program carries out — and that same belief leaked into q6 as a claim that the model remembers its own past tool picks across sessions. q5 just needs the \"why\" added to an otherwise-right \"what.\"\n\n**Next step:** before moving to context and memory, have Riley redraw the laser-cutter trace from learning record 0002, labeling each arrow \"model\" or \"program.\" That boundary needs to be solid first, since memory lessons will be confusing as long as the model seems to act or remember on its own.\n\n`s2` (the four-days-later retake) is still ungraded if you'd like that next.",
+  "ttft_ms": 1732,
+  "ttft_stream_ms": 1235,
+  "time_to_request_ms": 35,
+  "type": "result",
+  "duration_ms": 74965,
+  "uuid": "341bf344-d266-410f-831a-2babb3913230"
+}

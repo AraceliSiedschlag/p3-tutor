@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 116750,
+  "num_turns": 18,
+  "stop_reason": "end_turn",
+  "session_id": "990e93d7-8893-48d4-92bc-f9a1e9ff8f6b",
+  "total_cost_usd": 0.4644327,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 39183,
+    "cache_read_input_tokens": 204349,
+    "output_tokens": 11200,
+    "output_tokens_details": {
+      "thinking_tokens": 6818
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 39183,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 457,
+        "cache_read_input_tokens": 56993,
+        "cache_creation_input_tokens": 1275,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1275
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 10,
+      "outputTokens": 11200,
+      "cacheReadInputTokens": 204349,
+      "cacheCreationInputTokens": 39183,
+      "webSearchRequests": 0,
+      "costUSD": 0.4644327,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Graded `submissions/s2.json` against quiz 0001 and wrote `grades/0001-s2.json`.\n\n**Result: 4 correct, 1 partial, 1 wrong, out of 6.**\n\n- q1, q2, q5 — correct, clean reasoning.\n- q4 — correct answer (4), right step-by-step count, but the phrasing (\"the model can only run one tool itself\") drifted toward the wrong idea that the model executes tools rather than just requesting them — flagged as wording to watch, not re-graded down, since q2 shows you have the right model.\n- q6 — partial: you named the tool by its name only; full credit needs the model matching the whole description (name, purpose, parameters), since a name alone can mislead.\n- q3 — wrong, showing M6: the belief that a stuck loop will eventually fix itself rather than needing a stopping condition like a step limit.\n\nI wrote `learning-records/0003-model-requests-program-runs.md` (closing the open question from record 0002 about whether you see the model/program split) and updated `NOTES.md` with the M6 gap and the tool-description gap.\n\nNext step: revisit the stopping-conditions part of the lesson and restate q3 in your own words — this is also worth having an answer for at your design review, since it's exactly the \"when does the loop stop\" question. `submissions/s1.json` is still ungraded if you want that one done too.",
+  "ttft_ms": 1129,
+  "ttft_stream_ms": 525,
+  "time_to_request_ms": 25,
+  "type": "result",
+  "duration_ms": 116847,
+  "uuid": "9b1925c8-724d-43aa-aec8-9b2344f48b01"
+}

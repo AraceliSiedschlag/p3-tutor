@@ -1,0 +1,80 @@
+{
+  "is_error": false,
+  "duration_api_ms": 57152,
+  "num_turns": 12,
+  "stop_reason": "end_turn",
+  "session_id": "75740bbc-9088-4b07-83fb-aa9213915745",
+  "total_cost_usd": 0.3243593,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 29277,
+    "cache_read_input_tokens": 231791,
+    "output_tokens": 3635,
+    "output_tokens_details": {
+      "thinking_tokens": 1852
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 29277,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 581,
+        "cache_read_input_tokens": 47394,
+        "cache_creation_input_tokens": 968,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 968
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 12,
+      "outputTokens": 3635,
+      "cacheReadInputTokens": 231791,
+      "cacheCreationInputTokens": 29277,
+      "webSearchRequests": 0,
+      "costUSD": 0.2997603,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    },
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 11754,
+      "outputTokens": 569,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 1,
+      "costUSD": 0.024599000000000003,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "No — that's a false premise, and it's worth catching now before it shapes your design.\n\nA language model call is **stateless**: each time the model runs, it only sees what's in that one request's text — nothing is kept from one call to the next. This lines up with what you already know (learning record 0001): the model's whole world is training data plus whatever text it's handed right now. There's no hidden memory bank sitting between calls.\n\nSo picture a student at the makerspace today asking \"can I use the laser cutter now?\", and that same student coming back next week. Unless something in your system saved that first conversation and fed it back in, this week's call to the model starts completely blank. It has no idea the student ever talked to it before — same as if a stranger walked up.\n\n\"Remembering\" between sessions is something your *application* has to build, not something the model gives you for free: you save what matters (say, \"completed laser-cutter training on Nov 3\") to storage — a database or a file — and your code pulls the relevant bit back in and puts it into the next prompt. The model only ever \"remembers\" what you choose to hand it again.\n\nThis matters for your design review: every bit of memory you want the assistant to have is a storage-and-retrieval decision you're responsible for, with its own cost and complexity — not a property you get automatically from picking a capable model.\n\nQuick check: if a student's training record says they're cleared on the laser cutter, where does that fact actually have to live between their visits, and whose job is it to put it back in front of the model next time?\n\nSources:\n- [Multi-Turn Conversations with a Stateless LLM API](https://ai-tldr.dev/learn/llm-apis/api-basics/multi-turn-conversations/)\n- [Are LLMs Stateless? Architecture, Implications and Solutions](https://atlan.com/know/are-llms-stateless/)",
+  "ttft_ms": 2780,
+  "ttft_stream_ms": 1369,
+  "time_to_request_ms": 26,
+  "type": "result",
+  "duration_ms": 57251,
+  "uuid": "e4b036db-3801-4e71-ade9-84fcb7d29773"
+}

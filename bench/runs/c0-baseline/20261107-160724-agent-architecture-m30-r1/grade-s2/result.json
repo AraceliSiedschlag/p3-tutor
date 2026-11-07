@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 95105,
+  "num_turns": 19,
+  "stop_reason": "end_turn",
+  "session_id": "8e571b1b-f08b-41ea-9bb9-664ab8753cd2",
+  "total_cost_usd": 0.42347640000000003,
+  "usage": {
+    "input_tokens": 14,
+    "cache_creation_input_tokens": 35384,
+    "cache_read_input_tokens": 282418,
+    "output_tokens": 8427,
+    "output_tokens_details": {
+      "thinking_tokens": 4255
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 35384,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 412,
+        "cache_read_input_tokens": 53507,
+        "cache_creation_input_tokens": 962,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 962
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 14,
+      "outputTokens": 8427,
+      "cacheReadInputTokens": 282418,
+      "cacheCreationInputTokens": 35384,
+      "webSearchRequests": 0,
+      "costUSD": 0.42347640000000003,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Graded `submissions/s2.json` against `keys/0001.json` and wrote `grades/0001-s2.json`.\n\n**Score: 3 correct, 2 partial, 1 wrong.**\n\n- q1, q2, q5 — correct: solid grip on the loop itself, what the model outputs on a tool call, and what happens to a tool's result.\n- q3 — wrong (M6): picked \"it'll eventually fix the bug\" instead of a step limit for a repeating loop.\n- q4 — partial (M4): the count of 4 was right, but the explanation said the model \"runs\" the tool itself. It only requests one; the program runs it.\n- q6 — partial: said the model picks a tool \"by the name\" alone, when really it reads the whole description.\n\nq4 and q6 share a root cause — letting the model's role slide into doing things it doesn't actually do — so I wrote a learning record (`learning-records/0003-model-requests-program-runs.md`) and updated `NOTES.md` to flag it as the thing to check next, since it's exactly the open question from record 0002.\n\nOne thing to flag: `submissions/s1.json` (the day-of attempt) is still ungraded — want me to grade that one too, so you can compare same-day vs. four-days-later performance?",
+  "ttft_ms": 1830,
+  "ttft_stream_ms": 1322,
+  "time_to_request_ms": 27,
+  "type": "result",
+  "duration_ms": 95229,
+  "uuid": "1ab38e3e-0784-4da9-96de-2a8ebf758da4"
+}

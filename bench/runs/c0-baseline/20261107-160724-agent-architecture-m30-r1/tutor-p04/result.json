@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 49227,
+  "num_turns": 9,
+  "stop_reason": "end_turn",
+  "session_id": "14eece2b-a35c-4388-aca8-546a8a1c30f7",
+  "total_cost_usd": 0.2595426,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 26955,
+    "cache_read_input_tokens": 139562,
+    "output_tokens": 3728,
+    "output_tokens_details": {
+      "thinking_tokens": 2017
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 26955,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 598,
+        "cache_read_input_tokens": 43806,
+        "cache_creation_input_tokens": 2234,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2234
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 3728,
+      "cacheReadInputTokens": 139562,
+      "cacheCreationInputTokens": 26955,
+      "webSearchRequests": 0,
+      "costUSD": 0.2595426,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither — and the premise is the thing to fix first. More agents isn't a free upgrade: each extra agent is another model call, so it costs more and runs slower, and agents that split up a task can duplicate work or disagree about who's handling what. \"More agents\" has a real tax, not just a benefit.\n\nThink about what your assistant actually does: answer from a manual, check a calendar, book a slot. That's three **tools**, not three agents. One agent with three tools, looping until it has an answer or a booking confirmed, can do all of that in a handful of calls. Splitting it into five or ten agents would mean, say, a \"manual agent\" handing off to a \"calendar agent\" handing off to a \"booking agent\" — each one a separate model call, each one needing the context explained to it again, for a task that one agent could just... do.\n\nMultiple agents earn their cost when the subtasks are genuinely independent and can run in parallel (nothing here needs that — a booking request is one sequential chain: look up the rule, check the slot, book it), or when cramming everything into one agent's instructions and tools would overload it. A few tools on one focused assistant doesn't hit that wall.\n\nSo for your design review: start with one agent and three tools, and be ready to defend *that* as the simpler, cheaper choice — \"why would you pay for ten model calls when one agent making three tool calls does the same job\" is a stronger argument than picking a number of agents up front.\n\nThis is a bit ahead of where we'd planned to go next (context and memory come first in your mission), but it's worth its own real lesson once that's in place — multi-agent systems versus a single agent with tools is exactly the kind of judgment call your mission asks you to be able to defend. Want that as the next lesson, or finish context/memory first?\n\nOne quick check now: in your own words, why does splitting a task across agents cost more than giving one agent more tools?",
+  "ttft_ms": 3013,
+  "ttft_stream_ms": 1226,
+  "time_to_request_ms": 30,
+  "type": "result",
+  "duration_ms": 49308,
+  "uuid": "e2f2f499-b7df-4247-a64a-b5ecd749d13a"
+}

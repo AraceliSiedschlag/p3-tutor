@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 60021,
+  "num_turns": 10,
+  "stop_reason": "end_turn",
+  "session_id": "1bbc2a4b-38c7-4a8b-b10b-7a2aa26cdf76",
+  "total_cost_usd": 0.2890083,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 29085,
+    "cache_read_input_tokens": 139731,
+    "output_tokens": 4837,
+    "output_tokens_details": {
+      "thinking_tokens": 2836
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 29085,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 526,
+        "cache_read_input_tokens": 44828,
+        "cache_creation_input_tokens": 3342,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3342
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 4837,
+      "cacheReadInputTokens": 139731,
+      "cacheCreationInputTokens": 29085,
+      "webSearchRequests": 0,
+      "costUSD": 0.2890083,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Here's tool calling without any code, since the last pass apparently didn't stick on one point.\n\nPicture yourself stuck in bed, and you want to know if a package arrived on the porch. You can't get up and look, so you shout to whoever's in the next room: \"Check if there's a box on the porch.\" That shout is a tool call — a precise request naming exactly what to do. The person next door actually walks over, looks, and shouts back \"Yes, one box.\" That's the tool's result. You never touched the porch yourself; you only asked, then found out what happened from what came back.\n\nThat's the whole idea. The model is the person stuck in bed: it can only produce text, so it can't look at a real calendar or actually book anything. When it needs something it doesn't know, it writes a very specific instruction — a tool call — naming the action and the details, like \"check the laser cutter's availability, Friday afternoon.\" The program running the assistant is the person in the next room: it reads that instruction, goes and does the real thing against the real booking system, and hands the result back as plain text. The model only ever sees that text; it never reaches the calendar directly.\n\nWhere the analogy strains: in your head, you and the person next door stay continuously aware of each other. The model doesn't. Each time a result comes back, that's really a fresh call to the model, with the whole conversation so far — including that result — handed to it again from scratch. From there it decides whether to ask for another tool, or to stop and give its final answer out loud.\n\nQuick check: a student asks your makerspace assistant \"can I book the 3D printer for tomorrow?\" What's the tool call here, and who actually checks the calendar — the model, or the program?",
+  "ttft_ms": 2130,
+  "ttft_stream_ms": 1039,
+  "time_to_request_ms": 25,
+  "type": "result",
+  "duration_ms": 60090,
+  "uuid": "36dc582b-0826-4c4e-b081-b7bc29c87c00"
+}

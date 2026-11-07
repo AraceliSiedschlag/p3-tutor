@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The context window within a session only grows: every later call carries everything earlier calls carried, so it is billed for the whole accumulated transcript, not just the newest message. Nothing in context becomes free (c), cost does not stay flat as the transcript grows (a), and compaction is a deliberate step a program must take, not something that fires automatically to zero out cost (d).",
+      "distractors": {"a": "M7", "c": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "Each new session gets a fresh context window; by default it holds only this session's own content, plus whatever the program deliberately retrieved from outside the context window (such as a saved note) and loaded in. Sessions are not auto-linked (a) and there is no automatic overnight summary (c); but the overcorrection in (d) is also wrong, since something saved during Monday's session, such as a note, can be retrieved back into a later session.",
+      "distractors": {"a": "M3", "c": "M3", "d": "M9"}
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Retrieval finds and loads just the chunk that matches the question, which both answers correctly and keeps the context window to roughly one chunk instead of the whole manual. Pasting the whole manual (a) answers correctly but at far higher cost; a one-time 'memorization' outside the context window (c) is not how a model uses a document at inference time; and a single always-included summary (d) is more compact than the whole manual but is too coarse to reliably contain the specific blade detail every question might need.",
+      "distractors": {"a": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "The program should have the model summarize everything important so far (what was tried, found, or decided) and continue the run from that shorter summary instead of the full transcript, which is compaction; this frees up room in the context window while keeping the key facts, instead of losing information or failing to fit the next step.",
+      "accepted": [
+        "It should compact: ask the model to summarize the run so far into a short note, then keep going from that note, so it keeps the important facts without carrying the full transcript's token cost.",
+        "Summarize the conversation so far and restart the run from the summary, so the important details survive in compressed form instead of being dropped or causing the next call to fail to fit."
+      ],
+      "rationale": "Full credit needs both parts: the action (summarize and continue from the summary, i.e. compaction) and the reason (it preserves the important facts in less space, rather than silently dropping them or letting the run break). Naming only 'summarize' without saying why it avoids losing information is partial. Saying the run should simply stop, or that older tool results should be deleted outright, misses that compaction is designed to keep what matters."
+    },
+    {
+      "id": "q5",
+      "answer": "Because the context window is thrown away at the end of every session, so nothing in it is available to any later session; training status has to be written to storage outside the context window (a file, a database row, a note) so a future session can retrieve it instead of asking the student to re-prove it, or worse, answering as if they were never trained.",
+      "accepted": [
+        "The model does not keep anything between sessions on its own, since each session's context window is discarded when it ends; the only way training status can be known later is if it was saved outside the context window and retrieved back in.",
+        "Context windows do not persist across sessions, so without saving the status somewhere durable, a later session would have no way to know whether the student was trained."
+      ],
+      "rationale": "Full credit names both that the context window does not survive between sessions and that persistent storage plus retrieval is what makes the fact available later. An answer that only says 'the model forgets' without connecting it to needing external storage is partial. An answer that claims the assistant does remember automatically shows M3."
+    }
+  ]
+}

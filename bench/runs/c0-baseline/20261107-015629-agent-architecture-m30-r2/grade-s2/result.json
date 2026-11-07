@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 90598,
+  "num_turns": 16,
+  "stop_reason": "end_turn",
+  "session_id": "4513f06f-2e38-42d9-81c9-ad59f9e42373",
+  "total_cost_usd": 0.4128441,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 35866,
+    "cache_read_input_tokens": 248557,
+    "output_tokens": 8203,
+    "output_tokens_details": {
+      "thinking_tokens": 3995
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 35866,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 363,
+        "cache_read_input_tokens": 53972,
+        "cache_creation_input_tokens": 979,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 979
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 12,
+      "outputTokens": 8203,
+      "cacheReadInputTokens": 248557,
+      "cacheCreationInputTokens": 35866,
+      "webSearchRequests": 0,
+      "costUSD": 0.4128441,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Graded, in `grades/0001-s2.json`:\n\n- **Correct:** q1, q2, q5 — solid on the loop itself, what a tool call actually outputs, and what happens to a tool's result.\n- **Wrong (M6):** q3 — picked \"it'll eventually fix the bug\" for a stuck 40-step loop, instead of a stopping condition.\n- **Partial (M4):** q4 — the count of 4 model calls is right, but the reasoning still says the model \"runs\" the tool itself, when your program does.\n- **Partial:** q6 — went with \"by the name\" alone rather than the tool's full description.\n\nI also wrote a learning record (`learning-records/0003-tool-execution-and-stopping-conditions.md`) and updated `NOTES.md`, since M4 and M6 are open items worth a quick check next time rather than a full re-teach.\n\n**Next step:** a short retrieval prompt before moving on — ask Riley \"who actually runs the tool?\" and \"name one stopping condition besides a step limit.\" `submissions/s1.json` is still ungraded if you'd like that done too.",
+  "ttft_ms": 2486,
+  "ttft_stream_ms": 1045,
+  "time_to_request_ms": 27,
+  "type": "result",
+  "duration_ms": 91845,
+  "uuid": "decef978-3e75-4808-8432-dd54f8f7e5e2"
+}

@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 32183,
+  "num_turns": 8,
+  "stop_reason": "end_turn",
+  "session_id": "5c4cc954-4ab2-4715-90e3-e45482f8a785",
+  "total_cost_usd": 0.1820463,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 19656,
+    "cache_read_input_tokens": 87091,
+    "output_tokens": 2531,
+    "output_tokens_details": {
+      "thinking_tokens": 1214
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 19656,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1625,
+        "cache_read_input_tokens": 34405,
+        "cache_creation_input_tokens": 4336,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4336
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 6,
+      "outputTokens": 2531,
+      "cacheReadInputTokens": 87091,
+      "cacheCreationInputTokens": 19656,
+      "webSearchRequests": 0,
+      "costUSD": 0.1820463,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "No — that's a common mix-up, and it's worth catching now because it's exactly what your assistant's memory design depends on.\n\n**The correction:** a language model has no memory of its own between calls. Each time it's called, it only sees whatever text is in its input *that call* — nothing from a previous conversation carries over unless something outside the model put it back in. This is the same point from your last lesson: the model knows only what it learned in training plus what's in the text it's given right now. \"Right now\" is the key part — once that call ends, that input is gone unless your program saved it somewhere.\n\nA concrete picture: think of the model like a function call in your Python project. `answer(prompt)` doesn't remember what `answer()` returned last time it ran — it only has the arguments you pass it this time. If you want the next call to \"know\" something from last week, your code has to have saved that thing somewhere (a file, a database row) and explicitly pass it back in as part of this week's prompt.\n\nSo for your makerspace assistant: if it's going to remember that a student finished laser-cutter training last week, that's not the model doing it — that's your team's code reading a stored record (e.g., a row in a database keyed by student ID) and stuffing the relevant fact into the prompt before the model ever sees the new question. No such storage, no memory, no matter how good the model is.\n\nThis is exactly the next piece of your mission — what the assistant keeps in context versus what it saves between sessions — so it's good that you checked this before designing around it.\n\nQuick check: if a student asks the assistant \"did I finish my training?\" on their second visit, what are the two things that have to happen, in order, before the model even gets the question?",
+  "ttft_ms": 2744,
+  "ttft_stream_ms": 1108,
+  "time_to_request_ms": 28,
+  "type": "result",
+  "duration_ms": 33620,
+  "uuid": "03dd4f63-2e35-4c80-8b2d-d69d2a5473d5"
+}

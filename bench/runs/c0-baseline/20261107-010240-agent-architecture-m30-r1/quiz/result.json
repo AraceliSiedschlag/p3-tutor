@@ -1,0 +1,86 @@
+{
+  "is_error": true,
+  "duration_api_ms": 246338,
+  "num_turns": 29,
+  "stop_reason": "stop_sequence",
+  "session_id": "beea99c1-8f71-4fcf-a498-f55f534e106f",
+  "total_cost_usd": 0.6890355,
+  "usage": {
+    "input_tokens": 24,
+    "cache_creation_input_tokens": 44448,
+    "cache_read_input_tokens": 530852,
+    "output_tokens": 13517,
+    "output_tokens_details": {
+      "thinking_tokens": 9104
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 44448,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1517,
+        "cache_read_input_tokens": 55864,
+        "cache_creation_input_tokens": 7669,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 7669
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 26,
+      "outputTokens": 13521,
+      "cacheReadInputTokens": 594385,
+      "cacheCreationInputTokens": 46092,
+      "webSearchRequests": 0,
+      "costUSD": 0.6577605000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    },
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 17045,
+      "outputTokens": 846,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 1,
+      "costUSD": 0.031275000000000004,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01TyVht6Sibpga5dwQj55Hh5",
+      "tool_input": {
+        "command": "for d in learning-records lessons quizzes keys grades submissions; do echo \"== $d ==\"; ls -la \"$d\" 2>/dev/null; done",
+        "description": "List workspace content directories"
+      }
+    }
+  ],
+  "terminal_reason": "api_error",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "API Error: Connection lost mid-response. The response above may be incomplete.",
+  "type": "result",
+  "duration_ms": 247616,
+  "uuid": "3d2dd21c-44e2-4a7a-9b73-2f491150df0a"
+}

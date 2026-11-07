@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context, memory, retrieval</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --ok: #2f6b3a; --ok-soft: #e7f2e9; --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e; --accent: #eaa77a;
+              --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22; --ok: #9fd3a8; --ok-soft: #1c2a1f; --code-bg: #23211e; }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 18px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.5; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+    .sub { font-family: var(--sans); color: var(--muted); font-size: 0.9rem; margin: 0 0 1.5rem; }
+    h2 { font-family: var(--sans); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin: 1.75rem 0 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    code { font-family: var(--mono); font-size: 0.88em; background: var(--code-bg); padding: 0.1em 0.3em; border-radius: 4px; }
+    .box { border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; background: var(--warn-soft); border-left: 4px solid var(--warn); font-size: 0.92rem; }
+    .box strong { color: var(--warn); }
+    ul { padding-left: 1.2rem; }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2; --warn: #000; --warn-soft: #f2f2f2; }
+      main { max-width: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Context, memory, retrieval</h1>
+  <p class="sub">One page. From lesson 0001-context-window-and-memory.html (objective O3).</p>
+
+  <h2>The three ideas, side by side</h2>
+  <table>
+    <thead><tr><th>Idea</th><th>What it is</th><th>Who manages it</th><th>Makerspace example</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Context window</strong></td><td>Everything the model sees on <em>one call</em>: system prompt, tools, conversation so far, tool results. Measured and billed in tokens.</td><td>Grows automatically within a run; never shrinks on its own.</td><td>Call 3 in a run sees calls 1&ndash;2's content plus every tool result since.</td></tr>
+      <tr><td><strong>Memory (notes)</strong></td><td>A fact your own program creates and wants later &mdash; written to a persistent record outside any context window, read back only when relevant.</td><td>The program: writes rarely and on purpose, reads just the one record needed.</td><td><code>check_training_record</code> reads a database row written when a student finished training.</td></tr>
+      <tr><td><strong>Retrieval</strong></td><td>Reference material that already existed, too big to preload &mdash; fetched just-in-time, by tool call, instead of stuffed into every prompt.</td><td>The program: keeps the full document outside context; the model asks for a slice when it needs one.</td><td><code>search_manuals(machine, topic)</code> returns one passage instead of the whole 40-page manual.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>What survives what</h2>
+  <table>
+    <thead><tr><th>Boundary</th><th>What carries over by default</th></tr></thead>
+    <tbody>
+      <tr><td>Step &rarr; step, same run</td><td>Everything so far, in full &mdash; the window only grows.</td></tr>
+      <tr><td>Session &rarr; session</td><td>Nothing. The model holds no notebook of its own; only what the program explicitly saved and reloads crosses this line.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Two mix-ups to catch yourself making</h2>
+  <div class="box"><strong>"A bigger context window gives it memory."</strong> It doesn't &mdash; every session still starts from an empty window, no matter how large. Memory comes from a persistent record outside any window, not from window size.</div>
+  <div class="box"><strong>"Load everything, just in case."</strong> More tokens in context costs more every time and makes the right detail harder to find amid the irrelevant rest (context rot). Retrieve the one relevant slice instead.</div>
+
+  <h2>One-line rule</h2>
+  <p>If it's a fact your own program produced, save it as a <strong>note</strong>. If it's reference material that already existed, fetch it by <strong>retrieval</strong>. Either way: keep it out of context until a call actually needs it.</p>
+</main>
+</body>
+</html>

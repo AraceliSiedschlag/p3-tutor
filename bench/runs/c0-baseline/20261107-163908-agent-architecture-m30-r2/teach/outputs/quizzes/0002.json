@@ -1,0 +1,55 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context, memory and retrieval in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant has been handling one long session helping a student debug a failed engraving job, with a dozen tool calls so far, all still in the context window. Which of these is true about the next call in this same session, compared with the very first call?",
+      "options": [
+        {"id": "a", "text": "It costs the same as the first call, since the student's newest message hasn't gotten any longer"},
+        {"id": "b", "text": "It costs more, since it is billed for everything accumulated so far, not just the newest message"},
+        {"id": "c", "text": "It costs less, since tool results already sitting in context are free from then on"},
+        {"id": "d", "text": "Its cost drops to zero automatically, since compaction becomes available once a session runs long"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student, Avery, asks the assistant on Monday which safety glasses the woodshop requires. On Wednesday, in a new session, Avery asks a follow-up question that assumes the assistant remembers Monday's conversation. By default, what does the assistant actually have available to it in the Wednesday session?",
+      "options": [
+        {"id": "a", "text": "Monday's full conversation, since sessions from the same student are automatically linked together"},
+        {"id": "b", "text": "Only what Wednesday's fresh context window holds, plus anything the program explicitly retrieved into it"},
+        {"id": "c", "text": "A summary of every past conversation, generated automatically for every student overnight"},
+        {"id": "d", "text": "Nothing from Monday at all, and nothing from it can ever be made available again"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant needs to answer a question about the correct blade for the band saw, from a 150-page safety manual. Which design keeps this one question's context window smallest while still answering it correctly?",
+      "options": [
+        {"id": "a", "text": "Paste the full manual into every call's context window, so the model always has it on hand"},
+        {"id": "b", "text": "Search the manual for the chunk about band saw blades, and load only that chunk for this question"},
+        {"id": "c", "text": "Memorize the manual once during setup, so the model never needs context for it again afterward"},
+        {"id": "d", "text": "Summarize the entire manual into one paragraph, and always include that paragraph in context"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A session's context window is close to its limit, but the student's request still needs more steps to finish. In one or two sentences, what should the program do, and why does this let the run continue without losing the important facts gathered so far?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences, explain why a student's equipment-training status needs to be saved somewhere outside the context window, rather than the assistant relying on 'remembering' it from a past conversation."
+    }
+  ]
+}

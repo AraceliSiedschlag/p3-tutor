@@ -1,0 +1,51 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your makerspace assistant has already made three tool calls in one conversation, and each result came back in turn. When the model is called a fourth time, to write its final answer, which of these is part of what it reads for that call?",
+      "options": [
+        {"id": "a", "text": "Only the student's original question, since every model call in a loop starts fresh"},
+        {"id": "b", "text": "The original question plus all three earlier tool results, each added once it came back"},
+        {"id": "c", "text": "The complete text of every machine manual, loaded in case the model happens to need it"},
+        {"id": "d", "text": "Nothing from this chat, because the assistant looks up the student's record in a database"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your assistant's agent loop keeps every earlier step in context. The system prompt and tools come to 500 tokens, and each tool result that comes back adds another 500 tokens on top of everything already there. How many tokens of input does the model read on its fourth call in this run (after three tool results have come back)?",
+      "unit": "tokens",
+      "tolerance": 0
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A student who talked to your assistant yesterday comes back today with a follow-up question. By default, with nothing extra built, what does today's call know about yesterday's conversation, and why?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Answering \"Can I use the laser cutter? I trained 8 months ago\" needs two things: (1) the shop's rule for how often laser-cutter training must be renewed, written in the safety manual, and (2) the date this particular student last completed that training. Which pairing is right?",
+      "options": [
+        {"id": "a", "text": "(1) is a memory lookup, since the rule never changes; (2) is retrieval, since a date must be searched for"},
+        {"id": "b", "text": "Both are memory lookups, since once either fact exists, the assistant should simply already know it"},
+        {"id": "c", "text": "Both are retrieval, since neither fact was something the model invented or produced itself"},
+        {"id": "d", "text": "(1) is retrieval, searched for in the manual; (2) is a memory lookup, from a record the program saved"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your context window is large enough to paste an entire forty-page manual into every student question, so pasting the whole thing in every time would technically fit. Give one reason, from this lesson, that doing this anyway is still a bad design."
+    }
+  ]
+}

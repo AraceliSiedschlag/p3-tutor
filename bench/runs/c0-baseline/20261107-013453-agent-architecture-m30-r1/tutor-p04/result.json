@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 41218,
+  "num_turns": 10,
+  "stop_reason": "end_turn",
+  "session_id": "42e9b8d8-14e2-4d3b-b750-b43776537f0d",
+  "total_cost_usd": 0.25483469999999997,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 27045,
+    "cache_read_input_tokens": 138219,
+    "output_tokens": 3405,
+    "output_tokens_details": {
+      "thinking_tokens": 1548
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 27045,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 515,
+        "cache_read_input_tokens": 44026,
+        "cache_creation_input_tokens": 2104,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2104
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 3405,
+      "cacheReadInputTokens": 138219,
+      "cacheCreationInputTokens": 27045,
+      "webSearchRequests": 0,
+      "costUSD": 0.25483469999999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "That premise isn't right, so neither five nor ten is the answer — more agents doesn't always mean better results. Every extra agent is more model calls, which costs more of your sponsor's small budget, adds latency, and gives you more places for the system to go wrong or disagree with itself. The gain from splitting only shows up when a piece of the work genuinely needs its own independent judgment; otherwise you're just paying for coordination you didn't need.\n\nTake your three jobs: answering from the manuals, checking the calendar, and booking equipment. Checking the calendar and booking a slot are likely just deterministic steps — look up a time, call a booking API, confirm. Those don't need a model deciding anything, let alone a whole agent; a plain function can do it, called as a tool from one agent, or even outside the agent loop entirely as a fixed workflow. Answering from the manuals is the part that actually needs judgment — finding the right passage, reading it, phrasing an answer — so that's the part where \"agent\" earns its cost.\n\nSo the question to bring to your design review isn't \"five or ten\" — it's \"which of these steps need a model making a judgment call at all, and of those, which ones are different enough in kind that splitting them into separate agents beats one agent with a few tools.\" Right now you haven't yet covered the distinction between a fixed workflow and an agent, or how multiple agents coordinate — that's the natural next lesson, and it's exactly what your mission asks you to be able to defend.\n\nQuick check: of your three jobs, which one(s) do you think need the model to decide something, versus just run a fixed set of steps?",
+  "ttft_ms": 2618,
+  "ttft_stream_ms": 1310,
+  "time_to_request_ms": 26,
+  "type": "result",
+  "duration_ms": 41293,
+  "uuid": "a1c12445-0142-48c4-bb86-540fb1bee6ec"
+}

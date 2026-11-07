@@ -1,0 +1,73 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "What actually distinguishes a workflow from an agent?",
+      "options": [
+        {"id": "a", "text": "An agent calls more tools in total than a workflow typically calls"},
+        {"id": "b", "text": "A workflow is code that fixes the steps and their order in advance; an agent is a model that decides, at each step, what happens next"},
+        {"id": "c", "text": "A workflow never involves a language model at any step, while an agent always does"},
+        {"id": "d", "text": "An agent is a workflow that has simply been given a longer list of available tools"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "For every booking request, your makerspace assistant runs the same three steps in the same order: check the student's training record, check the calendar, then write the booking. The code, not the model, decides that this order always applies. Is this a workflow or an agent, and why?",
+      "options": [
+        {"id": "a", "text": "An agent, because it calls more than one tool before it finishes"},
+        {"id": "b", "text": "A workflow, because the order of steps is fixed in the code rather than chosen by the model at each step"},
+        {"id": "c", "text": "An agent, because a language model is used to read the training record"},
+        {"id": "d", "text": "A workflow, because a human eventually approves the final booking"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A student asks your assistant a free-text question. At each turn, the model itself decides whether to search the manuals, check the calendar, or book equipment, in whatever order the question calls for, and decides when it has enough to answer. What is this design?",
+      "options": [
+        {"id": "a", "text": "A workflow, since it only calls tools your team already built"},
+        {"id": "b", "text": "An agent, because the model decides at each step which tool to call next and when to stop"},
+        {"id": "c", "text": "A workflow, because it ends by producing one final answer"},
+        {"id": "d", "text": "An agent, but only once it has called more than three tools in a single request"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one or two sentences, what does it mean to say a workflow \"owns the control flow\" while an agent does not?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your model budget is small, and the booking step always runs the same three checks in the same order. A teammate argues the assistant should still use an agent for this step, since an agent is strictly more capable than a workflow. What is wrong with that argument?",
+      "options": [
+        {"id": "a", "text": "Nothing; an agent can always do at least as well as a workflow, so it should be used wherever possible"},
+        {"id": "b", "text": "For a fixed, well-defined sequence, a workflow gets the same result more cheaply and more predictably, since no step needs the model to decide anything"},
+        {"id": "c", "text": "An agent cannot call the same tools a workflow calls, so it would not work for this step at all"},
+        {"id": "d", "text": "A workflow cannot be used anywhere a language model is involved in any step"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which part of the makerspace assistant is the best candidate to build as an agent rather than a fixed workflow?",
+      "options": [
+        {"id": "a", "text": "Answering a free-text question that may need the manual, the calendar, or both, in an order that depends on what the student actually asks"},
+        {"id": "b", "text": "Looking up whether one specific student has completed laser-cutter training, a single lookup with one answer"},
+        {"id": "c", "text": "Writing a confirmed time and machine into the booking calendar"},
+        {"id": "d", "text": "Sending a confirmation email once a booking has been made"}
+      ]
+    }
+  ]
+}

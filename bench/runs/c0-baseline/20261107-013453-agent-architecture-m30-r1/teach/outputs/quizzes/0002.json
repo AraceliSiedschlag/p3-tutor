@@ -1,0 +1,61 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Mo asked your assistant about laser-cutter training on Monday. That conversation was never saved anywhere. On Thursday, Mo opens a brand-new session and asks, \"Can I use the laser cutter now?\" What does the model see when it is first called for this question?",
+      "options": [
+        {"id": "a", "text": "Mo's entire Monday conversation, because the model remembers every student it has talked to"},
+        {"id": "b", "text": "Only this session's system prompt, tool definitions, and Mo's new question, with nothing from Monday"},
+        {"id": "c", "text": "A short summary of Monday's chat that the model wrote for itself automatically before it ended"},
+        {"id": "d", "text": "Nothing at first, but Monday's details return as soon as Mo mentions the laser cutter by name"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Within one session, your assistant's model calls check_training_record, then search_manuals, then writes its final answer. Compared with its very first call that session, what is different about its input on the call where it writes the final answer?",
+      "options": [
+        {"id": "a", "text": "It is shorter, because older tool results are dropped automatically once newer ones arrive"},
+        {"id": "b", "text": "It is longer: it now includes the first call's content plus both tool results, kept in full"},
+        {"id": "c", "text": "It is the same length, because the newest tool result simply replaces the original question"},
+        {"id": "d", "text": "It is longer only if the program is specifically told to make the model remember earlier steps"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your sponsor suggests switching to a model with a much bigger context window, so the assistant can \"just remember everything\" between visits without saving anything to a database. What is the problem with this plan?",
+      "options": [
+        {"id": "a", "text": "A bigger window still starts empty at the beginning of a new session; it carries nothing over from a past one"},
+        {"id": "b", "text": "A bigger window would work for this, it would simply cost more on every single call than a smaller one"},
+        {"id": "c", "text": "A bigger window makes the model slower at reading whatever question is asked this session"},
+        {"id": "d", "text": "A bigger window only holds images and manuals, and cannot hold any conversation history at all"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your assistant answers questions from a 40-page machine manual using a search_manuals tool. In one or two sentences, why is retrieving just the relevant page with a tool call better than loading the whole manual into context on every question?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your team is deciding where to keep the fact that a student completed laser-cutter training, so the assistant can check it weeks later. Which is the right place for that fact to live?",
+      "options": [
+        {"id": "a", "text": "In the model's context window, repeated at the top of every student's prompt from now on"},
+        {"id": "b", "text": "In a persistent record outside the model, such as a database row the check_training_record tool reads"},
+        {"id": "c", "text": "Nowhere in particular; the model will infer it from how the student phrases later questions"},
+        {"id": "d", "text": "In the model's training data, by fine-tuning it on this one student's record"}
+      ]
+    }
+  ]
+}

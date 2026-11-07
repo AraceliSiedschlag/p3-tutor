@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by the loop itself — the model picks an action, it runs, the result comes back — not by a longer prompt, a bigger context window, or automatic memory."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. When the model decides to use check_calendar, what it outputs is a structured request naming the tool and its arguments (the laser cutter, tomorrow's date). Your program is the one that actually calls the booking system and gets the entries back."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'no change, it will eventually fix the bug' — that's the belief that an agent needs no stopping condition, just more time. Forty identical failing steps with nothing new happening is exactly when you need a safeguard like a step limit, which ends the loop and hands the problem to a person instead of burning more of your model budget."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your count of 4 is right: three tool requests plus the final answer. But your reasoning says the model 'runs one tool itself' — it doesn't. The model only asks for a tool by name; your program is what actually runs check_calendar, search_manuals and check_training_record and sends the results back. Worth tightening that wording, since it's the line between what your code has to do and what the model does."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct, and the group-chat image is a good one: the tool's result becomes part of the model's next input, and the model is called again so it can use that result to decide what's next or give its final answer."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial — the name is part of it, but the model actually reasons over the tool's whole description: name, what it does, and its parameters. Going by name alone is risky, since two tools can have similar names but different purposes; the fuller description is what reliably points the model to the right one."
+    }
+  ],
+  "summary": "The loop itself and what goes back into the model (q1, q5) are solid, and you've now got q2 right: calling a tool means emitting a request, not acting on the system directly. Two things to work on: q3 shows you still reach for 'give it more time' instead of a stopping condition when an agent is stuck, and q4's right number came with wording that still has the model 'running' tools itself rather than just requesting them — same idea underneath both. Revisit the agent-loop session's note on who runs the tool (the program, every time), and try re-explaining q3 out loud without using the word 'eventually'."
+}

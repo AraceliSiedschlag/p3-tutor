@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which statement best captures the difference between a workflow and an agent?",
+      "options": [
+        {"id": "a", "text": "A workflow calls fewer tools than an agent does for the same task"},
+        {"id": "b", "text": "A workflow follows a sequence fixed in code ahead of time; an agent has the model choose its own next action at each step"},
+        {"id": "c", "text": "A workflow always finishes in one call to the model; an agent just needs a bigger model to work at all"},
+        {"id": "d", "text": "A workflow is only for simple tasks; an agent is always the safer choice for anything that matters"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Every time a student finishes machine training, your assistant does the same three things, always in this order: mark the training complete, send the student a confirmation message, and email the shop supervisor. Which is the better fit for this part of the assistant, and why?",
+      "options": [
+        {"id": "a", "text": "An agent, because three different tools are involved along the way"},
+        {"id": "b", "text": "A workflow, because the steps and their order are fixed and don't depend on what happens along the way"},
+        {"id": "c", "text": "An agent, because only a model can be trusted to write the confirmation message"},
+        {"id": "d", "text": "A workflow, because workflows always cost less than agents, whatever the task"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A student asks, \"Can I use the CNC router for a project with these specs?\" Answering well might mean checking one section of the manual, or several, or asking the student a follow-up question, depending on what they describe. Which is the better fit for this part of the assistant, and why?",
+      "options": [
+        {"id": "a", "text": "A workflow, because manual lookups are simple text search the code can do alone"},
+        {"id": "b", "text": "An agent, because how many steps are needed, and which ones, depends on the request, so the model has to decide them as it goes"},
+        {"id": "c", "text": "A workflow, because every question about a machine should be handled in exactly the same way"},
+        {"id": "d", "text": "An agent, because agents are always more accurate than workflows"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your assistant's booking code calls three tools in a row — check_training_record, check_calendar, and reserve_slot — always in that order, with no model call deciding what happens between them. Is this an agent?",
+      "options": [
+        {"id": "a", "text": "Yes, because it calls three different tools"},
+        {"id": "b", "text": "Yes, because a model is involved somewhere in the system"},
+        {"id": "c", "text": "No, because nothing decides the next step at runtime; the order was fixed in code before the request arrived"},
+        {"id": "d", "text": "No, because a workflow is not allowed to call more than one tool"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one or two sentences, why does a fixed workflow usually cost less and respond faster than an agent handling the same, fully predictable task?"
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Your assistant also handles equipment returns: whenever equipment comes back, it always looks up who checked it out, marks it returned, and clears any hold on their account, in that same order, for every return. Should this part be built as a fixed workflow or an agent? Answer in one sentence and say why."
+    }
+  ]
+}

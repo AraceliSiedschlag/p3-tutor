@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 83637,
+  "num_turns": 16,
+  "stop_reason": "end_turn",
+  "session_id": "978c456c-0f04-4367-b134-213c7e352495",
+  "total_cost_usd": 0.40508069999999996,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 35317,
+    "cache_read_input_tokens": 248309,
+    "output_tokens": 7910,
+    "output_tokens_details": {
+      "thinking_tokens": 3145
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 35317,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 401,
+        "cache_read_input_tokens": 53585,
+        "cache_creation_input_tokens": 817,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 817
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 12,
+      "outputTokens": 7910,
+      "cacheReadInputTokens": 248309,
+      "cacheCreationInputTokens": 35317,
+      "webSearchRequests": 0,
+      "costUSD": 0.40508069999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Riley's quiz 0001 (submission `s1`) is graded in `grades/0001-s1.json`: **2 correct** (q1, q3), **2 partial** (q5, q6), **2 wrong** (q2, q4).\n\n- **Solid:** the loop's shape — picking an action, running it, feeding the result back, stopping on a limit.\n- **To fix:** on q2 and q4, Riley reached for the idea that the model runs the tool itself inside one call, rather than the program running it and calling the model fresh each time (misconception M4, recorded in `learning-records/0003-...`).\n- **Also worth a look:** q6 added that the model \"remembers on its own\" which tool it picked in earlier sessions — the same belief Riley correctly ruled out in q1 (M3, `learning-records/0004-...`). It's inconsistent rather than settled, which is exactly where the next topic, context and memory, needs to start.\n\nNext step: before that lesson, have Riley say in one sentence why calling the model again with a new result isn't the same as the model \"remembering\" it — that clears the ground for both open misconceptions at once. `submissions/s2.json` (the spaced-practice retake) is still ungraded if you want that done too.",
+  "ttft_ms": 2898,
+  "ttft_stream_ms": 1281,
+  "time_to_request_ms": 29,
+  "type": "result",
+  "duration_ms": 83734,
+  "uuid": "46c45013-7072-4d36-a928-11aa1388027c"
+}

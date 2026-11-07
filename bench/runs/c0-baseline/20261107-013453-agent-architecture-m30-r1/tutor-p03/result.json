@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 40514,
+  "num_turns": 10,
+  "stop_reason": "end_turn",
+  "session_id": "d77e2ea4-6097-45c3-9c1d-a187471d4c27",
+  "total_cost_usd": 0.2556582,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 26685,
+    "cache_read_input_tokens": 173444,
+    "output_tokens": 2899,
+    "output_tokens_details": {
+      "thinking_tokens": 1031
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 26685,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 406,
+        "cache_read_input_tokens": 44219,
+        "cache_creation_input_tokens": 1551,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1551
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 10,
+      "outputTokens": 2899,
+      "cacheReadInputTokens": 173444,
+      "cacheCreationInputTokens": 26685,
+      "webSearchRequests": 0,
+      "costUSD": 0.2556582,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Not quite — that's a common assumption, but it's backwards. A language model has no built-in memory across separate conversations. Each time it's called, it only knows two things: what it learned during training, and whatever text is in the context window *for that one call*. When a conversation ends, nothing is kept automatically. The next call starts clean.\n\nSo if a student talks to your makerspace assistant today, and comes back next week, the model itself has no idea that conversation happened — unless your *application* did the remembering: it saved something (say, \"finished laser cutter safety training, 2026-11-06\") to a database or file, then, next week, looked that up and pasted it into the new conversation's context before the model ever saw the question. From the model's point of view, that's indistinguishable from the student just having told it that fact a second ago — it's all just text in the current context.\n\nThis matters for your design review: \"memory\" in your assistant isn't a model feature you get for free, it's a system you build — decide what's worth saving, where it's stored, and how it gets pulled back into context at the right moment. That's exactly what's next for us.\n\nQuick check: if a student tells the assistant \"I passed the 3D printer quiz\" and then closes the chat, what two things would your assistant's code need to do so that fact is there the next time that student shows up?",
+  "ttft_ms": 2876,
+  "ttft_stream_ms": 1509,
+  "time_to_request_ms": 55,
+  "type": "result",
+  "duration_ms": 41973,
+  "uuid": "133ab871-04b2-4a35-84c2-5bbf8f5a1ea0"
+}

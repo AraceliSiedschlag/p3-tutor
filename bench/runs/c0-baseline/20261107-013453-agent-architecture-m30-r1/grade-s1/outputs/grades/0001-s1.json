@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right — an agent is the loop itself: the model picks an action, the program runs it, and the result comes back, repeating until something stops it. That loop is exactly what you'll build for the makerspace assistant's booking and manual lookups."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Not quite. When the model decides to use check_calendar, its output is just a structured request naming the tool and its arguments (laser cutter, tomorrow). The program is what actually opens the booking system and runs the tool; the model only sees the calendar entries once that result comes back, which is option c. Picking 'a' treats the model as if it can act on the world directly, but a model only ever produces text or a structured request — it never touches a real system itself."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The agent is repeating the same failing edit, so more steps won't help — the safeguard is a stopping condition, like a step limit, that ends the loop and hands the problem back to a person. Worth keeping for the makerspace assistant: every loop needs a limit, not just a goal."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "The answer is 4, not 1. Each model call ends with either one tool request or the final answer, so the three tool requests (check_calendar, search_manuals, check_training_record) are three separate calls, plus a fourth call for the final answer: 3 + 1 = 4. Your answer of 1 treats the model as if it ran all three tools itself inside a single call — but the model never runs a tool, the program does, and it calls the model again fresh each time with the new result added to its input. Same idea as q2: the model only ever decides and describes an action; the program is what carries it out and loops back."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You've got half of it: yes, the result goes back to the model. What's missing is why — the program adds that result to the model's next input and calls the model again, so it can use the result to decide its next step or write the final answer. Saying what happens without saying why leaves out the reason the loop is able to continue."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Your first part is exactly right: the model picks a tool by matching the request against the descriptions it's given, name and purpose. But the second part isn't correct — the model does not remember which tool it picked for similar questions in earlier sessions on its own. Each model call starts fresh; without the program itself storing and feeding that history back in, there's no automatic carryover between sessions. That's the same belief as q1's wrong option b: automatic memory of earlier conversations isn't something a model has by default."
+    }
+  ],
+  "summary": "You've got the shape of the loop solid — q1 and q3 show you know an agent is the model picking actions in a cycle with a stopping condition, and your reasoning on q2 and q4 both reach for the same idea, that the model runs tools itself, rather than the program running them and feeding the result back for a fresh call. q6 shows a second, related belief: that the model remembers things across sessions on its own, which is the same misconception behind q1's wrong option. Both are worth clearing up before context and memory, since that lesson depends on you seeing that nothing carries over between calls unless the program explicitly puts it back in. As a next step, try writing one sentence on why calling the model again with the new result is different from the model 'remembering' it."
+}

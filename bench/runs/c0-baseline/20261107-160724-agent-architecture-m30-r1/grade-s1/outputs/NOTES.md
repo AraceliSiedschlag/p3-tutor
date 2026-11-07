@@ -1,0 +1,21 @@
+# Notes
+
+## What Riley knows
+- Python from classes: functions, lists and dicts, reading JSON, and calling a web API in one class project.
+- Has used a chatbot for homework help and report drafts, and has noticed that it can state an outdated fact with confidence.
+- A language model takes text in and writes text out, one token at a time, from patterns learned in training (learning record 0001).
+- The agent loop at a high level: the model asks for an action, the action is carried out, the result comes back, and this repeats until it is done (learning record 0002).
+
+## What Riley does not know yet
+- Has never called a language model from code or written a tool definition.
+- Has heard the words "token" and "context window" but cannot say what they limit or why they affect cost.
+- Has not met memory, retrieval, workflows versus agents, or multi-agent systems.
+- Has no machine-learning background beyond one statistics course.
+- Believes the model itself runs tools (opens the booking system, executes code) rather than just emitting a request the program carries out (M4); also assumed the model automatically remembers which tool it used in earlier sessions (M3). Shown on quiz 0001, s1, q2/q4/q6 (learning record 0003). Needs explicit correction before building further on tool calling.
+
+## Working notes
+- Quiz 0001 (the agent loop and tool calling) was taken twice: `submissions/s1.json` on the day of the agent-loop session, and `submissions/s2.json` four days later, from memory, as spaced practice.
+  `s1` is now graded (`grades/0001-s1.json`): correct on q1/q3 (the loop shape, stopping conditions), partial on q5/q6 (right mechanism, missing half or an added wrong claim), wrong on q2/q4 (M4).
+  `s2` has not been graded yet.
+- Next in the mission is context and memory, because the makerspace assistant has to answer from long machine manuals and remember each student's training status between visits.
+  Before that, M4 (the model doesn't run tools itself) should be corrected, since context/memory both hinge on what is actually fed into the model's input versus what the program does around it.

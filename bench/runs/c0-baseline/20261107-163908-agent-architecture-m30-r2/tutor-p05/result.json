@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 48183,
+  "num_turns": 10,
+  "stop_reason": "end_turn",
+  "session_id": "e946a855-bad3-4567-b526-7801b1ca8bfd",
+  "total_cost_usd": 0.2659395,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 27917,
+    "cache_read_input_tokens": 139395,
+    "output_tokens": 3773,
+    "output_tokens_details": {
+      "thinking_tokens": 1783
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 27917,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 80,
+        "cache_read_input_tokens": 44828,
+        "cache_creation_input_tokens": 2174,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2174
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 3773,
+      "cacheReadInputTokens": 139395,
+      "cacheCreationInputTokens": 27917,
+      "webSearchRequests": 0,
+      "costUSD": 0.2659395,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I've answered this in chat above and logged the exchange in `NOTES.md` so future sessions remember the redirect. Let me know if you want to go through writing a tool description next, or if you'd rather first knock out grading that pending quiz 0001.",
+  "ttft_ms": 4776,
+  "ttft_stream_ms": 1151,
+  "time_to_request_ms": 24,
+  "type": "result",
+  "duration_ms": 48368,
+  "uuid": "db285ae3-c771-483c-b6f8-c30409e5c7fb"
+}

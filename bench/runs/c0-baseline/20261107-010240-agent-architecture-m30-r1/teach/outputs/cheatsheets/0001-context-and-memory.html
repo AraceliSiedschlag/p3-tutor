@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --ok: #2f6b3a; --ok-soft: #e7f2e9;
+      --warn: #8c2f39; --warn-soft: #f9eaec; --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e;
+        --accent: #eaa77a; --accent-soft: #2c231d; --ok: #9fd3a8; --ok-soft: #1c2a1f;
+        --warn: #f0a3ac; --warn-soft: #2f1f22; --code-bg: #23211e; }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 18px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.55; }
+    main { max-width: 38rem; margin: 0 auto; padding: 2.5rem 1.25rem 3rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+    .kicker { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    h2 { font-size: 1.1rem; margin: 1.75rem 0 0.5rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.25rem; }
+    dfn { font-style: normal; font-weight: 700; color: var(--accent); }
+    dl { margin: 0.5rem 0; }
+    dt { font-weight: 700; margin-top: 0.75rem; }
+    dd { margin: 0.15rem 0 0; color: var(--text); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.75rem 0; font-family: var(--sans); }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    .flow { border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1.1rem; margin: 0.75rem 0; font-family: var(--sans); font-size: 0.95rem; }
+    .flow ol { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+    .flow li { margin-bottom: 0.35rem; }
+    .tag { display: inline-block; font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+           text-transform: uppercase; padding: 0.1em 0.5em; border-radius: 4px; }
+    .tag.memory { background: var(--ok-soft); color: var(--ok); }
+    .tag.retrieval { background: var(--accent-soft); color: var(--accent); }
+    .tag.skip { background: var(--warn-soft); color: var(--warn); }
+    footer { margin-top: 2rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 0.8rem; color: var(--muted); }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --warn: #000; --warn-soft: #fff; }
+      html { font-size: 11pt; }
+      main { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div class="kicker">Cheat sheet &middot; from Lesson 1</div>
+  <h1>Context and memory</h1>
+
+  <h2>Terms</h2>
+  <dl>
+    <dt><dfn>Token</dfn></dt>
+    <dd>The small chunk of text (a word piece, a punctuation mark) a model reads or writes one at a time; how providers usually price a call.</dd>
+    <dt><dfn>Context window</dfn></dt>
+    <dd>All the text assembled for one model call &mdash; system prompt, tools, conversation, tool results, output &mdash; capped in tokens. The model's "working memory" for that call only.</dd>
+    <dt><dfn>Context rot</dfn></dt>
+    <dd>Accuracy and recall degrade as a context window fills with tokens. More context is not automatically better.</dd>
+    <dt><dfn>Memory</dfn></dt>
+    <dd>A fact the program writes somewhere durable, outside the window, the moment it becomes true, and reads back into a later call. Not automatic &mdash; a deliberate write, then a deliberate read.</dd>
+    <dt><dfn>Retrieval</dfn></dt>
+    <dd>Searching a large, pre-existing source (a manual) for the few passages relevant to this question, and handing the model only those, instead of the whole source.</dd>
+    <dt><dfn>Structured note-taking</dfn></dt>
+    <dd>An agent authoring short notes as it works (a to-do list, a tally, a date) and reloading them later &mdash; memory the agent itself produces, not a pre-existing document.</dd>
+  </dl>
+
+  <h2>What's kept, when</h2>
+  <table>
+    <tr><th>Timeframe</th><th>Default</th><th>How to change it</th></tr>
+    <tr><td>Within one run (same loop)</td><td>Everything so far stays in context; it only grows</td><td>Add a stopping condition, or trim / summarize old steps</td></tr>
+    <tr><td>Across sessions</td><td>Nothing; a new call starts blank except system prompt + tools</td><td>Write a fact to storage when it becomes true; read it back in when relevant</td></tr>
+  </table>
+
+  <h2>Memory, retrieval, or neither?</h2>
+  <div class="flow">
+    <ol>
+      <li>Is this fact already written somewhere in bulk (a manual, a policy doc)? &rarr; <span class="tag retrieval">retrieval</span>: search it, return the relevant chunk.</li>
+      <li>Is it true about one specific student, project, or machine, discovered at a moment that will not repeat on its own? &rarr; <span class="tag memory">memory</span>: write it once, reload it later.</li>
+      <li>Is it cheap to just ask again, or already given in this message? &rarr; <span class="tag skip">skip</span>: don't persist it.</li>
+    </ol>
+  </div>
+
+  <h2>Cost rule of thumb</h2>
+  <p style="font-family: var(--sans); font-size: 0.95rem;">Every token in the context window is paid for on every call it appears in. A loop that never drops old tool results pays for its whole history again at each step. A tool that returns a whole document instead of a snippet pays for the parts nobody asked about &mdash; every time.</p>
+
+  <footer>From <code>lessons/0001-context-and-memory.html</code>, objective O3. Sources: Anthropic, "Effective context engineering for AI agents"; Claude Docs, "Context windows"; AWS Prescriptive Guidance, "Understanding Retrieval Augmented Generation" &mdash; see <code>RESOURCES.md</code>.</footer>
+</main>
+</body>
+</html>

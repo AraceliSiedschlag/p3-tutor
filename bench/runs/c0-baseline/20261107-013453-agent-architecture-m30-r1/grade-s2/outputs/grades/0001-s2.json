@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right - what makes it an agent is the loop itself: the model picks an action, it runs, the result comes back, and that repeats. A longer prompt or a bigger context window just make one call smarter; neither one adds the loop."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. At that point the model's output is just a structured request naming check_calendar and its arguments - it never touches the booking system itself. The program around it is what actually runs the tool and hands the result back."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'no change - left to run longer it will eventually fix the bug.' Forty identical failing steps, all still sitting in its context, is good evidence that more time alone won't help. The safeguard is a stopping condition built into the program, like a step limit, so the loop ends and hands the problem back to a person instead of repeating forever."
+    },
+    {
+      "id": "q4",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "4 is right, and your count shows exactly why: three tool requests plus the final answer is four calls. One thing to tighten in how you said it: the model doesn't 'run' check_calendar itself - it requests it, and the program runs it and hands back the result. You've got that straight (it's exactly what you said in q2), so just watch the wording."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Yes - the result goes back in as the model's next input, and the model is called again with that in front of it so it can decide what's next or give the final answer. The group-chat comparison is a good way to picture it: each turn, the model only knows what's been said so far."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name is part of it, but the model is actually reading the whole description you give it - name, what the tool does, and its parameters - and matching that to what it needs. A name alone can mislead: a tool called check_calendar that was actually written to check machine maintenance schedules would send the model to the wrong answer unless its description said what it really does."
+    }
+  ],
+  "summary": "A strong attempt from memory, four days out: you've got the core mechanics down - the model only requests a tool, the program runs it, and every step is its own separate model call. The one real gap is stopping conditions: a stuck loop doesn't fix itself with more time, it needs a limit built into the program that ends it. Before the next lesson, look back at the stopping-conditions part of the lesson and try putting q3 into your own words."
+}

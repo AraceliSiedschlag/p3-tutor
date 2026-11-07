@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, d. An agent is defined by the loop itself: the model picks an action, it runs, the result comes back, and that repeats until it's done. A bigger model or a longer prompt only changes what one call can do, not whether there's a loop at all."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You picked (a), the model reading the calendar itself. The model never opens the booking system; it outputs a request naming check_calendar with the arguments (laser cutter, tomorrow), and the program runs that and hands the result back. The right option is (c). Keep the two jobs separate: the model asks, the program does."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, b. Forty repeats of the same failing edit is exactly what a step limit is for: it stops the loop and hands the problem back to a person, instead of hoping more steps will eventually fix it."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "The answer is 4, not 1. Each model call ends in either one tool request or the final answer, so three tool requests plus the final answer is 3 + 1 = 4 calls. The tools run in the program, not inside one model call, so the model doesn't 'run the 3 tools itself': each tool's result has to go back to the model as a fresh call before it can ask for the next one."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You've got half of it: the result does go back to the model. What's missing is why: the program sends it back as part of the model's next input and calls the model again, so the model can use that result to decide its next step or write the final answer. Next time, give both halves: where it goes, and why it goes there."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "The first half is right: the model picks from the tool descriptions it's given, name and what each one does, and matches the one that fits the request. The second half isn't: the model doesn't remember on its own which tool it picked in past sessions. Without something added on purpose, like a memory system, each call starts fresh with only what's in its current input. That's the same assumption behind thinking an agent gets automatic memory of earlier conversations."
+    }
+  ],
+  "summary": "The loop itself is solid (q1, q3), and you're halfway to the detail of each step (q5, q6): the result going back to the model, and the model choosing tools from their descriptions. The piece to fix is that the model never runs a tool itself, it only asks for one; q2 and q4 both show that same mix-up, including undercounting the model calls. Next, trace 2-3 requests by hand, writing 'model call' or 'program runs tool' next to every step, until the call count comes out right without having to think about it."
+}

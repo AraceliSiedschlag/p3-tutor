@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows vs. agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your teammate describes the booking part of the assistant: 'It always calls check_calendar, then check_training_record, then make_booking, in that exact order, because the code calls them one after another. The model only fills in each call's arguments.' Is this a workflow or an agent, and why?",
+      "options": [
+        {"id": "a", "text": "An agent, because a language model is used to fill in each call's arguments"},
+        {"id": "b", "text": "A workflow, because the order of the three calls is fixed in the code, not chosen by the model"},
+        {"id": "c", "text": "An agent, because three different tools are called instead of just one"},
+        {"id": "d", "text": "A workflow, because check_calendar does not depend on check_training_record's result"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Now your teammate changes the design: 'At each step, the model looks at what check_calendar, check_training_record or search_manuals has returned so far, and itself decides which of the three to call next, stopping once it has enough to answer.' Is this a workflow or an agent, and why?",
+      "options": [
+        {"id": "a", "text": "A workflow, because the same three tools are available in both designs"},
+        {"id": "b", "text": "An agent, because this design uses one more tool than the first design did"},
+        {"id": "c", "text": "An agent, because the model decides which tool to call next from what it has seen so far"},
+        {"id": "d", "text": "A workflow, because the program still runs whichever tool the model asks for"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In your own words, in one sentence: what is the one thing to check to tell whether a system is a workflow or an agent, no matter how many tools or model calls it uses?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Part of the assistant must: check whether a student has finished laser-cutter training; if yes, book the slot; if no, reply with a link to sign up for training. Both outcomes and the one condition that picks between them are known in advance. Which architecture fits this part best, and why?",
+      "options": [
+        {"id": "a", "text": "An agent, because the assistant has to choose between two different outcomes"},
+        {"id": "b", "text": "An agent, because the reply text differs depending on the student's training record"},
+        {"id": "c", "text": "A workflow, only if the final reply is written without any help from a language model"},
+        {"id": "d", "text": "A workflow, because both branches and the condition between them are already known, so the path can be written into the code"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A task always takes the same handful of steps, in the same order, no matter the input. Compared with handling it as an agent, handling it as a workflow instead mainly buys you what?",
+      "options": [
+        {"id": "a", "text": "Lower, more predictable cost and latency, since the fixed steps run the same way every time"},
+        {"id": "b", "text": "Better answers, since a workflow is inherently smarter than an agent at the same task"},
+        {"id": "c", "text": "The ability to call more tools than an agent ever could"},
+        {"id": "d", "text": "Freedom from ever having to test the assistant before it ships"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A student asks, 'Why does my print keep warping?' The right next lookup (which material, which printer, which setting to check) depends entirely on what the student says, and the order can't be fixed in advance. Would you build this part of the assistant as a workflow or an agent? Give one reason tied to who needs to control the steps."
+    }
+  ]
+}

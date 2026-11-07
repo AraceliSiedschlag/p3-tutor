@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, d. What makes it an agent is the loop itself — the model picks an action, the program runs it, the result comes back — not a longer prompt, a bigger model, or built-in memory of past chats."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "The answer is c, not a. When the model decides to call check_calendar, all it outputs is a structured request naming the tool and its arguments (the machine and the date) — it doesn't open the booking system itself. That's the same slip as thinking the model runs tools directly; the program is what runs the tool and sends the result back."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, b. Once the loop is stuck repeating the same failed step with nothing new coming back, more steps don't help — a step limit that stops and reports back is the safeguard, not a bigger context window or a sterner instruction."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "The answer is 4, not 1. Each model call ends in exactly one thing — a tool request or the final answer — so three tool requests plus the final answer is four calls. Your reasoning, that the model runs the three tools itself inside one call, is the same misconception as q2: the model only ever requests a tool, the program runs it, and each result that comes back triggers a fresh call to the model."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You have half of it: the result does go back to the model. What's missing is why — it's added to the model's next input and the model is called again so it can decide what to do next or write its final answer. Without that reason it reads as if the result just vanishes; say what happens to it next."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "The main idea is right: the model picks a tool from the descriptions it's given — name and what it does. But the last part, that it remembers on its own which tool it picked in earlier sessions, isn't true: a model call only sees what's in that call's input, and nothing carries over by itself. That's the same misconception as q1's option b, automatic memory of past conversations — and it's exactly what the next lesson, on context and memory, will settle."
+    }
+  ],
+  "summary": "Four of six solid: the loop's shape and the stopping condition are down, and you know the model picks tools from their descriptions. The one real gap is thinking the model runs tools itself rather than just requesting them (q2, q4) — worth re-reading the agent-loop lesson's trace of a single tool call with that question in mind: who does this step, the model or the program? You're also starting to assume the model remembers things across calls on its own (q6); that's not a slip so much as the next topic arriving early, and the memory lesson will give it a direct answer. Next step: redo q2 and q4 out loud, naming which of the two does each step."
+}

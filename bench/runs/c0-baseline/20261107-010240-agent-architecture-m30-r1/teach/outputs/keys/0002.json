@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "By default nothing is removed between steps of the same run: each tool result is appended to the conversation and comes back in as part of every later call, so the fourth call reads the question plus all three earlier results. The window does not reset each step (a), it never holds the full manuals unless something explicitly retrieved them (c, M7), and whatever is in context is exactly what the program assembled into this call's text, not a separate database the model consults on its own (d).",
+      "distractors": {"c": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": 2000,
+      "tolerance": 0,
+      "rationale": "Call 1 reads 500 tokens. Each later call adds the previous call's tokens plus one more 500-token result: call 2 reads 1000, call 3 reads 1500, call 4 reads 2000. Nothing already in context is removed, so the input grows by a fixed amount each step. An answer of 500, as if each call only reads the newest result, shows the misconception that earlier steps are not carried forward."
+    },
+    {
+      "id": "q3",
+      "answer": "Nothing; today's call starts with only the fixed system prompt and tool list, because model calls are stateless and yesterday's conversation is gone unless the program explicitly saved something from it and loaded that back in today.",
+      "accepted": [
+        "Nothing, by default, because each new session's context window starts blank except for the system prompt and tools; anything from yesterday only reappears if the program wrote it down and read it back in.",
+        "It knows nothing about yesterday unless the program saved a fact from that conversation and reloaded it, since nothing persists across sessions automatically."
+      ],
+      "rationale": "Full credit needs both the fact (nothing survives by default) and the reason (persistence only happens when the program deliberately writes and reloads something; model calls do not carry state on their own). Saying only 'nothing' without the reason is partial. Saying the assistant remembers the conversation shows M3, the belief that earlier conversations are kept automatically."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "The renewal rule is fixed text already sitting in the manual, so finding it is retrieval: a search over an existing document for the relevant passage. The student's training date is not written anywhere until the program saves it itself when training happens, so recalling it is a memory lookup. Believing both are things the assistant should 'just know' (b) shows M3; treating both as retrieval (c) misses that the training date was never a pre-existing document to search; and swapping which fact is which (a) has the reasoning backwards.",
+      "distractors": {"b": "M3"}
+    },
+    {
+      "id": "q5",
+      "answer": "Even though it fits, pasting the whole manual in every call wastes money, since every token of it is paid for on every single question regardless of relevance, and it can hurt the answer's accuracy, since very long contexts suffer context rot, so more text is not automatically safer.",
+      "accepted": [
+        "It costs more, because the full manual is billed as input tokens on every call even when most of it is irrelevant to the question asked.",
+        "It can make answers worse, not just more expensive, because stuffing in far more text than is needed causes context rot and degrades the model's accuracy and recall."
+      ],
+      "rationale": "Full credit names either mechanism from the lesson: the token cost of carrying irrelevant text on every call, or context rot degrading accuracy as the context grows very large. A vague answer like 'it's too much information' without naming cost or accuracy is partial. Saying there is no downside as long as it fits shows the misconception, from this lesson's Section 1 and Section 4, that a bigger context window is automatically safer or more complete (M7)."
+    }
+  ]
+}

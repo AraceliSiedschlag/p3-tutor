@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 56486,
+  "num_turns": 9,
+  "stop_reason": "end_turn",
+  "session_id": "d291a9f6-fcb9-4f10-8966-fbaa6eee81ca",
+  "total_cost_usd": 0.2767008,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 28547,
+    "cache_read_input_tokens": 139866,
+    "output_tokens": 4229,
+    "output_tokens_details": {
+      "thinking_tokens": 2515
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 28547,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 62,
+        "cache_read_input_tokens": 44952,
+        "cache_creation_input_tokens": 2680,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2680
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 4229,
+      "cacheReadInputTokens": 139866,
+      "cacheCreationInputTokens": 28547,
+      "webSearchRequests": 0,
+      "costUSD": 0.2767008,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Noted in NOTES.md so future sessions catch if the \"train the model\" framing comes back. Let me know if you want that tool-description lesson now, or want to keep going on context/memory first.",
+  "ttft_ms": 3862,
+  "ttft_stream_ms": 2121,
+  "time_to_request_ms": 25,
+  "type": "result",
+  "duration_ms": 56557,
+  "uuid": "aa1002bc-8514-423f-8bdf-dd411af74af4"
+}
