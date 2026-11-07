@@ -13,31 +13,34 @@ Keep every heading as it is, because `p3 check` reads them, and add a round by c
 
 ### Round 1
 
-**Run:** TODO
+**Run:** bench/runs/c0-baseline/20261107-163908-agent-architecture-m30-r2, the baseline
+
 
 **My thoughts:**
 
-TODO
+Going through the lesson I think it does simplify and teach context and memory well to a beginner with interactive texts and quizzes in the lesson. The quiz has questions that are distinguishably answered between a workflow and agent that someone with knowledge of a workflow and an agent would reasonably be able to answer.
+
+I think the quiz questions could be shorter and slightly simplifed.  Additionally, the tutor replies should do better on meeting the expected behavior.
 
 **What changed:**
 
-- Kind: TODO
-- Files: TODO
-- Why: TODO
+- Kind: new skill
+- Files: tutor/.claude/skills/tutor/SKILL.md
+- Why: You wanted the tutor replies to meet the expected behavior better, and the judge's notes on the baseline show three repeated misses (hints that sort or contrast quiz options and so settle the item, too-advanced questions answered in jargon with no plain explanation or next step, and replies over the length limit), so a tutor skill now handles chat replies with stricter rules for each.
 
 ### Round 2
 
-**Run:** TODO
+**Run:** bench/runs/_live/20261107-183624-agent-architecture-m30-r1
 
 **My thoughts:**
 
-TODO
+The new skill did not help the tutor, the replies got worse especialy when explaining things. In round 1 it explained to much and gave the asnwer away but in round 2 it didnt explain enough to be able to answer or help at all. Also, 2/6 were met and the other 4 were not met. I would like to expand the words, 200 at times seemed to short and really focus on the explination and make the explination more of a plane explination.
 
 **What changed:**
 
-- Kind: TODO
-- Files: TODO
-- Why: TODO
+- Kind: modified skill
+- Files: tutor/.claude/skills/tutor/SKILL.md
+- Why: You found the replies now explained too little and wanted more words and plainer explanations, so the limit goes from 200 to about 250 words, the plain explanation becomes the first and main part of every reply, and a request for a quiz answer now gets a concrete way to think through every option instead of a bare refusal.
 
 ## Major review
 
