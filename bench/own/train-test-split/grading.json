@@ -4,21 +4,39 @@
     "s1": [
       {
         "id": "q1",
-        "verdict": "wrong",
-        "misconception": "M1",
-        "why": "TODO: why this verdict is the right one"
+        "verdict": "correct",
+        "misconception": null,
+        "why": "b is the keyed answer: the model has already learned from the training data, so measuring accuracy on it gives a score that is too optimistic."
       },
       {
         "id": "q2",
-        "verdict": "correct",
+        "verdict": "wrong",
         "misconception": null,
-        "why": "TODO: why this verdict is the right one"
+        "why": "The answer is 200, the 20% held out for testing. 800 is the size of the training set, so the learner mixed up which part of the 80/20 split is the test set."
       },
       {
         "id": "q3",
+        "verdict": "correct",
+        "misconception": null,
+        "why": "'Once it's out in the real world' means on new data the model has not seen, which is what the test score estimates; the wording is informal but the idea is right."
+      },
+      {
+        "id": "q4",
+        "verdict": "wrong",
+        "misconception": "M5",
+        "why": "Chose a, that checking the test score after every change is what the test set is for. Choosing the model by its test score makes the test set no longer unseen, so this answer shows the belief that it is fine to look at the test score while choosing the model."
+      },
+      {
+        "id": "q5",
         "verdict": "partial",
         "misconception": null,
-        "why": "TODO: why this verdict is the right one"
+        "why": "Says the danger (the model would 'cheat') but not what keeping the rows out achieves: a score that measures how the model does on data it has not seen."
+      },
+      {
+        "id": "q6",
+        "verdict": "wrong",
+        "misconception": "M1",
+        "why": "Chose a, the 99% training accuracy. Only the 70% test accuracy is measured on unseen data, so this answer shows the belief that a high training accuracy is what counts."
       }
     ]
   }

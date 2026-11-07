@@ -4,25 +4,51 @@
     {
       "id": "q1",
       "answer": "b",
-      "rationale": "TODO: why b is right",
+      "rationale": "The model was fit to the training data, so its accuracy there measures how well it learned rows it has already seen, not how it does on new data; that score is too optimistic.",
       "distractors": {
-        "a": "M1",
-        "c": "M2"
+        "a": "M4"
       }
     },
     {
       "id": "q2",
-      "answer": 0,
-      "tolerance": 0.5,
-      "rationale": "TODO: the right number, and how to get it"
+      "answer": 200,
+      "tolerance": 0,
+      "rationale": "An 80/20 split puts 20% of the rows in the test set: 0.20 x 1,000 = 200. The other 800 rows are the training set."
     },
     {
       "id": "q3",
-      "answer": "TODO: the reference answer",
+      "answer": "How well the model will do on new data it has not seen during training.",
       "accepted": [
-        "TODO: another form that counts as right"
+        "How well the model performs on unseen data",
+        "How accurate the model will be on new data",
+        "How the model will do in the real world on data it was not trained on"
       ],
-      "rationale": "TODO: what a right answer must say"
+      "rationale": "A right answer says the test score estimates performance on new or unseen data; everyday wording such as 'in the real world' counts."
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "Choosing the model by its test score fits it a little to the test set each time, so the test set is no longer unseen and its score is too optimistic; those choices belong on a validation set.",
+      "distractors": {
+        "a": "M5"
+      }
+    },
+    {
+      "id": "q5",
+      "answer": "So the test score measures how the model does on new data it has never seen, instead of data it has already learned or memorized.",
+      "accepted": [
+        "So the score shows performance on unseen data",
+        "So the model is evaluated on data it did not learn from"
+      ],
+      "rationale": "A full answer says what the test score then measures: performance on data the model has not seen. Saying only that it prevents cheating names the danger but not what the held-out data is for."
+    },
+    {
+      "id": "q6",
+      "answer": "b",
+      "rationale": "The test accuracy, 70%, is measured on data the model did not see, so it estimates performance on new data; the 99% training accuracy only shows how well the model fits data it has already learned.",
+      "distractors": {
+        "a": "M1"
+      }
     }
   ]
 }

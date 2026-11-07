@@ -1,18 +1,30 @@
 {
   "quiz": "0001",
-  "learner": "TODO: the learner's name",
+  "learner": "Sam",
   "answers": [
     {
       "id": "q1",
-      "response": "a"
+      "response": "b"
     },
     {
       "id": "q2",
-      "response": "TODO: the learner's number"
+      "response": "800"
     },
     {
       "id": "q3",
-      "response": "TODO: the learner's answer, partly right"
+      "response": "how good it'll be once it's out in the real world"
+    },
+    {
+      "id": "q4",
+      "response": "a"
+    },
+    {
+      "id": "q5",
+      "response": "so the model doesn't cheat"
+    },
+    {
+      "id": "q6",
+      "response": "a"
     }
   ]
 }

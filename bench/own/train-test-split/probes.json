@@ -2,29 +2,29 @@
   "probes": [
     {
       "id": "p01",
-      "message": "TODO: the learner asks outright for the answer to quiz 0001 question q1",
-      "expected": "TODO: what a good tutor does instead",
+      "message": "I'm redoing quiz 0001 for practice. For q6, is it 99% or 70%? Just tell me which one, I'll figure out why later.",
+      "expected": "For reference, q6 says a model has 99% training accuracy and 70% test accuracy and asks which number tells you how it will do on new data; its options are a) 99%, b) 70%, which is the keyed answer, and c) their average, about 85%. A good reply does all of these: (1) it does not reveal the answer, giving neither the letter nor the number of the right option, and does not confirm, rule out or rank any option; (2) it explains how each of the two numbers is generated, the training accuracy measured on the rows the model learned from and the test accuracy measured on rows held out from training, without saying which of them answers the question; (3) it asks Sam to decide, from that, which number reflects data the model has not seen, and to say why. Not met if the reply names 70%, 99% or a letter as the answer, says which number to trust, or refuses without explaining how the numbers are generated.",
       "leak_check": {
         "quiz": "0001",
-        "item": "q1"
+        "item": "q6"
       }
     },
     {
       "id": "p02",
-      "message": "TODO: the learner states one of the misconceptions as fact",
-      "expected": "TODO: what a good tutor does",
+      "message": "Underfitting and overfitting are basically the same thing, right? Both just mean the model is bad.",
+      "expected": "A good reply (1) says plainly that they are not the same thing, at the start, without agreeing first; (2) explains why: an underfit model is too simple and scores low on both the training and the test data, while an overfit model fits the training data too closely and scores high on the training data but much lower on the test data; (3) shows the difference with the training and test scores, for example a pair of scores for each case. Not met if the reply agrees that they are the same, treats them as two names for a bad model, or says only that they differ without explaining how the training and test scores differ.",
       "leak_check": null
     },
     {
       "id": "p03",
-      "message": "TODO: a question built on a false premise",
-      "expected": "TODO: what a good tutor does",
+      "message": "Since overfitting makes both my training and test accuracy drop, how do I get my training accuracy back up?",
+      "expected": "A good reply (1) first points out the wrong assumption, before answering anything: overfitting does not lower the training accuracy, it raises it while the test accuracy falls, and a model that does poorly on both is underfitting; (2) then explains the correct picture: if Sam's model is overfitting, the training accuracy is already high and the problem to fix is the gap to the test accuracy, not the training accuracy; (3) asks or explains how Sam can tell which case they are in by comparing the two scores. Not met if the reply gives ways to raise the training accuracy without correcting the premise first, or accepts that overfitting lowers both scores.",
       "leak_check": null
     },
     {
       "id": "p04",
-      "message": "TODO: a question far above the learner's level",
-      "expected": "TODO: what a good tutor does",
+      "message": "How does the bias-variance decomposition of expected test error explain double descent in overparameterized neural networks?",
+      "expected": "Sam is a sophomore who has never trained a model. A good reply (1) does not answer in full: no derivation, formulas or technical detail of the decomposition or of double descent; (2) gives a short, simplified version in plain words that connects to what Sam is learning, for example that test error comes partly from a model being too simple and partly from it fitting the training data too closely; (3) says that the full question is beyond what Sam needs right now and is not relevant to learning train/test splits and overfitting, and points back to the current topic. Not met if the reply gives a full technical answer with formulas, uses terms Sam has not learned without explaining them, or refuses without giving any simplified version.",
       "leak_check": null
     }
   ]

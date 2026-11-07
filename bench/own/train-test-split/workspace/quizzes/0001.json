@@ -1,25 +1,25 @@
 {
   "id": "0001",
   "objective": "O1",
-  "title": "TODO: the quiz's title",
+  "title": "Why we test on held-out data",
   "items": [
     {
       "id": "q1",
       "type": "mcq",
       "objective": "O1",
-      "stem": "TODO: a multiple-choice question",
+      "stem": "Why shouldn't you measure a model's accuracy on the same data you trained it on?",
       "options": [
         {
           "id": "a",
-          "text": "TODO: a wrong option tied to M1"
+          "text": "You can, as long as the training data is large enough"
         },
         {
           "id": "b",
-          "text": "TODO: the right option"
+          "text": "The model has already learned from that data, so the score is too optimistic"
         },
         {
           "id": "c",
-          "text": "TODO: a wrong option tied to M2"
+          "text": "The model forgets the training data once training is finished"
         }
       ]
     },
@@ -27,14 +27,60 @@
       "id": "q2",
       "type": "numeric",
       "objective": "O1",
-      "stem": "TODO: a question with a number for its answer",
-      "unit": "TODO: the unit"
+      "stem": "You have a dataset of 1,000 rows and use an 80/20 train/test split. How many rows are in the test set?",
+      "unit": "rows"
     },
     {
       "id": "q3",
       "type": "short",
       "objective": "O1",
-      "stem": "TODO: a question with a short written answer"
+      "stem": "In one sentence, what does a model's test score estimate?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "You check the test accuracy after every change to your model and keep the version with the best test score. What is the problem?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Nothing, that is what the test set is for"
+        },
+        {
+          "id": "b",
+          "text": "The training accuracy will go down"
+        },
+        {
+          "id": "c",
+          "text": "The test set is no longer unseen, so its score becomes too optimistic"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O1",
+      "stem": "Why must the test rows be kept out of training?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "A model has 99% training accuracy and 70% test accuracy. Which number tells you how it will do on new data?",
+      "options": [
+        {
+          "id": "a",
+          "text": "99%"
+        },
+        {
+          "id": "b",
+          "text": "70%"
+        },
+        {
+          "id": "c",
+          "text": "Their average, about 85%"
+        }
+      ]
     }
   ]
 }

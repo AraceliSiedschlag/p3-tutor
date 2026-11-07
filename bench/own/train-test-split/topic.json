@@ -1,7 +1,7 @@
 {
   "id": "train-test-split",
-  "title": "TODO: the topic's title",
-  "learner_summary": "TODO: who the learner is and what they already know, in two or three sentences",
+  "title": "Train/test splits and overfitting",
+  "learner_summary": "A sophomore at Colorado School of Mines who has taken CSCI 128 and is comfortable writing Python. They have minimal data science experience: they have never trained a model and have never held out data to test one.",
   "minutes": 30,
   "teach_objective": "O2",
   "quiz_objective": "O3",
@@ -12,44 +12,59 @@
   "objectives": [
     {
       "id": "O1",
-      "text": "TODO: what the learner can do after this objective, as one sentence (the graded quiz covers it)"
+      "text": "Explain why a model is evaluated on held-out test data that it never saw during training."
     },
     {
       "id": "O2",
-      "text": "TODO: what the learner can do after this objective, as one sentence (the bench teaches it)"
+      "text": "Recognize overfitting by comparing a model's training score with its test score."
     },
     {
       "id": "O3",
-      "text": "TODO: what the learner can do after this objective, as one sentence (the bench writes a quiz on it)"
+      "text": "Choose between a single train/test split, a validation set and cross-validation for a given situation."
     }
   ],
   "facts": [
     {
       "id": "F2.1",
       "objective": "O2",
-      "text": "TODO: one checkable statement a lesson on O2 must get right"
+      "text": "An overfit model has learned the training data too closely, including its noise and quirks, instead of the general pattern, so it does not carry over to new data."
     },
     {
       "id": "F2.2",
       "objective": "O2",
-      "text": "TODO: one checkable statement a lesson on O2 must get right"
+      "text": "The sign of overfitting is a large gap between the scores: the training score is very high while the test score is much lower."
     },
     {
       "id": "F2.3",
       "objective": "O2",
-      "text": "TODO: one checkable statement a lesson on O2 must get right"
+      "text": "An overfit model has a much higher training score than an underfit model, because an underfit model scores low on the training data too."
     }
   ],
   "misconceptions": [
     {
       "id": "M1",
-      "text": "TODO: a mistaken belief a learner may hold",
-      "correction": "TODO: what is true instead"
+      "text": "A high training accuracy means the model is good enough, no matter what its test score is.",
+      "correction": "The training score only shows how well the model fits data it has already seen; the test score shows how it will do on new data, which is what the model is for. A high training score with a low test score is overfitting."
     },
     {
       "id": "M2",
-      "text": "TODO: a mistaken belief a learner may hold",
-      "correction": "TODO: what is true instead"
+      "text": "Underfitting and overfitting are the same thing.",
+      "correction": "They are opposites: an underfit model is too simple and scores low on both training and test data, while an overfit model fits the training data too closely and scores high on training data but much lower on test data."
+    },
+    {
+      "id": "M3",
+      "text": "Overfitting lowers both the training accuracy and the test accuracy.",
+      "correction": "Overfitting raises the training accuracy while the test accuracy falls; a model that does poorly on both is underfitting."
+    },
+    {
+      "id": "M4",
+      "text": "Measuring accuracy on the training data gives a fair score for the model.",
+      "correction": "The model has already learned from the training data, so its score there is too optimistic; only data it has never seen shows how it will do on new data."
+    },
+    {
+      "id": "M5",
+      "text": "It is fine to look at the test score while choosing or tuning the model.",
+      "correction": "Every choice made by looking at the test score fits the model a little to the test set, so it is no longer unseen and its score becomes too optimistic; choices should be made with a validation set, and the test set used once at the end."
     }
   ]
 }
