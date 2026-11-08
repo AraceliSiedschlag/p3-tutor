@@ -5,20 +5,38 @@
       {
         "id": "q1",
         "verdict": "wrong",
-        "misconception": "M1",
-        "why": "TODO: why this verdict is the right one"
+        "misconception": "M4",
+        "why": "Chose a, that scooping is the most accurate way. Scooping packs the flour so the cup holds too much, so this answer shows the belief that scooping straight from the bag gives the right amount."
       },
       {
         "id": "q2",
         "verdict": "correct",
         "misconception": null,
-        "why": "TODO: why this verdict is the right one"
+        "why": "250 g at 125 g per cup is 2 cups, which is the answer given."
       },
       {
         "id": "q3",
+        "verdict": "correct",
+        "misconception": null,
+        "why": "'Fluff it in with a spoon' is spooning the flour in loosely, and 'scrape the top flat with a butter knife' is leveling it with a flat edge; both parts are there in everyday words."
+      },
+      {
+        "id": "q4",
+        "verdict": "correct",
+        "misconception": null,
+        "why": "a is the keyed answer: a liquid measuring cup read at eye level on a flat counter."
+      },
+      {
+        "id": "q5",
         "verdict": "partial",
         "misconception": null,
-        "why": "TODO: why this verdict is the right one"
+        "why": "Says scales are more exact, which is the conclusion, but not the reason: the amount in a cup changes with how packed the ingredient is, while its weight does not."
+      },
+      {
+        "id": "q6",
+        "verdict": "wrong",
+        "misconception": "M5",
+        "why": "Chose a, that a little extra is fine. Leaveners work in exact amounts and too much makes the cake rise and collapse or taste bitter, so this answer shows the belief that baking measurements can be eyeballed."
       }
     ]
   }

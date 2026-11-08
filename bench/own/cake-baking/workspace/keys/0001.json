@@ -3,26 +3,52 @@
   "items": [
     {
       "id": "q1",
-      "answer": "b",
-      "rationale": "TODO: why b is right",
+      "answer": "c",
+      "rationale": "Pushing the cup into the bag packs the flour, so the cup holds more flour than the recipe means; the extra flour soaks up the liquid and makes the cake dry and dense.",
       "distractors": {
-        "a": "M1",
-        "c": "M2"
+        "a": "M4"
       }
     },
     {
       "id": "q2",
-      "answer": 0,
-      "tolerance": 0.5,
-      "rationale": "TODO: the right number, and how to get it"
+      "answer": 2,
+      "tolerance": 0,
+      "rationale": "250 g divided by 125 g per cup is 2 cups."
     },
     {
       "id": "q3",
-      "answer": "TODO: the reference answer",
+      "answer": "Spoon the flour loosely into the measuring cup without packing it, then sweep the excess off the top with a flat edge.",
       "accepted": [
-        "TODO: another form that counts as right"
+        "Spoon flour into the cup and level it off with a knife",
+        "Lightly fill the cup with a spoon and scrape the top flat"
       ],
-      "rationale": "TODO: what a right answer must say"
+      "rationale": "A right answer has both parts: the flour goes in loosely with a spoon, not packed, and the top is leveled with a flat edge. Informal wording counts."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "A liquid measuring cup has room above the line so the liquid does not spill, and reading it at eye level on a flat surface shows the true level.",
+      "distractors": {
+        "b": "M5",
+        "c": "M5"
+      }
+    },
+    {
+      "id": "q5",
+      "answer": "A weight stays the same however loosely or tightly the ingredient is packed, while the amount in a cup changes with how it was filled.",
+      "accepted": [
+        "Because the amount in a cup depends on how packed it is, but the weight does not",
+        "Cups vary with how you fill them and weight does not"
+      ],
+      "rationale": "A full answer gives the reason: packing changes how much fits in a cup, but not the weight. Saying only that scales are more exact names the conclusion without the reason."
+    },
+    {
+      "id": "q6",
+      "answer": "b",
+      "rationale": "Leaveners are used in small, exact amounts; heaping spoons can add a lot more, and too much baking powder makes the batter rise too fast and collapse, and can leave a bitter taste.",
+      "distractors": {
+        "a": "M5"
+      }
     }
   ]
 }

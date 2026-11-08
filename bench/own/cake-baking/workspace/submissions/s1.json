@@ -1,6 +1,6 @@
 {
   "quiz": "0001",
-  "learner": "TODO: the learner's name",
+  "learner": "Ava",
   "answers": [
     {
       "id": "q1",
@@ -8,11 +8,23 @@
     },
     {
       "id": "q2",
-      "response": "TODO: the learner's number"
+      "response": "2"
     },
     {
       "id": "q3",
-      "response": "TODO: the learner's answer, partly right"
+      "response": "fluff it in with a spoon and scrape the top flat with a butter knife"
+    },
+    {
+      "id": "q4",
+      "response": "a"
+    },
+    {
+      "id": "q5",
+      "response": "because scales are more exact"
+    },
+    {
+      "id": "q6",
+      "response": "a"
     }
   ]
 }

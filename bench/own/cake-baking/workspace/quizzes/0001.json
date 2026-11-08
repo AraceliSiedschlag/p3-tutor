@@ -1,25 +1,25 @@
 {
   "id": "0001",
   "objective": "O1",
-  "title": "TODO: the quiz's title",
+  "title": "Measuring ingredients for a cake",
   "items": [
     {
       "id": "q1",
       "type": "mcq",
       "objective": "O1",
-      "stem": "TODO: a multiple-choice question",
+      "stem": "Why does scooping flour straight from the bag with the measuring cup often give a dry, dense cake?",
       "options": [
         {
           "id": "a",
-          "text": "TODO: a wrong option tied to M1"
+          "text": "Scooping is the most accurate way to measure flour, so that is not the cause"
         },
         {
           "id": "b",
-          "text": "TODO: the right option"
+          "text": "Scooping fluffs the flour up, so the cup holds too little flour"
         },
         {
           "id": "c",
-          "text": "TODO: a wrong option tied to M2"
+          "text": "Scooping packs the flour down, so the cup holds too much flour"
         }
       ]
     },
@@ -27,14 +27,60 @@
       "id": "q2",
       "type": "numeric",
       "objective": "O1",
-      "stem": "TODO: a question with a number for its answer",
-      "unit": "TODO: the unit"
+      "stem": "A recipe calls for 250 g of flour. One cup of spooned-and-leveled flour weighs about 125 g. How many cups is that?",
+      "unit": "cups"
     },
     {
       "id": "q3",
       "type": "short",
       "objective": "O1",
-      "stem": "TODO: a question with a short written answer"
+      "stem": "What does \"spoon and level\" mean when you measure flour?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "What should you use to measure 1 cup of milk?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A liquid measuring cup, read at eye level on a flat counter"
+        },
+        {
+          "id": "b",
+          "text": "A dry measuring cup filled until it looks about full"
+        },
+        {
+          "id": "c",
+          "text": "A coffee mug, since a cup is a cup"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O1",
+      "stem": "Why is weighing ingredients more accurate than measuring them with cups?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "The recipe says 2 teaspoons of baking powder, and you add 2 heaping teaspoons. Does it matter?",
+      "options": [
+        {
+          "id": "a",
+          "text": "No, a little extra is fine in baking"
+        },
+        {
+          "id": "b",
+          "text": "Yes: small amounts of leavener matter, and too much makes the cake rise fast and then collapse, or taste bitter"
+        },
+        {
+          "id": "c",
+          "text": "Only if the cake is chocolate"
+        }
+      ]
     }
   ]
 }

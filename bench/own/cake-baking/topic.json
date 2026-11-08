@@ -1,7 +1,7 @@
 {
   "id": "cake-baking",
-  "title": "TODO: the topic's title",
-  "learner_summary": "TODO: who the learner is and what they already know, in two or three sentences",
+  "title": "Baking a cake from scratch",
+  "learner_summary": "Ava, a college student who has only ever baked cakes from a box mix. She wants to make a cake from scratch, and has never measured flour, chosen a leavener or judged when a cake is done on her own.",
   "minutes": 30,
   "teach_objective": "O2",
   "quiz_objective": "O3",
@@ -12,44 +12,69 @@
   "objectives": [
     {
       "id": "O1",
-      "text": "TODO: what the learner can do after this objective, as one sentence (the graded quiz covers it)"
+      "text": "Measure a cake's ingredients accurately, and explain why weighing flour or spooning it into the cup works better than scooping it from the bag."
     },
     {
       "id": "O2",
-      "text": "TODO: what the learner can do after this objective, as one sentence (the bench teaches it)"
+      "text": "Explain what makes a cake rise, including the difference between baking soda and baking powder, and what goes wrong when it does not rise."
     },
     {
       "id": "O3",
-      "text": "TODO: what the learner can do after this objective, as one sentence (the bench writes a quiz on it)"
+      "text": "Tell when a cake is done, and diagnose common problems such as a sunken middle, a dry cake or a domed top."
     }
   ],
   "facts": [
     {
       "id": "F2.1",
       "objective": "O2",
-      "text": "TODO: one checkable statement a lesson on O2 must get right"
+      "text": "A cake rises because a leavener makes carbon dioxide gas in the batter, and the bubbles expand in the oven's heat until the cake's structure sets around them."
     },
     {
       "id": "F2.2",
       "objective": "O2",
-      "text": "TODO: one checkable statement a lesson on O2 must get right"
+      "text": "Baking soda is a base that needs an acid in the recipe, such as buttermilk, yogurt or lemon juice, to make carbon dioxide; baking powder already contains both baking soda and a dry acid, so it only needs liquid and heat."
     },
     {
       "id": "F2.3",
       "objective": "O2",
-      "text": "TODO: one checkable statement a lesson on O2 must get right"
+      "text": "Baking soda and baking powder cannot simply be swapped one for one: baking soda is about three to four times stronger, and without enough acid it leaves the cake flat with a soapy or metallic taste."
+    },
+    {
+      "id": "F2.4",
+      "objective": "O2",
+      "text": "Oven temperature affects the rise: if the oven is too hot, the outside sets before the inside finishes rising, which gives a domed or cracked top."
+    },
+    {
+      "id": "F3.1",
+      "objective": "O3",
+      "text": "Baking time depends on the size and depth of what is baked: at the same oven temperature, cupcakes are done much sooner than a full layer cake, so a recipe's time is a guide and the cake must still be checked for doneness."
     }
   ],
   "misconceptions": [
     {
       "id": "M1",
-      "text": "TODO: a mistaken belief a learner may hold",
-      "correction": "TODO: what is true instead"
+      "text": "Baking soda and baking powder are the same thing and can be swapped one for one.",
+      "correction": "Baking soda needs an acid in the recipe to work and is about three to four times stronger; baking powder brings its own acid. Swapping them one for one leaves the cake flat, or bitter and soapy."
     },
     {
       "id": "M2",
-      "text": "TODO: a mistaken belief a learner may hold",
-      "correction": "TODO: what is true instead"
+      "text": "Oven temperature and baking time do not really matter, as long as the cake gets baked.",
+      "correction": "Temperature controls how fast the outside sets compared with how fast the cake rises, and time decides whether the middle is cooked: too hot gives a domed or cracked top, and too short a time leaves a raw middle that sinks."
+    },
+    {
+      "id": "M3",
+      "text": "Salt is not important in a cake, so it can be left out.",
+      "correction": "A small amount of salt brings out the cake's flavor and balances the sugar; without it the cake tastes flat and overly sweet."
+    },
+    {
+      "id": "M4",
+      "text": "Scooping flour straight from the bag with the measuring cup gives the right amount.",
+      "correction": "Scooping packs the flour into the cup, so it holds noticeably more flour than the recipe means, which makes the cake dry and dense; spoon the flour in and level it, or weigh it."
+    },
+    {
+      "id": "M5",
+      "text": "Baking measurements can be eyeballed like cooking, so a little extra of an ingredient does not matter.",
+      "correction": "Baking is chemistry: small ingredients such as leaveners work in exact amounts, and too much baking powder makes a cake rise too fast and collapse, or taste bitter."
     }
   ]
 }
