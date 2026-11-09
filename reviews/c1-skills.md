@@ -42,6 +42,35 @@ The new skill did not help the tutor, the replies got worse especialy when expla
 - Files: tutor/.claude/skills/tutor/SKILL.md
 - Why: You found the replies now explained too little and wanted more words and plainer explanations, so the limit goes from 200 to about 250 words, the plain explanation becomes the first and main part of every reply, and a request for a quiz answer now gets a concrete way to think through every option instead of a bare refusal.
 
+### Round 3
+
+**Run:** bench/runs/_live/20261107-185249-agent-architecture-m30-r1
+
+**My thoughts:**
+
+Round 2's helped in some ways and hurt in others. It allowed p04 to be met but p06 failed this time and the replies are about 300 words. I want a quiz skill. 
+
+**What changed:**
+
+- Kind: new skill
+- Files: tutor/.claude/skills/quiz/SKILL.md
+- Why: You asked for a quiz skill, and in Round 1 for shorter, simpler quiz questions, so the new quiz skill caps stems at about 30 words and options at about 12, asks for plain words at the learner's level and one idea per item, and checks the length and the spread of answer letters before it finishes.
+
+### Round 4
+
+**Run:** bench/runs/_live/20261108-215423-agent-architecture-m30-r1
+
+
+**My thoughts:**
+
+The question lengths have decreased which is good. One thing I would like to change is reduce the amount of misconseptions the person has so make sure to explain very clearly what their misconseption is and why it is wrong 
+
+**What changed:**
+
+- Kind: new skill
+- Files: tutor/.claude/skills/grade/SKILL.md
+- Why: You wanted fewer misconceptions to stick, with each one explained very clearly, what it is and why it is wrong, so the new grade skill's feedback on every answer that shows a misconception states the wrong idea plainly from the learner's own answer, explains why it is wrong and what is true instead, and says how to avoid it next time.
+
 ## Major review
 
 **Run:** bench/runs/c1-skills/TODO
