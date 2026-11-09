@@ -73,108 +73,108 @@ The question lengths have decreased which is good. One thing I would like to cha
 
 ## Major review
 
-**Run:** bench/runs/c1-skills/TODO
+**Run:** bench/runs/c1-skills/20261109-003401-agent-architecture-m30-r1
 
 **Live tries:**
 
-TODO
+The lesson was completed quickly, it has sources and images, it gave me the information that it needed and taught me abouty cats body languages. The tutor corrected my misconseption and told me it was a misconception using information from the lesson. The quiz was clean and told me very clearly what I got right and what I got wrong and where/why.I was wrong. The whole process taught, quizzed, and graded me on things.
 
 ### Lesson
 
 #### Technical correctness and facts
 
-Rating: TODO
+Rating: 4
 
-TODO
+The lesson was all very technically correct and it had sources. I gave it a very broad topic and it narrowed it down fro me then taught me multiple different aspects about the topic.
 
 #### Pedagogy
 
-Rating: TODO
+Rating: 3
 
-TODO
+The method to teach was very straight forward, it gave the facts and information without a lot of fluf.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5
 
-TODO
+It did not go over random things and stuck to the topics with both questions, images, paragaphs, and information. It taught me what I needed to know.
 
 #### Overall quality
 
-Rating: TODO
+Rating: 4
 
-TODO
+The lesson did what it was intended to do and taught me about cats in a very simple way. It has had multiple different interactive things with questions on teh topics so it not only taught you but allowed you to try to test your knowledge as well.
 
 ### Quiz
 
 #### Difficulty
 
-Rating: TODO
+Rating: 4
 
-TODO
+The quiz had questions that were directly asked in the lesson but it wasnt to difficult and if I completed the lesson it was 100% doable.
 
 #### Coverage of the lesson's core
 
-Rating: TODO
+Rating: 4
 
-TODO
+I think the quiz did really well at covering what the lesson taught, if I completed the lesson the quiz was 100% doable.
 
 #### Wording and possible misreadings
 
-Rating: TODO
+Rating: 5
 
-TODO
+I think the possible misreading was low it was very easy to read and understand, plus it matched really well with the lesson so if you did the lesson it was harder to misread the questions.
 
 #### Writing quality
 
-Rating: TODO
+Rating: 4
 
-TODO
+The quiz was straight forward and easy to understand without misspellings or incorrect information so I think teh writing quality was good.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5
 
-TODO
+It quizzed you just on stuff about the lesson which is what it was supposed to do and stayed on topic.
 
 ### Feedback
 
 #### Useful
 
-Rating: TODO
+Rating: 4
 
-TODO
+It told me when I was incorrect, told me why, and correct my misconseption
 
 #### Explains enough
 
-Rating: TODO
+Rating: 4
 
-TODO
+It had a good paragrpah telling me why I was incorrect without making it to long.
 
 #### Personalized to how I like things explained
 
-Rating: TODO
+Rating: 3
 
-TODO
+It was straight forward and told me why I was incorrect with some "you were close" so it wasn't completely just like you were wrong
 
 ### Tutor
 
 #### Guardrails
 
-Rating: TODO
+Rating: 4
 
-TODO
+When asking it a misconception it corrected me and explained why I was incorrect. Additionally when asking it to tell me the answer on a quiz it said it could not then explained it to me.
 
 #### Personalization
 
-Rating: TODO
+Rating: 3
 
-TODO
+I am not sure it was necessarly personalized, it was striaght forward and told me what I needed to know and not know which was good.
 
 ### Compared with the previous step
 
-TODO
+The previous step was the baseline so I am not sure how much that has changed but this one was far more interactive than the baseline with more personalization and stricker word counts and ways to answer question
 
 ### What the next step should fix
 
-TODO
+I want to change the quiz so that it makes sure that no quiz questions directly from the lesson word for works.

@@ -44,3 +44,12 @@ An example of a finished entry:
 - With and without: reviews/c1-skills.md, Round 4 (without) and Round 5 (with)
 - Review: TODO
 - Kept in final: TODO
+
+### teach
+
+- Kind: skill
+- Step added: c1-skills
+- Purpose: TODO
+- With and without: not changed in a round; it is the shipped skill, the same in c0-baseline and c1-skills
+- Review: TODO
+- Kept in final: TODO
