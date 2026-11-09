@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Nice, d is exactly right. The loop is what makes it an agent: the model picks an action, that action gets run, the result comes back, and it repeats. A beefier prompt or a bigger model just makes one step smarter - it doesn't change that structure at all."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Your answer assumes that the model itself opens the booking system and reads the calendar directly. That's not what happens: the model only outputs a structured request naming check_calendar with its arguments (laser cutter, tomorrow) - the program around it is what actually runs the tool and fetches the real data. It's an easy slip because from the outside it feels like one smooth action, like the assistant 'just checks the calendar.' Keep this line fixed: the model only ever writes text, including tool-call requests - it never touches a system or executes code itself."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Yes, b. A step limit is the safety net here, not a bigger model or a sterner prompt - once it's looping on the same failed edit, more steps or more scolding won't break the cycle. Good instinct to reach for the stopping condition."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Your answer assumes the model runs the three tools itself inside one call, so it only gets asked once. What actually happens is each tool request ends a model call - the program runs check_calendar, search_manuals and check_training_record, and feeds each result back in as a fresh input - so the model is called four times: once per tool result, plus once for the final answer. It's tempting because the three tool calls all feel like one smooth stretch of 'the model doing its thing,' but the model's whole job each time is to produce one request or one answer - the running happens outside it, in the program. A quick check: count tool requests and add 1 for the final answer, and you've got the number of model calls every time."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You've got the 'what' right - yes, the result goes back to the model. What's missing is the 'why': it goes back as part of the model's next input, specifically so the model can use it to decide its next step or write the final answer. Add that reason and it's a complete answer."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "The first half is spot on - the model picks a tool from the name-and-description list it's handed, matching the one that fits the request. But your answer assumes the model also remembers, on its own, which tool it picked in earlier sessions - it doesn't. Each call starts fresh with no built-in memory of past conversations; if you want that kind of continuity, your program has to store it explicitly (say, in a database) and feed it back in as part of the input, the same way a tool's result gets fed back. It's a tempting idea because a good assistant does feel like it remembers you across visits, but that's the program doing bookkeeping, not the model being naturally sticky. Stick to: the model only knows what's in its current input, nothing more."
+    }
+  ],
+  "summary": "You've got the loop itself down cold - q1 and q3 show you know what makes something an agent and why a stopping condition matters. The thing to fix now is one idea that's tripping you up twice: the model never runs a tool itself, it only asks for one and the program runs it and hands the result back (that's what got q2 and q4). Worth also double-checking q6's slip that the model remembers across sessions on its own - it doesn't, unless the program saves and resends that. For practice, next time you trace a request on paper, label every single step 'model' or 'program' before you say what happens - if you catch yourself writing 'the model runs/remembers/checks X,' stop and ask who's really doing that."
+}

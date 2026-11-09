@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, it's the loop that makes it an agent, not a fancier prompt or a bigger model. That loop - pick an action, run it, feed the result back - is the one thing your makerspace assistant can't skip if it's going to act on the calendar and not just talk about it."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, when the model decides to call check_calendar, what it actually outputs is just a structured request naming the tool and its arguments - no calendar access, no code. Good instinct to rule out the model touching the booking system directly."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Your answer picks \"no change, it'll eventually fix the bug\" - that assumes more attempts naturally lead somewhere better, even though all 40 steps are the same failing edit sitting in context already. Nothing about repeating an identical action with identical feedback makes the next one different, so the loop just burns steps; what actually helps is a step limit that halts it and hands the problem to a person. It's an easy trap because models can look like they're \"trying harder\" the longer they run, when really they're stuck. Next time you see the same action and the same result twice, call that a stall, not progress, and look for the stopping rule."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "The count is right - 4 calls, and your enumeration of check_calendar, search_manuals, check_training_record, then the final answer is exactly how to get there. But the reasoning you gave says \"the model can only run one tool itself each time it's called\" - that pictures the model executing check_calendar, search_manuals and check_training_record, when really the model only ever outputs a request naming a tool; it's the program around it that runs the code and hands the result back. It's tempting to blur that line because tools feel like things your assistant \"does.\" Try narrating it as two separate players each time: model requests, program runs - and the call count follows from how many times the model gets a turn, not how many actions it performs."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct, and the group-chat analogy is a good one: the tool's result gets added to what the model sees next, then the model gets another turn with that in front of it to decide what's next or to answer. Worth noticing - that's also why context grows every single step, which is going to matter once you're budgeting tokens."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You've got the right mechanism - the model does go off the tool's name, not its code. What's missing is the rest of the description: the purpose and parameters the program gives alongside the name. A name alone can be misleading (check_calendar could just as easily mean \"check the room calendar\" or \"check a public holiday calendar\"), so write your own tool descriptions to spell out what the tool does and what it takes, not just what you call it."
+    }
+  ],
+  "summary": "You've got the agent loop solid - what makes it an agent, what the model outputs when it calls a tool, and what happens to a tool's result afterward are all clean. The one to fix next is q3's idea: an agent stuck repeating the same failed step won't fix itself by running longer, it needs a stopping condition built into the program, which matters directly for a coding or booking agent that could loop on a bad edit. There's also a smaller thread showing up in q4 - still picturing the model as the one running the tool rather than just requesting it - worth watching for when you write your first real tool definition. Next step: sketch what a step-limit safeguard would actually look like in your makerspace assistant's loop, including what it reports back when it trips."
+}

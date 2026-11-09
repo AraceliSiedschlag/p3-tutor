@@ -1,0 +1,43 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A workflow's code fixes the step order before a request ever arrives; an agent's model picks its next step itself, from what has happened so far. Calling a model (c) only means AI is used somewhere, not who is steering, and the step count (d) describes length, not control.",
+      "distractors": {"c": "M7", "d": "M10"}
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "The order here never changes (training, then calendar, then booking), so it is a workflow even though one step happens to call a model inside it. Calling a model (a) or using several tools (b) does not by itself make something an agent, and a workflow can call a model inside one of its fixed steps, so 'never' (c) is wrong.",
+      "distractors": {"a": "M7", "b": "M10", "c": "M8"}
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Checking whether one named student is trained on one named machine is the same few steps every time, so fixing that order in code works well. The other three need a judgment call that differs with every request, so they fit an agent better."
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "A fixed workflow skips the cost of having the model re-decide the same next step on every run, so a check that never changes stays cheap and predictable. Saying agents should never be used (a) overgeneralizes one case into a rule, a workflow can still call a model inside a fixed step (b), and design does change cost (d).",
+      "distractors": {"a": "M9", "b": "M8"}
+    },
+    {
+      "id": "q5",
+      "answer": "an agent",
+      "accepted": ["agent", "an agent, since the steps cannot be fixed in advance"],
+      "rationale": "Working out safe settings for an unfamiliar material and shape needs reasoning over the manuals that cannot be pinned to one fixed sequence decided in advance, which is what an agent is for. Answering 'workflow' assumes every such question follows the same few steps, which this one does not."
+    },
+    {
+      "id": "q6",
+      "answer": "Because that check is the same every time, so fixing its order in code is cheaper and more predictable than having the model decide it anew on every run.",
+      "accepted": [
+        "Because the check never changes, a fixed order is cheaper and more reliable than letting the model re-decide it each time.",
+        "The steps are always the same, so a workflow is cheaper and more consistent than an agent deciding them again each run."
+      ],
+      "rationale": "Full credit names both parts: the check is the same every time, and fixing its order is cheaper and more predictable than an agent re-deciding it. Naming only 'it's faster', without the repeatability reason behind it, is partial."
+    }
+  ]
+}

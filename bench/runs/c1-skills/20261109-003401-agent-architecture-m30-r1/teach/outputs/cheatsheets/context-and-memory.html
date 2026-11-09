@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --ok: #2f6b3a; --ok-soft: #e7f2e9; --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e;
+        --accent: #eaa77a; --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22;
+        --ok: #9fd3a8; --ok-soft: #1c2a1f; --code-bg: #23211e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 18px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.55; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+    .kicker { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    h2 { font-size: 1.1rem; margin: 1.75rem 0 0.5rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.25rem; }
+    dfn { font-style: normal; font-weight: 600; color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.75rem 0; font-family: var(--sans); }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.55rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    .box { border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.95rem; }
+    .warn { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .warn strong { color: var(--warn); }
+    ul { padding-left: 1.2rem; }
+    code { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 4px; padding: 0.1em 0.3em; }
+    footer { margin-top: 2rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--muted); font-family: var(--sans); }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --warn: #000; --warn-soft: #f2f2f2; }
+      main { max-width: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div class="kicker">Cheat sheet</div>
+  <h1>Context and memory</h1>
+  <p>One page back to <a href="../lessons/0001-context-and-memory.html">lesson 0001</a>, objective O3.</p>
+
+  <h2>Core terms</h2>
+  <ul>
+    <li><dfn>Context</dfn> &mdash; everything the model is given for one call: system instructions, tool descriptions, conversation so far, latest tool result.</li>
+    <li><dfn>Context window</dfn> &mdash; the token limit on that one pile; shared between input and output.</li>
+    <li><dfn>Token</dfn> &mdash; the chunk of text the model reads/writes, roughly &frac34; of a word.</li>
+    <li><dfn>Context rot</dfn> &mdash; accuracy at recalling a fact drops as the window fills with tokens, even unrelated ones.</li>
+    <li><dfn>Note (agentic memory)</dfn> &mdash; a small fact the program writes outside the context window and reads back later.</li>
+    <li><dfn>Retrieval</dfn> &mdash; fetching just the relevant chunk of something too big to carry, on demand, instead of pre-loading all of it.</li>
+    <li><dfn>Progressive disclosure</dfn> &mdash; narrowing in on the right chunk through a sequence of searches, rather than one guess.</li>
+  </ul>
+
+  <h2>What survives what</h2>
+  <table>
+    <thead><tr><th>Boundary</th><th>What happens by default</th><th>How to change it</th></tr></thead>
+    <tbody>
+      <tr><td>Between steps, same session</td><td>Everything accumulates &mdash; nothing is dropped automatically</td><td>Summarize or drop old tool results on purpose</td></tr>
+      <tr><td>Between sessions</td><td>Whole context window is discarded; nothing carries over</td><td>Write a note before the session ends; read it back at the start of the next one</td></tr>
+      <tr><td>A source too big for context (a manual, a logbook)</td><td>Never loaded in full</td><td>Retrieval: search for and fetch just the relevant chunk, when needed</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Notes vs. retrieval</h2>
+  <table>
+    <thead><tr><th>&nbsp;</th><th>Notes</th><th>Retrieval</th></tr></thead>
+    <tbody>
+      <tr><td>Best for</td><td>Small, rarely-changing facts</td><td>Large sources, searched fresh each time</td></tr>
+      <tr><td>Typical failure</td><td>Fact was never written down</td><td>Search missed the right chunk</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Misconceptions to watch for</h2>
+  <div class="box warn"><strong>M7</strong> &mdash; "A bigger context window makes the agent more reliable." Wrong: more tokens in the pile, including stale ones, causes context rot, not better recall.</div>
+  <div class="box warn"><strong>M3</strong> &mdash; "The agent automatically remembers earlier conversations." Wrong: nothing crosses a session boundary unless a note was deliberately written and read back.</div>
+  <div class="box warn"><strong>M8</strong> &mdash; "If it can search the source, it has effectively read all of it." Wrong: the model only ever sees the chunk a search actually returned.</div>
+
+  <footer>From the makerspace assistant mission &middot; sources: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic, "Effective context engineering for AI agents"</a>; <a href="https://www.ibm.com/think/topics/context-engineering">IBM, "What Is Context Engineering?"</a></footer>
+</main>
+</body>
+</html>

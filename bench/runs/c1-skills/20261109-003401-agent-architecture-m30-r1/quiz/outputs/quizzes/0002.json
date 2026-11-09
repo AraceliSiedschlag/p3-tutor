@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows vs agents: who controls the steps",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "What decides whether a system is a fixed workflow rather than an agent?",
+      "options": [
+        {"id": "a", "text": "Whether a human reviews its output before it is used"},
+        {"id": "b", "text": "Whether the code sets the order, or the model decides live"},
+        {"id": "c", "text": "Whether it calls a language model at any point"},
+        {"id": "d", "text": "How many steps it takes before it finishes"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your booking code always checks training, then the calendar, then books the slot; one step calls a model to read the student's request. Is this a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "An agent, because it calls a language model"},
+        {"id": "b", "text": "An agent, because it uses more than one tool"},
+        {"id": "c", "text": "Neither, because a workflow can never call a model"},
+        {"id": "d", "text": "A workflow, because the step order is fixed in code"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which of these makerspace tasks fits a fixed workflow better than an agent?",
+      "options": [
+        {"id": "a", "text": "Checking whether a student is trained on one named machine"},
+        {"id": "b", "text": "Recommending which machine best suits a vague project idea"},
+        {"id": "c", "text": "Diagnosing an error message a student pastes in, unseen before"},
+        {"id": "d", "text": "Suggesting print settings for a material no one has tried"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your model budget is small. For a simple, repeatable check, why might a workflow beat an agent?",
+      "options": [
+        {"id": "a", "text": "Agents should never be used, since they always cost more"},
+        {"id": "b", "text": "A workflow cannot call a model, so it is cheaper"},
+        {"id": "c", "text": "It skips the model re-deciding the same step every run"},
+        {"id": "d", "text": "Cost is the same either way, so design does not matter"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A student asks what resin-print settings would survive boiling water for an odd-shaped part. Is this better answered by a fixed workflow or an agent?"
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Your assistant currently lets the model decide even whether a slot is still free before confirming a booking. Why would a fixed workflow fit that check better?"
+    }
+  ]
+}

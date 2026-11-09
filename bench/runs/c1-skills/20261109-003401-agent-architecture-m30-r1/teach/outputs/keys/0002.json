@@ -1,0 +1,38 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "180 + 250 + 900 + 120 = 1,450 tokens. The context window is one shared pile for a single call: the standing system instructions and tool descriptions cost just as much as the freshly retrieved page or the model's own reply, because all of them have to be read (or written) on this call.",
+      "distractors": {"a": "M9", "d": "M9"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "This is context rot: as the number of tokens in the window grows, the model's ability to accurately recall any one fact from it tends to fall, especially once most of those tokens are old and no longer relevant. Nothing in the loop automatically trims or resets the window (b, d are invented mechanisms), and every one of the 30 steps' tokens, not just the system instructions, counts toward the window and the bill (c).",
+      "distractors": {"c": "M9"}
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "With no memory system built, Friday's session starts with a completely empty context window; Monday's entire conversation, allergy mention included, was discarded when that session ended. Nothing about the model's general skill (a) or the window's size (c) changes that, and matching wording (d) has no bearing on whether a fact that was never saved can be recalled.",
+      "distractors": {"a": "M3"}
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Retrieval only ever hands the model whatever chunk the search actually returned. A missed match means the model genuinely never saw the correct page, and it will still answer fluently and confidently from whatever it did get — that confidence is not evidence it read more than it did (b). The context window's size has nothing to do with which page a search matched (c), and the model does not run the search tool itself; the program does, from the model's request (d).",
+      "distractors": {"b": "M8", "d": "M4"}
+    },
+    {
+      "id": "q5",
+      "answer": "The training session's context window gets discarded once that session ends, so if the fact isn't written down somewhere outside it, it's gone by the next visit; a saved note persists across sessions and can be read back in to any later session, however many days later it happens.",
+      "accepted": [
+        "Because the context window is thrown away at the end of the session, so without a note the fact wouldn't survive to the next visit; a note is written outside the window and can be loaded back in later.",
+        "A session's context doesn't carry over to future sessions, so the training fact has to be saved somewhere outside it to be available later."
+      ],
+      "rationale": "Full credit names both halves: that the session's context is discarded when it ends, and that a note written outside the context window is what makes the fact available in a later session. Saying only that the agent 'remembers' it, with no mechanism, misses the point and risks M3; naming only one half is partial."
+    }
+  ]
+}

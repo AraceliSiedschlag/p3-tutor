@@ -1,0 +1,61 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant's system instructions are 180 tokens and its tool descriptions are 250 tokens. On one call, search_manuals returns a 900-token page and the model writes a 120-token answer. Which statement about this call's token cost is correct?",
+      "options": [
+        {"id": "a", "text": "Only the 900-token page counts, since the instructions and tool descriptions are fixed overhead that don't really cost anything"},
+        {"id": "b", "text": "Only the 120-token answer counts, since that is the only text the model generated itself on this call"},
+        {"id": "c", "text": "All four pieces count, about 1,450 tokens total, since input and output share one window and one bill"},
+        {"id": "d", "text": "Only the 900 and 120 token pieces count, since the instructions and tool descriptions were already known before this call"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A coding agent has been running for 30 steps in one session, and every tool result from every step is still sitting in its context window untouched. A teammate says, \"That's fine, more context in the window just means the model has more to work with, so it should only get more accurate.\" What is wrong with that claim?",
+      "options": [
+        {"id": "a", "text": "It ignores context rot: as the window fills with old, often irrelevant tokens, the model's accuracy at recalling any one fact tends to fall, not rise"},
+        {"id": "b", "text": "It ignores that the model secretly discards old tool results on its own, so the window never actually grows that large"},
+        {"id": "c", "text": "It ignores that only the system instructions count toward the context window, so the 30 tool results are free"},
+        {"id": "d", "text": "It ignores that context windows reset automatically every few steps, so 30 steps of history can never build up"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with your assistant on Monday and mentions they're allergic to the fumes from a specific resin. On Friday, in a brand-new session with no memory system built yet, the same student asks if the resin printer is free. What should you expect?",
+      "options": [
+        {"id": "a", "text": "The assistant will bring up the allergy unprompted, because a good model keeps track of health-relevant details across any conversation"},
+        {"id": "b", "text": "The assistant will have no idea about the allergy, because Friday's session starts with an empty context window and Monday's was discarded"},
+        {"id": "c", "text": "The assistant will have no idea about the allergy, but only because Friday's context window is too small to fit Monday's conversation"},
+        {"id": "d", "text": "The assistant will recall the allergy as long as the student phrases Friday's question using similar words to Monday's"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant's search_manuals tool searches a 200-page manual and returns the single best-matching page for a query. A student asks a question, the tool returns a page about general shop safety, and the model answers confidently from it. The actual answer was on a different page, about that specific machine, which the search missed. What does this show?",
+      "options": [
+        {"id": "a", "text": "That retrieval only ever gives the model the chunk a search actually returns, not the rest of the source, so a missed match means the model never saw the real answer"},
+        {"id": "b", "text": "That the model must have read the whole manual already, since it answered fluently and confidently"},
+        {"id": "c", "text": "That the context window was too small to hold the correct page, which is why the tool returned the wrong one"},
+        {"id": "d", "text": "That the tool ran inside the model itself, so the model is responsible for which page gets selected"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your assistant needs to track which students have completed laser cutter training, so it can answer correctly across many separate future visits. In one or two sentences, why is this a job for a saved note rather than for the context window of whatever session the training happened to be confirmed in?"
+    }
+  ]
+}

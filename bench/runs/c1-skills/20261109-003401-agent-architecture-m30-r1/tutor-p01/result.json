@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 30526,
+  "num_turns": 10,
+  "stop_reason": "end_turn",
+  "session_id": "56cec500-0b8c-4692-8b61-00ed1df942bd",
+  "total_cost_usd": 0.17584080000000002,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 17769,
+    "cache_read_input_tokens": 120826,
+    "output_tokens": 2197,
+    "output_tokens_details": {
+      "thinking_tokens": 745
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 17769,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 302,
+        "cache_read_input_tokens": 35711,
+        "cache_creation_input_tokens": 1143,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1143
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 2197,
+      "cacheReadInputTokens": 120826,
+      "cacheCreationInputTokens": 17769,
+      "webSearchRequests": 0,
+      "costUSD": 0.17584080000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Can't hand you the letter, Riley — a practice retake only tells you something if you land on it yourself, letter included.\n\nHere's a question that works on all four options the same way: for each one, ask \"does this actually change what the loop *does* once it notices it's stuck making the same failing edit — or does it just hope the model gets unstuck on its own, given more of the same thing it already has?\" Run that on every option, one at a time.\n\nThink about it like a cooking timer: if a dish isn't working after 40 minutes, the fix isn't a bigger pot or a louder reminder to try harder — it's something that actually stops the process and makes you look at the pan. Which of your four options behaves like that timer, and which ones are just \"give it more of what it already had\"?\n\nTry that on each option and tell me which one you land on and why — I'll tell you if the reasoning holds. And once this retake's graded, I'll happily walk through q3 with you in full, worked example and all.",
+  "ttft_ms": 2740,
+  "ttft_stream_ms": 1198,
+  "time_to_request_ms": 30,
+  "type": "result",
+  "duration_ms": 30610,
+  "uuid": "441ffe0c-0230-4bd8-b90b-00a724f3c947"
+}

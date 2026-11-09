@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 42095,
+  "num_turns": 7,
+  "stop_reason": "end_turn",
+  "session_id": "13505a06-7f1e-406b-9875-42f71d90d4b6",
+  "total_cost_usd": 0.1847898,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 17256,
+    "cache_read_input_tokens": 119066,
+    "output_tokens": 3034,
+    "output_tokens_details": {
+      "thinking_tokens": 1623
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 17256,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 556,
+        "cache_read_input_tokens": 34338,
+        "cache_creation_input_tokens": 2003,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2003
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 3034,
+      "cacheReadInputTokens": 119066,
+      "cacheCreationInputTokens": 17256,
+      "webSearchRequests": 0,
+      "costUSD": 0.1847898,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Tool calling is the model writing up an order ticket for an action instead of doing the action itself — someone else actually does it and hands back a result slip.\n\nPicture a restaurant: the chef (the model) never leaves the pass to go grab eggs or fire the grill. Instead, the chef scribbles a ticket — \"2 eggs, scrambled, no salt\" — and sends it back. The line cook (your program, not the model) is the one who actually walks to the fridge, cracks the eggs, cooks them. When it's plated, the line cook sends back a slip: \"done, plate's up, slightly overcooked.\" The chef never saw the stove — all they know is what's written on that slip.\n\nThat's a tool call: the model doesn't touch the booking calendar or the manuals directly. It writes \"call check_availability, laser cutter, Friday\" — that's the ticket. Your code is the line cook: it actually hits the calendar API, gets a real answer, and hands the model back a slip of text like \"free 2-5pm.\" The model only ever reacts to that slip.\n\nHere's the part that trips people up, and it's the part I'd bet is still fuzzy for you: every time the chef reads a new slip, it's actually a brand-new chef walking up to the pass who's handed the whole order pad (everything said and done so far) to catch up, decides the next line, then leaves. The model doesn't sit there \"waiting\" for the result — your program calls it fresh each time, with the growing transcript as its only memory of what happened.\n\nWhere it breaks down: a real line cook can improvise; a tool can't — it only does exactly what its ticket says, nothing more.\n\nDoes that \"new chef each time\" part match what's confusing you, or is it more the ticket-writing side?",
+  "ttft_ms": 2699,
+  "ttft_stream_ms": 1053,
+  "time_to_request_ms": 60,
+  "type": "result",
+  "duration_ms": 42207,
+  "uuid": "bc12677a-6327-4485-ae54-bb189f12f746"
+}

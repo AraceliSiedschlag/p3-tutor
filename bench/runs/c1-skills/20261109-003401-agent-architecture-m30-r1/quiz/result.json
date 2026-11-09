@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 209198,
+  "num_turns": 21,
+  "stop_reason": "end_turn",
+  "session_id": "5aa69dfe-f98c-43ab-8136-84d90eee486e",
+  "total_cost_usd": 0.6666338999999999,
+  "usage": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 45901,
+    "cache_read_input_tokens": 345363,
+    "output_tokens": 19171,
+    "output_tokens_details": {
+      "thinking_tokens": 14943
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 45901,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 150,
+        "cache_read_input_tokens": 47857,
+        "cache_creation_input_tokens": 17129,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 17129
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 18,
+      "outputTokens": 19171,
+      "cacheReadInputTokens": 345363,
+      "cacheCreationInputTokens": 45901,
+      "webSearchRequests": 0,
+      "costUSD": 0.6666338999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Quiz **0002** is ready: `quizzes/0002.json` with its key at `keys/0002.json`, 6 items on objective O4 (workflows vs. agents — who controls the steps, and when a fixed workflow wins).\n\nThis objective hasn't been taught in a lesson yet, so the quiz checks O4 cold, grounded in the makerspace-assistant scenarios from your mission (training checks, booking slots, open-ended manual questions).",
+  "ttft_ms": 2064,
+  "ttft_stream_ms": 1313,
+  "time_to_request_ms": 31,
+  "type": "result",
+  "duration_ms": 210844,
+  "uuid": "3f0ee27c-0722-482e-8128-f0c71c0946df"
+}
