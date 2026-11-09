@@ -122,6 +122,8 @@ The baseline did okay with teach facts with 71% but that average was pulled down
 Name the rounds that built this step, such as `c1-skills` Rounds 1 to 4, and the inventory entries of the skills they added; the trail from thoughts to change to outcome is already in `reviews/` and `reviews/components.md`, so do not retell it here.
 Then what you put in `PREFERENCES.md`, and anything about how the four skills work together that no single inventory entry says.
 
+Between this round, I changed the preferences to include my hobbies, keep the information straight forward, and to tell me plainly what is right, what is wrong with the reasoning and how to fix it. Round 1 added the tutor skill, round 2 revised the tutor skill, round 3 added the quiz skill, round 4 added the grade skill.  The skills work together by having each job be its own separate session, started by its own skill: /teach, /quiz, /grade or /tutor. None of them passes anything to the next. What they share is that each one reads PREFERENCES.md and the learner's files for itself, and quiz and grade both use guides stored in teach's folder.
+
 ### Your review, the objective checks and the cost
 
 Paste `uv run p3 report --configs c0-baseline,c1-skills`: the objective checks, the cost per job, and your ratings.
@@ -209,7 +211,9 @@ Where they disagree, which do you believe, and why?
 What did the step cost per scenario, and was the gain worth it?
 Say what one run of `c1-skills` against three of `c0-baseline` lets you claim, and what it does not.
 
-TODO: your judgment of step 1.
+The Teach skill stayed consistantly good with facts correct, length ratio increased to 0.83, and the cost landed in the middle of baseline 3 and the others with a cost of $3.41. It was lower than baseline 4 of fit to learner. The quiz questions stayed lower than the baseline runs at 30 and an average of 21 with answer letters of varying but it was only one run.IT kept consistant with 2 short answers on the quiz and another 100% on key agreement with a cost of $0.67. For the grading skill the verdict and misconseption named were consistantly very high being at 100%  The average word feedback were larger and a for c1-skills with a cost of $0.87. Finally, tutor was consistantly at 0.33 with one exception across the baseline and the c1-skills, probes were similar of p03 and p04 with two and those are the ones consistantly being passed so there isnt much change with a shorter words than the baseline average with a cost of $1.17.
+While completing the live test I saw that it didnt give me answers and corrected my misconseption but the overall the guardrails score only passed 2 of 6 score so my singular run did not match up with the tests. I would trust the 2/6 better than my single one after learning and doing the lesson the other would have more variability to see what is actually being reported. While completing the example I did not see it use any of my preferences for answering or giving feedback, however, it did do use kitchen analogy in the lesson and a cooker-timer analogy. However, we cannot be that sure because c1-skills whole process was ran once so it is not averaged which would make for better testing. I do believe this was worth the cost because most of the time it stayed the same or barely moved except with lesson length ratio which shared a 0.83 significantly higher than 0.71 and Longest question words which was shorter. I can claim that lesson length ratio raised because it's outside all four baseline runs, but I can't claim that Answer letters changed because it's inside them. Additionally, the costs are similar enough that it seems worth the money.
+
 
 ---
 
