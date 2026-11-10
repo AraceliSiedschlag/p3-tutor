@@ -22,34 +22,34 @@ An example of a finished entry:
 
 - Kind: skill
 - Step added: c1-skills
-- Purpose: TODO
+- Purpose: Added to reduce giving out quiz answers and running longer. Answer students questions about the chosen topic.I
 - With and without: reviews/c1-skills.md, Round 1 (without) and Round 2 (with)
-- Review: TODO
+- Review: When using tutor it created answeres and corrected misconceptions which was helpful. Otherwise, you can miss or continue believing what you are doing. With this skill the misconseption feedback grew in word count.
 - Kept in final: TODO
 
 ### quiz
 
 - Kind: skill
 - Step added: c1-skills
-- Purpose: TODO
+- Purpose: Added to quiz students on a topic they learned to show if they did learn. Creates a short mcq and short response quiz on the given topic.
 - With and without: reviews/c1-skills.md, Round 3 (without) and Round 4 (with)
-- Review: TODO
+- Review: It helped to make sure you understood the lesson and pair with grader if you missed something. With this skill it helped to lower the word count compare to with and without.
 - Kept in final: TODO
 
 ### grade
 
 - Kind: skill
 - Step added: c1-skills
-- Purpose: TODO
+- Purpose: Added to give users feedback on their quiz, grade quiz, and correct misconceptions or other incorrect thinkings/answers.
 - With and without: reviews/c1-skills.md, Round 4 (without) and Round 5 (with)
-- Review: TODO
+- Review: It helps to give feedback and correct misconseption while grading a users quiz
 - Kept in final: TODO
 
 ### teach
 
 - Kind: skill
 - Step added: c1-skills
-- Purpose: TODO
+- Purpose: Added to create a lesson for a specific topic. This includes interactive sections, pictures, and sources.
 - With and without: not changed in a round; it is the shipped skill, the same in c0-baseline and c1-skills
-- Review: TODO
+- Review: It worked well to create a ten min interactive lesson that stayed on topic and taught the user.
 - Kept in final: TODO
