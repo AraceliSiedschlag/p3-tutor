@@ -24,7 +24,7 @@ An example of a finished entry:
 - Step added: c1-skills
 - Purpose: Added to reduce giving out quiz answers and running longer. Answer students questions about the chosen topic.I
 - With and without: reviews/c1-skills.md, Round 1 (without) and Round 2 (with)
-- Review: When using tutor it created answeres and corrected misconceptions which was helpful. Otherwise, you can miss or continue believing what you are doing. With this skill the misconseption feedback grew in word count.
+- Review: When using tutor it created answeres and corrected misconceptions which was helpful. Otherwise, you can miss or continue believing what you are doing. Tutors price decreased with the skill but probes 2/6 passing stayed the same with and without.
 - Kept in final: TODO
 
 ### quiz
@@ -42,7 +42,7 @@ An example of a finished entry:
 - Step added: c1-skills
 - Purpose: Added to give users feedback on their quiz, grade quiz, and correct misconceptions or other incorrect thinkings/answers.
 - With and without: reviews/c1-skills.md, Round 4 (without) and Round 5 (with)
-- Review: It helps to give feedback and correct misconseption while grading a users quiz
+- Review: It helps to give feedback and correct misconseption while grading a users quiz. With this skill the misconseption feedback grew in word count.
 - Kept in final: TODO
 
 ### teach
