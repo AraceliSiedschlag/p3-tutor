@@ -63,7 +63,25 @@ Mention only things the learner can see; never refer to `NOTES.md`, learning rec
 
 ## Write and finish
 
-1. Write `grades/NNNN-sN.json`, named after the quiz and the submission, exactly as `FORMATS.md` shows, with one entry per quiz item in the quiz's order, unanswered items included.
-2. Check before you finish: every verdict against the key and `GRADING.md`; every misconception id exists in the workspace; every item with a misconception says plainly what the wrong idea is and why it is wrong.
-3. Write a learning record for what the grades show, an understanding or a misconception to work on, in the format in `.claude/skills/teach/references/LEARNING-RECORD-FORMAT.md`, and update `NOTES.md`.
-4. Finish in the chat with the summary and the next step.
+1. Take the grades file name `NNNN-sN.json`, after the quiz and the submission, and write the draft, exactly as `FORMATS.md` shows, with one entry per quiz item in the quiz's order, unanswered items included, to `drafts/grades-NNNN-sN.json`; not yet to `grades/`.
+2. Check the draft yourself first: every verdict against the key and `GRADING.md`; every misconception id exists in the workspace; every item with a misconception says plainly what the wrong idea is and why it is wrong.
+
+## Review loop
+
+A reviewer with a fresh context reads the feedback the way the learner will, which you cannot do with your own reasoning in view.
+
+1. Start the `grade-reviewer` subagent with a task message that gives only the paths of the draft, the quiz, its key and the submission.
+   Do not pass your reasoning or a summary of the grades.
+2. **Wait for its report before you do anything else**; do not revise or finish while it is running.
+3. Fix every finding marked must-fix, and every other finding unless you have a clear reason not to, in the draft.
+   Change a verdict only when the reviewer's reason holds against the key and `GRADING.md`.
+4. If the report had any finding, start the reviewer again on the revised draft, the same way, and wait for it: this is the second pass.
+   Fix what it finds once more.
+5. **Stop after two passes**, or earlier when a report has no findings. Never start a third.
+6. Write the final grades to `grades/NNNN-sN.json`, exactly as `FORMATS.md` shows.
+7. Write a short record to `review-records/NNNN-sN-grade.md`: how many passes ran, each finding by check number and item, and what you changed for it or why you left it.
+
+## After grading
+
+1. Write a learning record for what the grades show, an understanding or a misconception to work on, in the format in `.claude/skills/teach/references/LEARNING-RECORD-FORMAT.md`, and update `NOTES.md`.
+2. Finish in the chat with the summary and the next step.

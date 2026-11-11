@@ -53,3 +53,30 @@ An example of a finished entry:
 - With and without: not changed in a round; it is the shipped skill, the same in c0-baseline and c1-skills
 - Review: It worked well to create a ten min interactive lesson that stayed on topic and taught the user.
 - Kept in final: TODO
+
+### quiz-reviewer
+
+- Kind: subagent
+- Step added: c2-review
+- Purpose: TODO
+- With and without: reviews/c2-review.md, Round 1 (without) and Round 2 (with)
+- Review: TODO
+- Kept in final: TODO
+
+### grade-reviewer
+
+- Kind: subagent
+- Step added: c2-review
+- Purpose: TODO
+- With and without: reviews/c2-review.md, Round 2 (without) and Round 3 (with)
+- Review: TODO
+- Kept in final: TODO
+
+### lesson-reviewer
+
+- Kind: subagent
+- Step added: c2-review
+- Purpose: TODO
+- With and without: reviews/c2-review.md, Round 3 (without) and the c2-review full run (with)
+- Review: TODO
+- Kept in final: TODO

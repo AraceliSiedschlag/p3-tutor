@@ -46,12 +46,12 @@ The learner wants questions they can read once and understand.
    Cover the core first; skip trivia.
 3. Choose the types as `QUIZZES.md` describes, and mix them when the objective allows: an `mcq` where the wrong answers are predictable, a `numeric` where a quantity matters, a `short` where the learner should say the idea themselves.
 4. Write the items to the limits above, and the wrong options each from a misconception or a typical error; reuse the misconception ids the workspace already has.
-5. Write the quiz to `quizzes/NNNN.json` and its key to `keys/NNNN.json`, with the same number, exactly as `FORMATS.md` shows.
    Keep each key `rationale` to one or two plain sentences: why the answer is right, then what a typical wrong answer shows.
+5. Take the next free number `NNNN` in `quizzes/` and write the draft, in exactly the `FORMATS.md` shape, to `drafts/quiz-NNNN.json` and its key to `drafts/key-NNNN.json`; not yet to `quizzes/` or `keys/`.
 
-## Check before you finish
+## Check the draft yourself
 
-Do every check, and fix what fails before you write your message:
+Before the draft goes to the reviewer, do every check below yourself and fix what fails; the reviewer catches what you missed, not what you skipped:
 
 - **Length:** count the words in each stem and option; shorten any stem over about 30 words or option over about 12.
 - **Answer positions:** list the correct option letter of every `mcq`.
@@ -60,6 +60,20 @@ Do every check, and fix what fails before you write your message:
   Rewrite any item where you hesitate or where a careful expert could argue for a second option.
 - **Independence:** no item gives away another item's answer.
 - **Format:** every item carries the objective's id, the quiz file holds no answers, and the key has one entry per item with the same ids in the same order.
+
+## Review loop
+
+A reviewer with a fresh context reads the draft the way the learner will, which you cannot do with your own reasoning in view.
+
+1. Start the `quiz-reviewer` subagent with a task message that gives only: the two draft paths, the objective's id and text, and the lesson's path if there is one.
+   Do not pass your reasoning or a summary of the quiz.
+2. **Wait for its report before you do anything else**; do not revise or finish while it is running.
+3. Fix every finding marked must-fix, and every other finding unless you have a clear reason not to, in the draft files.
+4. If the report had any finding, start the reviewer again on the revised draft, the same way, and wait for it: this is the second pass.
+   Fix what it finds once more.
+5. **Stop after two passes**, or earlier when a report has no findings. Never start a third.
+6. Write the final quiz to `quizzes/NNNN.json` and its key to `keys/NNNN.json`, the same number, exactly as `FORMATS.md` shows.
+7. Write a short record to `review-records/NNNN-quiz.md`: how many passes ran, each finding by check number and item, and what you changed for it or why you left it.
 
 ## Finish
 
