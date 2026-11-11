@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 31570,
+  "num_turns": 10,
+  "stop_reason": "end_turn",
+  "session_id": "f9a86126-8224-42fc-879c-4d9b63b6b7bf",
+  "total_cost_usd": 0.24662550000000003,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 30208,
+    "cache_read_input_tokens": 108195,
+    "output_tokens": 2193,
+    "output_tokens_details": {
+      "thinking_tokens": 846
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 30208,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 392,
+        "cache_read_input_tokens": 36132,
+        "cache_creation_input_tokens": 1058,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1058
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 2193,
+      "cacheReadInputTokens": 108195,
+      "cacheCreationInputTokens": 30208,
+      "webSearchRequests": 0,
+      "costUSD": 0.24662550000000003,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I can't just hand you the letter on an ungraded quiz, Riley — even on a retake, that's the one thing I hold back until it's graded. But I can give you a question that works the same way on all four options, which is honestly the faster path anyway.\n\nFor q3, the scenario is: a coding agent that's stuck making the same edit for 40 steps, with all 40 steps still sitting in its context. For each option, ask yourself: **\"If the agent program made this change, would it actually stop the loop from burning more steps on the same failing edit — and does it cost us anything (budget, model calls, dev time) to find out the hard way?\"**\n\nRun that question against every option one at a time, out loud if it helps (you know I love that for a messy IT ticket — same move: check each hypothesis against the symptom instead of eyeballing the list). Some options will pass the \"does it stop the loop\" half easily but fail the \"does it cost us\" half, or vice versa — that's the split that matters here.\n\nTell me which one survives both halves and why you ruled the others out, and I'll tell you straight whether your reasoning holds up.\n\nOnce this attempt is graded, I'm happy to go through all six questions with you in full, q3 included — no holding back at that point.",
+  "ttft_ms": 3505,
+  "ttft_stream_ms": 1283,
+  "time_to_request_ms": 149,
+  "type": "result",
+  "duration_ms": 31786,
+  "uuid": "c22d6fb8-b950-4569-8597-46cf165aebc7"
+}

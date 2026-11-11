@@ -1,0 +1,47 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "In an agent, the model itself chooses its next action while it runs, not before. Picking 'the program's code' treats the agent's steps as fixed in advance, as if it were really a workflow (M7); picking the tool listed first assumes code order decides it (M13); picking the user assumes a person approves each step (M14).",
+      "distractors": {"a": "M7", "c": "M13", "d": "M14"}
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "This is a workflow: the three steps always run in the same order, fixed by the code, even though the last one asks a model to word the reply. Calling it an agent because a model writes one step, or because it uses a tool, confuses using a model with the model deciding what happens next (M8); saying the model 'never makes real choices' is also wrong, since the model does choose the reply's wording, just not the step order (M17).",
+      "distractors": {"a": "M8", "b": "M8", "c": "M17"}
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "A fixed workflow fits best when the needed steps never vary, so there is nothing for a model to decide between requests. Saying workflows are 'always cheaper' picks the right side for the wrong reason (M9); saying an agent would end up calling check_calendar anyway misses why that matters, since letting a model decide something that never varies adds cost and risk for no benefit (M16); saying a workflow 'can still branch based on what it finds' blurs the core distinction, since a workflow's branches are all written into its code in advance, not chosen live (M15).",
+      "distractors": {"a": "M9", "b": "M16", "d": "M15"}
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "When the right next check depends on what an earlier one turns up, no single order can be written into the code ahead of time, so the model has to choose it live. Saying agents need less code or are always more accurate overgeneralizes that agents are simply the better choice, instead of weighing whether the steps vary (M11); saying a workflow can only call one tool misreads the difference as being about how many tools are allowed, not who decides to call them (M12).",
+      "distractors": {"b": "M11", "c": "M12", "d": "M11"}
+    },
+    {
+      "id": "q5",
+      "answer": "Because the step is always the same, so there is nothing for a model to decide.",
+      "accepted": [
+        "The single lookup never changes, so a model has nothing to decide.",
+        "It is always the same one step, with no branching needed."
+      ],
+      "rationale": "This fits a workflow because the task is always the same one lookup, with no branching that depends on what comes back, so fixed code handles it without a model deciding anything. Saying it needs a model usually comes from assuming any automated check must be an agent (M8)."
+    },
+    {
+      "id": "q6",
+      "answer": "Because which section to check next depends on what earlier sections say, which can't be fixed in code ahead of time.",
+      "accepted": [
+        "It has to judge from each section's content what to look at next.",
+        "The next section to check depends on what earlier ones say."
+      ],
+      "rationale": "This calls for an agent because judging which section to check next depends on the content found in earlier ones, a decision that can't be written into fixed code ahead of time. Saying a workflow would do usually comes from picturing a simple fixed loop through sections, missing that which one to check next changes based on what is found (M7)."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context, memory and retrieval in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your makerspace assistant's run calls get_student_record exactly once, and then writes its final answer. As before, each model call either requests exactly one tool or writes the final answer. How many model calls does this run use in total?",
+      "unit": "model calls"
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student messages your assistant twice in one afternoon, but closes the chat after the first message and opens a brand-new chat for the second, instead of continuing the first conversation. Your program saved nothing from the first chat anywhere. When the model answers the second message, what does it see of the first chat?",
+      "options": [
+        {"id": "a", "text": "Nothing, unless something from the first chat was explicitly saved and loaded back in before the second one"},
+        {"id": "b", "text": "The full transcript of the first chat, since it happened earlier the same day"},
+        {"id": "c", "text": "Just enough to recognize the student, even though no record of them was saved"},
+        {"id": "d", "text": "A short summary the model wrote and kept on its own after the first chat ended"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence, what is the difference between what retrieval does and what a saved note does?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The shop's weekend opening hours are the same for every student and are written in the handbook. Whether a specific student currently owes a $5 safety-glasses deposit is personal to them and can change at any time. Which is the better fit for retrieval, and which for a saved note?",
+      "options": [
+        {"id": "a", "text": "Retrieval for the opening hours, a saved note for the deposit status"},
+        {"id": "b", "text": "Retrieval for the deposit status, a saved note for the opening hours"},
+        {"id": "c", "text": "A saved note for both, since both facts matter to the answer"},
+        {"id": "d", "text": "Retrieval for both, since the handbook could list deposit policy too"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A teammate argues the assistant should always load the entire 200-page safety manual into every call, reasoning that more context in front of the model can only help accuracy. In one or two sentences, what is wrong with that reasoning?"
+    }
+  ]
+}

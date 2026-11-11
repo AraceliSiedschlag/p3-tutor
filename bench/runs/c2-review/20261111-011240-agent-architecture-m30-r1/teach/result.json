@@ -1,0 +1,83 @@
+{
+  "is_error": false,
+  "duration_api_ms": 1584805,
+  "num_turns": 9,
+  "stop_reason": "end_turn",
+  "session_id": "1d69ba96-50b2-459f-bfee-9f322613bc5e",
+  "total_cost_usd": 5.515995100000001,
+  "usage": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 69212,
+    "cache_read_input_tokens": 1702462,
+    "output_tokens": 49375,
+    "output_tokens_details": {
+      "thinking_tokens": 10879
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 69212,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 752,
+        "cache_read_input_tokens": 214789,
+        "cache_creation_input_tokens": 1457,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1457
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 92,
+      "outputTokens": 158476,
+      "cacheReadInputTokens": 4361607,
+      "cacheCreationInputTokens": 332957,
+      "webSearchRequests": 0,
+      "costUSD": 5.378099100000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    },
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 71731,
+      "outputTokens": 3233,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 5,
+      "costUSD": 0.13789600000000002,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification"
+  },
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "All the workspace files are in place: lesson, quiz, key, cheat sheet, resources, review record, and updated notes. Here's a summary for Riley.\n\nI wrote **Lesson 1: \"Context and memory: what your agent actually remembers\"** (`lessons/0001-context-and-memory.html`, objective O3, 30 min). It covers:\n\n- **The context window** — what actually gets sent into one model call, and why there's no hidden memory between calls (with a web-server/stateless-request analogy, since you work in IT).\n- **Context grows every step** — how a run's history piles up call after call, with real token/cost numbers tied to your sponsor's budget, and why \"more context is always better\" is a trap (context rot).\n- **Steps vs. sessions** — why a session's transcript is thrown away by default, and why \"the assistant just remembers a returning student\" is never true unless something was deliberately saved.\n- **Retrieval vs. notes** — two different fixes for two different problems: search-on-demand for your big static manuals, versus a small saved note for a student's personal, changing training status (with a kitchen-prep-list analogy, since you cook).\n\nIt went through two review passes (the max the process allows) — one caught a real arithmetic slip in my worked example (I'd mislabeled which model call was the final one), which is now fixed and consistent with the call-counting rule from quiz 0001.\n\nAlso ready:\n- **Quiz 0002** (5 items, fresh scenarios, no repeats from the lesson) — ask when you want to test what stuck.\n- A one-page **cheat sheet** (`cheatsheets/context-and-memory.html`) for later lookup: definitions, the persistence table, and the retrieval-vs-note decision rule.\n- `RESOURCES.md` now has the three sources I grounded this in, including Anthropic's own \"Effective context engineering\" article as the primary one, worth a read if you want more depth than fit in 30 minutes.\n\nOne thing I noticed while reviewing: your `submissions/s1.json` answer to quiz 0001's q6 shows the same \"the model remembers on its own across sessions\" misconception this lesson targets directly — worth keeping in mind when that quiz eventually gets graded.\n\nAnything in the lesson unclear, or want to take quiz 0002 now?",
+  "ttft_ms": 71773,
+  "ttft_stream_ms": 1923,
+  "time_to_request_ms": 66,
+  "type": "result",
+  "duration_ms": 436642,
+  "uuid": "ce646cde-6f6f-4bcc-869c-b5ce1ffb7d04"
+}

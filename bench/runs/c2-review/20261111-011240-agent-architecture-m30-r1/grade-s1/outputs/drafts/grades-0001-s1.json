@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct, d is the call. The thing that makes a system an agent isn't a bigger model or a longer prompt, it's that loop: the model picks an action, something else carries it out, and the result comes back for the next decision. Hang onto that loop shape, it's exactly what's under the hood when you get to context and memory next."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Your answer assumes the model itself opened the booking system and read the calendar entries directly. That's not what happens. The model only ever outputs text, so when it decides to use check_calendar, what it actually produces is a structured request naming the tool and the arguments (laser cutter, tomorrow). Your program is the thing that runs the real check_calendar function and gets the actual data back. It's an easy slip, since from where you're sitting the whole exchange looks like one smooth action. Picture the handoff instead: model requests, program executes, result comes back to the model."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct, a step limit is exactly the safeguard here. Nice instinct too: once the agent is repeating the same failing edit with no new information, more steps (or a longer context window) don't fix anything, only a stopping condition that hands it back to a person does."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You framed it the right way: question in, tools run, answer out, that's the correct shape to count from. Where it goes off is assuming the model ran all three tools itself inside one call. Really, each model call ends in exactly one tool request or the final answer. So the three tool calls plus the final write-up are four separate calls to the model, not one. It's tempting because the whole exchange feels instant and continuous from your end. Count handoffs instead: one call per tool request plus one for the final answer, which matters for your model budget too since every one of those four calls is billed separately."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You've got the core right, the result does go back to the model. What's missing is the why: it goes back as the model's next input, and the model gets called again with that result so it can decide what to do next or write the final answer. Next time, give both halves: where the result goes, and what the model does with it once it has it."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "You're right about the mechanism: the model is handed tool descriptions (name plus what each one does) and picks the one that fits. But you also added that it \"remembers on its own which tool it picked for questions like that in earlier sessions,\" and that part's not true. A model call only sees what's actually in that call's input. There's no built-in log of past sessions unless your program deliberately stores and resends it. It's an easy thing to assume, since chat apps with memory turned on feel like they remember you by default. Treat memory as something your program has to build and feed back in, not something the model does on its own, that's exactly what's coming up next in your mission."
+    }
+  ],
+  "summary": "You've nailed the loop itself and the stopping-condition idea for a stuck agent, that's real progress. The one thing to pin down is who actually runs a tool: twice here (the calendar check and the model-call count) your answer had the model executing the tool itself in one step, when really the model only requests it by name and arguments, and your program is what runs it and feeds the result back as a separate call. Good next step: pick one request to the makerspace assistant, like checking a training record before a laser cutter booking, and write out each model call on its own line, labeling who did what, model requests, program executes, model continues, until you hit the final answer."
+}

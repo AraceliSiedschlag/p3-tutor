@@ -54,94 +54,94 @@ Accuracy held at 1.00, no right answers were marked wrong and the misconception 
 
 ## Major review
 
-**Run:** bench/runs/c2-review/TODO
+**Run:** bench/runs/c2-review/20261111-011240-agent-architecture-m30-r1
 
 **Live tries:**
 
-TODO
+It created the lesson it felt longer than the other runs, which is was, and it said when it was being reviewed. The lesson was accurate, had facts, and interactive questions. The quiz had good questions related to the topic that were not to long nor confusing. The grading graded it accurately with feedback.
 
 ### Lesson
 
 #### Technical correctness and facts
 
-Rating: TODO
+Rating: 5
 
-TODO
+The lesson once again had facts, questions, and interactive questions for the user. It did take longer to build though. 
 
 #### Pedagogy
 
-Rating: TODO
+Rating: 4
 
-TODO
+The pedagogy was straight forward and taught the person what they needed to know.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5
 
-TODO
+It successfully taught the users about the desired topic.
 
 #### Overall quality
 
-Rating: TODO
+Rating: 5
 
-TODO
+It was intreactive, informative, and taught the user what they wanted so I think it was a good lesson.
 
 ### Quiz
 
 #### Difficulty
 
-Rating: TODO
+Rating: 2
 
-TODO
+The difficulty was moderate and seemed appropriate for a quiz and for the lesson taken.
 
 #### Coverage of the lesson's core
 
-Rating: TODO
+Rating: 4
 
-TODO
+The quiz covered the lesson core and specifics to dog training which was good but some of them seemed slightly repetative just using different senarios but same concepts.
 
 #### Wording and possible misreadings
 
-Rating: TODO
+Rating: 1
 
-TODO
+All questions were clear and easy to interpret and understand what they were asking.
 
 #### Writing quality
 
-Rating: TODO
+Rating: 5
 
-TODO
+The writting was easy to understand and read. All mcq answers were similar lengths so it didnt give one answer away.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 4
 
-TODO
+It allowed the user to get tested on aspects of dog trianing but some seemed like similar learning targets than hitting multiple of them.
 
 ### Feedback
 
 #### Useful
 
-Rating: TODO
+Rating: 4
 
-TODO
+It clearly showed what I got write and what I got wrong by listing it out, but for two question I got partial credit and they did did not tell me why and only explained the completely wrong questions.
 
 #### Explains enough
 
-Rating: TODO
+Rating: 2
 
-TODO
+It did not explain the questions I got partially correct only the ones I got fully wrong. 
 
 #### Personalized to how I like things explained
 
-Rating: TODO
+Rating: 4
 
-TODO
+It did not give any analyogies that were connected to my personalization but it did follow the structure requested.
 
 ### Compared with the previous step
 
-TODO
+The previous step had a better tutor skill that passed more probes (2/6) where as the tutor this time passed less (1/6) dropping 0.17 points but nothing was editted so this is run to run varaiation. The others stayed where they were at perfect Teach facts also decreased compared to the last one only hitting 5/6 facts rather than 6/6. The length ration also decreased from 0.83 to 0.74 in c2-review. Quiz and grade scores stayed the same off 100% on grade verdics, 0% on false wrongs and 100% on misconceptions hit in both reviews with 100% quiz key agreement, 0 wrong key, nd 0 ambiguous items. Additionally, this run took 61.5 min, 9.45 M tokens, and $11.88, where as c1-reviewer took 21.8 min, 7.93M tokens and $6.12. 
 
 ### What the next step should fix
 
-TODO
+Work to improve the tutor skill so that it passes more than 2 probes. Expand gradings word count becasue it felt a bit lean when I got things incorrectly. Make sure the quiz cover different topics not just the same topic with different senairos or wording. Have grader explain what the user got partially correct and what was incorrect about their statement.

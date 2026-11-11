@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 35247,
+  "num_turns": 8,
+  "stop_reason": "end_turn",
+  "session_id": "a0012e02-0630-4d41-ba7b-43dd6aa3c08b",
+  "total_cost_usd": 0.182754,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 17734,
+    "cache_read_input_tokens": 119170,
+    "output_tokens": 2705,
+    "output_tokens_details": {
+      "thinking_tokens": 1013
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 17734,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 457,
+        "cache_read_input_tokens": 35269,
+        "cache_creation_input_tokens": 1550,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1550
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 2705,
+      "cacheReadInputTokens": 119170,
+      "cacheCreationInputTokens": 17734,
+      "webSearchRequests": 0,
+      "costUSD": 0.182754,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Not quite — that's backwards. A language model doesn't remember anything on its own. Every call to it is stateless: it only knows what it learned in training, plus whatever text is sitting in its input right then. Nothing carries over automatically, not even from one message to the next in the same chat — let alone a week later with a different student.\n\nWhat's actually true: if you want your makerspace assistant to recall that a student finished laser cutter training last week, *your program* has to do that work — save the fact somewhere (a database, a file, whatever), then explicitly pull it back out and stuff it into the prompt the next time that student shows up. \"Memory\" in an agent is really just: something outside the model writes stuff down, and something outside the model reads it back in later.\n\nThe reason this trips people up is that chat apps feel like they remember. When you're mid-conversation with ChatGPT and it recalls what you said ten messages ago, that's not the model remembering — the app is silently re-sending the entire conversation history as text with every new message. It looks like memory, but it's really just a growing input. Close the tab and start fresh with no saved history, and that \"memory\" is gone — the model never had it.\n\nThis is good to catch now, before your team designs anything, since it changes a \"the model will handle it\" assumption into an actual thing you have to build and budget for.\n\nQuick check: for your assistant, who should be responsible for storing \"this student finished training\" and handing it back next week — the model, or your program?",
+  "ttft_ms": 3162,
+  "ttft_stream_ms": 1140,
+  "time_to_request_ms": 32,
+  "type": "result",
+  "duration_ms": 36823,
+  "uuid": "38005b40-7bb9-43e5-92fa-4aedebef11b4"
+}

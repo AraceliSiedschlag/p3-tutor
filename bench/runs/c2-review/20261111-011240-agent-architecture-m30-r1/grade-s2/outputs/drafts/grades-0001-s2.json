@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Yep, d is right. What makes something an agent isn't a longer prompt, a bigger context window, or memory of past chats - it's the loop: the model picks an action, something runs it, the result comes back, and that repeats until it stops. That's the one idea the rest of this unit builds on, so good that it's locked in."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "c, nailed it. The moment the model decides to use the tool, all it outputs is a structured request - check_calendar plus the arguments (laser cutter, tomorrow). The program is what actually goes and runs check_calendar and hands the result back. Model asks, program does - keep that split handy, it comes up again and again."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Your answer assumes that if you just let the 40-step loop keep running, it'll eventually land on the fix. That's not how it plays out: the model is making the same edit against the same failing test with nothing new to go on, so step 41 looks just like step 40 - it'll keep looping instead of improving. The actual safeguard is a stopping condition, like a step limit, that ends the loop and hands it back to a person.\n\nIt's a tempting answer because \"just give it more tries\" works for a lot of real debugging, where a person notices something new each pass - but the model here has no new information to notice. Next time you see repeated identical steps like this, look for the stopping condition instead of trusting more time to fix it."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "The number's right - 4 calls - and splitting it into one call per tool request plus one for the final answer is exactly the right way to count. But your reasoning says the model \"can only run one tool itself each time it's called,\" as if the model is the one executing check_calendar, search_manuals and check_training_record.\n\nIt isn't, and it can't be: the model only ever produces text (a request naming the tool and its arguments), with no way to run code or touch the booking system itself - that's the program's job, which runs the tool and feeds the result back in. It's an easy slip since the model is the part doing the \"thinking,\" so it feels like it's doing the running too. Keep it straight: model requests, program executes, result comes back, model's called again - that's also why the count lands on 4."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct, and that group-chat analogy actually works well: the tool's result gets added to what the model sees next, like a new message in the thread, and the model is called again so it can act on it. That back-and-forth - result in, model called again - is the whole engine of the agent loop in one sentence."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You're half right - the name is part of it, but the model is actually working off the whole tool description it's handed: the name plus what the tool does (and usually its parameters too), not the name alone. A name by itself can mislead - imagine a tool literally called get_data that quietly also deletes something - so the \"what it does\" part is what the model really relies on to pick correctly. Next time, mention the description, not just the label."
+    }
+  ],
+  "summary": "Solid quiz - q1, q2 and q5 show you've got the agent loop itself down, including a genuinely good explanation in your own words for q5. The one to clear up next is q3: don't trust a stuck loop to eventually fix itself. If a step produces the same failing result as the one before it, nothing's different going into the next step either, so it needs an explicit stopping condition - like a step limit - to end it and hand it to a person, rather than just more time. (q4 is worth a second look too - right call count, but double-check it's the program, not the model, that actually runs each tool.) For practice, next time you trace a stuck agent loop, ask yourself \"what's actually different this step\" before assuming it'll work out - if the answer is nothing, that's the cue to stop it."
+}

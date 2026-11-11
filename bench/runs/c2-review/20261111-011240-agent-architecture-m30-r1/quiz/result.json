@@ -1,0 +1,71 @@
+{
+  "is_error": false,
+  "duration_api_ms": 748023,
+  "num_turns": 11,
+  "stop_reason": "end_turn",
+  "session_id": "0cf4aabe-d8ae-400b-8480-f6c4c801825d",
+  "total_cost_usd": 2.0136363,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 14285,
+    "cache_read_input_tokens": 438063,
+    "output_tokens": 7291,
+    "output_tokens_details": {
+      "thinking_tokens": 1704
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14285,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 223,
+        "cache_read_input_tokens": 92758,
+        "cache_creation_input_tokens": 3781,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3781
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 56,
+      "outputTokens": 69941,
+      "cacheReadInputTokens": 1155881,
+      "cacheCreationInputTokens": 118218,
+      "webSearchRequests": 0,
+      "costUSD": 2.0136363,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification"
+  },
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The quiz is ready: **`quizzes/0002.json`** (key in `keys/0002.json`), 6 items on O4 — 4 multiple-choice, 2 short-answer.\n\nOne thing to flag: there's no lesson on workflows vs. agents in this workspace yet, and `NOTES.md` lists that distinction as something Riley hasn't met. This quiz checks the objective itself, grounded in the makerspace scenarios from `MISSION.md` (calendar checks, manual lookups, equipment troubleshooting) — so it runs ahead of the lessons. Worth teaching O4 before giving it to Riley, or using it as a cold diagnostic first.",
+  "ttft_ms": 21327,
+  "ttft_stream_ms": 1342,
+  "time_to_request_ms": 53,
+  "type": "result",
+  "duration_ms": 80482,
+  "uuid": "ae023152-d491-47de-80df-b1400b0998db"
+}

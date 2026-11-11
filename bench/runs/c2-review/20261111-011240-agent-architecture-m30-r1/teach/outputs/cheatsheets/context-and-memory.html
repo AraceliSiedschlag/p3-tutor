@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context, memory and retrieval</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --ok: #2f6b3a; --ok-soft: #e7f2e9;
+      --warn: #8c2f39; --warn-soft: #f9eaec;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e;
+        --accent: #eaa77a; --accent-soft: #2c231d; --ok: #9fd3a8; --ok-soft: #1c2a1f;
+        --warn: #f0a3ac; --warn-soft: #2f1f22; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.5; }
+    main { max-width: 38rem; margin: 0 auto; padding: 2.5rem 1.25rem 3rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.3rem; }
+    .sub { font-family: var(--sans); color: var(--muted); font-size: 0.9rem; margin: 0 0 1.75rem; }
+    h2 { font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase;
+         color: var(--accent); border-bottom: 1px solid var(--rule); padding-bottom: 0.3rem; margin: 1.75rem 0 0.75rem; }
+    dfn { font-style: normal; font-weight: 600; }
+    dl { margin: 0; }
+    dl div { margin-bottom: 0.6rem; }
+    dt { font-weight: 600; }
+    dd { margin: 0.15rem 0 0; color: var(--text); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    th { font-family: var(--sans); font-size: 0.75rem; text-transform: uppercase; color: var(--muted); }
+    .box { border-radius: 6px; padding: 0.85rem 1rem; margin: 1rem 0; font-size: 0.93rem; }
+    .warn-box { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .ok-box { background: var(--ok-soft); border-left: 4px solid var(--ok); }
+    .warn-box p, .ok-box p { margin: 0.3rem 0; }
+    footer { margin-top: 2rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); font-family: var(--sans);
+             font-size: 0.82rem; color: var(--muted); }
+    a { color: var(--accent); }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --ok: #000; --warn: #000;
+              --ok-soft: #f2f2f2; --warn-soft: #f2f2f2; }
+      main { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Context, memory and retrieval</h1>
+  <p class="sub">Quick reference for Objective O3 &middot; from <a href="../lessons/0001-context-and-memory.html">lesson 1</a></p>
+
+  <h2>Definitions</h2>
+  <dl>
+    <div><dt><dfn>Context window</dfn></dt><dd>All the text sent into one model call &mdash; system prompt, history, tool results, tool definitions, output &mdash; measured in tokens. The model has no state outside it.</dd></div>
+    <div><dt><dfn>Token</dfn></dt><dd>A roughly word-sized chunk of text; what context windows and pricing are measured in.</dd></div>
+    <div><dt><dfn>Context rot</dfn></dt><dd>Accuracy and recall get worse as token count grows, even below the window limit. More context isn't automatically better.</dd></div>
+    <div><dt><dfn>Retrieval</dfn></dt><dd>Searching a large, mostly static reference (a manual) for just the relevant passage, and loading only that into context, on demand.</dd></div>
+    <div><dt><dfn>Note (structured note-taking)</dfn></dt><dd>A small fact written deliberately to storage, then loaded back into context later &mdash; the only thing that survives a session on purpose.</dd></div>
+  </dl>
+
+  <h2>What persists, and when</h2>
+  <table>
+    <tr><th>Boundary</th><th>What carries over automatically</th></tr>
+    <tr><td>Within one run (step to step)</td><td>Everything so far &mdash; the program resends the full accumulated history every call.</td></tr>
+    <tr><td>Across sessions (visit to visit)</td><td>Nothing. The transcript is discarded unless the program explicitly saved something and loads it back in.</td></tr>
+  </table>
+
+  <h2>Which tool for which fact</h2>
+  <table>
+    <tr><th>The fact is&hellip;</th><th>Use</th></tr>
+    <tr><td>Large, static, shared by everyone (a manual, a policy)</td><td>Retrieval &mdash; search it, load only the relevant passage.</td></tr>
+    <tr><td>Small, specific to one person or case, must survive to next time</td><td>A note &mdash; write it on purpose, load it back in at session start.</td></tr>
+  </table>
+
+  <div class="box warn-box">
+    <p><strong>Watch for:</strong> assuming the model "just remembers" a returning student (it never does, without an explicit save-and-reload step), and assuming more context in a prompt is free or harmless (it costs money every call, and can make answers worse via context rot).</p>
+  </div>
+
+  <div class="box ok-box">
+    <p><strong>Rule of thumb:</strong> if the fact is already written down somewhere big and unchanging, retrieve it. If it's small, specific, and needs to outlive this session, save a note for it. Never assume either happens on its own.</p>
+  </div>
+
+  <footer>
+    Sources: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic, "Effective context engineering for AI agents"</a> &middot;
+    <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows">Claude Platform Docs, "Context windows"</a> &middot;
+    <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool">Claude Platform Docs, "Memory tool"</a>
+  </footer>
+</main>
+</body>
+</html>

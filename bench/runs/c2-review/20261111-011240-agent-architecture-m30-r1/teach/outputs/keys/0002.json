@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": 2,
+      "tolerance": 0,
+      "rationale": "Each model call ends with either one tool request or the final answer: one call requests get_student_record, and a second call, now holding that result, writes the final answer. 1 tool call + 1 final-answer call = 2. Answering 1, as if the model ran the tool and wrote the answer in the same call, shows the misconception that the model runs tools itself (M4)."
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "A fresh chat starts with no text in its input about the earlier one. Unless the program wrote something from the first chat to storage and loaded it back in before the second chat began, the second call has no way to know the first one happened, even though it was the same student, the same day, and the same assistant.",
+      "distractors": {"b": "M3", "c": "M3", "d": "M3"}
+    },
+    {
+      "id": "q3",
+      "answer": "Retrieval searches a large, mostly unchanging reference for the passage this question needs and loads only that; a saved note is a small fact written down on purpose so it survives to a later session.",
+      "accepted": [
+        "Retrieval looks up relevant information in a big static source on demand; a note is a small persisted fact the program writes and reloads across sessions.",
+        "Retrieval is for finding the right part of something large and unchanging; a note is for remembering something small and specific to one person or case over time."
+      ],
+      "rationale": "Full credit needs both halves: retrieval as on-demand search over a large static reference, and a note as a deliberately saved fact that must survive to a future session. Describing only one half, or saying they're the same tool, is wrong."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "The opening hours are the same for every student and already sit in the handbook, which is exactly what retrieval is for: search it, load the one relevant passage. The deposit status is personal to one student and changes over time, which is exactly what a note is for: write it down, load it back in next time. Swapping the two (b), saving both as notes (c), or retrieving both (d) shows the misconception that retrieval and notes are interchangeable (M5).",
+      "distractors": {"b": "M5", "c": "M5", "d": "M5"}
+    },
+    {
+      "id": "q5",
+      "answer": "More tokens cost money on every call, and performance actually degrades as context fills with irrelevant material (context rot), so loading the whole manual every time makes the assistant both more expensive and less accurate, not more accurate.",
+      "accepted": [
+        "It costs more per call and causes context rot, which makes the model worse at finding what matters, not better.",
+        "Dumping the whole manual in raises cost and, because of context rot, actually hurts accuracy instead of helping it."
+      ],
+      "rationale": "Full credit names both costs: money (every extra token is billed on every call) and accuracy (context rot makes a model worse at finding the relevant part as irrelevant tokens pile up). Naming only the cost, or only context rot, is partial. Saying more context is simply fine shows the misconception that more context is always better (M2)."
+    }
+  ]
+}

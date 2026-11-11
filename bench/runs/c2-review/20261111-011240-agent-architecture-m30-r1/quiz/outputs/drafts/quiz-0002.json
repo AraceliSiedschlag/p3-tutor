@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows vs. agents: who owns the next step",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In a fixed workflow, code decides the step order in advance; in an agent, who decides what happens next as it runs?",
+      "options": [
+        {"id": "a", "text": "The program's code, chosen before the request arrives"},
+        {"id": "b", "text": "The model, picking its own action each time"},
+        {"id": "c", "text": "Whichever tool was listed first in the code"},
+        {"id": "d", "text": "The user, confirming each step before it happens"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A support bot runs the same three steps in order every time: look up the account, check the plan, then have a model draft the reply. Workflow or agent?",
+      "options": [
+        {"id": "a", "text": "Agent — a language model writes one of the steps"},
+        {"id": "b", "text": "Agent — it calls tools to fetch data"},
+        {"id": "c", "text": "Workflow — because the model never makes real choices"},
+        {"id": "d", "text": "Workflow — the order of steps is fixed by code"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Checking whether the laser cutter is free tomorrow always takes one step: call check_calendar. Why does a fixed workflow suit the decision this task needs better than an agent?",
+      "options": [
+        {"id": "a", "text": "Workflows are always cheaper to run than agents"},
+        {"id": "b", "text": "An agent would end up calling check_calendar anyway"},
+        {"id": "c", "text": "The steps never change, so there is nothing to decide"},
+        {"id": "d", "text": "A fixed workflow can still branch based on what it finds"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A 3D print fails, and which checks to run next depends on what each earlier check finds. Why does an agent suit the decision needed better than a workflow?",
+      "options": [
+        {"id": "a", "text": "The order can't be written into code ahead of time"},
+        {"id": "b", "text": "Agents need less code to set up than workflows"},
+        {"id": "c", "text": "A fixed workflow can only ever call one tool"},
+        {"id": "d", "text": "Agents always produce more accurate answers than workflows"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Checking whether a student is trained on the laser cutter always takes one step: look up their training record. Why does this fit a fixed workflow better than an agent?"
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A student's question isn't in the manual; the assistant must judge which section to check next from what it finds. Why is an agent the better fit than a workflow?"
+    }
+  ]
+}

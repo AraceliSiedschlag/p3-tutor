@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 45616,
+  "num_turns": 8,
+  "stop_reason": "end_turn",
+  "session_id": "64d34439-c869-429a-8400-0db91c837da7",
+  "total_cost_usd": 0.20089200000000002,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 17879,
+    "cache_read_input_tokens": 152810,
+    "output_tokens": 3183,
+    "output_tokens_details": {
+      "thinking_tokens": 1737
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 17879,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 495,
+        "cache_read_input_tokens": 34855,
+        "cache_creation_input_tokens": 2109,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2109
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 10,
+      "outputTokens": 3183,
+      "cacheReadInputTokens": 152810,
+      "cacheCreationInputTokens": 17879,
+      "webSearchRequests": 0,
+      "costUSD": 0.20089200000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Tool calling is just the model writing down a precise request for something to be done, in a format a program recognizes, instead of doing it itself.\n\nThink of it like phoning in a takeout order. You (the model) can't walk into the kitchen and grab ingredients — you can only talk. So you say, clearly and in the format the kitchen expects: \"one large pepperoni, extra cheese.\" That's the tool call — a name (`order_pizza`) plus details (size, topping). The person on the kitchen line (the program running behind the model) reads that request, actually does the work, and calls back with a result: \"ready in 20 minutes.\" You, the model, only ever hear that spoken result as words — you never touch the oven yourself.\n\nThen you use that result to decide what's next: tell the customer it's on the way, or make another call if something's off (\"no pepperoni, swap for sausage\").\n\nThat's the whole trick, and it's worth getting solid since it's the engine of everything else: the model never touches the world directly. It outputs text saying \"run this tool with these details,\" the real program executes it and hands back a result as text, and the model reads that text to keep going. Same shape as the agent loop you already traced with the laser cutter — tool calling is just naming what happens inside that one \"action is carried out\" step.\n\nWhere it breaks down: a kitchen worker has common sense if your order's garbled; the program running a tool does exactly what the call says, nothing more, so sloppy details get sloppy results.\n\nDoes that \"phoning it in, can't touch anything\" piece match what felt fuzzy before?",
+  "ttft_ms": 2025,
+  "ttft_stream_ms": 1191,
+  "time_to_request_ms": 29,
+  "type": "result",
+  "duration_ms": 47234,
+  "uuid": "ebf5bdba-6cbe-4db0-8862-0ecefa1f513f"
+}
