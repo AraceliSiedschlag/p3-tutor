@@ -58,25 +58,25 @@ An example of a finished entry:
 
 - Kind: subagent
 - Step added: c2-review
-- Purpose: TODO
+- Purpose: The quiz reviewer was added to because in c1 it was found that it copied questions directly from the lesson. It reads each quiz draft and its key with fresh context before it is final and checks it against 10 things.
 - With and without: reviews/c2-review.md, Round 1 (without) and Round 2 (with)
-- Review: TODO
+- Review: This did not seem worth it, it moves one of all of the scores and otherwise they stayed the same.
 - Kept in final: TODO
 
 ### grade-reviewer
 
 - Kind: subagent
 - Step added: c2-review
-- Purpose: TODO
+- Purpose: grade-reviewer was added to provide additional feedback to the user while staying under a certain length. It reads each draft of teh grades with the quix, key, submission and preferences.md checks it against a list then fixes it or lets it pass.
 - With and without: reviews/c2-review.md, Round 2 (without) and Round 3 (with)
-- Review: TODO
+- Review: This seemed worth it becuase it raised scores and made substantial differences for the feedback.
 - Kept in final: TODO
 
 ### lesson-reviewer
 
 - Kind: subagent
 - Step added: c2-review
-- Purpose: TODO
+- Purpose: This reviewer was added to make sure at least three interactive questions were added in every lesson, with the lesson staying on topic. It reads each lesson draft in four sepreate reviews, checks against a list and reports it so that the teach skill can make the fixes.
 - With and without: reviews/c2-review.md, Round 3 (without) and the c2-review full run (with)
-- Review: TODO
+- Review: This was not worth it for a smaller change in the lessons for an additional 15 min and 3 dollars. So it did not seem worth it.
 - Kept in final: TODO

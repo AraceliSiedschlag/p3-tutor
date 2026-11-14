@@ -121,7 +121,7 @@ I think the quiz did really well at covering what the lesson taught, if I comple
 
 #### Wording and possible misreadings
 
-Rating: 5
+Rating: 1
 
 I think the possible misreading was low it was very easy to read and understand, plus it matched really well with the lesson so if you did the lesson it was harder to misread the questions.
 
