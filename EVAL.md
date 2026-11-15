@@ -344,13 +344,94 @@ Name the rounds that built this step and the inventory entries of the pipeline's
 Then the split: the roles you split the teach job into, what each one receives and returns, what runs in order and what in parallel, and who puts the lesson together at the end.
 Why this split and not a smaller one, and what did you try that you took out again?
 
-TODO: the rounds and entries, and the design of your teach split.
+Round 1 added lesson-planner, Round 2 added lesson-writer, and round 3 changed lesson-reviewer which is from c2-review. The inventory entries in reviews/components.md: lesson-planner (round 1 without, round 2 with) and lesson-writer(round 2 without, Round3 with). lesson-reviewer keeps its c2-review entry. From the starting point of c2 reviwer in round on it missed a fact and no examples from preferences were used so that was editted. Then planner was added after round one and the length barely moved and the plan itself left out a fact. Then Planner and Writer were added and after round two the length increased and the reviwer cut the compaction fact as off-topic. Then the reviewer was fixes in Round 3 the length decreased slightly from the last round but was higher than the original of 0.74. However, F3.6 was still marked incorrect. Finally in teh c3-splut full run it took 29.0 min, for teach, against 26 and an increase of about a dollar. This split was chosen because each solved a problem that the previous round discovered. A smaller split didnt fix length because the skill that cordinated teh job also wrote the leson and length only improved once it writer became its own job. I also couldve added a fact checker but facts reached a 100% in the full run so there is no evidence that that would be helpful and would add more toeks nad min. Nothing was removed.
+
+The lesson-planner receives the objectives id and test the minues and the plans path. Then it reads the learner friles and websearchs for about 8 pages at most. It then returns drafts/plan.md which holds 5 to 8 core facts each with a source, misconceptions and the win, sections of one idea each, with word budgets at 150 words per minute that add up to the total, and an example from preferences.md and a practice question for each section, a worked example and faded practice, style notes. It also sends back a short report with the path, the counts and the total budget.
+
+The lesson-writer receives the plans path, the draft's path, the objective, and the minuites. It does not do any websearchs, it writes the draft one section per edit, each to its own budget, then in paragraphs of at most three sentences. lesson-writer returns drafts/lesson-NNNN-<slug>.html, plus report of each sections words against its budget and any fact it couldn't place.
+
+The lesson-reviewer is the draft's plan, the objective, the minutes and the plan's path. it then uses read-only with web access to check fatcs and returns a report on 16 checks, in 4 parts, each marked as a must-fix or not. 
+
+It runs in the order listed planner, writer, reviwer with nothing in parallel because they rely on eachothers output and it is the teach skill who puts the lesson together at the end writting it once with the write took after the reviwer loop. 
 
 ### Your review, the objective checks and the cost
 
 Paste `uv run p3 report --configs c2-review,c3-split`.
 
-TODO: paste the report tables.
+## Results on agent-architecture
+
+Scored full runs (quick runs and --only runs left out); each cell is the mean over the runs, with the range in brackets.
+
+### Quality
+
+| config | runs | teach facts | teach misconc. | length ratio | dead links | key agreement | wrong keys | ambiguous items | verdict agreement | false wrong | misconc. hit | leaks | behavior met |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 0.83 | 0 | 0.74 | 0 | 1.00 | 0 | 0 | 1.00 | 0.00 | 1.00 | 0 | 0.17 |
+| `c3-split` | 1 | 1.00 | 0 | 0.88 | 0 | 1.00 | 0 | 0 | 1.00 | 0.00 | 1.00 | 0 | 0.17 |
+
+Teach facts, key agreement, verdict agreement, false wrong, misconception hit and behavior met are shares (0 to 1); misconceptions, dead links, wrong keys, ambiguous items and leaks are counts per run.
+A dash means no run could be scored on that check, and n= says how many of the runs could.
+A job that failed counts against the config: no lesson scores 0 teach facts, no quiz and key 0 key agreement, a missing grades file disagrees on every item, and a tutor scenario with no reply is not met; leaks need a reply to check, so such a scenario is left out of them.
+The length ratio is a rough reading-time estimate (visible words / 150) over the minutes requested; 0.6 to 1.5 counts as on length.
+
+### Cost: teach
+
+| config | runs | tokens | output tokens | minutes | subagents | list-price $ |
+|---|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 4.93M | 161.7k | 26.0 | 2 | 5.52 |
+| `c3-split` | 1 | 6.69M | 164.9k | 29.0 | 4 | 6.48 |
+
+### Cost: quiz
+
+| config | runs | tokens | output tokens | minutes | subagents | list-price $ |
+|---|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 1.34M | 69.9k | 12.5 | 2 | 2.01 |
+| `c3-split` | 1 | 1.67M | 64.8k | 12.1 | 2 | 2.06 |
+
+### Cost: grade
+
+| config | runs | tokens | output tokens | minutes | subagents | list-price $ |
+|---|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 2.29M | 107.1k | 18.9 | 4 | 3.13 |
+| `c3-split` | 1 | 2.41M | 109.6k | 18.8 | 4 | 3.19 |
+
+### Cost: tutor
+
+| config | runs | tokens | output tokens | minutes | subagents | list-price $ |
+|---|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 890.0k | 16.6k | 4.1 | 0 | 1.22 |
+| `c3-split` | 1 | 669.4k | 14.0k | 3.4 | 0 | 1.06 |
+
+### Cost: all jobs
+
+| config | runs | tokens | output tokens | minutes | subagents | list-price $ |
+|---|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 9.45M | 355.3k | 61.5 | 8 | 11.88 |
+| `c3-split` | 1 | 11.44M | 353.3k | 63.3 | 10 | 12.79 |
+
+Costs are per run, summed over the job's scenarios; list-price $ is the list-price equivalent, not what you pay on a subscription.
+
+## Your ratings
+
+Your ratings from 1 to 5 in the major reviews (reviews/<step>.md), which review full runs on the shared topic; a dash means no rating there yet, one that p3 check does not accept, or a job that step does not review (Tutor in c2-review; Quiz, Feedback and Tutor in c3-split).
+
+| job | criterion | c1-skills | c2-review | c3-split | final |
+|---|---|---:|---:|---:|---:|
+| Lesson | Technical correctness and facts | 4 | 5 | 5 | - |
+| Lesson | Pedagogy | 3 | 4 | 5 | - |
+| Lesson | Alignment with the learning goal | 5 | 5 | 5 | - |
+| Lesson | Overall quality | 4 | 5 | 5 | - |
+| Quiz | Difficulty | 4 | 2 | - | - |
+| Quiz | Coverage of the lesson's core | 4 | 4 | - | - |
+| Quiz | Wording and possible misreadings | 1 | 1 | - | - |
+| Quiz | Writing quality | 4 | 5 | - | - |
+| Quiz | Alignment with the learning goal | 5 | 4 | - | - |
+| Feedback | Useful | 4 | 4 | - | - |
+| Feedback | Explains enough | 4 | 2 | - | - |
+| Feedback | Personalized to how I like things explained | 3 | 4 | - | - |
+| Tutor | Guardrails | 4 | - | - | - |
+| Tutor | Personalization | 3 | - | - | - |
+
 
 ### What the step bought and what it cost
 
@@ -358,7 +439,8 @@ What did the split change in the lesson: its structure, its figures, its referen
 What did it cost in tokens, minutes and subagents against `c2-review`, and how much of that was overhead rather than writing?
 Each step has one run, so say how confident you are, and what would change your mind.
 
-TODO: your judgment of step 3.
+The split changed not only its structure but also its pedagogy as the biggest change. That increased from a 3,4,5 in its respective rounds to be the most personalized yet. It stayed steady at a 5 with its allignment learning goals, facts and technical correctness, and overall quality. It took 11.44M from 9.45M with less output tokens by about 2K with an additional 2 min added onto the time and an additional 2 subagents that went from 8 to 10 for all jobs. However teach specifically decreased by about 200K tokens, 2K output tokens, 1 min, and about 16 cents. Almost all of the extra cost is each subagent reading files again, not more writing because teach used 1.76M more tokems but only had 3.2K more output tokens showing the extra cost was reading and getting ready rather than actually writting..
+I do not think you can be as confident about this purely because it has one run so you can not average anything and say this is what the average expected behavior is. Something that would change my mind is that if repeat runs continuesly showed facts at 100% or hodl lengths ~0.88 or if it was just a one run chance.
 
 ---
 

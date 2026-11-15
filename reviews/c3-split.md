@@ -70,7 +70,7 @@ The lesson ran in 20 min, which might have been due to me saying make a five min
 
 #### Technical correctness and facts
 
-Rating: 4
+Rating: 5
 
 It seemed correct and like it dumbed down what was going on really well
 

@@ -76,18 +76,18 @@ An example of a finished entry:
 
 - Kind: subagent
 - Step added: c3-split
-- Purpose: TODO
+- Purpose: The purpose of lesson planner was to complile facts to draw from. During the c2 review it was seen that the lesson came in short at 0.74, missed a fct, and used nothing from the preference.md. So lesson-planner before any writing starts, it researches the objective and writes drafts/plan.md which holds 5 to 8 core facts with sources, misconceptions, sections of one idea each with word budgets that add up to the requested length and an example form preferences.md and practice questions.
 - With and without: reviews/c3-split.md, Round 1 (without) and Round 2 (with)
-- Review: TODO
+- Review: The length barely moved with this step and facts didn't but it did increase the amount of personlization from Preference.md that the lesson had. It decreased the time and list price, but increased the tokens. I do think this was worth it.
 - Kept in final: TODO
 
 ### lesson-writer
 
 - Kind: subagent
 - Step added: c3-split
-- Purpose: TODO
+- Purpose: The purpose of this was to address that length was to short. To do this it writes a draft from one section per edit, each to its own word buget, in paragraphs with at most three sentences. It had no websearch access and reports each sections words againts the bugdget. A subagent was used because writing becaomes the focus job sepreate from the skill that coordinates everything.
 - With and without: reviews/c3-split.md, Round 2 (without) and Round 3 (with)
-- Review: TODO
+- Review: Facts dropped because the revoewer cut the compaction fact not because of the write, which was later ficed, and the c3-split full run reached 1.00 for facts and a length of 0.88 and it drew multiple examples from my preference. It did increase the cost by around a dollar, and only moved the tokens by 4K. Lenth hit the highest of the fact and the time increased by 9 min. Getting the fact to 1.00, while it cannot be 100% trusted, was worth the increase costs. 
 - Kept in final: TODO
 
 ### lesson-reviewer
