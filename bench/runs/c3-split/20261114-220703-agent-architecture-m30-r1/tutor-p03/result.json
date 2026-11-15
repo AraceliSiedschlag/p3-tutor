@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 34730,
+  "num_turns": 6,
+  "stop_reason": "end_turn",
+  "session_id": "95bd9a80-bb2e-4b63-a914-2026155a9023",
+  "total_cost_usd": 0.1710273,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 17324,
+    "cache_read_input_tokens": 86001,
+    "output_tokens": 2751,
+    "output_tokens_details": {
+      "thinking_tokens": 1392
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 17324,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 473,
+        "cache_read_input_tokens": 34470,
+        "cache_creation_input_tokens": 1939,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1939
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 6,
+      "outputTokens": 2751,
+      "cacheReadInputTokens": 86001,
+      "cacheCreationInputTokens": 17324,
+      "webSearchRequests": 0,
+      "costUSD": 0.1710273,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Not quite — that's a common mix-up, but it's backwards. The model itself is stateless: every call to it is a fresh one, with zero memory of any call before it. Whatever it \"knows\" about a conversation is only what's sitting in the text you send it *this time*, in the context window.\n\nSo when a chatbot feels continuous — like it's remembering your back-and-forth — what's actually happening is the app re-sending the whole conversation (or a summary of it) along with each new message. The model isn't holding onto anything; the app is doing the bookkeeping and handing it back each time.\n\nThink of it like a barista with total amnesia, except the shop keeps a card with your usual order and slides it across the counter right before you order. The barista never remembers you — the system does, and it feeds that card back in every visit.\n\nFor your makerspace assistant, that means remembering what a student said last week isn't automatic — your team has to build it: after a conversation, save the relevant bit (training status, last question, whatever matters) somewhere durable like a database, then on the next visit, look it up and stuff it back into the prompt before the model ever sees it. No storage-and-retrieval step, no memory, full stop — even if you chat with it for an hour straight.\n\nThat's actually the exact design question you're about to hit next: what the assistant keeps in context, what it saves between sessions, and how it finds the right stuff again.\n\nDoes that \"app resends it, model doesn't hold it\" distinction make sense, or want it with a different example?",
+  "ttft_ms": 2988,
+  "ttft_stream_ms": 1182,
+  "time_to_request_ms": 26,
+  "type": "result",
+  "duration_ms": 34798,
+  "uuid": "10d548a7-c6e2-4c2f-befc-495043a3ec5c"
+}

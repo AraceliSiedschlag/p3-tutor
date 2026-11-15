@@ -72,6 +72,24 @@ An example of a finished entry:
 - Review: This seemed worth it becuase it raised scores and made substantial differences for the feedback.
 - Kept in final: TODO
 
+### lesson-planner
+
+- Kind: subagent
+- Step added: c3-split
+- Purpose: TODO
+- With and without: reviews/c3-split.md, Round 1 (without) and Round 2 (with)
+- Review: TODO
+- Kept in final: TODO
+
+### lesson-writer
+
+- Kind: subagent
+- Step added: c3-split
+- Purpose: TODO
+- With and without: reviews/c3-split.md, Round 2 (without) and Round 3 (with)
+- Review: TODO
+- Kept in final: TODO
+
 ### lesson-reviewer
 
 - Kind: subagent

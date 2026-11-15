@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "Every token sent to the model is counted against cost, and loading mostly irrelevant text alongside the part that matters can make the model worse at using that part (the lost-in-the-middle effect) - a huge window removes the size limit, not the cost or the accuracy risk. The manual does fit (a is wrong on the arithmetic), the system prompt and tool definitions are tiny next to a million tokens (c), and nothing about window size changes whether tokens are billed (d).",
+      "distractors": {"d": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "Each step's tool call and result are appended to the context, and nothing removes them by default, so step 3's call carries both step 1's and step 2's results along with it. Results are not dropped once used (c), nothing is held back mid-write (a), and showing something to the student does not remove it from the model's own context (b).",
+      "distractors": {"a": "M4", "c": "M4"}
+    },
+    {
+      "id": "q3",
+      "answer": "A new session starts with an empty context window, so Monday's conversation is gone unless it was saved somewhere outside the window and retrieved back into Thursday's session.",
+      "accepted": [
+        "Because the model holds nothing between sessions; a fresh session starts with an empty context window unless something was saved and retrieved back in.",
+        "The context window resets to empty at the start of each session, so nothing from Monday carries over unless it was written to storage and fetched back."
+      ],
+      "rationale": "Full credit needs both parts: a new session starts empty by default, and anything from before only comes back if it was deliberately saved and retrieved. An answer that just says 'the model forgets' without saying why (the empty window, and the need to save and retrieve) is partial. An answer that says the model somehow still remembers, or that Monday's data is gone no matter what, shows M8."
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "A note sitting in a file does nothing on its own; something - a retrieval step, a lookup by Jordan's name - has to find it and insert its text into this session's context before the model can use it. The note does not sit in the model's memory forever (a shows M10), the staff member should not need to repeat what is already written down (b), and nothing requires re-running the quiz, since the note already recorded the outcome (d).",
+      "distractors": {"a": "M10"}
+    },
+    {
+      "id": "q5",
+      "answer": "No - compaction only shrinks this session's own history so it can keep running without overflowing; it doesn't write anything to durable storage, so next week's session still starts empty unless a separate note was written.",
+      "accepted": [
+        "No, because compaction only manages this one session's own context; nothing is saved outside it, so a note is still needed for next week to know anything.",
+        "No - compaction keeps a single session from overflowing, but it isn't memory across sessions; only a note written to storage and retrieved later does that."
+      ],
+      "rationale": "Full credit needs both the verdict (no) and the reason: compaction is a within-session fix for an overflowing window, not a way to save anything to durable storage. An answer that says yes, or that confuses compaction with note-taking, shows M11."
+    }
+  ]
+}

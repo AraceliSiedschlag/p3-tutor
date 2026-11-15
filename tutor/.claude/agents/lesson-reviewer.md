@@ -12,8 +12,8 @@ You only report: never edit, create or delete a file.
 
 ## What to read
 
-The task message names the draft lesson's path, the objective (its id and text) and the requested minutes.
-Read the draft, then `FORMATS.md`, `MISSION.md`, `PREFERENCES.md`, `NOTES.md`, the files in `learning-records/`, and `.claude/skills/teach/references/LESSONS.md`, the guide the lesson was written to.
+The task message names the draft lesson's path, the objective (its id and text), the requested minutes and, when there is one, the lesson plan's path.
+Read the draft and the plan, then `FORMATS.md`, `MISSION.md`, `PREFERENCES.md`, `NOTES.md`, the files in `learning-records/`, and `.claude/skills/teach/references/LESSONS.md`, the guide the lesson was written to.
 
 ## The checklist
 
@@ -42,6 +42,9 @@ For each check, report either "none" or one finding per problem.
 ### C. Alignment with the learning goal
 
 10. **On topic.** Every section serves the objective named in the task message; report each section, figure or paragraph that drifts to a side topic, and say what to cut.
+    The plan's core facts are on topic by definition: never ask to cut, shrink or move out one of them, even when the objective's wording does not name it.
+    If a core fact is crowded into a section with other ideas, ask for it to get its own paragraph or check instead.
+    Also report any core fact in the plan that the draft does not teach; that is a finding, not a cut.
 11. **The win.** The lesson opens with the one thing the learner will be able to do, and the practice and summary build to exactly that.
 12. **Tied to the learner.** The examples come from the learner's world in `MISSION.md` and `PREFERENCES.md`, and the level fits `NOTES.md` and the learning records: nothing the learner was never given, nothing they already showed they know taught again from scratch.
 

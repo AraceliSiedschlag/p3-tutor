@@ -1,0 +1,47 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "What makes a system an agent is who picks the next step: fixed code (a workflow) or the model itself, at runtime (an agent). Calling tools (a) and calling the model many times (d) can happen in either, and a human review afterward (c) does not touch who ran the loop.",
+      "distractors": {"a": "M7", "d": "M8"}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "Code chose the sequence ahead of time, so the model is not choosing the path; it is a workflow, however many times it is called. Picking (a) treats the call count as the test, and (d) treats passing a result forward as the test, but a fixed chain of calls is still a workflow.",
+      "distractors": {"a": "M8", "d": "M10"}
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "A fixed workflow fits best when the steps and their order are known ahead of time, because then there is nothing left for a model to decide and a workflow is simpler and more predictable. A workflow can still go wrong and can still be a big task; (b) and (d) overclaim what a workflow is, the same overclaim as treating either kind of system as unconditionally better.",
+      "distractors": {"b": "M9"}
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "When the number and order of steps depend on what is found along the way, the path cannot be written in advance, so the model needs to decide it as it goes: that is what an agent is for. Agents are not inherently cheaper (a) or more accurate (c), and a workflow can call a search tool (b); the real question is whether the path can be fixed ahead of time.",
+      "distractors": {"a": "M12", "b": "M11", "c": "M9"}
+    },
+    {
+      "id": "q5",
+      "answer": "Because the steps and their order are always the same, there is nothing for a model to decide, so a workflow is simpler and more predictable than an agent.",
+      "accepted": [
+        "The steps are fixed and known in advance, so code can run them in order without needing the model to choose the path.",
+        "Since the same steps happen every time, a workflow is enough and cheaper or more predictable than an agent."
+      ],
+      "rationale": "Full credit names the reason a workflow fits: the path never varies, so there is nothing left for a model to decide. An answer that only says workflows are simpler without saying why the steps allow it is partial."
+    },
+    {
+      "id": "q6",
+      "answer": "Ask who decides what happens next: fixed code written in advance, or the model while it is running.",
+      "accepted": [
+        "Whether the next step is chosen by code ahead of time or by the model at runtime.",
+        "Who picks the next action: the program's fixed logic, or the model as it goes."
+      ],
+      "rationale": "The one question that tells them apart is who owns the control flow, not whether tools or models are involved or how many steps run. An answer about tool use, call count, or cost shows M7, M8 or M12 instead of this distinction."
+    }
+  ]
+}

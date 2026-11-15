@@ -1,0 +1,84 @@
+{
+  "is_error": false,
+  "duration_api_ms": 721588,
+  "num_turns": 42,
+  "stop_reason": "end_turn",
+  "session_id": "e8a02ee3-0369-49ad-b7e8-21fcc9559783",
+  "total_cost_usd": 2.0592821999999997,
+  "usage": {
+    "input_tokens": 42,
+    "cache_creation_input_tokens": 77949,
+    "cache_read_input_tokens": 1280116,
+    "output_tokens": 27731,
+    "output_tokens_details": {
+      "thinking_tokens": 15254
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 77949,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 151,
+        "cache_read_input_tokens": 83758,
+        "cache_creation_input_tokens": 1042,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1042
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 70,
+      "outputTokens": 64789,
+      "cacheReadInputTokens": 1482469,
+      "cacheCreationInputTokens": 124563,
+      "webSearchRequests": 0,
+      "costUSD": 2.0592821999999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01MRRzujvy3xbVfvRAKZNK7h",
+      "tool_input": {
+        "command": "python3 -m json.tool drafts/quiz-0002.json >/dev/null 2>&1; python3 -c \"import json; json.load(open('drafts/quiz-0002.json')); json.load(open('drafts/key-0002.json')); print('both valid')\""
+      }
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01Y3Ggvq8wCHPr2EXhW6HnKo",
+      "tool_input": {
+        "command": "python3 -c \"import json; json.load(open('drafts/quiz-0002.json')); json.load(open('drafts/key-0002.json')); print('both valid')\"",
+        "description": "Validate both draft JSON files parse correctly"
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Quiz 0002 is ready: `quizzes/0002.json` and `keys/0002.json`, 6 items (4 multiple-choice, 2 short-answer) on objective O4.\n\nHeads up: this quiz runs ahead of your lessons — `NOTES.md` shows you haven't been taught workflows vs. agents yet, so it checks the objective cold rather than reviewing a lesson. If you'd rather have a lesson first, just ask.",
+  "ttft_ms": 1791,
+  "ttft_stream_ms": 1184,
+  "time_to_request_ms": 37,
+  "type": "result",
+  "duration_ms": 722253,
+  "uuid": "4e86531e-0137-4157-8c44-c95753acdcb1"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in the makerspace assistant",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The makerspace assistant's model has a 1,000,000-token context window, and the full equipment manual is only 150,000 tokens, so it easily fits. A teammate says this means retrieval is no longer worth building, since you can just load the whole manual every request. What is the strongest problem with that plan?",
+      "options": [
+        {"id": "a", "text": "A manual that size would never actually fit, even in a window that large."},
+        {"id": "b", "text": "Every token sent still costs money, and a pile of mostly unused text can still hurt accuracy."},
+        {"id": "c", "text": "The system prompt and tool definitions would leave no room for anything else."},
+        {"id": "d", "text": "Once a window gets that large, the model stops counting tokens toward cost."}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant is helping a student find a missing part number. Step 1 it searches the parts catalog and gets a result. Step 2 it searches the supplier's website and gets a second result. Step 3 it writes the final answer using both results. At step 3, which of step 1's and step 2's results does the model's call actually include?",
+      "options": [
+        {"id": "a", "text": "Only step 1's result, since step 2's result is still being written as step 3 runs."},
+        {"id": "b", "text": "Neither result, since both were already shown to the student before step 3 began."},
+        {"id": "c", "text": "Only step 2's result, since step 1's result was already used and is now discarded."},
+        {"id": "d", "text": "Both results, since each one was appended to the context and nothing removed them."}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A student used the assistant on Monday. On Thursday, a new session starts when they return. In one sentence, why might the assistant have no idea the Monday conversation happened, even though it's exactly the same model?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant writes a note each time a student finishes a safety quiz: \"Jordan: cleared for 3D printer.\" Two weeks later, a different staff member asks the assistant whether Jordan is cleared. Which best describes what has to happen for the assistant to answer correctly?",
+      "options": [
+        {"id": "a", "text": "Nothing further; once a note is written, it stays part of the model's memory forever."},
+        {"id": "b", "text": "The staff member must repeat the exact words of the original note back to the assistant."},
+        {"id": "c", "text": "Something must look up Jordan's note and insert its text into this session's context first."},
+        {"id": "d", "text": "The assistant must rerun the original safety quiz to confirm the note is still accurate."}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A single long session gets compacted so it doesn't overflow its context window. In one sentence, does that compaction help the assistant remember anything in next week's session with the same student? Why or why not?"
+    }
+  ]
+}

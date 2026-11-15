@@ -111,20 +111,27 @@ Read `references/LESSONS.md` and `references/lesson-template.html`, then the tit
 
 1. **Pin down the lesson:** the objective and its id, the requested length in minutes, where the learner starts, and the one tangible win they will walk away with.
    When no length is asked for, use the one `PREFERENCES.md` implies, or 15 minutes, declare it in `p3-minutes`, and say in your message that the learner can ask for a shorter or longer lesson.
-2. **Find the knowledge:** search the web for high-trust sources on exactly this objective, read the best two or three, and choose the single best one as the lesson's primary source.
-   Add the sources to `RESOURCES.md` in the format in `references/RESOURCES-FORMAT.md`.
-3. **Plan to the minutes:** split the lesson into sections with a word budget for each, as `references/LESSONS.md` explains, so the whole lesson fits the requested length.
-4. **Write the lesson draft** to `drafts/lesson-NNNN-<slug>.html`, with `NNNN` the next free number in `lessons/`, following `FORMATS.md` and the template: beautiful and self-contained, with figures, worked examples, practice with immediate feedback, and citations.
+2. **Plan with the planner.** Start the `lesson-planner` subagent with a task message that gives only the objective's id and text, the requested minutes, and the plan's path, `drafts/plan.md`.
+   **Wait for its report before you do anything else.**
+   Then read `drafts/plan.md`: it holds the core facts with their sources, the sections with their word budgets, examples and practice questions, and style notes.
+   Do not research the topic again yourself; fetch a source only to check a detail the plan leaves unclear.
+   Add the plan's sources to `RESOURCES.md` in the format in `references/RESOURCES-FORMAT.md`.
+3. **Write with the writer.** Take the next free number `NNNN` in `lessons/` and a short slug, then start the `lesson-writer` subagent with a task message that gives only the plan's path (`drafts/plan.md`), the draft's path (`drafts/lesson-NNNN-<slug>.html`), the objective's id and text, and the requested minutes.
+   Do not write the lesson yourself.
+   **Wait for its report before you do anything else.**
+4. **Read the writer's report:** it gives each section's estimated words against its budget and any core fact it could not place.
    Never put a draft in `lessons/`: the final lesson is written there once, at the end of the review loop.
-5. **Check the draft yourself** before the reviewer sees it, and fix what fails:
+5. **Check the draft yourself** before the reviewer sees it, and fix what fails, starting with any section the report puts under its budget or any fact it could not place; check by reading, never with a shell command:
+   - every core fact in the plan is taught, and every section is close to its budget, so the whole meets the plan's total;
    - at least three interactive practice questions, each with immediate feedback on why the right answer is right and why each tempting wrong one is wrong;
    - every section serves the objective; cut anything that drifts to a side topic;
    - every main claim has a citation, and every practice answer is correct.
 6. **Review loop.** A reviewer with a fresh context reads the draft the way the learner will, which you cannot do with your own reasoning in view.
-   1. Start the `lesson-reviewer` subagent with a task message that gives only: the draft's path, the objective's id and text, and the requested minutes.
+   1. Start the `lesson-reviewer` subagent with a task message that gives only: the draft's path, the objective's id and text, the requested minutes, and the plan's path, `drafts/plan.md`.
       Do not pass your reasoning or a summary of the lesson.
    2. **Wait for its report before you do anything else**; do not revise or finish while it is running.
    3. Fix every finding marked must-fix, and every other finding unless you have a clear reason not to, in the draft.
+      Never cut one of the plan's core facts to fix a finding: when a finding says a section holds too much, give the fact its own paragraph or section instead, and say so in the record.
    4. If the report had any finding, start the reviewer again on the revised draft, the same way, and wait for it: this is the second pass.
       Fix what it finds once more.
    5. **Stop after two passes**, or earlier when a report has no findings. Never start a third.

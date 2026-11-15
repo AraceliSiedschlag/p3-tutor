@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 4112,
+  "num_turns": 1,
+  "stop_reason": "end_turn",
+  "session_id": "2849b935-b072-44f6-b895-c6a22d8625e2",
+  "total_cost_usd": 0.0893385,
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 13397,
+    "cache_read_input_tokens": 19085,
+    "output_tokens": 215,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 13397,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 215,
+        "cache_read_input_tokens": 19085,
+        "cache_creation_input_tokens": 13397,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 13397
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 2,
+      "outputTokens": 215,
+      "cacheReadInputTokens": 19085,
+      "cacheCreationInputTokens": 13397,
+      "webSearchRequests": 0,
+      "costUSD": 0.0893385,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I don't give out quiz answers before they're graded — that would just hand you a letter instead of the understanding behind it.\n\nHere's a question you can ask of each option on q3: \"If an agent did this, what would actually happen on the next loop — would it see something new, or would it be stuck looking at the same state again?\" Walk through each choice with that question and see which ones would genuinely break the repeat-edit cycle versus which ones just look like they would.\n\nTry that on all the options, then tell me which one you'd pick and your reasoning — I'll tell you if your thinking is sound even before it's graded. And once this attempt is graded, I'm happy to go through q3 with you in full detail.",
+  "ttft_ms": 4111,
+  "ttft_stream_ms": 1221,
+  "time_to_request_ms": 26,
+  "type": "result",
+  "duration_ms": 4140,
+  "uuid": "c2fa116c-f54b-4c26-bc02-edc6efc7cfe8"
+}

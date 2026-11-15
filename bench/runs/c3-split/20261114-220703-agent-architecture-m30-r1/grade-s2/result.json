@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 536640,
+  "num_turns": 35,
+  "stop_reason": "end_turn",
+  "session_id": "8ba839bb-0bd0-420d-9018-20bd4d8621c1",
+  "total_cost_usd": 1.5209624999999998,
+  "usage": {
+    "input_tokens": 34,
+    "cache_creation_input_tokens": 52012,
+    "cache_read_input_tokens": 889625,
+    "output_tokens": 17870,
+    "output_tokens_details": {
+      "thinking_tokens": 7839
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 52012,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 315,
+        "cache_read_input_tokens": 69849,
+        "cache_creation_input_tokens": 1248,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1248
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 50,
+      "outputTokens": 51100,
+      "cacheReadInputTokens": 985510,
+      "cacheCreationInputTokens": 91102,
+      "webSearchRequests": 0,
+      "costUSD": 1.5209624999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I've graded the submission, run it through two review passes, and written everything up.\n\n**Grade summary for s2 (quiz 0001):** 3 correct (q1, q2, q5), 2 partial (q4, q6), 1 wrong (q3). Full feedback is in `grades/0001-s2.json`.\n\nThe main thing to work on: Riley answered q3 as if a stuck, repeating agent loop would eventually fix itself with more steps — that's the misconception that an agent needs no stopping condition (M6). A related slip showed up in q4: the final count (4) was right, but the reasoning described the model as running the tools itself, flipping the model/program split Riley got right in q2. q6 was a softer version of the same gap — picking a tool by name alone instead of its full description.\n\nNext step I suggested to Riley: write one sentence per step of a sample makerspace-assistant request naming who (model or program) does that step, then compare it against the q2 reasoning that was already correct.",
+  "ttft_ms": 1863,
+  "ttft_stream_ms": 1264,
+  "time_to_request_ms": 35,
+  "type": "result",
+  "duration_ms": 537081,
+  "uuid": "5946887a-3d51-4600-b986-620c260c43e9"
+}

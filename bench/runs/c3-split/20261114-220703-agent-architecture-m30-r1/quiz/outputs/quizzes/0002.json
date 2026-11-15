@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Telling workflows and agents apart",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A system calls a language model and also runs tools. What decides whether it is a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "Whether the system calls any tools at all"},
+        {"id": "b", "text": "Whether code or the model picks each next step"},
+        {"id": "c", "text": "Whether a human checks the output afterward"},
+        {"id": "d", "text": "Whether the model gets called many times"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "The assistant calls the model three times in a row, always in the same fixed order, to answer one student question. Is this an agent?",
+      "options": [
+        {"id": "a", "text": "Yes, because the model is called three times"},
+        {"id": "b", "text": "No, because it only answers one question"},
+        {"id": "c", "text": "No, because code chose the sequence ahead of time"},
+        {"id": "d", "text": "Yes, because each call's output feeds the next"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Checking if a machine is free always follows the same three steps in the same order. Why fit a fixed workflow here?",
+      "options": [
+        {"id": "a", "text": "There is nothing here for a model to decide"},
+        {"id": "b", "text": "A fixed workflow never makes a mistake"},
+        {"id": "c", "text": "A workflow needs no model budget at all"},
+        {"id": "d", "text": "A fixed workflow only works for simple tasks"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A student's question about a manual may need an unknown number of searches, depending on what turns up. Why fit an agent here?",
+      "options": [
+        {"id": "a", "text": "Agents are cheaper to run per request"},
+        {"id": "b", "text": "Fixed workflows cannot call a search tool"},
+        {"id": "c", "text": "Agents are always more accurate than workflows"},
+        {"id": "d", "text": "The path can't be fixed ahead of time"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Booking equipment time always runs the same checks in the same order. In one sentence, why is a fixed workflow simpler and more predictable here?"
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one sentence, what question do you ask to tell whether a system is a workflow or an agent?"
+    }
+  ]
+}

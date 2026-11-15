@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Nice, that's exactly it — d. An agent isn't about a smarter model or a longer prompt, it's that loop: the model picks an action, the program runs it, and the result comes back for the next step. That loop structure is what lets your makerspace assistant actually book equipment instead of just describing how it would."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Your answer assumes the model itself opens the booking system and reads the calendar entries directly. That's not how it works: the model can't act on anything, so all it outputs is a structured request naming check_calendar with the laser cutter and tomorrow's date as arguments.\n\nYour program is the one that actually opens the booking system, runs the lookup, and hands the result back — the model never touches the calendar. It's an easy slip, since the end result feels like \"the assistant checked the calendar,\" but that checking is the program's job. Keep the split in mind: model requests, program executes."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, b — a step limit that stops the loop and reports back. More steps won't save a loop that's just repeating the same failing edit, and a bigger context window doesn't help either since all 40 steps already fit. Stopping conditions like this are exactly what keeps an agent from quietly burning your model budget on a stuck bug."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You tracked the sequence right — one question, three tools used in order, one final answer — so the structure is there. Where it slips is the count: your answer of 1 assumes the model ran all three tools itself inside one call.\n\nThe model can never run a tool — each tool request is its own call, and each result that comes back triggers another call. So it's 4 calls total: one to ask for check_calendar, one for search_manuals, one for check_training_record, and one for the final answer. It's a tempting shortcut because from outside it looks like one smooth exchange, but every action/result pair costs a separate model call — exactly what matters for your team's small model budget."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You've got the \"what\": yes, the result goes back to the model. What's missing is the \"why\" — it's fed back in as part of the model's next input, and the model is called again so it can actually use that result to decide its next step or write the final answer. Add that reasoning and it's full credit."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "The part about tool descriptions is spot on — name, what it does, and picking the one that fits. But the extra bit, that the model \"remembers on its own which tool it picked for questions like that in earlier sessions,\" assumes it has automatic memory of past conversations.\n\nIt doesn't: every call, the model only sees what's actually put into that call's input, nothing carried over on its own. It's tempting since chat apps feel like they remember you, but that's the product wrapping memory around the model, not the model itself. Keep the two separate: tool descriptions decide which tool gets picked; memory, if you want it, is something the program adds on purpose."
+    }
+  ],
+  "summary": "You've nailed the loop itself and the stopping-condition question — solid foundation there. The one thing to lock down next is that the model never touches tools or memory directly: it only requests a tool and the program runs it and sends the result back for another call, and there's no memory across sessions unless the program builds that in on purpose. That same mix-up shows up in q2's calendar-reading, q4's call count, and that one extra line in q6. Good next step: sketch the three-tool example from q4 on paper and label each model call versus each program action separately — once you can draw that split cleanly, it's hard to lose again."
+}

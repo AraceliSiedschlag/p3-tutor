@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --ok: #2f6b3a; --ok-soft: #e7f2e9; --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e;
+        --accent: #eaa77a; --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22;
+        --ok: #9fd3a8; --ok-soft: #1c2a1f; --code-bg: #23211e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 18px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.5; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+    .kicker { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    h2 { font-size: 1.1rem; margin: 2rem 0 0.6rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.3rem; }
+    dl { margin: 0; }
+    dt { font-weight: 700; margin-top: 0.9rem; }
+    dd { margin: 0.15rem 0 0; color: var(--text); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    .rule { background: var(--accent-soft); border-radius: 6px; padding: 0.9rem 1.1rem; margin: 0.75rem 0; }
+    .rule strong { color: var(--accent); }
+    footer { margin-top: 2rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 0.85rem; color: var(--muted); }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2; }
+      html { font-size: 11pt; }
+      main { max-width: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div class="kicker">Cheat sheet &middot; from Lesson 0001</div>
+  <h1>Context and memory in an agent</h1>
+
+  <h2>The two rules</h2>
+  <div class="rule"><strong>Within one session:</strong> the context only grows. Every step's tool call and result get appended; nothing is removed unless something (compaction, context editing) deliberately trims it.</div>
+  <div class="rule"><strong>Between sessions:</strong> by default, nothing survives. A new session starts with a completely empty context window. Anything from before only comes back if it was saved outside the window and is retrieved into the new session.</div>
+
+  <h2>Terms</h2>
+  <dl>
+    <dt>Token</dt>
+    <dd>A chunk of text, roughly three-quarters of a word. Every token sent to or from the model counts against both the context window's size limit and the call's cost.</dd>
+    <dt>Context window</dt>
+    <dd>The full set of tokens the model can attend to in one call: the system prompt, the tool definitions, the conversation so far, every tool result, and what it's writing now. Finite, shared by all of those at once.</dd>
+    <dt>System prompt</dt>
+    <dd>The instructions that set up the model's role and task for this call.</dd>
+    <dt>Tool definitions</dt>
+    <dd>A short description of each tool the model may call and what it needs to call it.</dd>
+    <dt>Retrieval</dt>
+    <dd>Fetching just the relevant saved piece (a manual page, a note) into context on demand, instead of loading everything that exists.</dd>
+    <dt>Note-taking</dt>
+    <dd>The agent writing a short summary or log to a file outside the context window, to be retrieved and reread in a later session. Lightweight: no database required.</dd>
+    <dt>Compaction</dt>
+    <dd>Summarizing older turns of one long session into something shorter, to keep that session usable without overflowing the window. Within-session only &mdash; it does not save anything for next time.</dd>
+    <dt>Context editing</dt>
+    <dd>Clearing out stale tool results from one long session that are no longer needed. Also within-session only.</dd>
+  </dl>
+
+  <h2>Which fix, when</h2>
+  <table>
+    <tr><th>Problem</th><th>Fix</th><th>Crosses a session boundary?</th></tr>
+    <tr><td>This session's context is about to overflow</td><td>Compaction or context editing</td><td>No</td></tr>
+    <tr><td>Need one fact from a large body of saved material</td><td>Retrieval</td><td>Yes, if the material was saved across a session gap</td></tr>
+    <tr><td>Need the agent to remember something for a future session</td><td>Write a note, then retrieve it next time</td><td>Yes &mdash; this is the whole point</td></tr>
+  </table>
+
+  <h2>Five traps</h2>
+  <dl>
+    <dt>"A bigger window means I don't need memory or retrieval."</dt>
+    <dd>Cost still scales with every token sent, and accuracy can still drop as irrelevant text piles up.</dd>
+    <dt>"The model remembers me from last time."</dt>
+    <dd>The model holds nothing between calls; any apparent memory is the program re-inserting saved text.</dd>
+    <dt>"Context window and memory are the same thing."</dt>
+    <dd>The window is the per-call budget; memory is the external storage and retrieval system that decides what fills it.</dd>
+    <dt>"Writing a note is enough."</dt>
+    <dd>Something must still fetch the note and insert it into a later context window, or it's never seen again.</dd>
+    <dt>"Once the window fills, everything is remembered automatically."</dt>
+    <dd>Without deliberate compaction or notes, trimmed or dropped content is simply gone.</dd>
+  </dl>
+
+  <footer>From <a href="../lessons/0001-context-and-memory.html">Lesson 0001: Context and memory</a>. Primary source: Anthropic, <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents</a>.</footer>
+</main>
+</body>
+</html>

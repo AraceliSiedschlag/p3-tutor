@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Nailed it. What makes something an agent is the loop itself: the model picks an action, that action runs, and the result comes back for the next step. A fancier prompt or a bigger context window just changes what one call can do, not whether the system is looping at all."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, and you've got the key boundary exactly: the model's own output is just a structured request naming check_calendar and its arguments. It never touches the booking system itself, the program runs the tool and hands the result back. Good foundation for q4, since it's the same split."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Your answer assumes that if the loop just keeps going, it'll eventually land on the fix. That's not how it works. If the model keeps making the same edit against the same failing test, nothing about its situation has changed between steps, so there's no reason step 41 would go differently than step 40. Same idea as a recipe that keeps burning because the oven's too hot: running it longer just burns it more. It's a tempting answer because more steps feel like more chances to get there, and brute-force retrying does pay off for some problems. But the real safeguard here is a stopping condition, like a step limit, that cuts the loop and hands it to a person. Next time, ask: has anything actually changed between steps? If not, more steps won't break the pattern."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your answer says \"the model can only run one tool itself each time it's called\" — that assumes the model is the one running check_calendar, search_manuals and check_training_record. It isn't: the model can only ever produce text, a request naming a tool and its arguments, it has no way to execute code or reach outside systems, so the program is what actually runs each tool and hands the result back. That's an easy slip to make right after you nailed q2, where you correctly said the model only outputs a request; the wording here just flips which side does the running. The count of 4 is still right, one call per tool request plus one for the final answer, so the counting logic holds even though this phrasing doesn't."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct, and the group-chat analogy is a good one: the result goes back in as the model's next input, and it takes its next turn with that in front of it so it can decide what to do or write the final answer. Both halves of the idea are there, what happens and why it matters."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Half right: the name is part of it, check_calendar is a good clue. But the model isn't just matching on the name alone, it's given a full description for every tool, name, what it does, and its parameters, and picks the one whose whole description fits the request. Name-only matching can mislead if two tools have similar names, so the fuller picture is what to lean on. Think of it like picking a function from a library by reading its docstring, not just its name."
+    }
+  ],
+  "summary": "Solid set overall, Riley: you've got the loop itself, the agent-vs-single-call distinction, and how a tool result feeds back into the next call all down well (q1, q2, q5). The thing to fix next is the idea that the model itself runs the tools, that slipped into q4's reasoning even though q2 had it right, and it's the same family of mix-up behind q6's name-only answer. Concrete next step: write one sentence for each step of a sample request to your makerspace assistant saying exactly who, model or program, does that step, then compare it with how you reasoned through q2."
+}

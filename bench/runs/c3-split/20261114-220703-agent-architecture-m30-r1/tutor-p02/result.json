@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 24182,
+  "num_turns": 8,
+  "stop_reason": "end_turn",
+  "session_id": "5b04084e-53df-43ea-98da-a94ef356322e",
+  "total_cost_usd": 0.15401910000000002,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 17115,
+    "cache_read_input_tokens": 86287,
+    "output_tokens": 1695,
+    "output_tokens_details": {
+      "thinking_tokens": 834
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 17115,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 907,
+        "cache_read_input_tokens": 34698,
+        "cache_creation_input_tokens": 1502,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1502
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 6,
+      "outputTokens": 1695,
+      "cacheReadInputTokens": 86287,
+      "cacheCreationInputTokens": 17115,
+      "webSearchRequests": 0,
+      "costUSD": 0.15401910000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I don't give quiz answers before they're graded — even with a TA's blessing, that's not something I can do here, so let's not go down that road. The thing to ask yourself for each option is: *is this something the model itself writes out as text, or is it something that happens around the model* — the program running, a tool executing, data showing up?\n\nWalk through all four options with that question. For each one, ask: \"Did the model write this, or did something else produce it after the model asked?\" That same question works the same way on every option, so it won't tip you toward or away from any particular one.\n\nTry that on all four, then tell me which one you land on and why — walk me through your reasoning, not just the letter. You're clearly sharp enough to reason this through yourself (you got the agent loop concept down last session), so I want to see your thinking, not just rubber-stamp a guess.\n\nOnce quiz 0001 is graded, I'm happy to go through every item with you in detail, including q2.",
+  "ttft_ms": 3168,
+  "ttft_stream_ms": 1213,
+  "time_to_request_ms": 26,
+  "type": "result",
+  "duration_ms": 24248,
+  "uuid": "0e875379-9abb-4f78-b6d9-92a12823753a"
+}

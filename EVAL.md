@@ -332,7 +332,7 @@ Did the problems your `c1-skills` review found go away, and which ratings moved?
 Which loop earned its cost and which did not?
 If a loop ran several passes and the final output was no better than the first draft, say so, because that is the finding.
 
-The rating that decreased were alignment with the learning goal, Explains enough. The ones that increased were personalized to how I like things explained, writing quality, overall quality, and technical correctness and facts. Everything else stayed the same. One of the main issues of coping questions from the lesson was fixed from the c1-review. I think the grade loop earned the cost because it increased the personalization and caught mistakes in the loop. I 'dont' think the lesson was worth the cost because it barely raised the ratings and (only by one point) they were already high so it did not seem worth th extra 15 min and 3 dollars.Similar to lesson quiz did not seem worth it with only one increasing everything else staying the same.
+The rating that decreased were alignment with the learning goal, Explains enough. The ones that increased were personalized to how I like things explained, writing quality, overall quality, and technical correctness and facts. Everything else stayed the same. One of the main issues of coping questions from the lesson was fixed from the c1-review. I think the grade loop earned the cost because it increased the personalization and caught mistakes in the loop. I don't think the lesson was worth the cost because it barely raised the ratings and (only by one point) they were already high so it did not seem worth th extra 15 min and 3 dollars.Similar to lesson quiz did not seem worth it with only one increasing everything else staying the same.
 
 ---
 
