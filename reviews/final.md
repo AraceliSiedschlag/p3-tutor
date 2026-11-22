@@ -14,17 +14,17 @@ Keep every heading as it is, because `p3 check` reads them, and add a round by c
 
 ### Round 1 (optional)
 
-**Run:** TODO
+**Run:**  bench/runs/_live/20261122-192804-agent-architecture-m30-r1/grade-s1
 
 **My thoughts:**
 
-TODO
+The newly implemented guard is blocking the main coversations reads, the failed attempt to start a grader that doesnt exissr, verdict agreement failling to 0. Next steps should be to add a grader subagent that reads the key and submission started by the grader skills which will wait fro the reports. 
 
 **What changed:**
 
-- Kind: TODO
-- Files: TODO
-- Why: TODO
+- Kind: new subagent
+- Files: tutor/.claude/agents/grader.md, tutor/.claude/skills/grade/SKILL.md
+- Why: The guard blocked the main conversation from keys/ and no grader existed to start, so grading now happens in a new grader subagent, the only agent that reads the key, which the grade skill starts, waits for, and sends the reviewer's findings back to.
 
 ## Major review
 

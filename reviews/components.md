@@ -98,3 +98,12 @@ An example of a finished entry:
 - With and without: reviews/c2-review.md, Round 3 (without) and the c2-review full run (with)
 - Review: This was not worth it for a smaller change in the lessons for an additional 15 min and 3 dollars. So it did not seem worth it.
 - Kept in final: TODO
+
+### grader
+
+- Kind: subagent
+- Step added: final
+- Purpose: TODO
+- With and without: reviews/final.md, Round 1 (without) and Round 2 (with)
+- Review: TODO
+- Kept in final: TODO
