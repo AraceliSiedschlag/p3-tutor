@@ -1,0 +1,71 @@
+{
+  "is_error": false,
+  "duration_api_ms": 164534,
+  "num_turns": 8,
+  "stop_reason": "end_turn",
+  "session_id": "95af8a84-77d8-4b95-87f2-85bad9cbfbf2",
+  "total_cost_usd": 0.6903464999999999,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 8363,
+    "cache_read_input_tokens": 272440,
+    "output_tokens": 4157,
+    "output_tokens_details": {
+      "thinking_tokens": 769
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 8363,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 339,
+        "cache_read_input_tokens": 49389,
+        "cache_creation_input_tokens": 1022,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1022
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 34,
+      "outputTokens": 13000,
+      "cacheReadInputTokens": 509065,
+      "cacheCreationInputTokens": 65888,
+      "webSearchRequests": 0,
+      "costUSD": 0.6903464999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification"
+  },
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Grades for quiz 0001 / submission s2 are written to `grades/0001-s2.json`.\n\n**Summary:** Riley got q1, q2, q4, and q5 correct — solid grip on the agent loop (model requests, program executes, result comes back as the next input). q6 was partial — Riley says tool choice comes from matching the name, but it's really the full description (name + what it does + parameters) the model matches against. q3 was wrong, showing misconception M6: faced with a coding agent stuck repeating the same failing edit for 40 steps, Riley said to just let it keep running rather than adding a step limit to stop and escalate.\n\nI logged a learning record (`0003`) on that M6 gap and updated `NOTES.md` with both the q3 misconception and the q6 tool-description gap — the latter is worth watching since writing a clear tool description is one of your mission goals.\n\nNext step for Riley: revisit *why* a stuck loop needs a hard stop (not more time) and what a full tool description should contain, beyond just a good name.",
+  "ttft_ms": 1758,
+  "ttft_stream_ms": 1357,
+  "time_to_request_ms": 8,
+  "type": "result",
+  "duration_ms": 52055,
+  "uuid": "7a12947a-fd44-4204-9733-b5dbfc9d582a"
+}

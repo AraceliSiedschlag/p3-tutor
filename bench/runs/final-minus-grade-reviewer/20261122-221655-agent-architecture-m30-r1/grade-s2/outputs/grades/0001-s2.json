@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, it's the loop: the model picks an action, something runs it, the result comes back in, and that repeats until it stops. That's the one structural thing that turns a chatbot into an agent -- a bigger model or a longer prompt just makes one step smarter, it doesn't add the loop."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. At that moment the model only outputs a structured request -- 'call check_calendar with these arguments' -- it never touches the booking system itself. The program reads that request, actually runs the tool, and hands the result back."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Your answer assumes that if you just let the loop keep running, it will eventually fix the bug on its own. That's not how it works: the agent is stuck repeating the exact same edit against the exact same failing test, so nothing new is coming in to change its next move -- step 41 looks like step 40. It's tempting because more steps usually does mean more chances to get it right, so 'give it more room' feels like the safe bet. The real fix is a stopping condition, like a step limit, built into the agent program, that cuts the loop and hands the stuck task to a person instead of letting it spin."
+    },
+    {
+      "id": "q4",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "4 is right, and your count of the calls -- one per tool request, plus one for the final answer -- is exactly the logic. One small word to tighten up: the model doesn't 'run' check_calendar itself, it requests it; the program is what actually runs the tool and feeds the result back. You clearly know the difference since you got q2 right, so just keep 'requests' as your verb for what the model does."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Nice, you've got both halves: the result goes back in as the model's next input, and the reason is so the model can use it to decide its next move or write the final answer. The group-chat analogy works well too -- the model only 'sees' something once it's handed to it as part of the conversation."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name is part of it, but it's not the whole story -- the model is actually given a full description of each tool (name, what it does, and its parameters), and it matches the request against that whole description, not just the label. A name alone can mislead: a tool named check_calendar that's actually described as 'checks training sign-offs' would still get picked correctly by description, but could get picked wrongly by name alone. When you write tool descriptions for your makerspace assistant, make the 'what it does' part do the real work, not just the name."
+    }
+  ],
+  "summary": "You're solid on the core loop -- picking the action, running it, feeding the result back, and knowing each tool call is a separate model call, not something the model does itself. The one thing to lock in is why a stuck agent needs a hard stop built into the program rather than just more steps: more time doesn't help when nothing new is coming back from the tool. As a next step, try sketching a short trace of your makerspace assistant hitting a tool error twice in a row, and write down exactly where you'd put the step limit and what it reports back."
+}

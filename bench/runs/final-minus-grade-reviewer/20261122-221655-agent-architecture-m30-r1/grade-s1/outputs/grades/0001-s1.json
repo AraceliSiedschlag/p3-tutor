@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct - the agent loop (model picks an action, the program runs it, the result comes back, repeat) is exactly what makes a system an agent instead of a one-shot call. Good, that's the one idea everything else in this quiz builds on."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Your answer assumes the model itself opened the booking system and read the calendar entries directly. That's not what happens: the model never touches the calendar, it just outputs a structured request naming check_calendar with the laser cutter and tomorrow's date as arguments, and the program around it is what actually runs the tool and gets the entries back. It's an easy slip because from the outside it looks like the assistant just checked the calendar in one smooth step. Keep the split clear: model requests, program executes."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct - once an agent is just repeating the same failed edit, a step limit that stops the loop and reports back is the real fix, not a bigger model or more patience. Good instinct to carry into your design review: always budget a stopping condition, not just hope it sorts itself out."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Your answer of 1 assumes the model ran all three tools itself inside a single call and then wrote the answer in that same call. That's not how it works: each model call ends with either one tool request or the final answer, never more, so three tool requests plus the final answer is four separate calls, with the program running each tool in between and handing the result back. It's tempting to picture it as one smooth action because the student only ever sees one final answer appear. Next time, count every point where control passes back to the model, including right after each tool result comes in."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You've got the first half: yes, the result goes back to the model. What's missing is the why - it goes back as part of the model's next input specifically so the model can use it to decide its next step or write the final answer. Add that reasoning and you've got the whole round trip, which is the same mechanism you needed in q4."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "You nailed the real mechanism - the model gets each tool's name and a description, and picks the one that matches what's needed. But you added that it 'remembers on its own which tool it picked for questions like that in earlier sessions,' as if it keeps that memory automatically. It doesn't: a model call only sees what's in its current input, so nothing carries over between sessions unless your program deliberately saves it and feeds it back in next time. It's a tempting guess because a good human assistant would remember a pattern like that from experience. Keep memory and sessions separate in your head: anything persisted has to be stored and reloaded on purpose by the code around the model."
+    }
+  ],
+  "summary": "You've got the agent loop itself and the step-limit safeguard solid, and you're most of the way to how a tool result flows back to the model - you just need to add the 'why' in your wording. The bigger thing to fix is a pattern showing up twice: you keep giving the model credit for things the surrounding program actually does, whether that's running a tool directly (q2, q4) or remembering past sessions on its own (q6). Before your next quiz, try re-tracing q2 and q6 out loud one call at a time and ask 'does the model do this, or does the program do this for it' before you answer."
+}

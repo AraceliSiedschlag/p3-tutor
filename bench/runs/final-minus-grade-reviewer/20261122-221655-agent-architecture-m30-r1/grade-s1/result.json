@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 153674,
+  "num_turns": 21,
+  "stop_reason": "end_turn",
+  "session_id": "a1fc5870-a7d8-4fc6-a14c-66d665afc52b",
+  "total_cost_usd": 0.69698145,
+  "usage": {
+    "input_tokens": 22,
+    "cache_creation_input_tokens": 42875,
+    "cache_read_input_tokens": 425693,
+    "output_tokens": 6332,
+    "output_tokens_details": {
+      "thinking_tokens": 1332
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 42875,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 341,
+        "cache_read_input_tokens": 49817,
+        "cache_creation_input_tokens": 1053,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1053
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 32,
+      "outputTokens": 13003,
+      "cacheReadInputTokens": 492689,
+      "cacheCreationInputTokens": 68684,
+      "webSearchRequests": 0,
+      "costUSD": 0.69698145,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Grading's done. Riley scored 2 correct, 2 partial, 2 wrong on quiz 0001 (s1):\n\n- **q1, q3 — correct**: has the agent loop and the step-limit safeguard solid.\n- **q5, q6 — partial**: right that the tool result goes back to the model (missing the *why*); right on how tool selection works, but added that the model remembers past tool choices across sessions on its own (M3).\n- **q2, q4 — wrong**: both show the same gap (M4) — crediting the model with directly running tools / doing multiple steps in one call, rather than seeing each tool request and result as a separate round trip through the surrounding program.\n\nWritten: `grades/0001-s1.json`, two new learning records (`0003` on the model/program split, `0004` on the no-automatic-memory misconception), and updated `NOTES.md`.\n\nNext step: `submissions/s2.json` (the spaced-practice retake) is still ungraded — want me to grade that one too, or move on to the context-and-memory lesson next?",
+  "ttft_ms": 1938,
+  "ttft_stream_ms": 1367,
+  "time_to_request_ms": 112,
+  "type": "result",
+  "duration_ms": 154268,
+  "uuid": "bf7226f4-04aa-41c3-afd5-f75fa174cadc"
+}
