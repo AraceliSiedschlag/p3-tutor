@@ -1,0 +1,37 @@
+{
+  "quiz": "0002",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The reward lands on whatever the dog is doing at the instant it arrives, and a five-second gap is far too late to reinforce lying down. The key is timing: the reward marks the behavior that is actually happening when the treat lands."
+    },
+    {
+      "id": "q2",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You are on the right track: a marker is about linking a sound or word to the behavior, not just naming it after the fact. The missing part is the timing role: a marker tells the dog the exact instant it did the right thing, right before the treat arrives."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M-stuck-criterion",
+      "feedback": "Your answer assumes that once a step works, you keep rewarding that exact same step forever. That is the wrong idea: shaping only moves forward when you stop reinforcing the old criterion and start rewarding the next, slightly better version. The dog will never get to a fuller turn if the old half-turn keeps paying off."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You saw the real issue: the dog is depending on visible treats instead of learning to work without them. The missing piece is the term for that fix — fading — and the point that this is not proof the training itself was bribery, just that the rewards were never thinned out over time."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. AVSAB's review found reward-based methods come out ahead on both welfare and effectiveness, even for hard behaviors. The point is not that corrections never work at all, but that the review found no clear advantage in the correction approach and real advantages in reward-based training."
+    }
+  ],
+  "summary": "You got the timing and welfare points right, and you spotted the core issue in q4. The one idea to tighten up is shaping: in a shaped behavior, you stop rewarding the old criterion once the dog can do the next small step. Try that rule on a simple behavior and you will see why the old step has to drop out for the behavior to improve."
+}

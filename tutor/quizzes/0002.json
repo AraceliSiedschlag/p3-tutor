@@ -1,0 +1,55 @@
+{
+  "id": "0002",
+  "objective": "O2",
+  "title": "How dogs learn tricks",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A dog lies down. Five seconds later, after it has already stood back up and wandered toward the door, you say \"good dog\" and hand over a treat. What did you most likely just reinforce?",
+      "options": [
+        {"id": "a", "text": "Lying down, since that is the behavior you meant to reward"},
+        {"id": "b", "text": "Standing up and wandering toward the door, since that is what the dog was doing"},
+        {"id": "c", "text": "Nothing at all, since five seconds is too short a gap to matter"},
+        {"id": "d", "text": "The word \"good dog\", since dogs learn words before actions"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "short",
+      "objective": "O2",
+      "stem": "In one sentence, what is a marker (such as a clicker or a word like \"yes\") actually for in dog training?"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "You are shaping a dog to spin in a full circle. It now reliably does a half-turn every time you ask. You are still marking and treating a half-turn, the step you started with weeks ago. What should you do next?",
+      "options": [
+        {"id": "a", "text": "Keep marking the half-turn, since it is already working well"},
+        {"id": "b", "text": "Stop marking the half-turn and only mark a bigger turn from now on"},
+        {"id": "c", "text": "Mark both the half-turn and any bigger turn, to be generous"},
+        {"id": "d", "text": "Switch to marking the word \"spin\" instead of the turn itself"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O2",
+      "stem": "A neighbor says their dog only sits on command because it gets a treat every time, and calls this \"bribery\" rather than real training. What is the actual issue, in one sentence?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "AVSAB's review of the research on dog training methods found that, compared with correction-based methods (leash jerks, prong collars, shock collars), reward-based methods are:",
+      "options": [
+        {"id": "a", "text": "Better for easy behaviors only, with corrections needed for the hard ones"},
+        {"id": "b", "text": "Roughly equal in welfare and effectiveness, so either is fine"},
+        {"id": "c", "text": "Worse for welfare but faster for effectiveness, a real tradeoff"},
+        {"id": "d", "text": "Better for welfare and effectiveness, with no exception carved out"}
+      ]
+    }
+  ]
+}

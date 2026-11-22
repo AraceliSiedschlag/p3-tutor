@@ -1,0 +1,61 @@
+{
+  "id": "0003",
+  "objective": "O3",
+  "title": "The planner/writer split in agents",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A customer-support agent's planner decides the order to handle three complaints, then drafts the reply to complaint 1 itself, instead of handing that step to a writer. What is the problem with this design?",
+      "options": [
+        {"id": "a", "text": "Nothing: the planner already has full context, so it may as well write the output too."},
+        {"id": "b", "text": "Mixing the two jobs risks the myopic, error-compounding choices that a separate writer step avoids."},
+        {"id": "c", "text": "The only problem is that it will run slower, not that the output's quality suffers."},
+        {"id": "d", "text": "The planner should instead write every step's output upfront, before any step runs."}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "An executor assigned to draft one reply in an email thread is given the full transcript of every email in the thread, not just the one it is replying to, \"to be safe.\" What is the risk?",
+      "options": [
+        {"id": "a", "text": "None: more context can only help the executor do a better job on its step."},
+        {"id": "b", "text": "The crowded context causes errors to compound, even though the executor only needed its one step's inputs."},
+        {"id": "c", "text": "It will take the planner longer to produce its next plan."},
+        {"id": "d", "text": "The planner will need to re-approve the reply before it is sent."}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A system calls the model to decide the next action and produce it, in the same call, before every single tool use. What is this kind of architecture usually called, in contrast to one with a separate planning step?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "After a plan-and-execute agent's writer finishes step 2 of 4, the planner reviews what happened and decides to skip step 3, since it is no longer needed. What makes this possible?",
+      "options": [
+        {"id": "a", "text": "The writer stepped outside its assigned step to make that call."},
+        {"id": "b", "text": "Planning stayed a separate, revisitable step rather than being baked into each action."},
+        {"id": "c", "text": "The planner and writer were running at the same moment, so the writer could veto the step."},
+        {"id": "d", "text": "The split mainly exists to save money, and skipping a step is just a side effect of that."}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Why can the writer in a plan-and-execute agent often be a smaller, cheaper model than the planner?",
+      "options": [
+        {"id": "a", "text": "It only has to produce output for the one step it was already given, not reason about the whole task."},
+        {"id": "b", "text": "The planner already paid for the expensive reasoning, so the writer's model calls do not count toward cost."},
+        {"id": "c", "text": "The writer re-derives the whole plan from scratch at each step, so a cheaper model is safer there."},
+        {"id": "d", "text": "The writer never calls a model at all; it only executes code directly."}
+      ]
+    }
+  ]
+}

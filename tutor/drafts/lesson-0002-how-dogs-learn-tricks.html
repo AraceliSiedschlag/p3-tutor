@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="p3-minutes" content="10">
+  <meta name="p3-objective" content="O2">
+  <title>How dogs learn tricks</title>
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --text: #1f1d1a;
+      --muted: #6b665e;
+      --rule: #e4dfd4;
+      --accent: #9a4517;
+      --accent-soft: #f7ede4;
+      --warn: #8c2f39;
+      --warn-soft: #f9eaec;
+      --ok: #2f6b3a;
+      --ok-soft: #e7f2e9;
+      --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614;
+        --text: #e9e5dc;
+        --muted: #a49e93;
+        --rule: #36332e;
+        --accent: #eaa77a;
+        --accent-soft: #2c231d;
+        --warn: #f0a3ac;
+        --warn-soft: #2f1f22;
+        --ok: #9fd3a8;
+        --ok-soft: #1c2a1f;
+        --code-bg: #23211e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 19px; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.6; }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    p, li { hyphens: auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+    h1 { font-size: 2.1rem; margin: 0.25rem 0 1rem; }
+    h2 { font-size: 1.45rem; margin: 3rem 0 0.75rem; }
+    h3 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+    .kicker, .label, .meta, .section-time, figcaption, summary, th, nav.toc, footer.closing {
+      font-family: var(--sans);
+    }
+    .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .lead { font-size: 1.15rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--muted);
+            border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 0.5rem 0; margin: 1.5rem 0; }
+    nav.toc { font-size: 0.9rem; margin: 1.5rem 0 2rem; }
+    nav.toc ol { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    .section-time { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+    dfn { font-style: normal; font-weight: 600; }
+    aside.note { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--rule); padding-left: 1rem; margin: 1.25rem 0; }
+    .box { border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .box > :first-child { margin-top: 0; }
+    .box > :last-child { margin-bottom: 0; }
+    .label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .mission { background: var(--accent-soft); }
+    .mission .label { color: var(--accent); }
+    .misconception { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .misconception .label { color: var(--warn); }
+    .worked { border: 1px solid var(--rule); }
+    .worked ol { padding-left: 1.3rem; }
+    .summary { border: 1px solid var(--rule); }
+    figure { margin: 2rem 0; }
+    figure svg { display: block; width: 100%; height: auto; }
+    figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1.5rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    code, pre { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 4px; }
+    code { padding: 0.1em 0.3em; }
+    pre { padding: 1rem; overflow-x: auto; line-height: 1.45; }
+    pre code { padding: 0; background: none; font-size: 1em; }
+    .check { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .check .label { color: var(--accent); }
+    .check p { margin: 0.25rem 0; }
+    .choices { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+    .choices button { width: 100%; text-align: left; font: inherit; font-size: 0.95rem; color: inherit; background: transparent;
+                      border: 1px solid var(--rule); border-radius: 6px; padding: 0.55rem 0.8rem; cursor: pointer; }
+    .choices button:hover { border-color: var(--accent); }
+    .choices button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .choices button.right { border-color: var(--ok); background: var(--ok-soft); }
+    .choices button.wrong { border-color: var(--warn); background: var(--warn-soft); }
+    .feedback { font-size: 0.95rem; margin: 0.6rem 0 0; }
+    .feedback:empty { margin: 0; }
+    details { margin-top: 0.75rem; }
+    summary { font-size: 0.85rem; color: var(--accent); cursor: pointer; }
+    details > :not(summary) { margin: 0.5rem 0 0; }
+    .go-further li { margin-bottom: 0.6rem; }
+    footer.closing { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+    @media (max-width: 32rem) {
+      html { font-size: 17px; }
+      h1 { font-size: 1.75rem; }
+      main { padding-top: 2rem; }
+    }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2;
+              --warn: #000; --warn-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --code-bg: #f2f2f2; }
+      html { font-size: 11.5pt; }
+      main { max-width: none; padding: 0; }
+      nav.toc { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+      .box, .check, figure, table, pre { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="kicker">Lesson 2 &middot; 10 minutes</div>
+    <h1>How dogs learn tricks</h1>
+    <p class="lead">By the end of this lesson you can explain why a dog does what it does after training, and build a trick from scratch using the same mechanics real trainers use.</p>
+    <div class="meta">
+      <span>Objective O2: how dogs learn new behaviors through reinforcement and shaping</span>
+      <span>About 10 minutes</span>
+    </div>
+    <div class="box mission">
+      <span class="label">Why this matters for you</span>
+      <p>Your mission is reading and responding to animal behavior, cats specifically. This lesson is a step sideways from cats, but the same underlying skill: understanding how an animal's behavior gets shaped by what follows it. With cats you're reading signals the animal already sends; here you'll see the other half, how a new behavior gets built in the first place. Good to have both halves of the picture.</p>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="In this lesson">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#warm-up">Warm-up</a></li>
+      <li><a href="#s1">The mechanism: reward what you want, right away</a></li>
+      <li><a href="#s2">Shaping: how to build a trick nobody taught the dog yet</a></li>
+      <li><a href="#practice">Worked example and practice</a></li>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#further">Go further</a></li>
+    </ol>
+  </nav>
+
+  <section id="warm-up">
+    <h2>Warm-up <span class="section-time">1 min</span></h2>
+    <div class="check">
+      <span class="label">Recall</span>
+      <p>With cats, you learned to read signals the cat was already giving you, like a slow blink or flattened ears. Here's the flip side: how do you think you'd get a dog to do something it has never done before, like spin in a circle?</p>
+      <details>
+        <summary>Check your answer</summary>
+        <p>You can't just wait for a spin to happen on its own and hope. Trainers reward tiny pieces of the behavior, one step closer each time, until the full trick shows up. That's the whole lesson in one sentence, read on for how it actually works.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s1">
+    <h2>The mechanism: reward what you want, right away <span class="section-time">4 min</span></h2>
+    <p>Dogs don't learn by being told what a word means. They learn by noticing what happens right after they do something. This is <dfn>operant conditioning</dfn>: a behavior followed by a good consequence happens more often, and a behavior followed by nothing or something bad happens less (<a href="https://www.companionanimalpsychology.com/2021/08/why-you-need-to-reward-your-dog-in.html">Companion Animal Psychology, summarizing AVSAB's 2021 position statement</a>). You've basically got this already, since it's the same cause-and-effect logic you used to read a cat's slow blink, just running the other direction.</p>
+
+    <p>The American Veterinary Society of Animal Behavior reviewed the research and came down firmly on one side. Reward-based training gives "the most advantages and least harm to the learner's welfare," with no exception even for difficult behavior, and no real role left for correction-based methods, such as leash jerks, prong collars, or shock collars (<a href="https://www.companionanimalpsychology.com/2021/08/why-you-need-to-reward-your-dog-in.html">Companion Animal Psychology, summarizing AVSAB's 2021 position statement</a>).</p>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>A friend says their trainer uses a firm leash correction whenever the dog pulls, and swears it's the only way to get a reliable result. Based on what AVSAB's review found, what's the best response?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="It's a common belief, but it's exactly what the research review argues against: reward-based methods come out ahead on welfare and effectiveness, with no exception carved out for stubborn behavior.">They're right, corrections work better for behaviors that reward alone can't fix</button></li>
+        <li><button type="button" data-correct="true" data-why="Right. AVSAB's review found reward-based methods have the advantage on both welfare and effectiveness, no exceptions, so a correction-based method isn't actually the stronger option, just the more familiar one.">Reward-based training wins on welfare and effectiveness, pulling included</button></li>
+        <li><button type="button" data-correct="false" data-why="The review doesn't call it a wash. It states reward-based methods have the clearer advantage, not that the two approaches tie.">Both approaches work about equally well, so it comes down to preference</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Reward-based training comes out ahead on both welfare and effectiveness, with no exception made for a hard-to-fix behavior like pulling. That's the finding, not just one trainer's opinion.</p>
+      </details>
+    </div>
+
+    <p>Once you're rewarding, timing is everything. A reward tells the dog exactly which action just worked, but only if it lands fast: within roughly a second or two of the action. Wait three seconds to hand over the treat and the dog has already moved on to sniffing the floor, so now you've rewarded floor-sniffing, not the thing you meant to (<a href="https://fureverk9.com/timing-in-dog-training-how-to-sharpen-your-cues-and-rewards/">Furever K9, Timing in Dog Training</a>).</p>
+
+    <p>That's why trainers use a <dfn>marker</dfn>, a clicker or a sharp verbal word like "yes," which they can fire the instant the right thing happens, with the treat following a beat later. The marker is the precise timestamp; the treat is just the payment that comes after (<a href="https://www.akc.org/expert-advice/training/what-is-clicker-training-a-great-way-to-shape-your-dogs-behavior/">AKC, Clicker Training Dogs</a>).</p>
+
+    <aside class="note">Before the marker means anything, you have to "charge" it: click, then treat, about 10 to 20 times with nothing else going on, so the dog learns click equals treat is coming. Skip this and the click is just noise (<a href="https://www.akc.org/expert-advice/training/what-is-clicker-training-a-great-way-to-shape-your-dogs-behavior/">AKC, Clicker Training Dogs</a>).</aside>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>It's tempting to think a dog needs to "understand" the command word first, the way you'd explain a rule to a person. It's backwards: the word is the last thing added, once the behavior already happens reliably. Trainers attach the cue after the behavior exists, not before, the same way you'd name a keyboard shortcut after you've already built the feature it triggers, not before.</p>
+    </div>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>It's also tempting to think treats are "bribery," that a dog trained this way only obeys when food is visible. That's a <dfn>fading</dfn> problem, not a reinforcement problem: fading is gradually thinning out how often treats show up, swapping in praise, play, or life rewards, until only occasional food is needed once a behavior is solid. The method isn't bribery, it's just under-faded if the dog won't work without a treat in sight.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Your dog sits. You say "good dog" and reach into your pocket, fish out a treat, and hand it over four seconds later. What most likely got reinforced?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Tempting, since that's what you meant to reward, but four seconds is too slow for the dog to connect the treat to sitting specifically.">Sitting, since that's the behavior you were rewarding</button></li>
+        <li><button type="button" data-correct="true" data-why="Right. Whatever the dog was doing in that four-second gap, maybe standing back up, is what actually got the reward. Timing decides what gets learned, not your intention.">Whatever the dog was doing four seconds after it sat</button></li>
+        <li><button type="button" data-correct="false" data-why="Dogs don't need the word understood in advance; reinforcement works on the action and its timing, not on comprehension of your praise.">Nothing, since the dog needs to understand "good dog" first</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Whatever the dog was doing four seconds after it sat is the behavior that got reinforced, since that's what was happening the instant the reward landed. A gap of a second or two is the target, not four.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s2">
+    <h2>Shaping: how to build a trick nobody taught the dog yet <span class="section-time">3 min</span></h2>
+    <p><dfn>Shaping</dfn> is how you get a behavior that has never happened before: break the final trick into small steps, and reward only the step the dog is currently on, raising the bar once that step is solid. The American Kennel Club lays out the rule plainly: once a step is reliable, "stop rewarding the step one behavior and only reinforce step two," watching for small variations that move toward the goal and marking those (<a href="https://www.akc.org/expert-advice/training/training-tips-shaping/">AKC, What Is Shaping?</a>).</p>
+
+    <p>If you've ever tested a recipe by tweaking one variable at a time, salt, then heat, then time, until it's right, shaping is the same idea applied to a living, moving animal: small adjustment, check the result, adjust again.</p>
+
+    <figure>
+      <svg viewBox="0 0 640 170" role="img" aria-labelledby="fig1-title">
+        <title id="fig1-title">Five shaping steps toward a dog waving its paw, each step rewarded only until the next one appears</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="10" y="40" width="110" height="60" rx="8"/>
+          <rect x="140" y="40" width="110" height="60" rx="8"/>
+          <rect x="270" y="40" width="110" height="60" rx="8"/>
+          <rect x="400" y="40" width="110" height="60" rx="8" style="stroke: var(--accent)"/>
+          <rect x="530" y="40" width="100" height="60" rx="8"/>
+          <line x1="120" y1="70" x2="138" y2="70"/>
+          <line x1="250" y1="70" x2="268" y2="70"/>
+          <line x1="380" y1="70" x2="398" y2="70"/>
+          <line x1="510" y1="70" x2="528" y2="70"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="15" text-anchor="middle">
+          <text x="65" y="65">Paw lifts</text>
+          <text x="65" y="83">off ground</text>
+          <text x="195" y="65">Paw to</text>
+          <text x="195" y="83">shoulder</text>
+          <text x="325" y="65">Any paw</text>
+          <text x="325" y="83">movement</text>
+          <text x="455" y="65" style="fill: var(--accent)">Up and down</text>
+          <text x="455" y="83" style="fill: var(--accent)">motion</text>
+          <text x="580" y="65">Add word</text>
+          <text x="580" y="83">"wave"</text>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="13" text-anchor="middle">
+          <text x="340" y="130">Each box is only rewarded until the next one shows up on its own</text>
+        </g>
+      </svg>
+      <figcaption>Figure 1. Shaping a wave in five small steps. Rewarding step one forever would just produce a dog great at lifting its paw an inch, never a wave.</figcaption>
+    </figure>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>You've been shaping "spin" for a week. The dog now reliably turns a full circle. You're still marking and treating every quarter-turn, the step you started with. What should you do?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="This is the trap: rewarding the easy early step forever means the dog has no reason to offer more. Progress stalls exactly where you stopped raising the bar.">Keep rewarding quarter-turns, since that's what's working</button></li>
+        <li><button type="button" data-correct="true" data-why="Nailed it. Once a step is reliable, stop paying for it and only reward the next step up, the half-turn or the full turn, so there's a reason to offer more.">Stop rewarding quarter-turns and only reward bigger turns now</button></li>
+        <li><button type="button" data-correct="false" data-why="Tempting if you think more reward equals more learning, but rewarding every level at once removes the incentive to improve past the easiest one.">Reward every level, quarter-turn and full turn alike, to be generous</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Stop rewarding quarter-turns and only reward bigger turns now. Raising the criterion once a step is solid is what moves the dog toward the full behavior instead of parking it on the easy version.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="practice">
+    <h2>Worked example and practice <span class="section-time">2 min</span></h2>
+    <div class="box worked">
+      <span class="label">Worked example: shaping "touch" (nose to your hand)</span>
+      <p>Goal: the dog touches its nose to your open palm on cue.</p>
+      <ol>
+        <li>Hold your palm a few inches from the dog's nose. The moment it even glances toward your hand, mark and treat, because any interest at all is the first approximation.</li>
+        <li>Once glancing is reliable, raise the bar: only mark a lean toward the hand, not just a glance, so the dog has to try harder for the same reward.</li>
+        <li>Once leaning is reliable, only mark actual nose contact with the palm, moving the target a little farther each time it succeeds, until contact at a distance is solid.</li>
+        <li>Only now add the word: say "touch" right before the dog is about to make contact, so the word and the action line up, then start saying it before you present your hand at all.</li>
+      </ol>
+    </div>
+    <div class="check">
+      <span class="label">Your turn</span>
+      <p>Shape "spin" (a full turn in place). First step given: mark and treat any turn of the head toward one side, even a small one. Work out steps two through four yourself before you look.</p>
+      <details>
+        <summary>Show a solution</summary>
+        <p>Step 2: mark only when the head turn pulls the shoulders and front feet around with it. Step 3: mark only a half-turn of the whole body. Step 4: mark only a full 360-degree turn, then add the word "spin" right before the dog turns, once the full turn is reliable without the word.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary <span class="section-time">1 min</span></h2>
+    <div class="box summary">
+      <ul>
+        <li>Dogs learn from what happens right after an action, within about a second, not from being told a rule in words.</li>
+        <li>A marker (clicker or word) timestamps the exact right moment; the treat is just the payment that follows.</li>
+        <li>Shaping builds a brand-new behavior by rewarding small steps toward it, and dropping the reward for a step once the next one shows up.</li>
+        <li>The cue word is added last, once the behavior is already reliable, not first.</li>
+      </ul>
+      <p><strong>Say it in your own words:</strong> without looking back, explain to yourself why rewarding the same easy step forever would stall a dog's progress on a trick.</p>
+    </div>
+  </section>
+
+  <section id="further" class="go-further">
+    <h2>Go further</h2>
+    <p><strong>Read or watch next:</strong> <a href="https://www.akc.org/expert-advice/training/training-tips-shaping/">AKC, "What Is Shaping?"</a>, the clearest short walkthrough of building a trick step by step, with more worked examples than this lesson had room for.</p>
+    <ul>
+      <li><a href="https://www.akc.org/expert-advice/training/what-is-clicker-training-a-great-way-to-shape-your-dogs-behavior/">AKC, Clicker Training Dogs</a>: how to charge a clicker and use it day to day.</li>
+      <li><a href="https://www.companionanimalpsychology.com/2021/08/why-you-need-to-reward-your-dog-in.html">Companion Animal Psychology, on AVSAB's position statement</a>: the welfare case for reward-based training over corrections.</li>
+    </ul>
+  </section>
+
+  <footer class="closing">
+    <p>Anything unclear? Ask me in the chat; I can explain any part again, another way, or go deeper.</p>
+    <p>A short quiz on this lesson is ready (quiz 0002): ask me for it when you want to check what stuck.</p>
+  </footer>
+
+</main>
+<script>
+  document.querySelectorAll("[data-check]").forEach(function (box) {
+    var buttons = box.querySelectorAll("button[data-correct]");
+    var out = box.querySelector(".feedback");
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.classList.remove("right", "wrong"); });
+        var right = button.getAttribute("data-correct") === "true";
+        button.classList.add(right ? "right" : "wrong");
+        if (out) { out.textContent = (right ? "Yes. " : "Not quite. ") + (button.getAttribute("data-why") || ""); }
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="p3-minutes" content="10">
+  <meta name="p3-objective" content="O1">
+  <title>Cats: reading the body language that tells you how they feel</title>
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --text: #1f1d1a;
+      --muted: #6b665e;
+      --rule: #e4dfd4;
+      --accent: #9a4517;
+      --accent-soft: #f7ede4;
+      --warn: #8c2f39;
+      --warn-soft: #f9eaec;
+      --ok: #2f6b3a;
+      --ok-soft: #e7f2e9;
+      --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614;
+        --text: #e9e5dc;
+        --muted: #a49e93;
+        --rule: #36332e;
+        --accent: #eaa77a;
+        --accent-soft: #2c231d;
+        --warn: #f0a3ac;
+        --warn-soft: #2f1f22;
+        --ok: #9fd3a8;
+        --ok-soft: #1c2a1f;
+        --code-bg: #23211e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 19px; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.6; }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    p, li { hyphens: auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+    h1 { font-size: 2.1rem; margin: 0.25rem 0 1rem; }
+    h2 { font-size: 1.45rem; margin: 3rem 0 0.75rem; }
+    h3 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+    .kicker, .label, .meta, .section-time, figcaption, summary, th, nav.toc, footer.closing {
+      font-family: var(--sans);
+    }
+    .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .lead { font-size: 1.15rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--muted);
+            border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 0.5rem 0; margin: 1.5rem 0; }
+    nav.toc { font-size: 0.9rem; margin: 1.5rem 0 2rem; }
+    nav.toc ol { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    .section-time { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+    dfn { font-style: normal; font-weight: 600; }
+    aside.note { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--rule); padding-left: 1rem; margin: 1.25rem 0; }
+    .box { border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .box > :first-child { margin-top: 0; }
+    .box > :last-child { margin-bottom: 0; }
+    .label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .mission { background: var(--accent-soft); }
+    .mission .label { color: var(--accent); }
+    .misconception { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .misconception .label { color: var(--warn); }
+    .worked { border: 1px solid var(--rule); }
+    .worked ol { padding-left: 1.3rem; }
+    .summary { border: 1px solid var(--rule); }
+    figure { margin: 2rem 0; }
+    figure svg { display: block; width: 100%; height: auto; }
+    figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+    .check { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .check .label { color: var(--accent); }
+    .check p { margin: 0.25rem 0; }
+    .choices { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+    .choices button { width: 100%; text-align: left; font: inherit; font-size: 0.95rem; color: inherit; background: transparent; border: 1px solid var(--rule); border-radius: 6px; padding: 0.55rem 0.8rem; cursor: pointer; }
+    .choices button:hover { border-color: var(--accent); }
+    .choices button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .choices button.right { border-color: var(--ok); background: var(--ok-soft); }
+    .choices button.wrong { border-color: var(--warn); background: var(--warn-soft); }
+    .feedback { font-size: 0.95rem; margin: 0.6rem 0 0; }
+    .feedback:empty { margin: 0; }
+    details { margin-top: 0.75rem; }
+    summary { font-size: 0.85rem; color: var(--accent); cursor: pointer; }
+    details > :not(summary) { margin: 0.5rem 0 0; }
+    .go-further li { margin-bottom: 0.6rem; }
+    footer.closing { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+    @media (max-width: 32rem) {
+      html { font-size: 17px; }
+      h1 { font-size: 1.75rem; }
+      main { padding-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="kicker">Lesson 1 &middot; 10 minutes</div>
+      <h1>Cats: reading the body language that tells you how they feel</h1>
+      <p class="lead">By the end of this lesson you can read the main signals in a cat's posture and respond in a way that matches the cat's mood instead of guessing.</p>
+      <div class="meta">
+        <span>Objective O1: interpret cat body language</span>
+        <span>About 10 minutes</span>
+      </div>
+      <div class="box mission">
+        <span class="label">Why this matters for you</span>
+        <p>Cats are excellent at sending clear signals, but they can be easy to misread when you focus on one tiny detail. Learning the pattern helps you avoid accidental stress, build trust, and tell when a cat wants company or space.</p>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="In this lesson">
+      <strong>In this lesson</strong>
+      <ol>
+        <li><a href="#warm-up">Warm-up</a></li>
+        <li><a href="#s1">Read the whole cat, not a single signal</a></li>
+        <li><a href="#s2">Calm vs stressed</a></li>
+        <li><a href="#practice">Worked example</a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ol>
+    </nav>
+
+    <section id="warm-up">
+      <h2>Warm-up <span class="section-time">2 min</span></h2>
+      <div class="check">
+        <span class="label">Recall</span>
+        <p>Which is more useful: reading one signal like a tail flick, or reading the whole cat's posture, ears, eyes, and tail together?</p>
+        <details>
+          <summary>Check your answer</summary>
+          <p>Read the whole cat together. A tail flick can be a sign of irritation or excitement, but the same tail movement means different things depending on the ears, body posture, and the cat's pace of movement. That is why professionals treat body language as a pattern, not a single clue.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="s1">
+      <h2>Read the whole cat, not a single signal <span class="section-time">3 min</span></h2>
+      <p>When people talk about a cat's <dfn>body language</dfn>, they mean the cluster of signals that show how the cat is feeling: ear position, eyes, tail, whiskers, body posture, and even how quickly it moves. A single movement matters less than the pattern. The best guides for cat behavior stress that you should look at the whole picture instead of making a judgment from one muscle twitch alone (<a href="https://www.humaneworld.org/resources/reading-cat-body-language">Humane World for Animals</a>; <a href="https://icatcare.org/advice/understanding-cat-body-language/">International Cat Care</a>).</p>
+
+      <figure>
+        <svg viewBox="0 0 640 200" role="img" aria-labelledby="fig1-title">
+          <title id="fig1-title">Cat body language diagram showing calm and stressed signals</title>
+          <g fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="320" cy="118" rx="140" ry="82" fill="none"/>
+            <path d="M 200 95 L 150 80 M 440 95 L 490 80" stroke-linecap="round"/>
+            <path d="M 270 60 L 255 25 M 370 60 L 385 25" stroke-linecap="round"/>
+            <path d="M 290 145 L 255 175 M 350 145 L 385 175" stroke-linecap="round"/>
+            <path d="M 210 130 L 160 150" stroke-linecap="round"/>
+            <path d="M 430 130 L 480 150" stroke-linecap="round"/>
+            <path d="M 320 175 L 320 220" stroke-linecap="round"/>
+          </g>
+          <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">
+            <text x="110" y="75">Ears</text>
+            <text x="220" y="38">Eyes</text>
+            <text x="530" y="75">Tail</text>
+            <text x="320" y="170">Body posture</text>
+          </g>
+          <g fill="var(--accent)" font-family="system-ui, sans-serif" font-size="16">
+            <text x="318" y="112">whole cat</text>
+          </g>
+        </svg>
+        <figcaption>Figure 1. The clues fit together: ear direction, eye shape, tail height, and body posture tell a more honest story than any one signal alone.</figcaption>
+      </figure>
+
+      <p>Here is the simple rule: if the tail is moving, but the ears are forward and the body is loose, the cat may be alert or interested. If the ears are flattened, the body is low, and the tail is tucked or thrashing, the cat is probably not comfortable and may want space.</p>
+
+      <div class="box misconception">
+        <span class="label">A common mix-up</span>
+        <p>Many people assume a tail flick always means aggression. That is too simple. A tail can flick when a cat is annoyed, but it can also signal excitement or intense focus. The same tail movement means different things when the ears are forward, sideways, or flattened, and when the cat is crouched or relaxed.</p>
+      </div>
+
+      <div class="check" data-check>
+        <span class="label">Check yourself</span>
+        <p>A cat is sitting in a loose posture, ears forward, eyes soft, and tail upright with a gentle curve. Which read fits best?</p>
+        <ul class="choices">
+          <li><button type="button" data-correct="false" data-why="This is a calm, comfortable cat. The tail is not stiff or whipping. The body is loose, and the ears are forward, which matches relaxed interest.">It is likely relaxed and comfortable.</button></li>
+          <li><button type="button" data-correct="true" data-why="Yes. A loose body, soft eyes, and a neutral or gently curved tail usually signal comfort or curiosity, not threat.">It is likely calm and curious.</button></li>
+          <li><button type="button" data-correct="false" data-why="This is the wrong pattern. Flattened ears, tight posture, or a whipping tail are more typical of strain or fear.">It is likely fearful and wants to hide.</button></li>
+        </ul>
+        <p class="feedback" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="s2">
+      <h2>Calm vs stressed <span class="section-time">3 min</span></h2>
+      <p>Comfort and stress are easier to read when you know the usual pattern. A calm cat usually has a loose body, soft eyes, and ears that point forward or to the sides. A cat that feels uneasy often lowers its body, keeps its tail tucked, has ears turned back or flattened, and may stare with wide pupils or move quickly.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Signal</th>
+            <th>Often means</th>
+            <th>What to do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Loose body, slow blink, tail neutral or gently raised</td>
+            <td>Relaxed or comfortable</td>
+            <td>Gentle attention is welcome; slow movements help.</td>
+          </tr>
+          <tr>
+            <td>Ears back, lower body, tucked tail, tense posture</td>
+            <td>Fear, stress, or discomfort</td>
+            <td>Give space and let the cat decide when to approach.</td>
+          </tr>
+          <tr>
+            <td>Tail thumping, rapid flicking, direct stare, stiff body</td>
+            <td>High arousal or irritation</td>
+            <td>Pause, lower your voice, and back off before trying again.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <aside class="note">A slow blink is one of the best signs of trust. It is often a cat's way of saying, “I am not feeling threatened right now,” and it can be a good invitation to be calm and gentle.</aside>
+
+      <div class="box misconception">
+        <span class="label">A second common mix-up</span>
+        <p>“If a cat looks at me, it wants attention.” Not always. A direct stare can be a challenge or a warning, especially when the body is still, the tail is twitching, and the ears are tense. The same eye contact can be calm and friendly in a relaxed cat with a soft face and slow blinking.</p>
+      </div>
+    </section>
+
+    <section id="practice">
+      <h2>Worked example and practice <span class="section-time">2 min</span></h2>
+      <div class="box worked">
+        <span class="label">Worked example</span>
+        <ol>
+          <li>The cat is crouched low with ears flattened and tail tucked tight.</li>
+          <li>The body is not loose; it is tense and low to the ground.</li>
+          <li>The best read is that the cat feels uneasy or threatened and wants space.</li>
+          <li>Good response: stop petting, lower your movements, and give the cat a quiet route away.</li>
+        </ol>
+      </div>
+
+      <div class="check" data-check>
+        <span class="label">Try this</span>
+        <p>A cat approaches, tail high and curved, ears forward, and then gives you a slow blink. What is the best reading?</p>
+        <ul class="choices">
+          <li><button type="button" data-correct="false" data-why="The cat is not signaling fear here; the posture is open and relaxed, and the slow blink is a trust signal.">The cat is likely angry and wants distance.</button></li>
+          <li><button type="button" data-correct="true" data-why="Correct. A soft face, forward ears, and a slow blink often mean the cat feels safe enough to relax and may welcome calm attention.">The cat is likely relaxed and comfortable.</button></li>
+          <li><button type="button" data-correct="false" data-why="A slow blink is usually a friendly sign, not a warning. A tense tail or flattened ears would point to stress instead.">The cat is likely overstimulated and defensive.</button></li>
+        </ul>
+        <p class="feedback" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="summary">
+      <h2>Summary <span class="section-time">1 min</span></h2>
+      <div class="box summary">
+        <p>Read cat body language as a pattern, not a single cue. Soft eyes, a loose body, forward ears, and a neutral or gently curved tail often mean calm. Flattened ears, a tucked tail, tense posture, and rapid tail flicking often mean stress or irritation. When in doubt, stop, slow down, and let the cat choose whether to approach.</p>
+      </div>
+    </section>
+
+    <section id="further">
+      <h2>Go further</h2>
+      <ul class="go-further">
+        <li><a href="https://www.humaneworld.org/resources/reading-cat-body-language">Humane World for Animals: Reading Cat Body Language</a> — a practical guide for body posture, ears, tail, and whiskers.</li>
+        <li><a href="https://icatcare.org/advice/understanding-cat-body-language/">International Cat Care: Understanding Cat Body Language</a> — a clear expert reference that emphasizes reading multiple signals together.</li>
+      </ul>
+    </section>
+
+    <footer class="closing">
+      You can ask me follow-up questions in chat about any part of this lesson, and a short quiz is ready when you want it.
+    </footer>
+  </main>
+
+  <script>
+    document.querySelectorAll('[data-check]').forEach((section) => {
+      const buttons = section.querySelectorAll('button');
+      const feedback = section.querySelector('.feedback');
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const isCorrect = button.dataset.correct === 'true';
+          buttons.forEach((b) => b.classList.remove('right', 'wrong'));
+          buttons.forEach((b) => {
+            if (b.dataset.correct === 'true') b.classList.add('right');
+            if (b === button && !isCorrect) b.classList.add('wrong');
+          });
+          const reason = button.dataset.why || '';
+          feedback.textContent = isCorrect
+            ? 'Right — ' + reason
+            : 'Not quite — ' + reason;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

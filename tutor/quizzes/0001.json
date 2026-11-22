@@ -1,0 +1,43 @@
+{
+  "id": "0001",
+  "objective": "O1",
+  "title": "Reading cat body language",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "A cat is sitting with soft eyes, a loose body, ears forward, and a tail raised in a gentle curve. What does this pattern most likely mean?",
+      "options": [
+        {"id": "a", "text": "The cat is relaxed and comfortable"},
+        {"id": "b", "text": "The cat is fearful and wants space"},
+        {"id": "c", "text": "The cat is angry and ready to attack"},
+        {"id": "d", "text": "The cat is in pain and needs a vet"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "short",
+      "objective": "O1",
+      "stem": "A cat crouches low, tucks its tail, and flattens its ears. What is the cat most likely telling you?"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "A cat starts tail-thumping and flicking the tip while staring directly at you. What is the best next step?",
+      "options": [
+        {"id": "a", "text": "Keep petting to reassure the cat"},
+        {"id": "b", "text": "Pause, lower your movements, and give the cat space"},
+        {"id": "c", "text": "Pick up the cat to calm it down"},
+        {"id": "d", "text": "Move closer and make eye contact to show dominance"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O1",
+      "stem": "What does a slow blink from a cat usually suggest?"
+    }
+  ]
+}

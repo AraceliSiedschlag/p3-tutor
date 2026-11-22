@@ -1,0 +1,46 @@
+{
+  "id": "0001",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "A loose body, soft eyes, forward ears, and a neutral or gently raised tail usually signal comfort and curiosity. A fearful cat would be lower, tight, and more closed-off, not loose and open.",
+      "distractors": {
+        "b": "M1",
+        "c": "M2",
+        "d": "M3"
+      }
+    },
+    {
+      "id": "q2",
+      "answer": "it feels scared or uneasy and wants space",
+      "accepted": [
+        "it feels fearful or stressed and wants space",
+        "it is uncomfortable and wants distance",
+        "it is fearful and wants to be left alone"
+      ],
+      "rationale": "A low crouch, tucked tail, and flattened ears fit a cat trying to protect itself and avoid contact. The key idea is that body language is a stress signal, not a sign that the cat is being playful."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Tail-thumping and direct staring often mean high arousal or irritation. The right response is to slow down, reduce stimulation, and let the cat decide whether to continue interacting.",
+      "distractors": {
+        "a": "M2",
+        "c": "M3",
+        "d": "M1"
+      }
+    },
+    {
+      "id": "q4",
+      "answer": "trust or relaxation",
+      "accepted": [
+        "relaxation",
+        "comfort and trust",
+        "a calm, friendly signal",
+        "it feels safe"
+      ],
+      "rationale": "A slow blink is one of the clearest signs that a cat feels safe enough to be loose and unthreatened. It is usually a friendly, relaxed signal rather than a warning."
+    }
+  ]
+}

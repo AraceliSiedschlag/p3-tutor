@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="p3-minutes" content="5">
+  <meta name="p3-objective" content="O3">
+  <title>How agents split planning from writing</title>
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --text: #1f1d1a;
+      --muted: #6b665e;
+      --rule: #e4dfd4;
+      --accent: #9a4517;
+      --accent-soft: #f7ede4;
+      --warn: #8c2f39;
+      --warn-soft: #f9eaec;
+      --ok: #2f6b3a;
+      --ok-soft: #e7f2e9;
+      --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614;
+        --text: #e9e5dc;
+        --muted: #a49e93;
+        --rule: #36332e;
+        --accent: #eaa77a;
+        --accent-soft: #2c231d;
+        --warn: #f0a3ac;
+        --warn-soft: #2f1f22;
+        --ok: #9fd3a8;
+        --ok-soft: #1c2a1f;
+        --code-bg: #23211e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 19px; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.6; }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    p, li { hyphens: auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+    h1 { font-size: 2.1rem; margin: 0.25rem 0 1rem; }
+    h2 { font-size: 1.45rem; margin: 3rem 0 0.75rem; }
+    h3 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+    .kicker, .label, .meta, .section-time, figcaption, summary, th, nav.toc, footer.closing {
+      font-family: var(--sans);
+    }
+    .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .lead { font-size: 1.15rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--muted);
+            border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 0.5rem 0; margin: 1.5rem 0; }
+    nav.toc { font-size: 0.9rem; margin: 1.5rem 0 2rem; }
+    nav.toc ol { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    .section-time { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+    dfn { font-style: normal; font-weight: 600; }
+    aside.note { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--rule); padding-left: 1rem; margin: 1.25rem 0; }
+    .box { border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .box > :first-child { margin-top: 0; }
+    .box > :last-child { margin-bottom: 0; }
+    .label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .mission { background: var(--accent-soft); }
+    .mission .label { color: var(--accent); }
+    .misconception { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .misconception .label { color: var(--warn); }
+    .worked { border: 1px solid var(--rule); }
+    .worked ol { padding-left: 1.3rem; }
+    .summary { border: 1px solid var(--rule); }
+    figure { margin: 2rem 0; }
+    figure svg { display: block; width: 100%; height: auto; }
+    figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1.5rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    code, pre { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 4px; }
+    code { padding: 0.1em 0.3em; }
+    pre { padding: 1rem; overflow-x: auto; line-height: 1.45; }
+    pre code { padding: 0; background: none; font-size: 1em; }
+    .check { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .check .label { color: var(--accent); }
+    .check p { margin: 0.25rem 0; }
+    .choices { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+    .choices button { width: 100%; text-align: left; font: inherit; font-size: 0.95rem; color: inherit; background: transparent;
+                      border: 1px solid var(--rule); border-radius: 6px; padding: 0.55rem 0.8rem; cursor: pointer; }
+    .choices button:hover { border-color: var(--accent); }
+    .choices button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .choices button.right { border-color: var(--ok); background: var(--ok-soft); }
+    .choices button.wrong { border-color: var(--warn); background: var(--warn-soft); }
+    .feedback { font-size: 0.95rem; margin: 0.6rem 0 0; }
+    .feedback:empty { margin: 0; }
+    details { margin-top: 0.75rem; }
+    summary { font-size: 0.85rem; color: var(--accent); cursor: pointer; }
+    details > :not(summary) { margin: 0.5rem 0 0; }
+    .go-further li { margin-bottom: 0.6rem; }
+    footer.closing { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+    @media (max-width: 32rem) {
+      html { font-size: 17px; }
+      h1 { font-size: 1.75rem; }
+      main { padding-top: 2rem; }
+    }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2;
+              --warn: #000; --warn-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --code-bg: #f2f2f2; }
+      html { font-size: 11.5pt; }
+      main { max-width: none; padding: 0; }
+      nav.toc { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+      .box, .check, figure, table, pre { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="kicker">Lesson 3 &middot; 5 minutes</div>
+    <h1>How agents split planning from writing</h1>
+    <p class="lead">By the end, you can look at any agent &mdash; even this tutor &mdash; and say which parts are planning and which are writing, plus name one failure the split prevents.</p>
+    <div class="meta">
+      <span>Objective O3: the planner/writer split and what breaks without it</span>
+      <span>About 5 minutes</span>
+    </div>
+    <div class="box mission">
+      <span class="label">Why this topic, right now</span>
+      <p>One step outside the cat mission: this is about how agents like this tutor are built, and the tutor itself is a planner/writer system, so it's as concrete as this gets.</p>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="In this lesson">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#s1">What the planner does</a></li>
+      <li><a href="#s2">What the writer does</a></li>
+      <li><a href="#s3">Why the split pays off</a></li>
+      <li><a href="#s4">What goes wrong without it</a></li>
+      <li><a href="#practice">Worked example and practice</a></li>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#further">Go further</a></li>
+    </ol>
+  </nav>
+
+  <section id="s1">
+    <h2>What the planner does <span class="section-time">1 min</span></h2>
+    <p>An agent splits its work into two jobs. The <dfn>planner</dfn> reasons about the whole task up front: it orders the sub-steps and notes which depends on which, before any output is produced (<a href="https://www.langchain.com/blog/planning-agents">LangChain</a>; <a href="https://tianpan.co/blog/2026/04/09/agent-planning-module-hidden-architectural-seam">TianPan</a>).</p>
+
+    <aside class="note">Picture an IT dispatcher reading every open ticket at shift start: they set the order and flag that ticket 2 needs ticket 1's account reset first. They never touch a ticket themselves.</aside>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>"The planner should just write the output itself, since it knows the whole task." Tempting, but mixing the two jobs causes the myopic, error-compounding failures in the next two sections.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>A dispatcher reads three tickets and sets the order to resolve them. Which is the dispatcher's (planner's) job?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Writing the reply is turning one step into output, the writer's job, not the planner's.">Write the reply to the requester</button></li>
+        <li><button type="button" data-correct="true" data-why="Right. Deciding the order and noting what depends on what is exactly the planner's job, before any output exists.">Decide the order the tickets get worked in</button></li>
+        <li><button type="button" data-correct="false" data-why="Closing out one ticket after fixing it is carrying out a step, which is the writer's job.">Close out a ticket once it is fixed</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite">Click an option above to check yourself.</p>
+    </div>
+  </section>
+
+  <section id="s2">
+    <h2>What the writer does <span class="section-time">1 min</span></h2>
+    <p>The <dfn>writer</dfn> (or executor) works at the step level: it turns one assigned step into output &mdash; text, a tool call, a file &mdash; using only that step's context (<a href="https://tianpan.co/blog/2026/04/09/agent-planning-module-hidden-architectural-seam">TianPan</a>). This lets each role specialize, as <a href="https://www.comet.com/site/blog/plan-and-execute-agents-in-langchain/">Comet</a> notes: the planner runs a slower, stronger reasoning pass, while the writer stays simple, even a cheaper model (<a href="https://www.langchain.com/blog/planning-agents">LangChain</a>).</p>
+
+    <aside class="note">Picture a line cook on a busy night: the ticket says "plate the salad," and that's all they need &mdash; not the dessert order three tickets down.</aside>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>"The writer needs the whole task's history." Tempting, since more context feels safer, but a crowded context causes mistakes to pile up ("context rot"); it only needs its own step's inputs.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>The planner hands the writer one step: "plate the salad for table 4." What does the writer need?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Sounds thorough, but the writer does not re-derive the plan; it only executes its one step.">A copy of the planner's full reasoning</button></li>
+        <li><button type="button" data-correct="true" data-why="Right. The whole task's history would only crowd its context and risk errors compounding.">Just the inputs for its one assigned step</button></li>
+        <li><button type="button" data-correct="false" data-why="Feels safer, but it crowds the writer's context and causes mistakes to pile up.">The full history of every step in the task</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite">Click an option above to check yourself.</p>
+    </div>
+  </section>
+
+  <section id="s3">
+    <h2>Why the split pays off <span class="section-time">1 min</span></h2>
+    <p>The planner is consulted once up front, not before every action. A <dfn>ReAct-style agent</dfn> calls the model before every tool use instead, deciding and producing in one breath; the split skips that cost and runs faster and cheaper (<a href="https://www.langchain.com/blog/planning-agents">LangChain</a>).</p>
+    <p>Keeping planning separate also lets the system <dfn>replan</dfn>: after a step runs, the planner reassesses and decides whether to finish or issue a new plan (<a href="https://www.langchain.com/blog/planning-agents">LangChain</a>).</p>
+
+    <aside class="note">Picture a data-science lead who plans the whole pipeline once instead of re-approving every line a teammate writes, and can still step back in to revise the plan.</aside>
+
+    <div class="box misconception">
+      <span class="label">Two common mix-ups</span>
+      <p>"It's just a speed/cost trick, not about quality." Wrong: an unseparated loop also makes myopic, derailed choices, a quality problem, not only a slower one.</p>
+      <p>"Planning and writing must run in parallel." Wrong: the split is distinct steps in sequence &mdash; plan, write, maybe replan &mdash; never two systems at once.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>The split mainly exists to...</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Real, but not the only gain: an unseparated loop also produces lower-quality, derailed output.">save money and run faster, nothing more</button></li>
+        <li><button type="button" data-correct="true" data-why="Right. It cuts cost, keeps choices coherent, and makes replanning possible.">save cost, keep output coherent, and allow replanning</button></li>
+        <li><button type="button" data-correct="false" data-why="Planner and writer take turns; not two systems at once.">run the planner and writer at the same time</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite">Click an option above to check yourself.</p>
+    </div>
+  </section>
+
+  <section id="s4">
+    <h2>What goes wrong without it <span class="section-time">1 min</span></h2>
+    <p>Without separation, a system that decides and produces in the same step tends toward "greedy" choices: whatever looks good for the next action, not the best plan for the whole task, and this derails complex tasks at a high rate (<a href="https://tianpan.co/blog/2026/04/09/agent-planning-module-hidden-architectural-seam">TianPan</a>).</p>
+    <p>Mistakes also pile up in one stream of context ("error self-conditioning," "context rot"), so accuracy drops the longer an unseparated agent runs (<a href="https://tianpan.co/blog/2026/04/09/agent-planning-module-hidden-architectural-seam">TianPan</a>).</p>
+
+    <aside class="note">Back at the help desk: an engineer grabbing whatever ticket looks easiest, ignoring the dispatcher's order, can unplug the wrong server mid-migration.</aside>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>True or false: an agent with no separation just runs a little slower, but still gets the same answer.</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Not just slower: myopic actions and piled-up mistakes make the answer itself worse.">True</button></li>
+        <li><button type="button" data-correct="true" data-why="Right. Skipping the split costs correctness, not just speed.">False</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite">Click an option above to check yourself.</p>
+    </div>
+  </section>
+
+  <section id="practice">
+    <h2>Worked example and practice <span class="section-time">1 min</span></h2>
+    <div class="box worked">
+      <span class="label">Worked example: a 3-ticket help-desk job</span>
+      <ol>
+        <li><strong>Planner's output:</strong> order 1, 2, 3; ticket 2 needs ticket 1's reset done first. No reply yet, only order.</li>
+        <li><strong>Writer's output for ticket 1:</strong> given only "user locked out, reset the account," it resets and replies &mdash; never seeing tickets 2 or 3.</li>
+        <li><strong>Notice:</strong> the writer did not re-decide the order; that was already handed to it.</li>
+      </ol>
+    </div>
+    <div class="check">
+      <span class="label">Your turn, data scientist</span>
+      <p>Same pattern, a cooking task. Planner decided: step 1 boil pasta, step 2 make sauce (needs step 1's pasta water), step 3 plate. Step 1's output, modeled: "Boil water, add pasta, cook 9 minutes, reserve 1 cup pasta water." Write step 2's output. No step 3, no re-deciding the order.</p>
+      <details>
+        <summary>Show a solution</summary>
+        <p>"Heat oil, add garlic, add the reserved pasta water and butter, simmer until it thickens." Only step 2's own inputs, no plating, no re-checking the order &mdash; that is already done.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary <span class="section-time">1 min</span></h2>
+    <div class="box summary">
+      <ul>
+        <li>The planner decides the order of steps, and their dependencies, before any output exists.</li>
+        <li>The writer produces output for one step at a time, using only that step's inputs.</li>
+        <li>Keeping the two apart beats mixing them: it avoids myopic choices and piled-up mistakes, not just saves time and money.</li>
+        <li>Replanning only works because planning stays a separate, revisitable step.</li>
+      </ul>
+      <p>You already think this way at work, so this pattern should click fast.</p>
+      <p><strong>Say it in your own words:</strong> pick any agent you have used, even this tutor, and name its "planner moment" and its "writer moment," without looking back.</p>
+    </div>
+  </section>
+
+  <section id="further" class="go-further">
+    <h2>Go further</h2>
+    <p><strong>Read next:</strong> <a href="https://www.langchain.com/blog/planning-agents">LangChain, "Plan-and-Execute Agents"</a>, the clearest statement of the split.</p>
+    <ul>
+      <li><a href="https://tianpan.co/blog/2026/04/09/agent-planning-module-hidden-architectural-seam">TianPan</a>: failure modes without separation.</li>
+      <li><a href="https://www.comet.com/site/blog/plan-and-execute-agents-in-langchain/">Comet</a>: the specialization argument.</li>
+      <li><a href="https://www.langchain.com/blog/plan-and-execute-agents">LangChain, second post</a>: flags replanning as future work; notes this approach costs more calls, not fewer.</li>
+    </ul>
+  </section>
+
+  <footer class="closing">
+    <p>Anything unclear? Ask me in the chat; I can explain any part again, another way, or go deeper.</p>
+    <p>A short quiz on this lesson will be ready when you want to check what stuck; just ask.</p>
+  </footer>
+
+</main>
+<script>
+  // Practice checks: mark the chosen option and explain it at once.
+  document.querySelectorAll("[data-check]").forEach(function (box) {
+    var buttons = box.querySelectorAll("button[data-correct]");
+    var out = box.querySelector(".feedback");
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.classList.remove("right", "wrong"); });
+        var right = button.getAttribute("data-correct") === "true";
+        button.classList.add(right ? "right" : "wrong");
+        if (out) { out.textContent = (right ? "Yes. " : "Not quite. ") + (button.getAttribute("data-why") || ""); }
+      });
+    });
+  });
+</script>
+</body>
+</html>

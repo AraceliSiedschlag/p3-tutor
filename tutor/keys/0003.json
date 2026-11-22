@@ -1,0 +1,34 @@
+{
+  "id": "0003",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The planner's job is deciding order and dependencies, before any output exists; the writer's job is turning one step into output. Mixing them pushes the system toward myopic, 'good enough for now' choices and lets mistakes compound, which is a quality problem, not only a speed one. An answer of 'a' shows M4 (the planner should just write the output itself); an answer of 'c' shows M6 (the split is only about speed and cost).",
+      "distractors": {"a": "M4", "c": "M6"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "The writer only needs its own step's inputs; handing it the whole thread's history crowds its context and causes errors to pile up ('context rot') instead of helping. An answer of 'a' shows M5, the belief that more context for the writer can only help.",
+      "distractors": {"a": "M5"}
+    },
+    {
+      "id": "q3",
+      "answer": "ReAct",
+      "accepted": ["ReAct", "ReAct agent", "a ReAct agent", "ReAct-style agent", "a ReAct-style agent"],
+      "rationale": "A ReAct-style agent calls the model before every tool use, deciding and producing in one breath, which is exactly what a plan-and-execute split avoids by consulting the planner once up front."
+    },
+    {
+      "id": "q4",
+      "answer": "b",
+      "rationale": "Replanning is only possible because planning is kept as its own, revisitable step rather than something baked into each action; the planner can step back in between steps and change course. An answer of 'c' shows M7, the idea that the planner and writer run in parallel rather than taking turns in sequence.",
+      "distractors": {"c": "M7"}
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "Because the writer only has to execute one step it has already been handed, it does not need the planner's heavier reasoning, so it can run on a smaller, cheaper model while the planner keeps the stronger, slower pass for itself."
+    }
+  ]
+}

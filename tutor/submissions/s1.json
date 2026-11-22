@@ -1,0 +1,10 @@
+{
+  "quiz": "0001",
+  "learner": "Learner",
+  "answers": [
+    {"id": "q1", "response": "a"},
+    {"id": "q2", "response": "the cat is telling you it is anxious and not comftorable"},
+    {"id": "q3", "response": "b"},
+    {"id": "q4", "response": "it is feeling threatened and assessing its situation"}
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A reward reinforces whatever the dog is doing at the instant it arrives, not what you intended. A five-second gap is well past the roughly one-to-two-second window, so the treat landed on standing up and wandering, not on lying down.",
+      "distractors": {"a": "M-timing-intent", "d": "M-word-first"}
+    },
+    {
+      "id": "q2",
+      "answer": "A marker tells the dog the exact instant it did the right thing, right before the treat arrives.",
+      "accepted": [
+        "it marks the precise moment the correct behavior happened, so the dog knows what earned the reward",
+        "it is a timestamp for the correct behavior, fired the instant it happens, with the treat following",
+        "to pinpoint exactly when the dog did the right thing, since a treat alone can be too slow or vague"
+      ],
+      "rationale": "The marker's whole job is precision timing: it can be delivered the instant the right behavior happens, while handing over a treat usually takes a beat longer. An answer that only says \"to tell the dog good job\" misses the specific timing role and would count as partial, not correct."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Shaping only moves forward when the reward for the current step is withdrawn once the next step appears; marking the half-turn forever removes any reason for the dog to offer more.",
+      "distractors": {"a": "M-stuck-criterion", "c": "M-stuck-criterion"}
+    },
+    {
+      "id": "q4",
+      "answer": "The dog's reliance on visible treats is a fading problem, not proof the training itself is bribery; treats need to be thinned out and swapped for other rewards over time.",
+      "accepted": [
+        "it is not bribery, the treats just were never faded out, so the dog still expects to see one",
+        "the trainer skipped fading, so the behavior never became independent of a visible treat",
+        "reinforcement built the behavior correctly, but fading it down to occasional rewards was never done"
+      ],
+      "rationale": "Positive reinforcement and bribery are different mechanisms: reinforcement that never gets faded just looks like bribery from the outside. An answer that simply says \"it's not bribery\" without naming the fading gap would be partial."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "AVSAB's position statement found reward-based methods carry the clearest advantage on both welfare and training effectiveness, explicitly with no exception made even for harder behaviors.",
+      "distractors": {"a": "M-corrections-for-hard-cases", "b": "M-methods-are-equal", "c": "M-welfare-effectiveness-tradeoff"}
+    }
+  ]
+}

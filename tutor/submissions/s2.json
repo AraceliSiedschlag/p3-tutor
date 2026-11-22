@@ -1,0 +1,11 @@
+{
+  "quiz": "0002",
+  "learner": "Learner",
+  "answers": [
+    {"id": "q1", "response": "b"},
+    {"id": "q2", "response": "associating a word/sound with an action."},
+    {"id": "q3", "response": "d"},
+    {"id": "q4", "response": "They only givea treat rtaher than have them pratcice it without treats as well."},
+    {"id": "q5", "response": "d"}
+  ]
+}

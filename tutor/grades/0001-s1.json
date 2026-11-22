@@ -1,0 +1,31 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right — a loose body, soft eyes, forward ears, and a gentle tail curve are the classic calm and curious pattern. The key is to read the whole posture together, because tense posture or flattened ears would change the read entirely."
+    },
+    {
+      "id": "q2",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You got the stress signal: anxious and uncomfortable is the right read. To make it fully complete, add that the cat is likely asking for space or distance, because a lower body, tucked tail, and flattened ears usually mean 'please back off.'"
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right — rapid tail-thumping and direct staring usually mean high arousal or irritation. The smart move is to pause, lower your movements, and let the cat decide whether to continue contact."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": null,
+      "feedback": "This is the wrong read for a slow blink. A slow blink usually means the cat feels safe and relaxed enough to trust you, and it is a friendly signal rather than a threat check. The wrong idea is treating a calm cat like it is on alert; when the body is loose and the eyes are soft, that is comfort, not danger."
+    }
+  ],
+  "summary": "You correctly recognized the relaxed pattern in q1 and the irritation warning in q3. The main thing to fix is the difference between a calm slow blink and a tense, defensive posture: a soft, loose cat is usually safe, while a stiff body and flattened ears are the warning signs. Next time, read the whole posture first and ask whether the cat is choosing contact or space."
+}
