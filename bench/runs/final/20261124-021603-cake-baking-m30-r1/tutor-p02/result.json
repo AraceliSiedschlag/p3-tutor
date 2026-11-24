@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 44383,
+  "num_turns": 7,
+  "stop_reason": "end_turn",
+  "session_id": "9bd66693-d671-4a67-b2e7-0632ca9148a8",
+  "total_cost_usd": 0.2532705,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 29870,
+    "cache_read_input_tokens": 106805,
+    "output_tokens": 2799,
+    "output_tokens_details": {
+      "thinking_tokens": 1393
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 29870,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 528,
+        "cache_read_input_tokens": 35003,
+        "cache_creation_input_tokens": 1600,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1600
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 2799,
+      "cacheReadInputTokens": 106805,
+      "cacheCreationInputTokens": 29870,
+      "webSearchRequests": 0,
+      "costUSD": 0.2532705,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Not quite — they're not the same, and swapping one for the other can flatten your cake or make it taste off.\n\nBaking soda (sodium bicarbonate) only works if there's an acid in the batter to react with — buttermilk, yogurt, brown sugar, cocoa, lemon juice. That reaction is what makes the CO2 bubbles that lift the cake. Baking powder is baking soda *plus* its own built-in acid (plus a bit of starch as a buffer), so it doesn't need help from the recipe — it's self-contained.\n\nSo which one a recipe calls for depends on what else is in the batter:\n- Recipe has a notable acidic ingredient → baking soda.\n- Recipe is mostly neutral (plain milk, butter, flour, sugar) → baking powder, since there's nothing for soda to react against.\n\nThink of it like a two-part epoxy versus a one-part glue: soda is the reactive half that needs its matching acid to set off the reaction; powder already has both halves packed in. Swap soda in for powder in a plain vanilla cake, and most of it just sits there unreacted — you get a flatter, denser cake, and sometimes a faint soapy or metallic taste from the leftover unreacted soda.\n\nThat's why they're never truly interchangeable 1:1 — different job, different chemistry. You're asking the right question at the right time too, since getting this wrong is a classic reason a from-scratch cake sinks or tastes weird, and that's exactly what you're trying to avoid.\n\nQuick check: does your vanilla cake recipe use plain milk, or something like buttermilk or yogurt?",
+  "ttft_ms": 4907,
+  "ttft_stream_ms": 3308,
+  "time_to_request_ms": 69,
+  "type": "result",
+  "duration_ms": 44587,
+  "uuid": "097944aa-ec11-42ac-bcb3-5857b25681f4"
+}

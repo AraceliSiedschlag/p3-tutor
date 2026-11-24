@@ -1,0 +1,103 @@
+{
+  "is_error": false,
+  "duration_api_ms": 758012,
+  "num_turns": 24,
+  "stop_reason": "end_turn",
+  "session_id": "40cfdaee-63e3-4a6c-91fb-767076748864",
+  "total_cost_usd": 2.0115057,
+  "usage": {
+    "input_tokens": 32,
+    "cache_creation_input_tokens": 69728,
+    "cache_read_input_tokens": 686553,
+    "output_tokens": 9368,
+    "output_tokens_details": {
+      "thinking_tokens": 2262
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 69728,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 397,
+        "cache_read_input_tokens": 56995,
+        "cache_creation_input_tokens": 1459,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1459
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 86,
+      "outputTokens": 59880,
+      "cacheReadInputTokens": 1060424,
+      "cacheCreationInputTokens": 170142,
+      "webSearchRequests": 0,
+      "costUSD": 2.0115057,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Read",
+      "tool_use_id": "toolu_01E64muDkApoftsKVXya9tzq",
+      "tool_input": {
+        "file_path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-8qi9reej/keys/0001.json"
+      }
+    },
+    {
+      "tool_name": "Grep",
+      "tool_use_id": "toolu_015JevV2CRZVa3iMq4s7fjMH",
+      "tool_input": {
+        "pattern": "M4|M5",
+        "path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-8qi9reej",
+        "output_mode": "content",
+        "-n": true
+      }
+    },
+    {
+      "tool_name": "Read",
+      "tool_use_id": "toolu_012vtB5sX2RVnGDzsgrfx7eR",
+      "tool_input": {
+        "file_path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-8qi9reej/keys/0001.json"
+      }
+    },
+    {
+      "tool_name": "Grep",
+      "tool_use_id": "toolu_01PZQ3BrbtqwhTskCt7tSRbq",
+      "tool_input": {
+        "pattern": "M4|M5",
+        "path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-8qi9reej",
+        "output_mode": "content",
+        "-n": true
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Grading is done. Here's the summary for Ava:\n\n**Quiz 0001 — Measuring ingredients: 3/6 correct**\n\n- ✅ q2 (grams → cups math), q3 (spoon-and-level definition), q4 (liquid measuring cup use) — all solid.\n- ❌ q1: thought scooping straight from the bag was accurate — it actually packs flour down, giving too much and a dry, dense cake.\n- ❌ q5: said \"scales are more exact\" — right conclusion, but just restated the question instead of explaining *why* (weight stays fixed, cup volume doesn't).\n- ❌ q6: thought a little extra baking powder was harmless — small leavener amounts matter a lot; too much makes the cake rise fast then collapse.\n\n**Next step:** the upcoming lesson on what makes a cake rise should directly tackle the leavener misconception from q6, since that ties straight to avoiding a sunken cake — one of Ava's two main goals.\n\nFiles written: `grades/0001-s1.json`, `review-records/0001-s1-grade.md`, `learning-records/0002-leavener-amounts-misconception.md`, and `NOTES.md` updated.",
+  "ttft_ms": 4871,
+  "ttft_stream_ms": 4330,
+  "time_to_request_ms": 217,
+  "type": "result",
+  "duration_ms": 759751,
+  "uuid": "4b1727e4-05e7-42c2-b4fb-53c289e3ae78"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A toothpick that comes out clean or with a few dry crumbs shows the inside has set; wet batter clinging to it means the center is still raw, and a bit of flour stuck to the pick is not a real test result either.",
+      "distractors": {"a": "M1", "c": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": "it springs back when you press it lightly in the center",
+      "accepted": [
+        "it springs back when touched",
+        "the top springs back when lightly pressed",
+        "it pulls away from the sides of the pan",
+        "the edges pull away from the pan"
+      ],
+      "rationale": "A done cake springs back from a light touch instead of leaving a dent, and it also starts pulling away from the pan's sides; either is a valid second sign besides the toothpick."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "Too much leavener makes the gas bubbles grow too large, so they merge and burst even in a cake that tested done, and the middle collapses as it cools. Blaming too long in the oven mixes up the cause of a dry cake with the cause of a sunken one.",
+      "distractors": {"a": "M2"}
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "When the oven runs too hot, the outside of the cake sets into a shell while the center is still rising, so the center has nowhere to go but up, cracking the top into a dome."
+    },
+    {
+      "id": "q5",
+      "answer": "it was overbaked, left in the oven too long or baked too hot",
+      "accepted": [
+        "it was overbaked",
+        "it baked too long",
+        "the oven was too hot",
+        "it stayed in the oven too long"
+      ],
+      "rationale": "Extra time in the oven, or an oven running hotter than the recipe assumes, bakes the extra moisture out of the crumb even when every ingredient amount was right."
+    },
+    {
+      "id": "q6",
+      "answer": "d",
+      "rationale": "A toothpick only reports on the spot it goes into, and the edges of a cake bake faster than the middle, so a clean test near the edge can still miss a middle that is underbaked."
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "is_error": false,
+  "duration_api_ms": 2422324,
+  "num_turns": 80,
+  "stop_reason": "end_turn",
+  "session_id": "f9d55dd3-ef48-451e-a042-8d111021bf12",
+  "total_cost_usd": 10.88318425,
+  "usage": {
+    "input_tokens": 130,
+    "cache_creation_input_tokens": 243546,
+    "cache_read_input_tokens": 9250140,
+    "output_tokens": 85252,
+    "output_tokens_details": {
+      "thinking_tokens": 28614
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 243546,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 818,
+        "cache_read_input_tokens": 228170,
+        "cache_creation_input_tokens": 238,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 238
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 264,
+      "outputTokens": 202935,
+      "cacheReadInputTokens": 12600380,
+      "cacheCreationInputTokens": 737009,
+      "webSearchRequests": 0,
+      "costUSD": 10.136693250000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    },
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 524636,
+      "outputTokens": 14371,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 15,
+      "costUSD": 0.7464910000000002,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01LuK2uGPRJyCFTkvgH7uLqS",
+      "tool_input": {
+        "command": "cd /private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-v6z11zcj/ && ls -la lessons/ assets/ cheatsheets/ 2>&1; echo \"---\"; ls RESOURCES.md GLOSSARY.md 2>&1; echo \"---quizzes---\"; ls quizzes/ keys/ submissions/ 2>&1",
+        "description": "Check for existing lessons, assets, resources, glossary, quizzes"
+      }
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01MeRVceKRamLbgfTWV3EifY",
+      "tool_input": {
+        "command": "ls /private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-v6z11zcj/quizzes/ /private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-v6z11zcj/keys/",
+        "description": "Check existing quiz and key numbering"
+      }
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01NzJAEhxyEBKGosSxEppqDz",
+      "tool_input": {
+        "command": "python3 -c \"import json; json.load(open('quizzes/0002.json')); print('quiz OK')\"",
+        "description": "Validate quiz JSON syntax"
+      }
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01H9dDs6njtubEMGQQ6jphY4",
+      "tool_input": {
+        "command": "python3 -c \"import json; json.load(open('quizzes/0002.json')); print('quiz OK')\"",
+        "description": "Validate quiz JSON syntax"
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Lesson 1 is done: **`lessons/0001-what-makes-a-cake-rise.html`** — a 30-minute lesson on objective O2. It covers the three things that actually make a cake rise (chemical gas, steam/air, and the protein structure that sets), why baking soda needs an acid but baking powder brings its own (and reacts twice), why more leavener isn't a safety margin, and a four-question checklist for diagnosing why a cake sank or stayed flat — ending with a worked example and a faded-practice version for you to try yourself.\n\nA few notes on how it came together:\n- It went through the planner → writer → two review passes, each of which caught real issues — mostly citations that didn't quite say what I'd first written, which I fixed by going back to the actual sources (King Arthur Baking, Scientific Baking, NC State, America's Test Kitchen) rather than guessing.\n- I also made you a quick-reference **cheat sheet** (`cheatsheets/cake-rise-diagnosis.html`) with the soda-vs-powder table and the diagnostic checklist, linked from the lesson — good to have open next time you're actually baking.\n- Quiz 2 is ready whenever you want to check what stuck (no answers here, obviously).\n\nOne loose end: quiz 1 from your first session is still sitting ungraded in `submissions/s1.json` — let me know if you'd like that graded now or later. Also, anything in this lesson you want me to explain again or go deeper on, just ask.",
+  "ttft_ms": 4819,
+  "ttft_stream_ms": 2814,
+  "time_to_request_ms": 303,
+  "type": "result",
+  "duration_ms": 2420655,
+  "uuid": "88e2ec91-52d7-49cd-9c8a-0f0f6ac75407"
+}

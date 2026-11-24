@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 33980,
+  "num_turns": 6,
+  "stop_reason": "end_turn",
+  "session_id": "fd2fa5f6-e073-4741-aaed-36a777b860b8",
+  "total_cost_usd": 0.22070489999999998,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 28621,
+    "cache_read_input_tokens": 71853,
+    "output_tokens": 1827,
+    "output_tokens_details": {
+      "thinking_tokens": 703
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 28621,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 507,
+        "cache_read_input_tokens": 34368,
+        "cache_creation_input_tokens": 966,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 966
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 6,
+      "outputTokens": 1827,
+      "cacheReadInputTokens": 71853,
+      "cacheCreationInputTokens": 28621,
+      "webSearchRequests": 0,
+      "costUSD": 0.22070489999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "That's not quite right — salt absolutely matters in cakes, it's just not doing sugar's job.\n\nHere's what salt actually does: it sharpens flavor. Without it, a cake tastes flat and one-note sweet, almost like something's missing even though you can't name it. With it, the vanilla, butter, and sugar all taste *more* like themselves. That's why \"unsalted\" never means \"no salt at all\" in a recipe — it means the fat has no salt, so the recipe adds a small measured amount elsewhere.\n\nSugar and salt aren't interchangeable because they're not solving the same problem. Sugar brings sweetness and moisture, and (bonus fact) it actually tenderizes the crumb. Salt brings contrast and balance. Dumping in extra sugar instead of salt is like turning up the volume on one instrument instead of fixing the mix — you get louder sweetness, but it stays flat and can even taste cloying or one-dimensional.\n\nThink of savory cooking, since you already cook: a pot of tomato sauce without salt tastes dull and sort of sour-sweet no matter how much sugar you add to \"balance\" it. One pinch of salt and suddenly the tomato flavor itself gets brighter. Cake works the same way, just at smaller doses — usually about 1/4 to 1/2 teaspoon per cake.\n\nSo: keep the salt, add sugar separately if you actually want more sweetness, but don't expect it to replace what salt is doing.\n\nDoes that distinction between \"sweeter\" and \"better balanced\" make sense?",
+  "ttft_ms": 6248,
+  "ttft_stream_ms": 4761,
+  "time_to_request_ms": 68,
+  "type": "result",
+  "duration_ms": 34127,
+  "uuid": "c1ae3035-ad37-4531-b75f-e9ed76355cdb"
+}

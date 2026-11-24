@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Telling when a cake is done, and why it went wrong",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "You insert a toothpick into the center of a cake and pull it out. Which result means the cake is done?",
+      "options": [
+        {"id": "a", "text": "It comes out covered in wet batter"},
+        {"id": "b", "text": "It comes out clean or with dry crumbs"},
+        {"id": "c", "text": "It comes out with a thin layer of flour stuck to it"},
+        {"id": "d", "text": "It comes out clean, but the center feels cool"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Besides the toothpick test, name one other sign that tells you a cake is done."
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A cake looks fully baked, but the middle sinks as it cools even though the toothpick test was clean and it baked the full time. What's the most likely cause?",
+      "options": [
+        {"id": "a", "text": "It was left in the oven too long"},
+        {"id": "b", "text": "The batter was overmixed before baking"},
+        {"id": "c", "text": "Too much leavener was used in it"},
+        {"id": "d", "text": "The batter sat out too long before baking"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A cake comes out of the oven with a tall, cracked dome instead of a flat top. What most likely caused this?",
+      "options": [
+        {"id": "a", "text": "The oven ran too hot while it baked"},
+        {"id": "b", "text": "The cake pan was greased too heavily"},
+        {"id": "c", "text": "The cake was pulled out before it finished"},
+        {"id": "d", "text": "The batter was mixed for too short a time"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A cake tastes dry and crumbly even though you measured every ingredient correctly. What's a likely cause involving the oven or baking time?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "You cut into a cake and the middle is wetter than the edges, though a toothpick near the edge came out clean. What does this most likely mean?",
+      "options": [
+        {"id": "a", "text": "The cake needs more sugar in the batter"},
+        {"id": "b", "text": "The edges of the cake were overbaked"},
+        {"id": "c", "text": "The pan should be greased more heavily"},
+        {"id": "d", "text": "The toothpick missed the slower-baking middle"}
+      ]
+    }
+  ]
+}

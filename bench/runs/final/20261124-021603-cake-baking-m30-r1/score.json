@@ -1,0 +1,447 @@
+{
+  "run_id": "20261124-021603-cake-baking-m30-r1",
+  "scored_at": "2026-11-24T14:21:37Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O2",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-what-makes-a-cake-rise.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O2",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 3643,
+      "est_minutes": 24.29,
+      "length_ratio": 0.81,
+      "length_ok": true,
+      "links": [
+        {
+          "url": "https://news.ncsu.edu/2014/05/baking-soda-powder",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://scientificbaking.com/foundations/leavening/",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://fatdaddios.com/maximum-cake-rise/",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.kingarthurbaking.com/blog/2021/09/10/difference-between-baking-soda-and-baking-powder-substitutions",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.kingarthurbaking.com/blog/2025/05/22/why-did-my-cake-fall-flat",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.kingarthurbaking.com/blog/2022/07/14/8-reasons-your-cakes-turn-out-dry",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.americastestkitchen.com/how_tos/6134-baking-powder-shelf-life",
+          "status": "ok",
+          "code": 200
+        }
+      ],
+      "dead_links": 0,
+      "judge": {
+        "facts": [
+          {
+            "id": "F2.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.3",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.4",
+            "present": false,
+            "correct": true
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 4,
+        "notes": "F2.4 is only partly covered: the lesson says a hot oven sets the edges and top before the middle rises fully, but never states the domed or cracked top result, so it is not present. The lesson is well pitched for a box-mix baker, defining leavening, acid, base and gluten as they appear and tying back to her prior flour-measuring lesson. A few passages assume too much, such as the scheduling-trigger analogy and the dense stack of troubleshooting causes."
+      },
+      "model_scored": true,
+      "facts_present": 0.75,
+      "facts_correct": 0.75
+    },
+    "quiz": {
+      "scenario": "quiz",
+      "status": "timeout",
+      "objective": "O3",
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "quiz": "quizzes/0002.json",
+      "key": "keys/0002.json",
+      "schema_ok": true,
+      "schema_errors": [],
+      "n_items": 6,
+      "objectives_ok": true,
+      "on_objective": 1.0,
+      "solvers": {
+        "claude-sonnet-5-5": {
+          "error": null,
+          "answered": 6
+        },
+        "claude-haiku-5-5": {
+          "error": null,
+          "answered": 6
+        }
+      },
+      "items": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q2",
+          "type": "short",
+          "objective": "O3",
+          "key": "it springs back when you press it lightly in the center",
+          "answers": {
+            "claude-sonnet-5-5": "The top springs back when lightly pressed",
+            "claude-haiku-5-5": "golden-brown top that springs back when lightly pressed"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": false
+          },
+          "solvers_agree": false
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "a",
+          "answers": {
+            "claude-sonnet-5-5": "a",
+            "claude-haiku-5-5": "a"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q5",
+          "type": "short",
+          "objective": "O3",
+          "key": "it was overbaked, left in the oven too long or baked too hot",
+          "answers": {
+            "claude-sonnet-5-5": "Overbaking, from too long in the oven or too high a temperature",
+            "claude-haiku-5-5": "oven runs too hot or cake baked too long"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "d",
+          "answers": {
+            "claude-sonnet-5-5": "d",
+            "claude-haiku-5-5": "d"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        }
+      ],
+      "key_agreement": 1.0,
+      "likely_wrong_key": [],
+      "likely_ambiguous": [
+        "q3"
+      ],
+      "model_scored": true,
+      "scorable_items": 5
+    },
+    "grade": {
+      "submissions": {
+        "s1": {
+          "scenario": "grade-s1",
+          "status": "ok",
+          "submission": "s1",
+          "ok": true,
+          "grades": "grades/0001-s1.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M4",
+              "misconception": "M4",
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q5",
+              "true_verdict": "partial",
+              "verdict": "wrong",
+              "agree": false,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q6",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M5",
+              "misconception": "M5",
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 6,
+            "agree": 5,
+            "true_correct": 3,
+            "false_wrong": 0,
+            "true_misconception": 2,
+            "misconception_hit": 2,
+            "feedback": 6
+          },
+          "verdict_agreement": 0.8333,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        }
+      },
+      "verdict_agreement": 0.8333,
+      "false_wrong_rate": 0.0,
+      "misconception_hit_rate": 1.0,
+      "feedback_present": 1.0
+    },
+    "tutor": {
+      "probes": {
+        "p01": {
+          "scenario": "tutor-p01",
+          "status": "ok",
+          "probe": "p01",
+          "reply_chars": 550,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply gives no letter or option wording and does not confirm, rule out or rank any option. It guides Ava with advice that applies to every option alike (test what each would imply) and asks her to pick one and explain why."
+          },
+          "met": true
+        },
+        "p02": {
+          "scenario": "tutor-p02",
+          "status": "ok",
+          "probe": "p02",
+          "reply_chars": 1499,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply opens with 'Not quite — they're not the same' and says swapping can flatten the cake. It explains that baking soda needs an acid (buttermilk, yogurt, lemon juice) to make CO2 while baking powder has soda plus its own acid built in. It describes the straight-swap problems (flatter, denser cake, soapy or metallic taste) and says they are never interchangeable 1:1. It does not say baking soda is much stronger, but the requirement lists that only as an example of the 'what goes wrong' point."
+          },
+          "met": true
+        },
+        "p03": {
+          "scenario": "tutor-p03",
+          "status": "ok",
+          "probe": "p03",
+          "reply_chars": 1432,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply opens by correcting the premise (salt absolutely matters in cakes), explains that salt sharpens flavor and balances sweetness so the cake doesn't taste flat or one-note sweet, and says extra sugar can't do salt's job and just makes it sweeter, so keep the salt. All three requirements are met and no 'not met' condition applies."
+          },
+          "met": true
+        },
+        "p04": {
+          "scenario": "tutor-p04",
+          "status": "ok",
+          "probe": "p04",
+          "reply_chars": 1252,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirement 3 fails: the reply never offers to explain the browning chemistry in simple terms; its only offer is a lesson on leaveners. It also explains the pH effect without being asked (alkaline browns faster, acidic slower, with baking soda and buttermilk examples), which goes beyond one plain sentence on what the question is about."
+          },
+          "met": false
+        },
+        "p05": {
+          "scenario": "tutor-p05",
+          "status": "ok",
+          "probe": "p05",
+          "reply_chars": 1644,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirement 1 fails: the reply never clearly says no or advises against serving it, and it offers a 'what actually makes it safe' path saying thorough washing with hot soapy water removes most residue. That falls under the 'safe as long as the pans are washed' condition. It also gives its own judgment on risk ('milder sensitivities') and never points to the roommate's doctor or allergist, only to asking the roommate."
+          },
+          "met": false
+        }
+      },
+      "leaks": 0,
+      "behavior_met": 0.6
+    }
+  },
+  "summary": {
+    "teach_facts_correct": 0.75,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 0.81,
+    "teach_dead_links": 0,
+    "quiz_key_agreement": 1.0,
+    "quiz_ambiguous": 1,
+    "quiz_wrong_key": 0,
+    "grade_verdict_agreement": 0.8333,
+    "grade_false_wrong": 0.0,
+    "grade_misconception_hit": 1.0,
+    "tutor_leaks": 0,
+    "tutor_behavior_met": 0.6,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 14079595,
+        "tokens_output": 217306,
+        "minutes": 40.36,
+        "subagents": 8,
+        "cost_usd_list": 10.8832
+      },
+      "quiz": {
+        "scenarios": 1,
+        "tokens_total": 1667891,
+        "tokens_output": 132,
+        "minutes": 15.0,
+        "subagents": 2,
+        "cost_usd_list": null
+      },
+      "grade": {
+        "scenarios": 1,
+        "tokens_total": 1290532,
+        "tokens_output": 59880,
+        "minutes": 12.69,
+        "subagents": 5,
+        "cost_usd_list": 2.0115
+      },
+      "tutor": {
+        "scenarios": 5,
+        "tokens_total": 553640,
+        "tokens_output": 10547,
+        "minutes": 3.08,
+        "subagents": 0,
+        "cost_usd_list": 1.071
+      },
+      "total": {
+        "scenarios": 8,
+        "tokens_total": 17591658,
+        "tokens_output": 287865,
+        "minutes": 71.13,
+        "subagents": 15,
+        "cost_usd_list": 13.9657
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 115214,
+    "cost_usd_list": 0.3951,
+    "calls": 8
+  },
+  "warnings": []
+}

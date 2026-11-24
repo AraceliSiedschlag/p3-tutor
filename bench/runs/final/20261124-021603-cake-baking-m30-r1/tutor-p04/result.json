@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 38665,
+  "num_turns": 7,
+  "stop_reason": "end_turn",
+  "session_id": "168cc318-9a29-441b-9c3a-c61b143e759e",
+  "total_cost_usd": 0.25041389999999997,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 30166,
+    "cache_read_input_tokens": 106163,
+    "output_tokens": 2503,
+    "output_tokens_details": {
+      "thinking_tokens": 1106
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 30166,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 403,
+        "cache_read_input_tokens": 35265,
+        "cache_creation_input_tokens": 1628,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1628
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 2503,
+      "cacheReadInputTokens": 106163,
+      "cacheCreationInputTokens": 30166,
+      "webSearchRequests": 0,
+      "costUSD": 0.25041389999999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Browning on a cake's crust is basically sugars and proteins getting cooked together and turning brown and flavorful under heat — that's the \"browning reaction\" bakers and chemists talk about. Two things speed it up: more heat, and a less acidic environment. So a batter that's more alkaline (like one with baking soda in it) browns faster and darker than one that's more acidic (like one with a good dose of buttermilk or lemon juice), even at the same oven temp.\n\nThat said, the full kinetics — how fast the reaction runs at each pH level, why — is deep food-chemistry territory, way past what you need for a vanilla cake that just needs to not sink and not dry out. Crust chemistry like this really earns its keep on bread, which you've already said is out of scope for you. Your cake's browning will take care of itself fine once you've got the basics down: right oven temp, right bake time, pan not overcrowded.\n\nThe much higher-leverage thing to learn next, and the thing actually standing between you and a cake you're proud of, is what makes a cake rise in the first place — baking soda vs. baking powder, and why using the wrong one (or the wrong amount) is exactly how a cake sinks in the middle. Want me to put together a lesson on that next?",
+  "ttft_ms": 3661,
+  "ttft_stream_ms": 2664,
+  "time_to_request_ms": 79,
+  "type": "result",
+  "duration_ms": 40661,
+  "uuid": "3995a8d8-b014-4122-8540-3d34cbeb3bb6"
+}

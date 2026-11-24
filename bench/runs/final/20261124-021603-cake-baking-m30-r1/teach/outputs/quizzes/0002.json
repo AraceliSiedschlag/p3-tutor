@@ -1,0 +1,49 @@
+{
+  "id": "0002",
+  "objective": "O2",
+  "title": "What makes a cake rise",
+  "items": [
+    {
+      "id": "q1",
+      "type": "short",
+      "objective": "O2",
+      "stem": "A gingerbread recipe uses baking soda and molasses, with no buttermilk or other dairy. What is the molasses doing there, beyond flavor?"
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A recipe calls for 1 teaspoon of baking soda. You only have baking powder, so you use 1 teaspoon of baking powder instead and change nothing else about the recipe. What is the most likely result?",
+      "options": [
+        {"id": "a", "text": "The cake rises the same amount, since both are chemical leaveners."},
+        {"id": "b", "text": "The cake under-rises, since powder is weaker than soda teaspoon for teaspoon."},
+        {"id": "c", "text": "The cake over-rises, since powder reacts twice and soda only reacts once."},
+        {"id": "d", "text": "The cake does not rise at all, since powder needs a separate acid to work."}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O2",
+      "stem": "Name two of the three sources that together make a cake rise."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A baker doubles the baking powder in a cupcake recipe, hoping for taller cupcakes. Instead, the cupcakes puff up quickly in the oven, then their tops crater before they finish baking. What's the best explanation?",
+      "options": [
+        {"id": "a", "text": "The extra gas escaped faster than the structure could trap it, so the cupcakes rose and then fell."},
+        {"id": "b", "text": "The extra baking powder used up the batter's acid too quickly, so the structure set too soon."},
+        {"id": "c", "text": "Doubling the leavener raised the oven's effective temperature, so the tops baked before the middle."},
+        {"id": "d", "text": "The cupcakes simply needed a larger pan to hold the extra gas the doubled powder produced."}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O2",
+      "stem": "Two identical cakes bake side by side. One is pulled out when the timer goes off, but a toothpick from its center comes out with wet batter still clinging to it. Its twin bakes five minutes longer, until the toothpick comes out clean. The first cake sinks slightly as it cools; the second doesn't. What does this tell you went wrong with the first cake?"
+    }
+  ]
+}

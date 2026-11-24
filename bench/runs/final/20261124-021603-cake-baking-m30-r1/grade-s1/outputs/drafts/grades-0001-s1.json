@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Your answer assumes that scooping the cup straight into the bag is an accurate way to measure flour, so you ruled it out as the cause. It's actually the cause: pushing the cup into the bag packs the flour down, so the cup holds more flour than the recipe means, and that extra flour soaks up liquid and leaves the cake dry and dense. It's an easy assumption to make, since scooping feels like the fast, direct way to fill a cup, especially coming from box mixes that never made you think about it. Next time, spoon the flour in loosely (or weigh it) instead of scooping straight from the bag."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct: 250 g divided by 125 g per cup is 2 cups. That same division is what you'll use any time a recipe gives weight and you only have cups to work with."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct, and you've got both halves of it: the flour goes in loosely with a spoon instead of being packed, then the top gets leveled flat so you're not guessing how much extra is piled on. That's exactly what keeps the cup from turning into a scoop."
+    },
+    {
+      "id": "q4",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. A liquid measuring cup is built to be read at eye level on a flat surface, since that's the only way to see the true line of a liquid - a dry cup or a mug won't give you a reliable line to read."
+    },
+    {
+      "id": "q5",
+      "verdict": "wrong",
+      "misconception": null,
+      "feedback": "You've got the conclusion right: scales really are more exact than cups, so you landed on the correct side of the comparison. What's missing is the reason why: a gram of flour weighs the same no matter how loosely or tightly it was packed, while how much flour fits in a cup changes depending on how it was filled - that's the actual mechanism, and it's why the scale doesn't drift the way a cup does. Saying \"scales are more exact\" just restates the conclusion the question already gave you, not the reason behind it, which is an easy trap when the wording hands you the answer. Next time, name what stays fixed (weight) versus what varies (how much fits in a cup)."
+    },
+    {
+      "id": "q6",
+      "verdict": "wrong",
+      "misconception": "M5",
+      "feedback": "Your answer assumes a little extra baking powder is harmless, the same way a little extra of most ingredients wouldn't matter. It does matter here: leaveners work in small, precise amounts, so heaping spoons add a lot more than the recipe means, and too much baking powder makes the batter rise fast and then collapse, and can taste bitter. It's a tempting assumption because in cooking generally a bit extra of most things is forgiving, so it feels like that should carry over to baking powder too - it doesn't. Next time, measure leaveners to the exact teaspoon, not heaping, and level them like you would flour."
+    }
+  ],
+  "summary": "You've got the flour technique down cold - spoon-and-level, the gram-to-cup math, and reading a liquid measuring cup at eye level are all solid. The one to clear up next is thinking a little extra is fine with small ingredients: it's the opposite for baking powder, where being exact matters more than with flour, because tiny amounts have a big effect on how the cake rises. Since a cake that sinks is one of the things you most want to avoid, a good next step is to practice measuring a leavener to the exact teaspoon and leveling it, the same way you already level flour, and also practice explaining *why* weighing beats cups instead of just saying it is more accurate."
+}

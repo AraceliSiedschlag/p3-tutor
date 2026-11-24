@@ -1,0 +1,49 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "Molasses is acidic, so it reacts with the baking soda to release the CO2 gas that leavens the gingerbread.",
+      "accepted": [
+        "it supplies the acid the baking soda needs to react and produce gas",
+        "molasses is the acid in this recipe, reacting with the soda to make CO2"
+      ],
+      "rationale": "Baking soda (a base) only releases CO2 by reacting with an acid already in the batter. Molasses is naturally acidic, so here it plays the same role buttermilk plays in a vanilla cake. An answer that only mentions flavor or moisture misses the chemical reason and would be partial at best."
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "Baking soda is roughly three times stronger than baking powder teaspoon for teaspoon, so swapping in an equal amount of baking powder supplies far less actual lift, and the cake under-rises.",
+      "distractors": {
+        "a": "M1",
+        "d": "M1"
+      }
+    },
+    {
+      "id": "q3",
+      "answer": "chemical gas from baking soda or baking powder, and steam/beaten-in air",
+      "accepted": [
+        "chemical leavener gas and steam",
+        "chemical gas and beaten-in air",
+        "steam and the protein structure that sets",
+        "chemical gas and the protein structure that sets",
+        "any two of: chemical gas (soda/powder), steam and beaten-in air, protein structure that sets"
+      ],
+      "rationale": "The three sources are chemical gas (CO2 from soda or powder), steam and beaten-in air, and a protein structure (egg and gluten) that sets to hold the shape. Any two, correctly named, are a full answer to this item; naming only one is wrong, since it shows the 'leavener does it all' misconception."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Doubling the leavener produces far more gas than the structure can trap: bubbles merge and burst before the egg and flour proteins set, so the cupcakes rise fast and then collapse. Leavening does not change oven temperature (option c) or require a bigger pan (option d), and it's the base (soda), not the acid, that's in excess here, so option b's mechanism is backwards."
+    },
+    {
+      "id": "q5",
+      "answer": "The first cake was underbaked: its structure hadn't fully set when it was pulled out, so it couldn't hold its risen shape once it left the oven's heat.",
+      "accepted": [
+        "it was pulled out before the structure (egg and gluten proteins) had finished setting",
+        "underbaking - the center wasn't done, so the structure gave way as it cooled"
+      ],
+      "rationale": "The wet toothpick is the direct sign the center had not finished baking: the protein structure that locks in the risen shape needs enough time at the right heat to set. Pulling it early leaves that structure half-set, so it holds its shape briefly, then gives way as it cools. The twin cake, baked the extra five minutes, had time for the structure to finish and did not sink."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat Sheet: Why Didn't My Cake Rise?</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --ok: #2f6b3a; --ok-soft: #e7f2e9; --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e; --accent: #eaa77a;
+               --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22; --ok: #9fd3a8; --ok-soft: #1c2a1f; }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 18px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.5; }
+    main { max-width: 38rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.3rem; }
+    h2 { font-size: 1.1rem; margin: 1.75rem 0 0.5rem; font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+    p.lead { color: var(--muted); margin: 0 0 1.5rem; font-family: var(--sans); font-size: 0.95rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    th { font-family: var(--sans); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+    ol, ul { padding-left: 1.3rem; }
+    li { margin-bottom: 0.4rem; }
+    .box { border-radius: 6px; padding: 0.9rem 1.1rem; margin: 1rem 0; border: 1px solid var(--rule); }
+    .warn { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    footer { margin-top: 2rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 0.82rem; color: var(--muted); }
+    @media print { body { background: #fff; color: #000; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Why Didn't My Cake Rise?</h1>
+  <p class="lead">From Lesson 1: What Makes a Cake Rise (objective O2). Keep this one open while you bake.</p>
+
+  <h2>Three things make a cake rise</h2>
+  <ol>
+    <li><strong>Chemical gas</strong> — CO2 from baking soda or baking powder reacting with an acid.</li>
+    <li><strong>Steam and beaten-in air</strong> — water turning to steam, plus air you mixed in.</li>
+    <li><strong>Protein structure</strong> — egg and gluten proteins that set (coagulate) and lock the shape in.</li>
+  </ol>
+  <p>All three are needed. Great leavening with no set structure still collapses.</p>
+
+  <h2>Baking soda vs. baking powder</h2>
+  <table>
+    <thead><tr><th></th><th>Baking soda</th><th>Baking powder</th></tr></thead>
+    <tbody>
+      <tr><td>What it is</td><td>Sodium bicarbonate (a base)</td><td>Soda + its own acid + starch</td></tr>
+      <tr><td>Needs an acid from the recipe?</td><td>Yes (buttermilk, yogurt, vinegar, brown sugar, cocoa...)</td><td>No — its own acid is built in</td></tr>
+      <tr><td>Reacts</td><td>Once, as soon as it's wet</td><td>Twice: on mixing, then again on oven heat ("double-acting")</td></tr>
+      <tr><td>Strength</td><td>~3x stronger than powder, teaspoon for teaspoon</td><td>Weaker; not a 1-for-1 swap for soda</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box warn">
+    <strong>Not interchangeable 1-for-1.</strong> Swapping one for the other without adjusting the amount and the recipe's acid under-leavens or leaves a bitter/soapy taste.
+  </div>
+
+  <h2>Diagnosing a sunk or flat cake: the four-question checklist</h2>
+  <ol>
+    <li><strong>Enough acid for the soda?</strong> No acidic ingredient (buttermilk, yogurt, vinegar, brown sugar, natural cocoa...) → soda stays unreacted → dense, under-risen, soapy taste.</li>
+    <li><strong>Amount of leavening reasonable?</strong> More than the recipe calls for, or a soda/powder swap without adjusting it → gas escapes faster than structure traps it → fast rise, then collapse, bitter/soapy taste.</li>
+    <li><strong>Oven actually at the right temperature?</strong> Check with a thermometer, not the dial — ovens are often off by a lot. Too cool hides underbaking behind a done-looking crust; too hot sets the edges before the middle finishes rising.</li>
+    <li><strong>Structure given a full, undisturbed bake?</strong> Pulled early, or oven door opened mid-bake → structure never finishes setting → looks fine, then sinks as it cools.</li>
+  </ol>
+
+  <h2>Matching symptom to cause</h2>
+  <table>
+    <thead><tr><th>Symptom</th><th>Likely cause</th></tr></thead>
+    <tbody>
+      <tr><td>Domed fast, then fell during baking; bitter/soapy taste</td><td>Too much leavener</td></tr>
+      <tr><td>Dense, barely rose, flat top, soapy taste</td><td>Too little acid for the soda</td></tr>
+      <tr><td>Looked perfect out of the oven, sank while cooling</td><td>Underbaking (structure not set)</td></tr>
+      <tr><td>Rising well, then sank right after the oven door opened</td><td>Door opened before structure set</td></tr>
+      <tr><td>Weak rise despite correct amounts and a fresh-seeming recipe</td><td>Stale baking powder/soda</td></tr>
+    </tbody>
+  </table>
+
+  <footer>
+    From <a href="../lessons/0001-what-makes-a-cake-rise.html">Lesson 1: What Makes a Cake Rise</a>. Sources: NC State University News, Scientific Baking, King Arthur Baking, Fat Daddio's, America's Test Kitchen — see <code>RESOURCES.md</code>.
+  </footer>
+</main>
+</body>
+</html>

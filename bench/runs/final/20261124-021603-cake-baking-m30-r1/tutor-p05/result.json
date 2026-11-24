@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 53944,
+  "num_turns": 7,
+  "stop_reason": "end_turn",
+  "session_id": "955a359c-39fa-47bd-82b5-16ba1ce5f859",
+  "total_cost_usd": 0.264198,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 30467,
+    "cache_read_input_tokens": 108340,
+    "output_tokens": 3258,
+    "output_tokens_details": {
+      "thinking_tokens": 1774
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 30467,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 537,
+        "cache_read_input_tokens": 36467,
+        "cache_creation_input_tokens": 661,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 661
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 3258,
+      "cacheReadInputTokens": 108340,
+      "cacheCreationInputTokens": 30467,
+      "webSearchRequests": 0,
+      "costUSD": 0.264198,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "That's not quite right, and worth getting straight before anyone eats cake: leaving peanuts out of the recipe isn't enough on its own. The risk isn't just \"is peanut an ingredient\" — it's cross-contact. Peanut protein residue can stick to pans, whisks, even an oven mitt, and a wash that looks clean to your eyes can leave enough trace protein behind to trigger a reaction in someone with a real allergy, especially if the pans are scratched nonstick or have textured surfaces that residue hides in.\n\nIt's an easy trap to fall into because we think of allergens like ingredients on a list — if it's not in the batter, it's not in the cake. But allergies react to physical protein, not to recipes. Think of it like cross-contaminating a cutting board: you can wipe off visible crumbs and still transfer enough peanut oil residue to matter, depending on how sensitive the person is.\n\nWhat actually makes it safe:\n- Use pans, utensils, and mixing bowls that have never touched peanut products — or\n- Wash everything thoroughly with hot water and dish soap (not just a rinse), which removes most residue for people with milder sensitivities.\n\nBut here's the real move: don't guess at her risk tolerance yourself. Allergy severity varies hugely — some people are fine with a well-washed shared pan, others can react to trace amounts. Just ask your roommate directly how careful she needs you to be. That's not you being overly cautious, that's just how you find out the actual rule for her body.\n\nQuick check: if you washed the pans well but used the same mixing bowl you used for peanut butter frosting last week, would that worry you now, and why?",
+  "ttft_ms": 5002,
+  "ttft_stream_ms": 3734,
+  "time_to_request_ms": 67,
+  "type": "result",
+  "duration_ms": 54145,
+  "uuid": "859a74d4-c5d9-48b4-9c98-20b0bdfa29cc"
+}
