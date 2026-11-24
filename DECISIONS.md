@@ -66,6 +66,9 @@ Then the result, with the numbers of the ablation's run beside `final`'s, and wh
 
 TODO: your answer to prompt 5.
 
+I am removing the grade-reviewer. I predict that it 
+will barely change the numbers(quality stays similar) and reduce the cost of the runs.
+
 ---
 
 ## 6. Your blind picks against your open reviews

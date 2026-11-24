@@ -28,35 +28,35 @@ The newly implemented guard is blocking the main coversations reads, the failed 
 
 ## Major review
 
-**Run:** bench/runs/final/TODO
+**Run:** bench/runs/final/20261123-143755-agent-architecture-m30-r1
 
 **Live tries:**
 
-TODO: one line that points at your three learning sessions under Learning sessions below, and names anything else you tried with `final`.
+My learning session was bench/runs/_live/20261122-192804-agent-architecture-m30-r1/grade-s1 and I did my topic on cake-baking for the final as well.
 
 ### Lesson
 
 #### Technical correctness and facts
 
-Rating: TODO
+Rating: 5
 
 TODO
 
 #### Pedagogy
 
-Rating: TODO
+Rating: 5
 
 TODO
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5
 
 TODO
 
 #### Overall quality
 
-Rating: TODO
+Rating: 5
 
 TODO
 
@@ -64,31 +64,31 @@ TODO
 
 #### Difficulty
 
-Rating: TODO
+Rating: 3
 
 TODO
 
 #### Coverage of the lesson's core
 
-Rating: TODO
+Rating: 5
 
 TODO
 
 #### Wording and possible misreadings
 
-Rating: TODO
+Rating: 5
 
 TODO
 
 #### Writing quality
 
-Rating: TODO
+Rating: 4
 
 TODO
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5
 
 TODO
 
@@ -96,19 +96,19 @@ TODO
 
 #### Useful
 
-Rating: TODO
+Rating: 5
 
 TODO
 
 #### Explains enough
 
-Rating: TODO
+Rating: 5
 
-TODO
+It explained ones gotten correct too which was nice and has a clear explination for the incorrect ones.
 
 #### Personalized to how I like things explained
 
-Rating: TODO
+Rating: 5
 
 TODO
 
@@ -116,13 +116,13 @@ TODO
 
 #### Guardrails
 
-Rating: TODO
+Rating: 5
 
-TODO
+No answers given, told person they cannot give the answers, gave them some leading questions and moved on.
 
 #### Personalization
 
-Rating: TODO
+Rating: 5
 
 TODO
 
@@ -132,7 +132,7 @@ TODO
 
 ### What I would do next
 
-TODO
+The thing that I would do next is work on the quiz difficulty. The quiz throughout this entire project and in the final was pretty low (rated a 3) especially if you do the entire lesson adnd all models in the test got all 6 items right. Looking at q1, q2, and q4 and due to how the questions were written and everything a model could get the questions correct by pattern matching because all three correct answers repeat almost the same phrase rather than having to think through it. So, to adjust for what I would do next is make the quiz harder.
 
 ## Learning sessions
 
@@ -142,7 +142,7 @@ TODO
 
 **Topic:** cake-baking
 
-I used the tutor to give me a lesson on forsting the cake which took about 7 min. The lesson was formatted in the desired way. Additionally, the lesson added on not only the how to bake a cake but also frosting the cake topic as well. The lesson had questions in it which were helpful, however, all questions within the lesson were the second answers so they were all the same.
+I used the tutor to give me a lesson on forsting the cake which took about 7 min. The lesson was formatted in the desired way. Additionally, the lesson added on not only the how to bake a cake but also frosting the cake topic as well. The lesson had questions in it which were helpful, however, all questions within the lesson were the second answers so they were all the same. 
 
 ### Session 2
 
