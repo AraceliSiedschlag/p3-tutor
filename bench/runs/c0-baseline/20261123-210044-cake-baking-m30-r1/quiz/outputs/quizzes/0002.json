@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Is it done? Diagnosing a sunken, dry, or domed cake",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "You bake a vanilla layer cake and test it with a toothpick. Which result means the cake is done -- not underbaked and not overbaked?",
+      "options": [
+        {"id": "a", "text": "The toothpick comes out completely dry and clean, with no crumbs."},
+        {"id": "b", "text": "The toothpick comes out with a few moist crumbs, but no wet batter."},
+        {"id": "c", "text": "The toothpick comes out coated in wet, unbaked batter."},
+        {"id": "d", "text": "The top looks golden brown, so a toothpick check isn't needed."}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Besides checking with a toothpick, name one other sign -- something you can see or feel without cutting into the cake -- that tells you it's done."
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "You followed the recipe's time and temperature exactly, but you opened the oven door twice in the first 15 minutes to peek at the cake. It came out with a deep sunken crater in the middle. What most likely caused the sinking?",
+      "options": [
+        {"id": "a", "text": "The recipe used too little flour, so the cake had nothing to hold itself up."},
+        {"id": "b", "text": "The cake had already finished baking, and a fully baked cake naturally sinks while cooling."},
+        {"id": "c", "text": "Opening the oven door let heat escape, so the still-rising center collapsed before it set."},
+        {"id": "d", "text": "You used the wrong size pan, which on its own always causes a cake to sink."}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your recipe says to bake for 30 minutes. At 30 minutes, the toothpick comes out with a few moist crumbs, but to \"be safe\" you bake it another 10 minutes until it comes out bone dry. The cake turns out dry and crumbly. What caused the dryness?",
+      "options": [
+        {"id": "a", "text": "You baked the cake past the point of doneness, and the extra time dried out the crumb."},
+        {"id": "b", "text": "You measured the milk with a dry measuring cup instead of a liquid one."},
+        {"id": "c", "text": "The oven temperature was too low for the entire time the cake baked."},
+        {"id": "d", "text": "Cakes are always a little dry right out of the oven and moisten as they cool."}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A cake's top rises into a tall, cracked dome in the middle instead of baking flat, even though the batter was poured in level. What causes this?",
+      "options": [
+        {"id": "a", "text": "The baking powder sinks to the bottom of the batter and pushes only the center up."},
+        {"id": "b", "text": "Doming always means the center is underbaked and the cake needs more time in the oven."},
+        {"id": "c", "text": "Using a bigger pan than the recipe calls for is what causes a cake to dome."},
+        {"id": "d", "text": "The edges touch the hot pan and set first, so the still-rising center has nowhere to go but up."}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Most classic butter and vanilla layer cakes are fully baked once their center reaches about what internal temperature, in degrees Fahrenheit? (This asks for the cake's own temperature, not the oven's setting.)",
+      "unit": "°F"
+    }
+  ]
+}

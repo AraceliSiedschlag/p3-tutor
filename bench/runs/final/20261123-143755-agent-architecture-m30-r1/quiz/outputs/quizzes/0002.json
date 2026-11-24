@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows vs. agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "What single question tells you whether a part of your makerspace assistant is a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "How many tools the system has to call"},
+        {"id": "b", "text": "How many times the model gets called"},
+        {"id": "c", "text": "Whether code or the model decides the next step"},
+        {"id": "d", "text": "How large the model's context window is"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your assistant answers manual questions by always retrieving the same section, then having the model write from it. Is this a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "A workflow, because the code decides each step in advance"},
+        {"id": "b", "text": "An agent, because the model still writes the final answer"},
+        {"id": "c", "text": "An agent, because more than one step happens"},
+        {"id": "d", "text": "A workflow only if no tool is ever used"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "For a troubleshooting request, the model itself decides, call by call, whether to search the manual, ask a question, or check the calendar. One word: workflow or agent?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your sponsor's model budget is small. For a step whose order never changes, which choice keeps the cost per request most predictable?",
+      "options": [
+        {"id": "a", "text": "An agent, so the model can skip steps on its own"},
+        {"id": "b", "text": "A fixed workflow, since code already knows each step in advance"},
+        {"id": "c", "text": "A bigger model, since it finishes the task in fewer words"},
+        {"id": "d", "text": "More tools, so the system finds the cheapest path itself"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In a few words, when is a fixed workflow the better choice over an agent, for keeping behavior and cost predictable?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Manual lookup in your assistant always runs the same fixed steps, but in the booking step the model itself decides what to check first. What is the overall system?",
+      "options": [
+        {"id": "a", "text": "A pure agent overall, since the model decides something"},
+        {"id": "b", "text": "A pure workflow overall, since most steps are fixed"},
+        {"id": "c", "text": "Impossible to say without reading through all the code"},
+        {"id": "d", "text": "A mix: workflow for one part, agent for another"}
+      ]
+    }
+  ]
+}

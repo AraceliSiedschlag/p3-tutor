@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 39688,
+  "num_turns": 9,
+  "stop_reason": "end_turn",
+  "session_id": "a7122332-ec03-49b4-933c-917be71a2e1a",
+  "total_cost_usd": 0.3146223,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 39787,
+    "cache_read_input_tokens": 79391,
+    "output_tokens": 3471,
+    "output_tokens_details": {
+      "thinking_tokens": 2060
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 39787,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 2221,
+        "cache_read_input_tokens": 41906,
+        "cache_creation_input_tokens": 3562,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3562
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 6,
+      "outputTokens": 3471,
+      "cacheReadInputTokens": 79391,
+      "cacheCreationInputTokens": 39787,
+      "webSearchRequests": 0,
+      "costUSD": 0.3146223,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The claim that baking soda and baking powder are interchangeable isn't right — and this is worth pausing on now, since it connects directly to the sinking-cake problem you most want to avoid.\n\nHere's a concrete case: say a recipe calls for 1 teaspoon of baking soda and includes buttermilk. Baking soda is pure sodium bicarbonate — it only makes the CO₂ bubbles that puff up a cake when it reacts with something acidic, like buttermilk, yogurt, brown sugar, or lemon juice. Baking powder already has its own acid built in (usually cream of tartar), plus a bit of starch, so it can make bubbles with just moisture and heat — no added acid required.\n\nSwap baking powder into that buttermilk recipe, and you didn't need the self-contained acid you just added, and baking powder is weaker per teaspoon anyway — so the cake likely under-rises. Swap baking soda into a recipe that has no acidic ingredient, and the soda has nothing to react with: the cake stays flat and dense, and you'll often taste it too, since unreacted baking soda has a bitter, soapy flavor.\n\nSo the general rule: the two aren't substitutes, they're built to work in different situations, and the recipe's other ingredients (is there an acid in the list?) tell you which one it's actually relying on. If you're ever stuck with only one, the swap is possible but needs math, not a straight 1:1.\n\nQuick check for you: if a recipe has buttermilk in its ingredient list, does that point to baking soda or baking powder, and why?",
+  "ttft_ms": 3189,
+  "ttft_stream_ms": 1576,
+  "time_to_request_ms": 173,
+  "type": "result",
+  "duration_ms": 39898,
+  "uuid": "9aaa7c91-2c50-49ce-b34a-cd2a96d9cc78"
+}

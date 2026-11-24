@@ -1,0 +1,61 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant is mid-call, answering a student's question about the band saw. Which of these is actually part of its context window for this call?",
+      "options": [
+        {"id": "a", "text": "The tool definitions it's currently allowed to call, since those were sent in with this request"},
+        {"id": "b", "text": "A page of the manual it has not yet fetched with any tool call"},
+        {"id": "c", "text": "A fact from a different student's conversation, happening in a separate session right now"},
+        {"id": "d", "text": "Next month's maintenance schedule, since the assistant could need it eventually"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "In one session, the assistant checks the dust collector's status, then a few turns later answers a question that depends on that same status. Why does it still have the right answer?",
+      "options": [
+        {"id": "a", "text": "The model keeps a running memory of every tool result it has seen so far this session"},
+        {"id": "b", "text": "The program re-fetches the dust collector's status automatically before every new turn"},
+        {"id": "c", "text": "The status update, like the rest of the history, gets resent as text with every new call"},
+        {"id": "d", "text": "The model's weights updated slightly once it saw the dust collector's status"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant's context already holds the full transcripts of ten past bookings. A new student's question needs one fact from today's manual chapter. What's the best reason to leave the old transcripts out of this call?",
+      "options": [
+        {"id": "a", "text": "Old transcripts are copyrighted, so the assistant isn't allowed to reuse them in a new call"},
+        {"id": "b", "text": "Extra, irrelevant text makes the one needed fact harder to find and still costs tokens either way"},
+        {"id": "c", "text": "The context window only accepts one topic of conversation at a time, by design"},
+        {"id": "d", "text": "Transcripts expire after a fixed number of hours and stop being readable by the model"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A student's session ends Tuesday without the assistant writing anything to a file. On Thursday, they open a new session and ask a related question. In one sentence, what does the assistant's context window contain about Tuesday's conversation at the start of that new session?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Earlier, the assistant observed and wrote \"the band saw blade was replaced on Oct 2\" to a shop-status file. A student now asks if the blade is new, and the assistant reads that file back. What's the most accurate way to describe this read?",
+      "options": [
+        {"id": "a", "text": "Only retrieval, since reading any file is always the same kind of tool call, regardless of content"},
+        {"id": "b", "text": "Mechanically a retrieval-style tool call, but the content it returns is a note, since the agent itself wrote it"},
+        {"id": "c", "text": "Only a note, since the agent wrote the fact, so no tool call is needed to read the file back"},
+        {"id": "d", "text": "Neither, since writing the fact once already made it part of the model's trained knowledge"}
+      ]
+    }
+  ]
+}

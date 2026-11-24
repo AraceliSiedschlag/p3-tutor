@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 68973,
+  "num_turns": 12,
+  "stop_reason": "end_turn",
+  "session_id": "c7c1dd73-38d0-4940-ba2c-aa5c08151a35",
+  "total_cost_usd": 0.3977832,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 43142,
+    "cache_read_input_tokens": 203934,
+    "output_tokens": 5181,
+    "output_tokens_details": {
+      "thinking_tokens": 2941
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 43142,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 511,
+        "cache_read_input_tokens": 45977,
+        "cache_creation_input_tokens": 2838,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2838
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 12,
+      "outputTokens": 5181,
+      "cacheReadInputTokens": 203934,
+      "cacheCreationInputTokens": 43142,
+      "webSearchRequests": 0,
+      "costUSD": 0.3977832,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Salt actually does matter in cakes — that premise isn't right, so let's fix that before the sugar question.\n\nPicture two vanilla cakes, same recipe, one with the pinch of salt it calls for and one with the salt left out. The one without salt doesn't taste \"less salty\" — it tastes flat and a bit dull, and even less sweet, even though the sugar is identical. That's because salt's job in a batter isn't to make things salty; in the tiny amounts a cake recipe uses, it sharpens flavor and makes the sweetness you already have taste more vivid. It's a flavor enhancer, not a competing flavor.\n\nSo swapping it for more sugar doesn't get you the effect you're after — more sugar just makes the cake sweeter, not better-balanced. And sugar isn't only a flavor ingredient: it also holds onto moisture and softens the crumb. Push it up noticeably and you're changing the structure of the cake, not just the taste — which is exactly the kind of change that can tip a cake toward sinking in the middle or coming out gummy or dry, the two things you're trying to avoid.\n\nThe fix is simpler than swapping anything: keep the salt at the amount the recipe gives (it's small enough that it won't taste salty), and if a cake still tastes flat, the usual culprits are stale baking powder, weak vanilla, or butter that needs to come to room temperature — not too little sugar.\n\nQuick check: if you left the salt out of a cake and only tasted it side by side with a normal one, what would you expect to notice first — \"too salty\" or something else?",
+  "ttft_ms": 5577,
+  "ttft_stream_ms": 4690,
+  "time_to_request_ms": 71,
+  "type": "result",
+  "duration_ms": 70840,
+  "uuid": "29846a2d-4490-486c-95f3-39c55435b25a"
+}

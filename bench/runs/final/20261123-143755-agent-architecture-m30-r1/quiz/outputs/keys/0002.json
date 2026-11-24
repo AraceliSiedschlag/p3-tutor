@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "A workflow and an agent are told apart by who picks the next step: fixed code, or the model. Tool count, call count and context size do not decide this.",
+      "distractors": {"a": "M2", "b": "M1"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "The code always runs the same two steps in the same order, so the code owns the control flow even though the model writes the words. An answer that points to the model writing text, or to there being more than one step, mistakes what the model produces for who is steering.",
+      "distractors": {"b": "M6", "c": "M1", "d": "M2"}
+    },
+    {
+      "id": "q3",
+      "answer": "agent",
+      "accepted": ["an agent", "agent-driven", "it is an agent"],
+      "rationale": "Which action to take next depends on the problem described, call by call, so the model is choosing the next step rather than following a path fixed in code; that is what makes it an agent."
+    },
+    {
+      "id": "q4",
+      "answer": "b",
+      "rationale": "When the steps never change, writing them in code means every request follows the same fixed, cheap path; letting the model decide (an agent) adds model calls and variance for no benefit here. A bigger model or more tools do not address what is driving the cost: who is deciding each step.",
+      "distractors": {"a": "M4"}
+    },
+    {
+      "id": "q5",
+      "answer": "when the steps and their order are already known and will not change",
+      "accepted": ["when the steps are known in advance", "when the path never changes", "when you can write the steps ahead of time", "when there is no real decision for the model to make"],
+      "rationale": "A fixed workflow keeps behavior and cost predictable once you can write down every step and its order in advance, because then the model has nothing real to decide. An answer that names only cost or only speed, without the underlying reason (the path is already known), is incomplete."
+    },
+    {
+      "id": "q6",
+      "answer": "d",
+      "rationale": "A system is judged step by step, not as one label: a fixed sequence for lookup and a model-driven decision for booking can sit side by side in the same assistant. Calling the whole thing an agent because one step decides, or a workflow because most steps are fixed, both apply a single label where two apply.",
+      "distractors": {"a": "M3", "b": "M5"}
+    }
+  ]
+}

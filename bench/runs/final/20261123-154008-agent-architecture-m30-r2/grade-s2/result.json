@@ -1,0 +1,71 @@
+{
+  "is_error": false,
+  "duration_api_ms": 543494,
+  "num_turns": 10,
+  "stop_reason": "end_turn",
+  "session_id": "4d4ce9d3-3d71-497d-83a6-1fec9154e2e1",
+  "total_cost_usd": 1.2949587000000002,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 10603,
+    "cache_read_input_tokens": 304424,
+    "output_tokens": 3919,
+    "output_tokens_details": {
+      "thinking_tokens": 1295
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 10603,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 358,
+        "cache_read_input_tokens": 55118,
+        "cache_creation_input_tokens": 807,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 807
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 54,
+      "outputTokens": 37464,
+      "cacheReadInputTokens": 790114,
+      "cacheCreationInputTokens": 103174,
+      "webSearchRequests": 0,
+      "costUSD": 1.2949587000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification"
+  },
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Grading's done, Riley — here's the rundown for `s2` (the four-days-later, from-memory attempt):\n\n- **q1, q2, q5 — correct.** Solid grasp of the loop: model requests, program runs, result comes back, repeat.\n- **q3 — wrong.** You let a stuck 40-step loop get the benefit of the doubt. The real fix is a step limit that stops it and reports back, not more patience.\n- **q4 — partial.** Your count (4 model calls) was exactly right, but your reasoning said the model \"runs\" each tool itself — it only *requests* one; the program does the running.\n- **q6 — partial.** You said the model picks a tool by its name. True but incomplete: it's working off the whole description (name, purpose, parameters), not just the name.\n\nThe thread tying q3 and q4 together: who *acts* versus who *decides*. That's the one thing worth nailing down before you move on to context and memory. I've logged this as a learning record and updated your notes — `submissions/s1.json` (the same-day attempt) is still ungraded if you want that comparison too.",
+  "ttft_ms": 4053,
+  "ttft_stream_ms": 1783,
+  "time_to_request_ms": 38,
+  "type": "result",
+  "duration_ms": 158795,
+  "uuid": "d48401ea-c599-4d3a-9c2d-db630ac9e0b0"
+}

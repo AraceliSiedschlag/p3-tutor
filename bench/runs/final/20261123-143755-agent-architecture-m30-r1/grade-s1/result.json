@@ -1,0 +1,71 @@
+{
+  "is_error": false,
+  "duration_api_ms": 867115,
+  "num_turns": 9,
+  "stop_reason": "end_turn",
+  "session_id": "7e7366fb-8912-4f07-9473-e7da146376f0",
+  "total_cost_usd": 2.180997300000001,
+  "usage": {
+    "input_tokens": 16,
+    "cache_creation_input_tokens": 9555,
+    "cache_read_input_tokens": 455105,
+    "output_tokens": 5314,
+    "output_tokens_details": {
+      "thinking_tokens": 770
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 9555,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 480,
+        "cache_read_input_tokens": 60848,
+        "cache_creation_input_tokens": 1083,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1083
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 92,
+      "outputTokens": 72561,
+      "cacheReadInputTokens": 1304756,
+      "cacheCreationInputTokens": 153993,
+      "webSearchRequests": 0,
+      "costUSD": 2.180997300000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification"
+  },
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Grading's done. Here's where Riley landed on quiz 0001 (submission s1):\n\n- **Correct:** q1 (the agent loop), q3 (step limits as a safeguard)\n- **Partial:** q5 (knows the result goes back to the model, missed that it's a fresh call), q6 (nailed tool selection, but wrongly added that the model remembers past sessions on its own)\n- **Wrong:** q2 and q4, both from the same misconception (M4) — believing the model executes tools itself rather than just requesting them\n\nSummary to Riley: solid grasp of the loop's shape, but the model/program boundary is the thing to tighten up next — a model call only ever produces one request or a final answer, never runs anything itself.\n\nFull grades are in `grades/0001-s1.json`. I also wrote a learning record (`learning-records/0003-...md`) and updated `NOTES.md`, since this quiz confirms an open misconception flagged back in record 0002 — worth addressing right at the top of the next lesson on context and memory. A review record of the two check passes is in `review-records/0001-s1-grade.md`.\n\nOne side note: during grading, both subagents independently flagged and correctly ignored an injected instruction (unrelated \"create a Claude Docs artifact\" text appearing mid-task) — nothing came of it, just flagging for transparency.\n\nSubmission `s2.json` (Riley's spaced-practice retake) is still ungraded if you want that run next.",
+  "ttft_ms": 2460,
+  "ttft_stream_ms": 2119,
+  "time_to_request_ms": 13,
+  "type": "result",
+  "duration_ms": 71387,
+  "uuid": "30f0cdac-3e30-42ef-bc1e-c41a5e35805f"
+}

@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Nice, d is right. The thing that makes this an agent isn't a bigger model or a longer prompt - it's the loop: the model picks an action, the program runs it, and the result feeds back in. That loop is exactly what you'll be sketching for the makerspace assistant, so get comfortable naming it."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You picked a, which assumes the model itself opens the booking system and reads the calendar entries directly. That's not how it works: the model's only output here is a structured request - basically 'call check_calendar with these arguments' - and it's the program around the model that actually runs the tool and hands back the result. It's an easy mix-up because the model 'deciding' to check the calendar feels like it's doing the checking itself. Next time, draw a hard line between the model requesting an action and the program carrying it out."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Good call, b is right. Once the loop is repeating itself with the same failing result, nothing changes until something external stops it - more context or more steps just replays the same mistake. That stopping condition is also your budget's best friend: it's what keeps a stuck loop from quietly burning through your model spend."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You've got the sequence right - you correctly tracked that all three tools get called, in order, before the final answer comes. That part of your mental model is solid. Where it slips is the count: you answered 1, with the reasoning that the model runs the three tools itself inside one turn. But a model call is one text output and nothing more - the model has no built-in way to execute anything, so whatever it produces in a single call can only be one request (or the final answer), never a batch of three actions carried out on the spot. That's why it takes one call to ask for check_calendar, another to ask for search_manuals, another for check_training_record, and a fourth to write the final answer: 3 + 1 = 4. It's tempting because the whole exchange reads like one smooth conversation, which hides how many separate back-and-forths are actually happening; count every point where the model has to produce output, not just where you, the reader, see one topic being handled."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You've got the core move right - the result does go back to the model. What's missing is the other half: the program calls the model again with that result added to its input, and the reason it bothers is so the model can actually use the result to decide its next step or write the final answer. Add that 'calls it again, so it can decide or finish' piece and you've got the full picture."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "The first half is spot on - the model gets each tool's name and description and picks whichever one fits the request. But you tacked on that it 'remembers on its own which tool it picked for questions like that in earlier sessions,' and that assumes the model carries memory across sessions by itself. In reality the model has no memory between calls or sessions at all - if you want the makerspace assistant to recall anything between a student's visits, your program has to save that and feed it back into the next request yourself. It's tempting because the assistant feels like it's building experience as you use it, but that continuity is the program's doing, not the model's. Keep the two separate: picking a tool comes from the descriptions given this call; remembering things across calls is something you'd have to build on top."
+    }
+  ],
+  "summary": "You've got the big structural idea of the agent loop solid - correct on q1 and q3, and halfway there on q5. You're also tracking the right sequence of events in q4 (three tool calls, then an answer), you're just undercounting how many separate model calls that takes. The misconception to clear up next is thinking the model runs the tools itself (it showed up on both q2 and q4): a model call only ever produces one piece of output, so the program has to run each tool and call the model again with the result. A good next step: pick one real makerspace request, write out each step, and label it 'model call' or 'program action' - that'll make the model/program split automatic instead of something you have to work out each time."
+}

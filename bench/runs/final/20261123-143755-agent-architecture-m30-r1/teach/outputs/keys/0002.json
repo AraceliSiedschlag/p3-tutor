@@ -1,0 +1,31 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The context window is every token sent in for this call: the system prompt, the conversation so far, tool definitions, and any tool result already returned. Tool definitions are sent with every call, so they're in context now. An answer of b, c or d confuses something that exists somewhere with something actually loaded into this call; none of those three were sent in, so none are in context yet."
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "Within a session, the program resends the full history, including every earlier tool result, as input to each new call; the model holds nothing of its own between calls. An answer of a or d shows the misconception that the model itself remembers or learns mid-conversation, when really it only has that text because it was resent. An answer of b mistakes resending history for an automatic re-fetch of the tool; the status isn't being looked up again, it's just quoted in again from the existing history."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "This is context rot (recall gets worse as the window fills with irrelevant text) combined with token cost (every token in context is billed, relevant or not). An answer of a, c or d invents a rule about copyright, single topics, or expiry that isn't how context windows work; the real reason to leave old transcripts out is that they clutter the model's search for the one needed fact and still cost tokens."
+    },
+    {
+      "id": "q4",
+      "answer": "nothing",
+      "accepted": ["nothing", "empty", "it is empty", "the context window is empty", "it contains nothing, the context window starts empty"],
+      "rationale": "A new session starts with an empty context window. Nothing from Tuesday is there unless it was written to a file on Tuesday and that file is read back in on Thursday; since nothing was saved, Thursday's session has no trace of Tuesday's conversation at all. An answer that assumes any carryover shows the misconception that sessions continue automatically, like a phone call being resumed."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "Retrieval and notes both work the same way mechanically, as a tool call that returns text into context; what makes this one a note is that the agent itself wrote the fact earlier, rather than reading a document that existed before the agent ran. An answer of a ignores that distinction and calls every file read 'retrieval' regardless of where the content came from. An answer of c correctly spots that the content is a note but wrongly assumes that skips the tool call needed to read it back. An answer of d repeats the misconception that writing something down changes the model's trained knowledge, when it's only ever a line in a file until read back into context."
+    }
+  ]
+}

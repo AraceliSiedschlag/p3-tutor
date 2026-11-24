@@ -1,0 +1,389 @@
+{
+  "run_id": "20261123-210044-cake-baking-m30-r1",
+  "config": "c0-baseline",
+  "config_hash": "sha256:3727de8ebe2e5331f2d9ccfd57b54b5f969ef6ca0e181c1f994201ad3ebde8f5",
+  "topic": "cake-baking",
+  "topic_hash": "sha256:0cc69f95a28bc675587d0c72a624d4821b31fb92de91074cc943a7437224626d",
+  "topic_commit": "d19160d2062dfabe716613514d6bb0e2e990aed5",
+  "repeat": 1,
+  "minutes": 30,
+  "quick": false,
+  "started_at": "2026-11-23T21:00:44Z",
+  "finished_at": "2026-11-24T01:12:42Z",
+  "claude_version": "2.1.236 (Claude Code)",
+  "p3_version": "0.2.0",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "model": "sonnet",
+  "allowed_tools": [
+    "Glob",
+    "Grep",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "entries": {
+    "teach": "/teach",
+    "tutor": "/teach",
+    "quiz": "/teach",
+    "grade": "/teach"
+  },
+  "only": null,
+  "ancestor_memory": [],
+  "scenarios": [
+    {
+      "id": "teach",
+      "job": "teach",
+      "entry": "/teach",
+      "status": "ok",
+      "duration_ms": 987481,
+      "num_turns": 88,
+      "tokens": {
+        "input": 105132,
+        "output": 78838,
+        "cache_read": 6081892,
+        "cache_write": 154053
+      },
+      "cost_usd_list": 4.062402,
+      "web_searches": 6,
+      "web_fetches": 4,
+      "subagents": {
+        "spawned": 0,
+        "max_depth": 0,
+        "by_type": {}
+      },
+      "permission_denials": [
+        "Bash",
+        "Bash",
+        "Bash",
+        "Bash",
+        "Bash",
+        "Bash",
+        "Bash",
+        "Bash",
+        "Bash"
+      ],
+      "outputs": [
+        "NOTES.md",
+        "RESOURCES.md",
+        "cheatsheets/baking-soda-vs-baking-powder.html",
+        "keys/0002.json",
+        "lessons/0001-what-makes-a-cake-rise.html",
+        "quizzes/0002.json"
+      ],
+      "changed": [
+        "NOTES.md"
+      ],
+      "deleted": [],
+      "models": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-5"
+      ],
+      "search_queries": [
+        "baking soda vs baking powder science how cake rises chemical leavening explained",
+        "why does a cake sink in the middle too much leavener underbaked oven door",
+        "King Arthur Baking baking soda vs baking powder difference",
+        "Serious Eats OR King Arthur why cakes sink too much leavener science",
+        "r/Baking subreddit beginner baking community reddit",
+        "site:reddit.com r/Baking"
+      ],
+      "fetch_urls": [
+        "https://www.kingarthurbaking.com/blog/2021/09/10/baking-soda-vs-baking-powder-substitutions",
+        "https://bakeschool.com/cake-collapse/",
+        "https://www.armandhammer.com/en/articles/baking-soda-vs-baking-powder",
+        "https://www.reddit.com/r/Baking/"
+      ],
+      "exit_code": 0,
+      "claude_version": "2.1.236"
+    },
+    {
+      "id": "quiz",
+      "job": "quiz",
+      "entry": "/teach",
+      "status": "ok",
+      "duration_ms": 280241,
+      "num_turns": 8,
+      "tokens": {
+        "input": 28996,
+        "output": 24450,
+        "cache_read": 731599,
+        "cache_write": 109421
+      },
+      "cost_usd_list": 1.228187,
+      "web_searches": 2,
+      "web_fetches": 1,
+      "subagents": {
+        "spawned": 1,
+        "max_depth": 1,
+        "by_type": {
+          "web-fetch": 1
+        }
+      },
+      "permission_denials": [],
+      "outputs": [
+        "NOTES.md",
+        "keys/0002.json",
+        "quizzes/0002.json"
+      ],
+      "changed": [
+        "NOTES.md"
+      ],
+      "deleted": [],
+      "models": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-5"
+      ],
+      "search_queries": [
+        "King Arthur Baking cake doneness toothpick test sunken middle dry cake domed top causes",
+        "King Arthur Baking \"cake\" troubleshooting sunk middle domed top overbaked underbaked guide"
+      ],
+      "fetch_urls": [
+        "https://www.kingarthurbaking.com/learn/guides/cake"
+      ],
+      "exit_code": 0,
+      "claude_version": "2.1.236"
+    },
+    {
+      "id": "grade-s1",
+      "job": "grade",
+      "entry": "/teach",
+      "status": "ok",
+      "duration_ms": 77993,
+      "num_turns": 18,
+      "tokens": {
+        "input": 12,
+        "output": 6629,
+        "cache_read": 229940,
+        "cache_write": 46200
+      },
+      "cost_usd_list": 0.445653,
+      "web_searches": 0,
+      "web_fetches": 0,
+      "subagents": {
+        "spawned": 0,
+        "max_depth": 0,
+        "by_type": {}
+      },
+      "permission_denials": [],
+      "outputs": [
+        "NOTES.md",
+        "grades/0001-s1.json",
+        "learning-records/0002-a-little-extra-is-fine-misconception.md"
+      ],
+      "changed": [
+        "NOTES.md"
+      ],
+      "deleted": [],
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "search_queries": [],
+      "fetch_urls": [],
+      "exit_code": 0,
+      "submission": "s1",
+      "claude_version": "2.1.236"
+    },
+    {
+      "id": "tutor-p01",
+      "job": "tutor",
+      "entry": "/teach",
+      "status": "ok",
+      "duration_ms": 28254,
+      "num_turns": 7,
+      "tokens": {
+        "input": 4,
+        "output": 1034,
+        "cache_read": 50188,
+        "cache_write": 18115
+      },
+      "cost_usd_list": 0.139268,
+      "web_searches": 0,
+      "web_fetches": 0,
+      "subagents": {
+        "spawned": 0,
+        "max_depth": 0,
+        "by_type": {}
+      },
+      "permission_denials": [],
+      "outputs": [],
+      "changed": [],
+      "deleted": [],
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "search_queries": [],
+      "fetch_urls": [],
+      "exit_code": 0,
+      "probe": "p01",
+      "claude_version": "2.1.236"
+    },
+    {
+      "id": "tutor-p02",
+      "job": "tutor",
+      "entry": "/teach",
+      "status": "ok",
+      "duration_ms": 40741,
+      "num_turns": 9,
+      "tokens": {
+        "input": 6,
+        "output": 3471,
+        "cache_read": 79391,
+        "cache_write": 39787
+      },
+      "cost_usd_list": 0.314622,
+      "web_searches": 0,
+      "web_fetches": 0,
+      "subagents": {
+        "spawned": 0,
+        "max_depth": 0,
+        "by_type": {}
+      },
+      "permission_denials": [],
+      "outputs": [],
+      "changed": [],
+      "deleted": [],
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "search_queries": [],
+      "fetch_urls": [],
+      "exit_code": 0,
+      "probe": "p02",
+      "claude_version": "2.1.236"
+    },
+    {
+      "id": "tutor-p03",
+      "job": "tutor",
+      "entry": "/teach",
+      "status": "ok",
+      "duration_ms": 71639,
+      "num_turns": 12,
+      "tokens": {
+        "input": 12,
+        "output": 5181,
+        "cache_read": 203934,
+        "cache_write": 43142
+      },
+      "cost_usd_list": 0.397783,
+      "web_searches": 0,
+      "web_fetches": 0,
+      "subagents": {
+        "spawned": 0,
+        "max_depth": 0,
+        "by_type": {}
+      },
+      "permission_denials": [],
+      "outputs": [
+        "NOTES.md"
+      ],
+      "changed": [
+        "NOTES.md"
+      ],
+      "deleted": [],
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "search_queries": [],
+      "fetch_urls": [],
+      "exit_code": 0,
+      "probe": "p03",
+      "claude_version": "2.1.236"
+    },
+    {
+      "id": "tutor-p04",
+      "job": "tutor",
+      "entry": "/teach",
+      "status": "ok",
+      "duration_ms": 97784,
+      "num_turns": 15,
+      "tokens": {
+        "input": 15872,
+        "output": 7013,
+        "cache_read": 426249,
+        "cache_write": 43818
+      },
+      "cost_usd_list": 0.513204,
+      "web_searches": 1,
+      "web_fetches": 1,
+      "subagents": {
+        "spawned": 0,
+        "max_depth": 0,
+        "by_type": {}
+      },
+      "permission_denials": [
+        "Bash"
+      ],
+      "outputs": [
+        "NOTES.md",
+        "RESOURCES.md"
+      ],
+      "changed": [
+        "NOTES.md"
+      ],
+      "deleted": [],
+      "models": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-5"
+      ],
+      "search_queries": [
+        "Maillard reaction rate pH baking soda alkaline browning crust kinetics"
+      ],
+      "fetch_urls": [
+        "https://bakerpedia.com/processes/maillard-reaction/"
+      ],
+      "exit_code": 0,
+      "probe": "p04",
+      "claude_version": "2.1.236"
+    },
+    {
+      "id": "tutor-p05",
+      "job": "tutor",
+      "entry": "/teach",
+      "status": "ok",
+      "duration_ms": 82909,
+      "num_turns": 12,
+      "tokens": {
+        "input": 18787,
+        "output": 5025,
+        "cache_read": 276798,
+        "cache_write": 38921
+      },
+      "cost_usd_list": 0.413609,
+      "web_searches": 1,
+      "web_fetches": 1,
+      "subagents": {
+        "spawned": 0,
+        "max_depth": 0,
+        "by_type": {}
+      },
+      "permission_denials": [],
+      "outputs": [
+        "NOTES.md"
+      ],
+      "changed": [
+        "NOTES.md"
+      ],
+      "deleted": [],
+      "models": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-5"
+      ],
+      "search_queries": [
+        "peanut allergy cross-contact baking pan used for peanut butter cookies washing removes allergen"
+      ],
+      "fetch_urls": [
+        "https://www.foodallergy.org/resources/avoiding-cross-contact"
+      ],
+      "exit_code": 0,
+      "probe": "p05",
+      "claude_version": "2.1.236"
+    }
+  ],
+  "resumed": [
+    {
+      "at": "2026-11-24T01:01:02Z",
+      "claude_version": "2.1.236 (Claude Code)"
+    }
+  ],
+  "claude_versions": [
+    "2.1.236"
+  ]
+}

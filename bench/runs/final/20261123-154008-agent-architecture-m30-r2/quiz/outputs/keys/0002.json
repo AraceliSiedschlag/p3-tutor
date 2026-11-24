@@ -1,0 +1,49 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A fixed workflow's steps are written into the code ahead of time, so the code itself steps through them. Picking 'the model decides' shows M1, confusing a workflow's control flow with an agent's; picking 'the tool decides' shows M6, treating a tool as if it has its own say over what runs next.",
+      "distractors": {"a": "M1", "c": "M6"}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "An agent's defining trait is that the model itself chooses the next action from the goal and what has happened so far. Picking 'the code decides' shows M1, the same mix-up as in q1, just reversed.",
+      "distractors": {"a": "M1"}
+    },
+    {
+      "id": "q3",
+      "answer": "the steps are known and predictable in advance",
+      "accepted": [
+        "the sequence of steps is known ahead of time",
+        "it is well-defined and repetitive",
+        "the task always follows the same steps",
+        "the path does not depend on what happens along the way"
+      ],
+      "rationale": "A workflow wins when every step and branch can be charted before the run starts, so there's nothing left for a model to decide at runtime."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "The search-extract-format sequence never changes between requests, so code can fix it and skip paying a model to choose it each time. Picking 'the model should pick' shows M1; picking 'calling a tool makes it an agent' shows M2, confusing tool use with who controls the sequence; picking 'workflows never call a tool' shows M3, the opposite confusion.",
+      "distractors": {"b": "M1", "c": "M2", "d": "M3"}
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "Which check to run next depends on what earlier checks turn up, so the sequence can't be fixed in code ahead of time and the model has to pick it live. Option 'a' shows M4, judging the choice by topic (manuals) instead of predictability, and 'c' shows the same mistake from the agent side (judging by topic, machines); 'b' shows M5, judging by how many model calls are involved instead of whether the next step can be predicted.",
+      "distractors": {"a": "M4", "b": "M5", "c": "M4"}
+    },
+    {
+      "id": "q6",
+      "answer": "the workflow's steps are fixed in code, so the same input always takes the same path, while an agent's model chooses the path itself and could choose differently",
+      "accepted": [
+        "the workflow always follows the same fixed steps, but the agent's model decides live and might decide differently each time",
+        "a workflow has one path set in advance; an agent's path depends on the model's choices, which can vary"
+      ],
+      "rationale": "Because a workflow's steps are set in code ahead of time, the same input runs the same path every time; an agent's model re-decides the path on each run, so it can take a different route even on a similar input."
+    }
+  ]
+}

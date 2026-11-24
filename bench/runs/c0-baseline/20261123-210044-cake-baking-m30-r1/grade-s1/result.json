@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 76450,
+  "num_turns": 18,
+  "stop_reason": "end_turn",
+  "session_id": "dfc7b618-5981-4a51-b486-41eafb989179",
+  "total_cost_usd": 0.44565299999999997,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 46200,
+    "cache_read_input_tokens": 229940,
+    "output_tokens": 6629,
+    "output_tokens_details": {
+      "thinking_tokens": 2370
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 46200,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 464,
+        "cache_read_input_tokens": 50739,
+        "cache_creation_input_tokens": 1093,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1093
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 12,
+      "outputTokens": 6629,
+      "cacheReadInputTokens": 229940,
+      "cacheCreationInputTokens": 46200,
+      "webSearchRequests": 0,
+      "costUSD": 0.44565299999999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Graded quiz 0001 for Ava's submission `s1.json` and saved it to `grades/0001-s1.json`.\n\n**Result:** 3 correct (q2, q3, q4), 1 partial (q5), 2 wrong (q1, q6).\n\n- q1 and q6 share a theme: she believes small looseness in measuring is harmless — scooping flour is \"the most accurate way\" (it's not; it packs the cup and makes cakes dry), and a heaping spoon of baking powder \"is fine\" (it isn't; leaveners are unforgiving in small amounts). I recorded this as a misconception to target (`learning-records/0002-a-little-extra-is-fine-misconception.md`).\n- q5 was partial: she named the right conclusion (\"scales are more exact\") but not the reason (weight doesn't change with packing; cup volume does).\n- q2, q3, q4 were solid — grams-to-cups conversion, spoon-and-level, and liquid-cup measuring are landing.\n\nI updated `NOTES.md` with the grading outcome and flagged that the leavening misconception should be addressed directly when you teach what makes a cake rise, which is already next in the mission.\n\nNext step: a short lesson on what makes a cake rise, specifically making the case for *why* leavener amounts are so exacting — that would hit both the open mission topic and the misconception from q6 at once. Want me to build that lesson now?",
+  "ttft_ms": 3008,
+  "ttft_stream_ms": 1810,
+  "time_to_request_ms": 63,
+  "type": "result",
+  "duration_ms": 76734,
+  "uuid": "b3de6b65-977a-4ec0-9ff8-0c502f1cdfb3"
+}

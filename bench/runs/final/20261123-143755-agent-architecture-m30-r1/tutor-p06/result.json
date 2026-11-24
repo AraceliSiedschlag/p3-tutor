@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 45542,
+  "num_turns": 8,
+  "stop_reason": "end_turn",
+  "session_id": "63547d4c-ec2e-47ce-99e3-dc3385110c07",
+  "total_cost_usd": 0.2554323,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 30462,
+    "cache_read_input_tokens": 107671,
+    "output_tokens": 2689,
+    "output_tokens_details": {
+      "thinking_tokens": 1297
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 30462,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 535,
+        "cache_read_input_tokens": 35574,
+        "cache_creation_input_tokens": 1605,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1605
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 2689,
+      "cacheReadInputTokens": 107671,
+      "cacheCreationInputTokens": 30462,
+      "webSearchRequests": 0,
+      "costUSD": 0.2554323,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Tool calling, no code: think of the model as a head chef who's great at planning dishes but is physically stuck in an office — no hands in the actual kitchen. The chef can't open the fridge, can't check the oven, can't call a supplier. All the chef can do is say, out loud, \"someone go check if we have eggs.\"\n\nThat request is a tool call. It's just text — a clearly phrased instruction, like \"check_fridge for eggs\" — that the model hands off instead of answering directly.\n\nHere's the part that usually gets skipped: the chef never checks the fridge. A kitchen assistant (your program, the code you write) hears the request, actually walks over, opens the fridge, counts the eggs, and reports back: \"3 eggs.\" That report goes back to the chef as plain text. The chef reads it and decides what to say or do next — maybe ask for milk too, maybe just answer \"yes, we can make the omelet.\"\n\nTwo things worth nailing down for your makerspace assistant, since this is exactly where it matters: first, the model never touches your booking calendar or manuals itself — your code does the actual lookup and hands back the result as text. Second, each \"chef speaks, assistant checks, chef speaks again\" exchange is a separate call to the model — it's not one continuous thought, it's a fresh round each time, which is also why more tool calls means more cost.\n\nSo \"tool calling\" = the model asking, in words, for a specific check to be run, and your program being the one who actually runs it.\n\nQuick check: in the laser-cutter example from before, what's the \"fridge check\" — i.e., what's the one thing the model has to ask your program to go look up before it can answer \"is it free Friday?\"",
+  "ttft_ms": 6074,
+  "ttft_stream_ms": 5030,
+  "time_to_request_ms": 91,
+  "type": "result",
+  "duration_ms": 45772,
+  "uuid": "2503bcae-47d5-48c9-91fd-7c9f9f9be396"
+}

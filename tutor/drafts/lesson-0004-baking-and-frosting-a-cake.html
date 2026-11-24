@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="p3-minutes" content="15">
+  <meta name="p3-objective" content="O4">
+  <title>Baking and frosting a simple cake</title>
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --text: #1f1d1a;
+      --muted: #6b665e;
+      --rule: #e4dfd4;
+      --accent: #9a4517;
+      --accent-soft: #f7ede4;
+      --warn: #8c2f39;
+      --warn-soft: #f9eaec;
+      --ok: #2f6b3a;
+      --ok-soft: #e7f2e9;
+      --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614;
+        --text: #e9e5dc;
+        --muted: #a49e93;
+        --rule: #36332e;
+        --accent: #eaa77a;
+        --accent-soft: #2c231d;
+        --warn: #f0a3ac;
+        --warn-soft: #2f1f22;
+        --ok: #9fd3a8;
+        --ok-soft: #1c2a1f;
+        --code-bg: #23211e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 19px; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.6; }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    p, li { hyphens: auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+    h1 { font-size: 2.1rem; margin: 0.25rem 0 1rem; }
+    h2 { font-size: 1.45rem; margin: 3rem 0 0.75rem; }
+    h3 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+    .kicker, .label, .meta, .section-time, figcaption, summary, th, nav.toc, footer.closing {
+      font-family: var(--sans);
+    }
+    .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .lead { font-size: 1.15rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--muted);
+            border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 0.5rem 0; margin: 1.5rem 0; }
+    nav.toc { font-size: 0.9rem; margin: 1.5rem 0 2rem; }
+    nav.toc ol { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    .section-time { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+    dfn { font-style: normal; font-weight: 600; }
+    aside.note { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--rule); padding-left: 1rem; margin: 1.25rem 0; }
+    .box { border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .box > :first-child { margin-top: 0; }
+    .box > :last-child { margin-bottom: 0; }
+    .label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .mission { background: var(--accent-soft); }
+    .mission .label { color: var(--accent); }
+    .misconception { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .misconception .label { color: var(--warn); }
+    .worked { border: 1px solid var(--rule); }
+    .worked ol { padding-left: 1.3rem; }
+    .summary { border: 1px solid var(--rule); }
+    figure { margin: 2rem 0; }
+    figure svg { display: block; width: 100%; height: auto; }
+    figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1.5rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    code, pre { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 4px; }
+    code { padding: 0.1em 0.3em; }
+    pre { padding: 1rem; overflow-x: auto; line-height: 1.45; }
+    pre code { padding: 0; background: none; font-size: 1em; }
+    .check { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .check .label { color: var(--accent); }
+    .check p { margin: 0.25rem 0; }
+    .choices { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+    .choices button { width: 100%; text-align: left; font: inherit; font-size: 0.95rem; color: inherit; background: transparent;
+                      border: 1px solid var(--rule); border-radius: 6px; padding: 0.55rem 0.8rem; cursor: pointer; }
+    .choices button:hover { border-color: var(--accent); }
+    .choices button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .choices button.right { border-color: var(--ok); background: var(--ok-soft); }
+    .choices button.wrong { border-color: var(--warn); background: var(--warn-soft); }
+    .feedback { font-size: 0.95rem; margin: 0.6rem 0 0; }
+    .feedback:empty { margin: 0; }
+    details { margin-top: 0.75rem; }
+    summary { font-size: 0.85rem; color: var(--accent); cursor: pointer; }
+    details > :not(summary) { margin: 0.5rem 0 0; }
+    .go-further li { margin-bottom: 0.6rem; }
+    footer.closing { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+    @media (max-width: 32rem) {
+      html { font-size: 17px; }
+      h1 { font-size: 1.75rem; }
+      main { padding-top: 2rem; }
+    }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2;
+              --warn: #000; --warn-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --code-bg: #f2f2f2; }
+      html { font-size: 11.5pt; }
+      main { max-width: none; padding: 0; }
+      nav.toc { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+      .box, .check, figure, table, pre { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="kicker">Lesson 4 &middot; 15 minutes</div>
+    <h1>Baking and frosting a simple cake</h1>
+    <p class="lead">By the end of this lesson you can bake and frost a simple two-layer cake that comes out moist, not dense or dry, and looks clean, with no crumbs dragged through the icing, because you will know why each step causes that result.</p>
+    <div class="meta">
+      <span>Objective O4: bake and frost a simple cake well, and know why each step matters</span>
+      <span>About 15 minutes</span>
+    </div>
+    <div class="box mission">
+      <span class="label">Why this matters for you</span>
+      <p>You have probably had a birthday cake come out dense and gummy in the middle, or watched frosting turn gray and streaky with crumbs halfway through decorating. Good news: both are caused by skipping one specific step, not bad luck or a lack of skill, and once you see why, you will not make either mistake again.</p>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="In this lesson">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#s1">Measuring flour correctly</a></li>
+      <li><a href="#s2">Creaming butter and sugar</a></li>
+      <li><a href="#s3">Leveling the cake</a></li>
+      <li><a href="#s4">Crumb coat and chill</a></li>
+      <li><a href="#practice">Worked example and practice</a></li>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#further">Go further</a></li>
+    </ol>
+  </nav>
+
+  <section id="s1">
+    <h2>Measuring flour correctly <span class="section-time">2 min</span></h2>
+    <p>How you get flour into the measuring cup changes how much flour actually ends up there, and that changes how the cake bakes. Scooping the cup straight into the flour bag packs the flour down, so the same cup holds noticeably more flour than a recipe intended.</p>
+    <p>Spooning flour loosely into the cup, then leveling the top with the flat edge of a knife, gives a lighter, more consistent amount (<a href="https://www.kingarthurbaking.com/blog/2023/10/13/how-to-measure-flour">King Arthur Baking: how to measure flour</a>). Weighing flour on a kitchen scale is even more consistent, but spoon-and-level works fine for a home recipe.</p>
+
+    <p>Picture two bakers making the exact same recipe side by side. Baker A scoops the cup straight into the flour bag and levels the top. Baker B spoons flour loosely into the cup, then levels it. Both believe they measured "one cup of flour," but Baker A's cup holds more flour by weight. Extra flour soaks up extra liquid and leaves less room for fat and sugar, so Baker A's cake comes out denser and drier.</p>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>It is tempting to think a cup of flour is a fixed amount no matter how it gets into the cup, since the measuring cup looks like an objective unit. It is not: scooping compacts the flour, so the same cup can hold meaningfully more flour than spooning-and-leveling does, which is why two bakers using "the same" cup end up with different cakes.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Baker A scoops the measuring cup straight into the flour bag and levels the top. Baker B spoons flour into the cup, then levels it with a knife. Both are making the same recipe. Whose cake is more likely to turn out dense and dry?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Spooned flour is the lighter, more accurate amount the recipe was written for, not an error that adds air and ruins the rise.">Baker B's, because spooning adds extra air that ruins the rise</button></li>
+        <li><button type="button" data-correct="true" data-why="Scooping packs the flour down, so Baker A's cup holds more flour by weight than the recipe meant, which dries out and densifies the cake.">Baker A's, because scooping packs more flour into the cup</button></li>
+        <li><button type="button" data-correct="false" data-why="The cup looks like a fixed unit, but packing changes how much flour fits in it, so the two bakers end up with different amounts.">Neither, a cup of flour is the same amount either way</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Baker A's cake is the dense, dry one. Scooping packs flour down, so that "one cup" is heavier than Baker B's spooned-and-leveled cup, and the extra flour soaks up moisture the cake needed.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s2">
+    <h2>Creaming butter and sugar <span class="section-time">3 min</span></h2>
+    <p>To <dfn>cream</dfn> butter and sugar is to beat them together until the mixture turns pale and fluffy. Sugar's sharp crystal edges cut thousands of tiny air pockets into the softened fat as you beat, and those pockets expand in the oven's heat, giving the baked cake its light, fine crumb (<a href="https://www.kingarthurbaking.com/blog/2015/04/27/creaming-butter-sugar">King Arthur Baking: creaming butter and sugar</a>). Think of it like working coarse grit through soft dough: the grit (sugar) carves channels through the dough (butter) as you knead.</p>
+
+    <p>There is a right amount of creaming, not "more is better." Stop too early, after only a minute or two, and too few air pockets have formed, so the cake bakes heavy and dense. Keep going for eight or ten minutes, well past pale and fluffy, and you beat in too much air: the mixture itself starts to separate and turn grainy or soupy, and a batter built on it tends to bake up dense and uneven rather than light (<a href="https://nightowlsugarspell.com/butter-sugar/">Night Owl Sugar Spell: why creaming matters</a>).</p>
+
+    <figure>
+      <svg viewBox="0 0 640 180" role="img" aria-labelledby="fig1-title">
+        <title id="fig1-title">Creaming time compared with how light the baked cake turns out</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="40" y1="150" x2="600" y2="150"/>
+          <line x1="40" y1="150" x2="40" y2="20"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="16">
+          <text x="300" y="172" text-anchor="middle">Creaming time</text>
+          <text x="20" y="90" text-anchor="middle" transform="rotate(-90 20 90)">Lightness</text>
+        </g>
+        <path d="M60,140 Q200,30 320,30 Q440,30 580,120" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="16">
+          <text x="70" y="160">under</text>
+          <text x="300" y="20" text-anchor="middle">just right</text>
+          <text x="540" y="140">over</text>
+        </g>
+      </svg>
+      <figcaption>Figure 1. Too little creaming leaves the cake dense; the lightest cake sits at a middle amount; too much creaming beats in too much air and the cake falls dense again.</figcaption>
+    </figure>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>Because creaming gets praised as the step that makes cakes light, it is easy to assume there is no upper limit, so more must always be better. In fact over-creaming adds too much air and can leave the cake dense or gummy once baked, same as under-creaming does from the other direction.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Three bakers make the same recipe. Baker A creams for 1 minute, just until the ingredients are mixed. Baker B creams for 10 minutes, well past pale and fluffy. Baker C creams for the time the recipe states, until pale and fluffy and no longer. Which baker is most likely to get a light cake?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Stopping at one minute leaves too few air pockets cut into the fat, so the cake bakes heavy and dense, not light.">Baker A, because stopping early keeps the batter cool and stable</button></li>
+        <li><button type="button" data-correct="true" data-why="Creaming to the recipe's cue gives enough air pockets without beating in too much, which is the light, fine-crumb result.">Baker C, because creaming to the recipe's cue builds the right amount of air</button></li>
+        <li><button type="button" data-correct="false" data-why="Creaming is not open-ended: past pale and fluffy, extra time beats in too much air, which can collapse or turn gummy once baked.">Baker B, because the longest creaming time always creams in the most air</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Baker C. Baker A under-creams, leaving too few air pockets for a light crumb. Baker B over-creams, beating in so much air the cake can collapse or turn gummy. Baker C stops at the right amount, which is what the recipe's cue (pale and fluffy) is for.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s3">
+    <h2>Leveling the cake <span class="section-time">2 min</span></h2>
+    <p>A baked cake usually comes out of the pan with a domed top, and here is why: the batter touching the hot pan sets first, while the still-liquid center keeps producing gas from the leavening, the baking powder or soda that releases gas as it heats, and that gas has nowhere to go but up, so it domes (<a href="https://fatdaddios.com/how-to-prevent-a-domed-cake-every-time/">Fat Daddio's: how to prevent a domed cake</a>). To <dfn>level</dfn> a cake is to slice that dome off with a long serrated knife, leaving a flat top, a technique covered step by step at <a href="https://wilton.com/how-to-level-and-torte-a-cake/wltech-427/">Wilton: how to level and torte a cake</a>.</p>
+
+    <p>Leveling matters mechanically, not just visually. It is the step people skip when they are in a hurry, which is a shame, since it only takes about thirty seconds. Stack a domed layer under another layer and the top layer sits on an uneven surface: it rocks, and the stack can slide or crack apart as you frost it. A leveled layer gives the next layer a flat, stable base to sit on, and the slice you cut off is yours to eat right there, no waste.</p>
+
+    <figure>
+      <svg viewBox="0 0 640 160" role="img" aria-labelledby="fig2-title">
+        <title id="fig2-title">An unleveled, domed cake layer compared with a leveled, flat one under a second layer</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M60,120 Q140,60 220,120 Z" />
+          <rect x="60" y="120" width="160" height="20"/>
+          <rect x="90" y="40" width="100" height="30" style="stroke: var(--warn)"/>
+          <rect x="420" y="100" width="160" height="20"/>
+          <rect x="420" y="80" width="160" height="20" style="stroke: var(--accent)"/>
+          <rect x="450" y="40" width="100" height="30" style="stroke: var(--ok)"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="16" text-anchor="middle">
+          <text x="140" y="155">domed layer: top layer rocks</text>
+          <text x="500" y="155">leveled layer: top sits flat</text>
+        </g>
+      </svg>
+      <figcaption>Figure 2. The domed layer tips the layer above it; the leveled layer (cut flat, shown as the thin accent slice removed) gives it a stable base.</figcaption>
+    </figure>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>It is tempting to think leveling is only about looks, since a domed cake still tastes fine. In fact an unleveled cake rocks and cracks once you try to stack or frost it, because the dome makes the base uneven, which is a structural problem, not just an appearance one.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>A baker stacks a two-layer cake without leveling the bottom layer, which still has its domed top. What is most likely to happen when they add and frost the second layer?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="The dome creates an uneven base, which is a structural problem that shows up well before the slicing stage.">Nothing, leveling only matters for how neat the slices look later</button></li>
+        <li><button type="button" data-correct="true" data-why="The dome makes the base uneven, so the layer above it has no flat surface to rest on and can rock or slide.">The top layer rocks on the dome and the stack can crack or slide</button></li>
+        <li><button type="button" data-correct="false" data-why="Frosting sticks to a domed cake fine; the dome causes a structural wobble, not a sticking problem.">The frosting will not stick at all unless the layer is leveled</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>The stack rocks and can crack or slide. The dome leaves no flat surface for the second layer to rest on, so the whole cake is mechanically unstable, not just less tidy.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s4">
+    <h2>Crumb coat and chill <span class="section-time">3 min</span></h2>
+    <p>A <dfn>crumb coat</dfn> is a thin first layer of frosting, spread over the whole cake, whose only job is to trap loose crumbs against the cake rather than let them travel into the final coat (<a href="https://www.culinaryhill.com/how-to-frost-a-cake/">Culinary Hill: how to frost a cake with a crumb coat</a>). Frosting also sticks far better to a set layer of frosting than to bare, crumbly cake, which is why it goes on before the decorative final coat rather than skipping straight to it (<a href="https://www.bobsredmill.com/articles/crumb-coating-101-how-to-frost-your-cakes-like-a-pro">Bob's Red Mill: Crumb Coating 101</a>).</p>
+
+    <p>After the crumb coat goes on, the cake needs to chill, about 30 minutes in the fridge, until the coat feels firm and no longer sticky. That firm layer is what lets the final frosting glide on clean. Skip the chill and frost right over a still-soft crumb coat, and the final coat drags through it, pulling the trapped crumbs right back out (<a href="https://whatsinthepan.com/how-to-crumb-coat-a-cake/">what's in the pan: how to crumb coat a cake</a>).</p>
+
+    <aside class="note">Picture frosting a cake straight out of the oven, warm and crumbly, versus frosting one where a thin coat has chilled firm first: the second one is the one that comes out clean under the final layer.</aside>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>It is tempting to think you can skip the crumb coat if you just frost gently. In fact frosting put straight onto bare cake drags crumbs into itself no matter how gently you spread, because the cake surface itself is crumbly, not because of rough handling.</p>
+      <p>It is also tempting to frost the final coat right away, while the crumb coat is still soft, on the idea that the layers will "bond" better. In fact the final coat needs the crumb coat firm and dry first, so it glides instead of dragging.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>A baker spreads a thin crumb coat on a cooled cake, then immediately spreads the thicker final frosting layer on top while the crumb coat is still soft and shiny, skipping the chill. What is most likely to happen?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Chilling firms the crumb coat so the final layer glides over it; two soft layers drag against each other instead of bonding cleanly.">The final coat bonds perfectly, since soft frosting sticks to soft frosting</button></li>
+        <li><button type="button" data-correct="true" data-why="A soft crumb coat gives the spreading knife no firm surface to glide over, so the final coat drags through it and pulls crumbs along.">The final coat drags through the soft crumb coat and pulls crumbs into it</button></li>
+        <li><button type="button" data-correct="false" data-why="Chilling changes how clean the frosting spreads, not the flavor of the frosting itself.">Nothing changes, chilling only affects how the frosting tastes</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>The final coat drags through the still-soft crumb coat and pulls crumbs back into it, which is exactly the streaky, crumb-flecked look the crumb coat was meant to prevent. Chilling it firm first is what lets the final coat glide on clean.</p>
+      </details>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>A baker skips the crumb coat entirely and spreads the final frosting straight onto the bare cake, moving the knife very slowly and gently. Does spreading gently keep crumbs out of the final coat?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="The cake surface itself is crumbly; a slow, gentle hand does not change that, so crumbs drag in regardless of technique.">Yes, gentle spreading avoids dragging up crumbs</button></li>
+        <li><button type="button" data-correct="true" data-why="Bare cake is crumbly no matter how carefully you spread; only a crumb coat traps the crumbs before the final layer goes on.">No, bare cake is crumbly either way, gentle or not</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>No. The crumb coat's whole job is trapping crumbs before the final coat touches them; skipping it leaves bare, crumbly cake under the knife, and gentle spreading does not change that.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="practice">
+    <h2>Worked example and practice <span class="section-time">3 min</span></h2>
+    <div class="box worked">
+      <span class="label">Worked example: a bake-day order of operations</span>
+      <p>Here is the full order for a simple two-layer cake, with the reason each step sits where it does:</p>
+      <ol>
+        <li>Spoon flour into the measuring cup and level it. Doing this before mixing anything else fixes the flour amount the recipe intended, so the batter is not accidentally over-floured.</li>
+        <li>Cream the butter and sugar to the recipe's cue, pale and fluffy, no longer. This cuts the right amount of air into the fat before any liquid or flour dilutes the mixture.</li>
+        <li>Bake, then let the layers cool completely. A warm cake is too soft to slice cleanly or frost without tearing.</li>
+        <li>Level each cooled layer, slicing off the dome. This has to happen before stacking, since a flat base is what keeps the stack from rocking.</li>
+        <li>Apply a thin crumb coat over the whole stacked cake. The crumb coat has to go on before any thicker frosting, since its whole job is trapping crumbs before they can travel.</li>
+        <li>Chill the crumb coat until firm, about 30 minutes. This has to happen before the final coat, since a soft crumb coat drags instead of giving the final coat a clean surface.</li>
+        <li>Spread the final, decorative frosting coat. This comes last because every step before it set up a stable, crumb-free, firm surface for it to sit on.</li>
+      </ol>
+    </div>
+    <div class="check">
+      <span class="label">Your turn</span>
+      <p>Here are the same steps, shuffled: chill the crumb coat; spoon and level the flour; final frost; level each cooled layer; cream butter and sugar; bake and cool; apply the crumb coat. Put them in the right order, then explain in one line each: why does leveling come before frosting, and why does chilling come before the final coat?</p>
+      <details>
+        <summary>Show a solution</summary>
+        <p>Order: spoon and level the flour, cream butter and sugar, bake and cool, level each cooled layer, apply the crumb coat, chill the crumb coat, final frost. Leveling comes before frosting because a domed layer has no flat, stable surface for the layer or frosting above it to sit on. Chilling comes before the final coat because a soft crumb coat drags under the knife and pulls crumbs back out, while a firm one lets the final coat glide on clean.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary <span class="section-time">1 min</span></h2>
+    <div class="box summary">
+      <ul>
+        <li>Spoon flour into the cup and level it; scooping packs in extra flour and dries out the cake.</li>
+        <li>Cream butter and sugar to the recipe's cue, not longer; under- and over-creaming both leave a denser cake.</li>
+        <li>Level each cooled layer; the dome is a stability problem, not just a looks problem.</li>
+        <li>Crumb coat first, then chill it firm, so the final frosting coat glides on clean instead of dragging crumbs.</li>
+      </ul>
+      <p><strong>Say it in your own words:</strong> without looking back, explain to yourself why a cake that skips both leveling and chilling the crumb coat ends up both unstable and streaky, in one or two sentences. You already know all four reasons, so this should feel easy.</p>
+    </div>
+  </section>
+
+  <section id="further" class="go-further">
+    <h2>Go further</h2>
+    <p><strong>Read or watch next:</strong> <a href="https://www.kingarthurbaking.com/blog/2023/10/13/how-to-measure-flour">King Arthur Baking: how to measure flour</a> and its companion <a href="https://www.kingarthurbaking.com/blog/2015/04/27/creaming-butter-sugar">King Arthur Baking: creaming butter and sugar</a>, a trusted baking authority covering two of the four steps in this lesson in more depth.</p>
+    <ul>
+      <li><a href="https://nightowlsugarspell.com/butter-sugar/">Night Owl Sugar Spell: why creaming butter and sugar matters</a>: more on what under- and over-creaming do to the finished crumb.</li>
+      <li><a href="https://wilton.com/how-to-level-and-torte-a-cake/wltech-427/">Wilton: how to level and torte a cake</a>: step-by-step technique for leveling and splitting layers.</li>
+      <li><a href="https://fatdaddios.com/how-to-prevent-a-domed-cake-every-time/">Fat Daddio's: how to prevent a domed cake every time</a>: the heat and gas mechanism behind doming, and other fixes for it.</li>
+      <li><a href="https://whatsinthepan.com/how-to-crumb-coat-a-cake/">what's in the pan: how to crumb coat a cake</a>: a full walkthrough of the crumb coat and chill.</li>
+      <li><a href="https://www.bobsredmill.com/articles/crumb-coating-101-how-to-frost-your-cakes-like-a-pro">Bob's Red Mill: Crumb Coating 101</a>: why frosting adheres better to a set coat than bare cake.</li>
+    </ul>
+    <p><strong>Test it with others:</strong> <a href="https://www.reddit.com/r/Baking/">r/Baking</a>, a good place to post a photo of your leveled, crumb-coated cake before the final frost and get a read on whether it is ready.</p>
+  </section>
+
+  <footer class="closing">
+    <p>Anything unclear? Ask me in the chat; I can explain any part again, another way, or go deeper.</p>
+    <p>A short quiz on this lesson is ready: ask me for it when you want to check what stuck.</p>
+  </footer>
+
+</main>
+<script>
+  // Practice checks: mark the chosen option and explain it at once.
+  document.querySelectorAll("[data-check]").forEach(function (box) {
+    var buttons = box.querySelectorAll("button[data-correct]");
+    var out = box.querySelector(".feedback");
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.classList.remove("right", "wrong"); });
+        var right = button.getAttribute("data-correct") === "true";
+        button.classList.add(right ? "right" : "wrong");
+        if (out) { out.textContent = (right ? "Yes. " : "Not quite. ") + (button.getAttribute("data-why") || ""); }
+      });
+    });
+  });
+</script>
+</body>
+</html>

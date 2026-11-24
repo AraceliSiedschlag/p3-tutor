@@ -1,0 +1,38 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "Baking soda is a base that needs an acid in the batter to react and release CO2; buttermilk supplies that acid, so the soda can do its job without any added baking powder.",
+      "distractors": {"b": "M6"}
+    },
+    {
+      "id": "q2",
+      "answer": "It reacts twice: once when it is mixed with liquid, and again when the batter heats up in the oven.",
+      "accepted": [
+        "It reacts once at mixing and again with oven heat",
+        "Because it releases gas both when wet and again when heated"
+      ],
+      "rationale": "A complete answer names both reactions and roughly when each happens; naming only the bowl fizz or only the oven reaction is incomplete."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Extra leavener produces more gas than the cake's structure can hold; the batter rises fast and then the structure gives way, often leaving a bitter or soapy taste from the excess.",
+      "distractors": {"b": "M5"}
+    },
+    {
+      "id": "q4",
+      "answer": 4.5,
+      "tolerance": 0.25,
+      "rationale": "1.5 teaspoons of baking soda times 3 teaspoons of baking powder per teaspoon of soda is 4.5 teaspoons of baking powder."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "Since the amount measured was already correct, the next likely cause is a leavener that has lost its strength; testing freshness comes before assuming more leavener is the fix, since too much creates a different problem (collapse).",
+      "distractors": {"b": "M7"}
+    }
+  ]
+}

@@ -25,7 +25,7 @@ An example of a finished entry:
 - Purpose: Added to reduce giving out quiz answers and running longer. Answer students questions about the chosen topic.I
 - With and without: reviews/c1-skills.md, Round 1 (without) and Round 2 (with)
 - Review: When using tutor it created answeres and corrected misconceptions which was helpful. Otherwise, you can miss or continue believing what you are doing. Tutors price decreased with the skill but probes 2/6 passing stayed the same with and without.
-- Kept in final: TODO
+- Kept in final: Yes
 
 ### quiz
 
@@ -34,7 +34,7 @@ An example of a finished entry:
 - Purpose: Added to quiz students on a topic they learned to show if they did learn. Creates a short mcq and short response quiz on the given topic.
 - With and without: reviews/c1-skills.md, Round 3 (without) and Round 4 (with)
 - Review: It helped to make sure you understood the lesson and pair with grader if you missed something. With this skill it helped to lower the word count compare to with and without.
-- Kept in final: TODO
+- Kept in final: Yes
 
 ### grade
 
@@ -43,7 +43,7 @@ An example of a finished entry:
 - Purpose: Added to give users feedback on their quiz, grade quiz, and correct misconceptions or other incorrect thinkings/answers.
 - With and without: reviews/c1-skills.md, Round 4 (without) and Round 5 (with)
 - Review: It helps to give feedback and correct misconseption while grading a users quiz. With this skill the misconseption feedback grew in word count.
-- Kept in final: TODO
+- Kept in final: Yes
 
 ### teach
 
@@ -52,7 +52,7 @@ An example of a finished entry:
 - Purpose: Added to create a lesson for a specific topic. This includes interactive sections, pictures, and sources.
 - With and without: not changed in a round; it is the shipped skill, the same in c0-baseline and c1-skills
 - Review: It worked well to create a ten min interactive lesson that stayed on topic and taught the user.
-- Kept in final: TODO
+- Kept in final: Yes
 
 ### quiz-reviewer
 
@@ -61,7 +61,7 @@ An example of a finished entry:
 - Purpose: The quiz reviewer was added to because in c1 it was found that it copied questions directly from the lesson. It reads each quiz draft and its key with fresh context before it is final and checks it against 10 things.
 - With and without: reviews/c2-review.md, Round 1 (without) and Round 2 (with)
 - Review: This did not seem worth it, it moves one of all of the scores and otherwise they stayed the same.
-- Kept in final: TODO
+- Kept in final: Yes
 
 ### grade-reviewer
 
@@ -70,7 +70,7 @@ An example of a finished entry:
 - Purpose: grade-reviewer was added to provide additional feedback to the user while staying under a certain length. It reads each draft of teh grades with the quix, key, submission and preferences.md checks it against a list then fixes it or lets it pass.
 - With and without: reviews/c2-review.md, Round 2 (without) and Round 3 (with)
 - Review: This seemed worth it becuase it raised scores and made substantial differences for the feedback.
-- Kept in final: TODO
+- Kept in final: Yes
 
 ### lesson-planner
 
@@ -79,7 +79,7 @@ An example of a finished entry:
 - Purpose: The purpose of lesson planner was to complile facts to draw from. During the c2 review it was seen that the lesson came in short at 0.74, missed a fct, and used nothing from the preference.md. So lesson-planner before any writing starts, it researches the objective and writes drafts/plan.md which holds 5 to 8 core facts with sources, misconceptions, sections of one idea each with word budgets that add up to the requested length and an example form preferences.md and practice questions.
 - With and without: reviews/c3-split.md, Round 1 (without) and Round 2 (with)
 - Review: The length barely moved with this step and facts didn't but it did increase the amount of personlization from Preference.md that the lesson had. It decreased the time and list price, but increased the tokens. I do think this was worth it.
-- Kept in final: TODO
+- Kept in final: Yes
 
 ### lesson-writer
 
@@ -88,7 +88,7 @@ An example of a finished entry:
 - Purpose: The purpose of this was to address that length was to short. To do this it writes a draft from one section per edit, each to its own word buget, in paragraphs with at most three sentences. It had no websearch access and reports each sections words againts the bugdget. A subagent was used because writing becaomes the focus job sepreate from the skill that coordinates everything.
 - With and without: reviews/c3-split.md, Round 2 (without) and Round 3 (with)
 - Review: Facts dropped because the revoewer cut the compaction fact not because of the write, which was later ficed, and the c3-split full run reached 1.00 for facts and a length of 0.88 and it drew multiple examples from my preference. It did increase the cost by around a dollar, and only moved the tokens by 4K. Lenth hit the highest of the fact and the time increased by 9 min. Getting the fact to 1.00, while it cannot be 100% trusted, was worth the increase costs. 
-- Kept in final: TODO
+- Kept in final: Yes
 
 ### lesson-reviewer
 
@@ -97,13 +97,13 @@ An example of a finished entry:
 - Purpose: This reviewer was added to make sure at least three interactive questions were added in every lesson, with the lesson staying on topic. It reads each lesson draft in four sepreate reviews, checks against a list and reports it so that the teach skill can make the fixes.
 - With and without: reviews/c2-review.md, Round 3 (without) and the c2-review full run (with)
 - Review: This was not worth it for a smaller change in the lessons for an additional 15 min and 3 dollars. So it did not seem worth it.
-- Kept in final: TODO
+- Kept in final: Yes
 
 ### grader
 
 - Kind: subagent
 - Step added: final
-- Purpose: TODO
+- Purpose: The grader was added to help adjust the feedback to be more personal and adjust/review what the grader originally created.
 - With and without: reviews/final.md, Round 1 (without) and Round 2 (with)
-- Review: TODO
-- Kept in final: TODO
+- Review: The grader was better suited to the personal preferences.md and was fully correct.
+- Kept in final: Yes

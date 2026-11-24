@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 19192,
+  "num_turns": 5,
+  "stop_reason": "end_turn",
+  "session_id": "be312594-8086-455e-9141-e08ab687eeee",
+  "total_cost_usd": 0.20993399999999998,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 29433,
+    "cache_read_input_tokens": 72060,
+    "output_tokens": 780,
+    "output_tokens_details": {
+      "thinking_tokens": 174
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 29433,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 198,
+        "cache_read_input_tokens": 34575,
+        "cache_creation_input_tokens": 1513,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1513
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 6,
+      "outputTokens": 780,
+      "cacheReadInputTokens": 72060,
+      "cacheCreationInputTokens": 29433,
+      "webSearchRequests": 0,
+      "costUSD": 0.20993399999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "This quiz hasn't been graded yet, so I can't hand you the letter — that would just be me answering it instead of you.\n\nHere's a way to work it that applies evenly to all four options: for each one, ask yourself \"if the agent program made exactly this change, would the next run actually look different from the 40 failed steps we just saw, or would it just repeat the same loop (maybe with a nicer-sounding prompt)?\" Picture the 41st step under each option and see what actually happens differently.\n\nTry that on all four, tell me which one you land on and your reasoning, and I'll go through it with you properly once this attempt is graded.",
+  "ttft_ms": 4595,
+  "ttft_stream_ms": 3394,
+  "time_to_request_ms": 76,
+  "type": "result",
+  "duration_ms": 19378,
+  "uuid": "fcc554fd-fedf-47a5-b7af-16766bb062e6"
+}

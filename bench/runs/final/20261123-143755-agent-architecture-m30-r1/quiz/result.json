@@ -1,0 +1,110 @@
+{
+  "is_error": false,
+  "duration_api_ms": 667360,
+  "num_turns": 30,
+  "stop_reason": "end_turn",
+  "session_id": "bd81be5f-81b7-43a7-badf-b4ee45280181",
+  "total_cost_usd": 1.7818233,
+  "usage": {
+    "input_tokens": 26,
+    "cache_creation_input_tokens": 82209,
+    "cache_read_input_tokens": 683375,
+    "output_tokens": 27512,
+    "output_tokens_details": {
+      "thinking_tokens": 18536
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 82209,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 219,
+        "cache_read_input_tokens": 77530,
+        "cache_creation_input_tokens": 831,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 831
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 52,
+      "outputTokens": 57950,
+      "cacheReadInputTokens": 864661,
+      "cacheCreationInputTokens": 124813,
+      "webSearchRequests": 0,
+      "costUSD": 1.7818233,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Glob",
+      "tool_use_id": "toolu_01NDzyZuqjMPXbYr9VRqTE7S",
+      "tool_input": {
+        "pattern": "keys/*"
+      }
+    },
+    {
+      "tool_name": "Glob",
+      "tool_use_id": "toolu_015mEaV6mk9fGMjpRcRvGXMn",
+      "tool_input": {
+        "pattern": "keys/*"
+      }
+    },
+    {
+      "tool_name": "Grep",
+      "tool_use_id": "toolu_01XWP5XD1DBCvMNXneY7GLWR",
+      "tool_input": {
+        "pattern": "M[1-9]",
+        "path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-3wuno66g",
+        "output_mode": "content",
+        "-n": true
+      }
+    },
+    {
+      "tool_name": "Glob",
+      "tool_use_id": "toolu_01CnaYmTdNJcc1767pT2QmX3",
+      "tool_input": {
+        "pattern": "keys/*"
+      }
+    },
+    {
+      "tool_name": "Grep",
+      "tool_use_id": "toolu_01BjY7u5JuXziEWVise7cQNM",
+      "tool_input": {
+        "pattern": "M1|M2|M3|M4|M5|M6",
+        "path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-3wuno66g",
+        "output_mode": "content",
+        "-n": true
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The quiz is ready at `quizzes/0002.json` with its key at `keys/0002.json` — 6 items (4 mcq, 2 short) on O4, workflows vs. agents. It went through two reviewer passes; fixes included removing a keyword giveaway, balancing option lengths, stating an unstated criterion, and clarifying who's doing the deciding in one stem.\n\nOne thing worth flagging: this quiz runs ahead of the lessons — `NOTES.md` lists \"workflows versus agents\" as something you haven't been taught yet in this workspace. So treat it as a diagnostic check of where you stand on O4 rather than a review of material already covered.",
+  "ttft_ms": 2370,
+  "ttft_stream_ms": 1899,
+  "time_to_request_ms": 81,
+  "type": "result",
+  "duration_ms": 668277,
+  "uuid": "07ee5fe8-d043-4823-bfdc-17ab092ff7a8"
+}

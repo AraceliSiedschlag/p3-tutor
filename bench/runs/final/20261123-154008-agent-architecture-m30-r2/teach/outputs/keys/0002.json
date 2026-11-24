@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The context window is only what was actually sent to the model this turn: the tool's definition (so the model knows get_schedule exists) and the result it returned. The manual, the maintenance history and future bookings could all be relevant in principle, but 'could matter' is not the same as 'was in the prompt' — none of them was pulled into this turn.",
+      "distractors": {"a": "M3", "d": "M2"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "By default, nothing earlier in the same session is dropped: step 1's tool call and result are still part of the context window at step 3, so the assistant can reference them without calling the tool again.",
+      "distractors": {"a": "M4", "c": "M4"}
+    },
+    {
+      "id": "q3",
+      "answer": "Because a new session starts with an empty context window, so yesterday's conversation is gone unless something wrote the fact to storage outside the context window and today's session reads it back in.",
+      "accepted": [
+        "a new session's context window starts empty, and nothing from yesterday carries over unless it was saved to storage and read back",
+        "yesterday's session and its context window no longer exist, so today's session only knows if the fact was saved somewhere and loaded back in"
+      ],
+      "rationale": "Nothing survives automatically between sessions; an answer that says the assistant 'should just remember' from the earlier conversation shows the misconception that it remembers like a person would."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "This is context rot: as irrelevant tokens accumulate, accuracy and recall tend to degrade, and that effect shows up before the window is technically full. It is a separate problem from the hard token limit, which causes an outright failure only once the input itself is over budget.",
+      "distractors": {"b": "M2", "c": "M1"}
+    },
+    {
+      "id": "q5",
+      "answer": "Search the manual for the passage about blade replacement and add only that matching passage to the prompt, instead of loading all 80 pages.",
+      "accepted": [
+        "retrieve just the relevant section (blade replacement) from the manual and put only that in context, not the whole document",
+        "search the manual, find the blade-replacement part, and pull only that part into the prompt"
+      ],
+      "rationale": "Retrieval's whole point is pulling in only the relevant slice of a large external source on demand, so the assistant can answer from material far bigger than its context window without ever loading all of it. An answer that pastes or loads the whole manual shows the misconception that retrieval means handing over the entire document."
+    }
+  ]
+}

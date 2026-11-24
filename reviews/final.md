@@ -14,7 +14,7 @@ Keep every heading as it is, because `p3 check` reads them, and add a round by c
 
 ### Round 1 (optional)
 
-**Run:**  bench/runs/_live/20261122-192804-agent-architecture-m30-r1/grade-s1
+**Run:**  bench/runs/_live/20261122-192804-agent-architecture-m30-r1/grade-s1 
 
 **My thoughts:**
 
@@ -138,11 +138,11 @@ TODO
 
 ### Session 1
 
-**Date:** TODO
+**Date:** 11-23-2026
 
-**Topic:** TODO
+**Topic:** cake-baking
 
-TODO
+I used the tutor to give me a lesson on forsting the cake which took about 7 min. The lesson was formatted in the desired way. Additionally, the lesson added on not only the how to bake a cake but also frosting the cake topic as well. The lesson had questions in it which were helpful, however, all questions within the lesson were the second answers so they were all the same.
 
 ### Session 2
 

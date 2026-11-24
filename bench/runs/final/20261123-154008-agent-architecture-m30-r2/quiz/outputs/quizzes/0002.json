@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows vs. agents: who owns control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In a fixed workflow, what decides which step runs next?",
+      "options": [
+        {"id": "a", "text": "The model, choosing freely at each step"},
+        {"id": "b", "text": "The code, following steps written in advance"},
+        {"id": "c", "text": "The tool, picking its own next step to run"},
+        {"id": "d", "text": "The user, giving a new instruction before every step"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In an agent, what decides which tool gets called next?",
+      "options": [
+        {"id": "a", "text": "The code, following a fixed sequence written in advance"},
+        {"id": "b", "text": "A human operator approving every step live"},
+        {"id": "c", "text": "The model, choosing based on the goal and results so far"},
+        {"id": "d", "text": "The order the tools are listed in the system prompt"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Name one property of a task that makes a fixed workflow the better choice for keeping its behavior predictable."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your assistant always searches the manual, extracts the spec, then formats it the same way, in that order. Which control flow fits?",
+      "options": [
+        {"id": "a", "text": "Workflow — the steps never change, so code can fix them"},
+        {"id": "b", "text": "Agent — the model should pick the first step itself"},
+        {"id": "c", "text": "Agent — calling a tool at all makes it an agent"},
+        {"id": "d", "text": "Workflow — because workflows never call a tool or model"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A student asks why their 3D print keeps failing. The right next check depends on what earlier checks find, and can't be listed in advance. Which control flow fits?",
+      "options": [
+        {"id": "a", "text": "Workflow — any question about a manual follows one fixed order"},
+        {"id": "b", "text": "Workflow — it only needs one model call, so it's simple"},
+        {"id": "c", "text": "Agent — it concerns a machine, not because it's predictable"},
+        {"id": "d", "text": "Agent — it picks each check only after seeing the last result"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one sentence, why is it easier to predict what a fixed workflow will do on a new input than what an agent will do?"
+    }
+  ]
+}

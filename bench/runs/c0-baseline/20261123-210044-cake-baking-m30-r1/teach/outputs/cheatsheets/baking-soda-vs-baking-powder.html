@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: Leaveners and a sunk or flat cake</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --ok: #2f6b3a; --ok-soft: #e7f2e9; --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e;
+        --accent: #eaa77a; --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22;
+        --ok: #9fd3a8; --ok-soft: #1c2a1f; --code-bg: #23211e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 18px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.55; }
+    main { max-width: 38rem; margin: 0 auto; padding: 2.5rem 1.25rem 3rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+    h2 { font-size: 1.1rem; margin: 2rem 0 0.5rem; font-family: var(--sans); color: var(--accent); }
+    .kicker { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.75rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.55rem; border-bottom: 1px solid var(--rule); }
+    th { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    ol, ul { padding-left: 1.3rem; }
+    li { margin-bottom: 0.4rem; }
+    .box { border-radius: 6px; padding: 0.9rem 1.1rem; margin: 1.25rem 0; font-size: 0.95rem; }
+    .warn { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .ok { background: var(--ok-soft); border-left: 4px solid var(--ok); }
+    code { font-family: var(--sans); background: var(--code-bg); border-radius: 4px; padding: 0.1em 0.3em; }
+    footer { margin-top: 2rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 0.82rem; color: var(--muted); }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --warn: #000; --warn-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --code-bg: #f2f2f2; }
+      main { max-width: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div class="kicker">Cheat sheet</div>
+  <h1>Leaveners, and a sunk or flat cake</h1>
+  <p>From <a href="../lessons/0001-what-makes-a-cake-rise.html">Lesson 1: What Makes a Cake Rise</a>.</p>
+
+  <h2>Baking soda vs. baking powder</h2>
+  <table>
+    <thead><tr><th>&nbsp;</th><th>Baking soda</th><th>Baking powder</th></tr></thead>
+    <tbody>
+      <tr><td>What it is</td><td>A base (sodium bicarbonate) on its own</td><td>Baking soda + a dry acid + starch, premixed</td></tr>
+      <tr><td>Needs to react</td><td>An acid already in the batter</td><td>Nothing extra; carries its own acid</td></tr>
+      <tr><td>Reacts</td><td>Once, right away</td><td>Twice: at mixing, and again from oven heat</td></tr>
+      <tr><td>Strength</td><td>3&ndash;4&times; stronger, gram for gram</td><td>Weaker; recipes use more of it</td></tr>
+      <tr><td>Recipe clue</td><td>Buttermilk, yogurt, brown sugar, cocoa, lemon juice nearby</td><td>Plain milk and flour, nothing especially acidic</td></tr>
+      <tr><td>Common swap</td><td>1 tsp soda &rarr; 3 tsp powder</td><td>1 tsp powder &rarr; &frac14; tsp soda + &frac12; tsp cream of tartar</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Diagnosing a cake that didn't rise right</h2>
+  <p><strong>Flat and dense all over</strong> (too little lift):</p>
+  <ol>
+    <li>Test the leavener: baking soda should fizz briskly in vinegar; baking powder should fizz in hot water.</li>
+    <li>Check it was measured by spooning and leveling, not scooped, and not left out.</li>
+    <li>For baking soda, check the batter has an acidic ingredient (buttermilk, yogurt, brown sugar, cocoa, lemon juice) for it to react with.</li>
+  </ol>
+  <p><strong>Rose, then sank in the middle</strong> (too much lift, or underbaked):</p>
+  <ol>
+    <li>Check the leavener amount was measured precisely, not heaping; too much creates more gas than the structure can hold.</li>
+    <li>Check the center with a toothpick before pulling the cake out: wet batter means it needed more time.</li>
+    <li>Check whether the oven door was opened before the center had set; a sudden temperature drop can collapse a half-set middle.</li>
+  </ol>
+
+  <div class="box warn">
+    <strong>Not a 1:1 swap.</strong> Baking soda and baking powder are not interchangeable in equal amounts: baking soda is several times stronger, and each needs a different partner (an added acid, or nothing at all) to work.
+  </div>
+  <div class="box ok">
+    <strong>Before adding more.</strong> A flat cake usually means a stale or mismeasured leavener, not a recipe that needed more. Test freshness and re-measure before increasing the amount next time.
+  </div>
+
+  <footer>Cheat sheet for Ava &middot; from the lesson on what makes a cake rise (objective O2).</footer>
+</main>
+</body>
+</html>

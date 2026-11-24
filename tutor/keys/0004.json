@@ -1,0 +1,57 @@
+{
+  "id": "0004",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "Scooping the cup directly into the bag packs the flour down, so that cup holds more flour by weight than the recipe intended, which dries out and densifies the cake. Spooning flour in loosely and leveling gives the lighter, intended amount.",
+      "distractors": {"c": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": "Sugar's crystal edges cut tiny air pockets into the softened butter as you beat them together, and those pockets expand in the oven to give the cake a light, fine crumb.",
+      "accepted": [
+        "it cuts air pockets into the butter that expand when baked",
+        "sugar crystals work air into the fat, which expands in the oven",
+        "creaming beats air into the butter for a lighter crumb"
+      ],
+      "rationale": "The mechanism is sugar's sharp edges cutting air pockets into the fat; the cake's lightness comes from those pockets expanding in the oven's heat. An answer that only says 'it mixes them together' misses the air-pocket mechanism."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Creaming has a right amount, not an open-ended 'more is better' rule: past pale and fluffy, extra beating works in too much air and the mixture itself starts to separate, so the baked cake turns out denser and more uneven rather than lighter.",
+      "distractors": {"a": "M4"}
+    },
+    {
+      "id": "q4",
+      "answer": "The outer batter touching the hot pan sets first while the still-liquid center keeps producing gas from the leavening, and that gas has nowhere to go but up, so the center domes.",
+      "accepted": [
+        "the edges set first and the center keeps rising, pushing up into a dome",
+        "edges cook and firm up before the center finishes rising"
+      ],
+      "rationale": "The dome forms because the edges set before the center does, and the center's continued gas production has nowhere to escape but upward. A vague answer like 'it just rises more in the middle' without the edges-set-first cause only partially shows the idea."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "An unleveled, domed layer leaves no flat surface for the layer above it to rest on, so the stack can rock, slide, or crack once frosted; this is a structural problem caused by the dome, not just a cosmetic one.",
+      "distractors": {"a": "M5"}
+    },
+    {
+      "id": "q6",
+      "answer": "A crumb coat is a thin first layer of frosting spread over the whole cake, and its one job is to trap loose crumbs against the cake before they can travel into the final decorative coat.",
+      "accepted": [
+        "a thin frosting layer that traps crumbs so they don't get into the final coat",
+        "a first thin coat of frosting that catches crumbs before the real frosting goes on"
+      ],
+      "rationale": "The crumb coat's job is specifically trapping crumbs against the cake. An answer that only says 'the first layer of frosting' without naming the crumb-trapping purpose is incomplete."
+    },
+    {
+      "id": "q7",
+      "answer": "b",
+      "rationale": "Without the chill, the crumb coat is still soft, so it gives the spreading knife no firm surface to glide over; the final coat drags through it and pulls the trapped crumbs right back out, which is exactly what the crumb coat was meant to prevent.",
+      "distractors": {"a": "M6"}
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e; --accent: #eaa77a; --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.55; }
+    main { max-width: 38rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+    .kicker { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+    h2 { font-size: 1.05rem; margin: 1.75rem 0 0.5rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.2rem; }
+    dfn { font-style: normal; font-weight: 600; color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0.75rem 0; font-family: var(--sans); }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    .box { background: var(--accent-soft); border-radius: 6px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.95rem; }
+    .warn { background: var(--warn-soft); border-left: 3px solid var(--warn); padding: 0.6rem 1rem; margin: 0.75rem 0; font-size: 0.9rem; }
+    ul { padding-left: 1.2rem; }
+    footer { margin-top: 2rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--muted); font-family: var(--sans); }
+    @media print { a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; } }
+  </style>
+</head>
+<body>
+<main>
+  <div class="kicker">Cheat sheet &middot; objective O3</div>
+  <h1>Context and memory in an agent</h1>
+
+  <h2>The core terms</h2>
+  <ul>
+    <li><dfn>Context window</dfn>: every token the model processes for one call &mdash; system prompt, history, tool definitions, tool results. Nothing outside it exists to the model right then.</li>
+    <li><dfn>Token</dfn>: roughly a word or word-piece; the unit the context window's size limit and cost are both measured in.</li>
+    <li><dfn>Session</dfn>: one continuous run of the assistant, from the start of a request to when it stops.</li>
+    <li><dfn>Context rot</dfn>: recall accuracy gets worse, not better, as the context window fills with more tokens.</li>
+    <li><dfn>Retrieval</dfn>: fetching one piece of an existing external source into context, only when needed ("just in time").</li>
+    <li><dfn>Notes</dfn>: text the agent itself writes to storage outside the context window, so a later step or session can read it back.</li>
+  </ul>
+
+  <h2>What survives, and when</h2>
+  <table>
+    <thead><tr><th>Gap</th><th>What carries over</th></tr></thead>
+    <tbody>
+      <tr><td>Step to step, same session</td><td>Everything: the program resends the full history each call. The model itself keeps nothing.</td></tr>
+      <tr><td>Session to session</td><td>Nothing, automatically. Only what was written to a file (or similar storage) and deliberately read back in the new session.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Retrieval vs. notes</h2>
+  <table>
+    <thead><tr><th>Feature</th><th>Retrieval</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Source</td><td>An existing document or record</td><td>The agent's own observation or decision</td></tr>
+      <tr><td>Written</td><td>Before the agent ever ran</td><td>By the agent, during an earlier step or session</td></tr>
+      <tr><td>Mechanically</td><td>A tool call that returns text into context</td><td>Same: a tool call that returns text into context</td></tr>
+    </tbody>
+  </table>
+  <div class="box">Both land in context the same way. The only question that tells them apart: did this text exist before the agent got involved (retrieval), or did the agent write it itself (a note)?</div>
+
+  <h2>Why more context isn't automatically better</h2>
+  <ul>
+    <li>Context rot: recall drops as the window fills with irrelevant text.</li>
+    <li>Every token &mdash; history, a retrieved chunk, a loaded note &mdash; costs the same, whether or not it helps the answer.</li>
+  </ul>
+
+  <h2>Common mix-ups</h2>
+  <div class="warn">The model "remembers" what you just told it, the way training works. &mdash; No: it only has that text because it's sitting in the resent context; the model's weights never change mid-conversation.</div>
+  <div class="warn">A new session should continue the last one, like a resumed phone call. &mdash; No: a new session's context window starts empty, unless something was explicitly saved and reloaded.</div>
+  <div class="warn">Retrieval and notes are the same feature. &mdash; Mechanically yes, but the source differs: an existing document vs. the agent's own record.</div>
+  <div class="warn">A bigger context window means you can skip memory design. &mdash; No: context rot and per-token cost both still apply, however large the window.</div>
+
+  <footer>
+    From <a href="../lessons/0001-context-and-memory.html">lesson 0001: Context and memory</a>. Primary source: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic, "Effective context engineering for AI agents"</a>.
+  </footer>
+</main>
+</body>
+</html>

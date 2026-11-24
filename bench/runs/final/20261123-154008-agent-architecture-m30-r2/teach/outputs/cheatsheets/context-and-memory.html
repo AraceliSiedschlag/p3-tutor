@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --text: #1f1d1a;
+      --muted: #6b665e;
+      --rule: #e4dfd4;
+      --accent: #9a4517;
+      --accent-soft: #f7ede4;
+      --warn: #8c2f39;
+      --warn-soft: #f9eaec;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e;
+        --accent: #eaa77a; --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.5; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+    h2 { font-size: 1.05rem; margin: 1.75rem 0 0.5rem; font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+    p.sub { color: var(--muted); font-family: var(--sans); font-size: 0.9rem; margin: 0 0 1rem; }
+    dfn { font-style: normal; font-weight: 700; }
+    dl { margin: 0; }
+    dt { font-weight: 700; margin-top: 0.75rem; }
+    dd { margin: 0.15rem 0 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    th { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    .box { border-left: 3px solid var(--warn); background: var(--warn-soft); padding: 0.6rem 0.9rem; border-radius: 4px; margin: 0.5rem 0; font-size: 0.92rem; }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2; --warn: #000; --warn-soft: #f2f2f2; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Context and memory in an agent</h1>
+  <p class="sub">One page. From <a href="../lessons/0001-context-and-memory.html">lesson 0001</a> (objective O3).</p>
+
+  <h2>Terms</h2>
+  <dl>
+    <dt><dfn>Token</dfn></dt>
+    <dd>A small chunk of text, often a piece of a word, that the model reads and writes.</dd>
+    <dt><dfn>Context window</dfn></dt>
+    <dd>All the tokens the model can reference for one turn: system prompt, conversation so far, tool definitions and results, and the output it's writing. Fixed size, shared between input and output. Separate from training.</dd>
+    <dt><dfn>Context rot</dfn></dt>
+    <dd>Accuracy and recall degrade as irrelevant tokens pile up in context — before the window is even full. More context is not automatically better.</dd>
+    <dt><dfn>Memory</dfn> (notes as memory)</dt>
+    <dd>Information the agent deliberately writes to storage outside the context window, and reads back in a later session. Nothing crosses sessions unless it was saved this way.</dd>
+    <dt><dfn>Retrieval</dfn></dt>
+    <dd>Searching a large external source for just the part relevant to the current request, and adding only that part to the prompt — not the whole source.</dd>
+  </dl>
+
+  <h2>The three-bucket sort</h2>
+  <table>
+    <tr><th>Bucket</th><th>Ask</th><th>Example</th></tr>
+    <tr><td>Context window</td><td>Was it actually sent to the model this turn?</td><td>This turn's question, a tool result just returned</td></tr>
+    <tr><td>Saved note</td><td>Is it a durable fact from a session that's already gone?</td><td>A student's training-completion date</td></tr>
+    <tr><td>Retrieval</td><td>Is it one slice of a large external source, needed on demand?</td><td>One section of an 80-page manual</td></tr>
+  </table>
+
+  <h2>Fixed-size limits, two different failures</h2>
+  <table>
+    <tr><th>Situation</th><th>What happens</th></tr>
+    <tr><td>Input alone is already over the token limit</td><td>Request fails outright, before any output</td></tr>
+    <tr><td>Window fills up while the model is still writing</td><td>Output stops mid-sentence</td></tr>
+    <tr><td>Window has room left, but is full of irrelevant tokens</td><td>Context rot — accuracy degrades anyway</td></tr>
+  </table>
+
+  <h2>Common mix-ups</h2>
+  <div class="box">A bigger context window always gives a better answer. (No — context rot.)</div>
+  <div class="box">The assistant remembers earlier sessions like a person would. (No — context windows start empty every session; only saved notes cross over.)</div>
+  <div class="box">The context window and memory are the same thing. (No — the window is temporary and per-session; a note is durable storage outside it.)</div>
+  <div class="box">Only the latest tool result matters mid-session. (No — by default every earlier turn in the session stays in context.)</div>
+  <div class="box">Retrieval means handing the model the whole document. (No — only the matching slice gets pulled in.)</div>
+</main>
+</body>
+</html>

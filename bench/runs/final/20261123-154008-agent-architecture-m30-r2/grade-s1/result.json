@@ -1,0 +1,102 @@
+{
+  "is_error": false,
+  "duration_api_ms": 849312,
+  "num_turns": 26,
+  "stop_reason": "end_turn",
+  "session_id": "6b767b9e-95ba-47df-9f28-ba9ea0c9972d",
+  "total_cost_usd": 2.2368256499999997,
+  "usage": {
+    "input_tokens": 38,
+    "cache_creation_input_tokens": 51934,
+    "cache_read_input_tokens": 849235,
+    "output_tokens": 9357,
+    "output_tokens_details": {
+      "thinking_tokens": 1235
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 51934,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 399,
+        "cache_read_input_tokens": 58398,
+        "cache_creation_input_tokens": 1057,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1057
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 90,
+      "outputTokens": 72834,
+      "cacheReadInputTokens": 1217043,
+      "cacheCreationInputTokens": 176555,
+      "webSearchRequests": 0,
+      "costUSD": 2.2368256499999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Read",
+      "tool_use_id": "toolu_016LfEdiXkpNWwbNhPBaEAxy",
+      "tool_input": {
+        "file_path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-2h8mvj6x/keys/0001.json"
+      }
+    },
+    {
+      "tool_name": "Grep",
+      "tool_use_id": "toolu_01W9avZdkfowqyWecx7ZyggP",
+      "tool_input": {
+        "pattern": "M",
+        "path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-2h8mvj6x/keys/0001.json",
+        "output_mode": "content"
+      }
+    },
+    {
+      "tool_name": "Read",
+      "tool_use_id": "toolu_01BF9JsGX2EbxHXZqHpuB5fn",
+      "tool_input": {
+        "file_path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-2h8mvj6x/keys/0001.json"
+      }
+    },
+    {
+      "tool_name": "Grep",
+      "tool_use_id": "toolu_01UCkKpVDd7G8mYqnoD16KNt",
+      "tool_input": {
+        "pattern": "M[0-9]",
+        "path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-2h8mvj6x",
+        "output_mode": "content",
+        "-n": true
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Grading is done. Here's the summary from `grades/0001-s1.json`:\n\n**Riley got q1 and q3 correct** (solid grip on the agent loop and the step-limit safeguard), **q2 and q4 wrong** (both show M4 — the belief that the model itself runs the tools, rather than just requesting them, which also led to undercounting model calls on q4), and **q5/q6 partial** (q5 has the \"what\" but not the \"why\" of returning a tool result; q6 correctly describes tool selection but adds that the model remembers past sessions on its own, which is M3, a new misconception not seen before).\n\nThe clear next step: nail down the model/program boundary (what the model outputs vs. what the surrounding program does) before moving into context and memory, since the memory misconception (M3) would otherwise make \"remembering between sessions\" look like something the model does for free.\n\nI also wrote `learning-records/0003-model-does-not-execute-or-remember.md` and updated `NOTES.md` to reflect this, and logged the two review passes in `review-records/0001-s1-grade.md`. `submissions/s2.json` (Riley's spaced-practice retake) is still ungraded — let me know if you'd like that graded too.",
+  "ttft_ms": 2825,
+  "ttft_stream_ms": 2178,
+  "time_to_request_ms": 92,
+  "type": "result",
+  "duration_ms": 850758,
+  "uuid": "eadae1d5-e2ce-4138-a4f5-c2d6cb47b4b3"
+}

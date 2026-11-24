@@ -1,0 +1,86 @@
+{
+  "is_error": false,
+  "duration_api_ms": 419108,
+  "num_turns": 23,
+  "stop_reason": "end_turn",
+  "session_id": "e9eab5ce-5fcc-47c6-9e90-bce9f0d14a92",
+  "total_cost_usd": 1.1776008,
+  "usage": {
+    "input_tokens": 26,
+    "cache_creation_input_tokens": 45141,
+    "cache_read_input_tokens": 536918,
+    "output_tokens": 5873,
+    "output_tokens_details": {
+      "thinking_tokens": 787
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 45141,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 315,
+        "cache_read_input_tokens": 51949,
+        "cache_creation_input_tokens": 713,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 713
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 48,
+      "outputTokens": 34582,
+      "cacheReadInputTokens": 695661,
+      "cacheCreationInputTokens": 92923,
+      "webSearchRequests": 0,
+      "costUSD": 1.1776008,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Read",
+      "tool_use_id": "toolu_014mH8SPixtKxbZUZcpXyDNL",
+      "tool_input": {
+        "file_path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-pu3kjzzt/keys/0001.json"
+      }
+    },
+    {
+      "tool_name": "Grep",
+      "tool_use_id": "toolu_01LKqPE4kA6TUE4p64ByHQAp",
+      "tool_input": {
+        "pattern": "M[0-9]",
+        "path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-pu3kjzzt",
+        "output_mode": "content",
+        "-n": true
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Grading's done — `grades/0001-s2.json` is written, the review pass came back clean (no findings), so no revision was needed.\n\n**How Riley did on quiz 0001, attempt 2 (from memory, 4 days later):**\n- **Correct:** q1, q2, q5 — solid on the core loop and on what the model's output actually is versus what the program does.\n- **Wrong:** q3 — picked \"just let it run longer\" instead of a step limit (misconception M6: more iterations don't mean more insight).\n- **Partial:** q4 — got the right count (4) but the reasoning had the model running the tools itself (M4, the same model/program mix-up); q6 — named only the tool's name, not the fuller description the model actually works from.\n\nThe one thing to work on next: the model/program split still blurs for Riley when recalling from memory, even though it's solid when asked directly (q1/q2/q5) — worth a quick labeling exercise before moving on to context and memory.",
+  "ttft_ms": 2050,
+  "ttft_stream_ms": 1407,
+  "time_to_request_ms": 57,
+  "type": "result",
+  "duration_ms": 420051,
+  "uuid": "a4f14d77-5063-469d-a126-a0295fe83890"
+}

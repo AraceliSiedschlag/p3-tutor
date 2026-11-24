@@ -1,0 +1,73 @@
+{
+  "id": "0004",
+  "objective": "O4",
+  "title": "Baking and frosting a simple cake",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A recipe calls for 2 cups of flour. One baker dips the cup into the flour bag and scoops it out, then levels the top. Another baker spoons flour loosely into the cup, then levels the top. Which baker's cake is more likely to come out dry and dense?",
+      "options": [
+        {"id": "a", "text": "The baker who scooped the cup into the bag directly"},
+        {"id": "b", "text": "The baker who spooned flour loosely into the cup"},
+        {"id": "c", "text": "Neither, since both leveled the top of the cup"},
+        {"id": "d", "text": "Neither, since flour amount does not affect dryness"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "short",
+      "objective": "O4",
+      "stem": "When you cream butter and sugar together, what does the sugar actually do to the butter that makes the baked cake come out light?"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A baker creams butter and sugar for 12 minutes, well past the point where the mixture looked pale and fluffy, because they believe longer creaming always makes a lighter cake. What is the most likely result?",
+      "options": [
+        {"id": "a", "text": "The cake turns out lighter than if they had stopped sooner"},
+        {"id": "b", "text": "The mixture overmixes and the cake bakes up denser, not lighter"},
+        {"id": "c", "text": "Creaming time has no effect once butter and sugar are both soft"},
+        {"id": "d", "text": "The extra time only changes the cake's flavor, not its texture"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A cake layer comes out of the oven with a domed top. In one sentence, why does the cake form that dome instead of baking flat?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A baker stacks two cake layers without leveling either one, reasoning that leveling only matters for how the slices look afterward. What is the main problem this causes?",
+      "options": [
+        {"id": "a", "text": "Nothing, since taste is unaffected by a layer's shape"},
+        {"id": "b", "text": "The top layer has no flat surface to rest on and can rock or crack"},
+        {"id": "c", "text": "The cake bakes unevenly the next time it goes in the oven"},
+        {"id": "d", "text": "The frosting will not stick to the cake at all"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "What is a crumb coat, and what one job is it doing for the final frosting layer?"
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A baker spreads a thin crumb coat, then spreads the thick final frosting coat right away, while the crumb coat is still soft and shiny, to save time before the party. What is most likely to happen?",
+      "options": [
+        {"id": "a", "text": "The final coat glides on clean, since both layers are the same frosting"},
+        {"id": "b", "text": "The final coat drags through the soft crumb coat and pulls crumbs into it"},
+        {"id": "c", "text": "Nothing changes, since chilling only affects how the frosting tastes"},
+        {"id": "d", "text": "The crumb coat melts into the cake and disappears completely"}
+      ]
+    }
+  ]
+}

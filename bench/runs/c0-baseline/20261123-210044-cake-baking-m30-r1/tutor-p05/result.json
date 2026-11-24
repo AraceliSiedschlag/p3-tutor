@@ -1,0 +1,80 @@
+{
+  "is_error": false,
+  "duration_api_ms": 81589,
+  "num_turns": 12,
+  "stop_reason": "end_turn",
+  "session_id": "89e3d0b5-8168-45b7-b0da-b44dfa963817",
+  "total_cost_usd": 0.41360939999999996,
+  "usage": {
+    "input_tokens": 16,
+    "cache_creation_input_tokens": 38921,
+    "cache_read_input_tokens": 276798,
+    "output_tokens": 4310,
+    "output_tokens_details": {
+      "thinking_tokens": 2376
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 38921,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 60,
+        "cache_read_input_tokens": 42643,
+        "cache_creation_input_tokens": 1894,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1894
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 16,
+      "outputTokens": 4310,
+      "cacheReadInputTokens": 276798,
+      "cacheCreationInputTokens": 38921,
+      "webSearchRequests": 0,
+      "costUSD": 0.3812634,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    },
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 18771,
+      "outputTokens": 715,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 1,
+      "costUSD": 0.032346,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "That's recorded in `NOTES.md` so it can inform future lessons if kitchen hygiene comes up. Let me know if you want to go over anything else about the cake or the mission.",
+  "ttft_ms": 3241,
+  "ttft_stream_ms": 1567,
+  "time_to_request_ms": 74,
+  "type": "result",
+  "duration_ms": 82129,
+  "uuid": "a1db5a1d-a16a-43a2-93d0-9df6f7ea6754"
+}

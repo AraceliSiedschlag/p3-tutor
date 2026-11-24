@@ -1,0 +1,55 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student asks the woodshop assistant, \"Is the CNC router free Tuesday morning?\" The assistant has a tool get_schedule(machine, date) and calls it, getting back \"booked 9-11am.\" At the moment the assistant writes its final answer, which of these actually counts as part of this turn's context window?",
+      "options": [
+        {"id": "a", "text": "The complete woodshop safety manual, in case training comes up"},
+        {"id": "b", "text": "Every future booking request any student might make"},
+        {"id": "c", "text": "The get_schedule tool's definition and the result it returned"},
+        {"id": "d", "text": "The full maintenance history of the CNC router, since it could be relevant"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student's session unfolds in three steps: step 1 checks router availability, step 2 checks the student's safety-training status, step 3 gives a final answer combining both. At step 3, the assistant wants to mention the router's step-1 availability in its answer. Does it need to call get_schedule again to do that?",
+      "options": [
+        {"id": "a", "text": "Yes, because tool results expire after one step"},
+        {"id": "b", "text": "No, step 1's result is still sitting in context from earlier in the same session"},
+        {"id": "c", "text": "Yes, because context is cleared between tool calls"},
+        {"id": "d", "text": "No, but only if the student repeats the question"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A student who completed safety training during yesterday's session returns today, in a brand-new session, and asks the assistant to confirm it's on file. In one sentence, why might the assistant not know, even though it was already discussed yesterday?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A woodworking club's assistant has been running one long session all afternoon, with dozens of unrelated small-talk turns piling up. A student now asks a safety question. The context window isn't full yet. What's the likely risk of all that leftover small talk?",
+      "options": [
+        {"id": "a", "text": "The model will automatically summarize the old turns to protect accuracy"},
+        {"id": "b", "text": "None — more context in the window always helps the model answer"},
+        {"id": "c", "text": "The request will fail outright before the model generates anything"},
+        {"id": "d", "text": "Accuracy may degrade, since irrelevant tokens compete with the few that matter"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "The woodshop's table-saw manual is 80 pages long. In one or two sentences, how should the assistant use retrieval to answer a question about blade replacement, rather than loading the whole manual into its prompt?"
+    }
+  ]
+}

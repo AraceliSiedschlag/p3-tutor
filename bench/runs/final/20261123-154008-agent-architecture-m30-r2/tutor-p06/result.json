@@ -1,0 +1,68 @@
+{
+  "is_error": false,
+  "duration_api_ms": 63643,
+  "num_turns": 4,
+  "stop_reason": "end_turn",
+  "session_id": "ddd3896a-5977-4388-b2f5-3871659f26e6",
+  "total_cost_usd": 0.2611086,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 30394,
+    "cache_read_input_tokens": 106452,
+    "output_tokens": 3119,
+    "output_tokens_details": {
+      "thinking_tokens": 2017
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 30394,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 458,
+        "cache_read_input_tokens": 34746,
+        "cache_creation_input_tokens": 2373,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2373
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 8,
+      "outputTokens": 3119,
+      "cacheReadInputTokens": 106452,
+      "cacheCreationInputTokens": 30394,
+      "webSearchRequests": 0,
+      "costUSD": 0.2611086,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Tool calling is just the model writing a request for something to be done, instead of doing it itself — something else actually carries it out.\n\nPicture a restaurant. The model is the customer, and the real system — the booking calendar, the manual, whatever — is the kitchen. The customer can't walk back there and grab a pan. All they can do is write an order ticket: \"laser cutter, Friday, 2pm slot.\" That ticket *is* the tool call — just a plain description of what's wanted and the details needed to do it.\n\nThe waiter is the program running the show. It reads the ticket, goes to the actual kitchen, gets the real answer, and brings a receipt back to the table: \"booked\" or \"full.\" The customer never touches the stove — they only ever see the ticket go out and the receipt come back. That's the key thing people miss: the model doesn't run the tool, the program does, using what the model wrote on the ticket.\n\nHere's the twist that trips people up: the customer isn't sitting there thinking the whole time. Each time a receipt lands on the table, it's like the customer wakes up fresh, looks at everything on the table so far, and decides the next move from scratch — a brand new, separate call to the model each time, not one continuous thought.\n\nWhere it breaks down: a real waiter can improvise. The program can't — it does exactly what the ticket says, nothing more.\n\nQuick one: for your laser cutter check, what would the \"ticket\" need to say on it?",
+  "ttft_ms": 5286,
+  "ttft_stream_ms": 4676,
+  "time_to_request_ms": 169,
+  "type": "result",
+  "duration_ms": 65354,
+  "uuid": "a55ae80a-20ab-4071-846f-a67a38de3f13"
+}

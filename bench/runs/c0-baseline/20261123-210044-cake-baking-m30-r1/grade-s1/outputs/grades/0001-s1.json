@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You picked 'scooping is the most accurate way', but it's actually the opposite: pushing the cup into the bag packs the flour down, so the cup holds more than the recipe means. That extra flour soaks up liquid and is one of the main reasons a cake comes out dry and dense - exactly what you're trying to avoid."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, 250 g divided by 125 g per cup is 2 cups. That's the move whenever a recipe gives grams but you only have cups: divide by what one cup weighs."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "That's spoon-and-level in your own words: fluffing it in with a spoon keeps it loose instead of packed, and scraping the top flat with a butter knife is the leveling part. Both pieces are there, so it counts even though you didn't use the exact term."
+    },
+    {
+      "id": "q4",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. A liquid measuring cup is built with room at the top so the liquid doesn't spill, and reading it at eye level on a flat counter is what shows you the true level."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "'Scales are more exact' is the right conclusion, but it skips the why. The actual reason: a weight stays the same no matter how loosely or tightly you pack the ingredient, while the amount that fits in a cup changes depending on how you filled it. Next time, give that reason along with the conclusion."
+    },
+    {
+      "id": "q6",
+      "verdict": "wrong",
+      "misconception": "M5",
+      "feedback": "You picked 'a little extra is fine', but leaveners are the one place where small amounts matter a lot. Too much baking powder makes the batter rise fast and then collapse, and can leave a bitter taste - it's not like flour or milk where you have a bit of wiggle room."
+    }
+  ],
+  "summary": "You've got the core of measuring down: you can convert grams to cups, you described spoon-and-level correctly in your own words, and you know to read a liquid measuring cup at eye level. What's still shaky is believing a little looseness is harmless - you said scooping flour is fine and that a heaping spoonful of baking powder doesn't matter, and both are the opposite of true. The leavener question is a good sign of what's next: since what makes a cake rise is coming up, that's the place to see exactly why baking powder amounts are so unforgiving."
+}

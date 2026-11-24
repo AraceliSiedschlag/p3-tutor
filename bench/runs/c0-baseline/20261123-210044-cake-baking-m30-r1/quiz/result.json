@@ -1,0 +1,83 @@
+{
+  "is_error": false,
+  "duration_api_ms": 287897,
+  "num_turns": 8,
+  "stop_reason": "end_turn",
+  "session_id": "03f6b3e5-1fc9-46aa-9e1a-2425b766ec04",
+  "total_cost_usd": 1.2281869499999998,
+  "usage": {
+    "input_tokens": 14,
+    "cache_creation_input_tokens": 21352,
+    "cache_read_input_tokens": 420961,
+    "output_tokens": 18160,
+    "output_tokens_details": {
+      "thinking_tokens": 14034
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 21352,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 375,
+        "cache_read_input_tokens": 72928,
+        "cache_creation_input_tokens": 720,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 720
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 34,
+      "outputTokens": 23158,
+      "cacheReadInputTokens": 731599,
+      "cacheCreationInputTokens": 109421,
+      "webSearchRequests": 0,
+      "costUSD": 1.1727649499999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    },
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 28962,
+      "outputTokens": 1292,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 2,
+      "costUSD": 0.055422,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification"
+  },
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Quiz **0002** and its key are written for objective O3.\n\n- `quizzes/0002.json` — \"Is it done? Diagnosing a sunken, dry, or domed cake\": 6 items (4 mcq, 1 short, 1 numeric) covering the toothpick/springback doneness tests, diagnosing a sunken middle (oven-door heat loss), a dry cake (overbaking), and a domed top (edges setting before the center).\n- `keys/0002.json` — answers and rationales, with new misconception ids M6–M12 for this objective (e.g., M6: judging doneness by color alone, M11: \"doming always means underbaked\") plus a reuse of M5 from quiz 0001 for the wrong-measuring-tool mistake.\n\nThis quiz is ahead of your lessons — there's no lesson on doneness or rising yet, so it's grounded directly in baking sources I checked (King Arthur's cake guide plus several troubleshooting write-ups), not something you've been taught in this workspace. Want a lesson on this next, or should I hold off until the \"what makes a cake rise\" lesson NOTES.md flagged as next?",
+  "ttft_ms": 4798,
+  "ttft_stream_ms": 1549,
+  "time_to_request_ms": 52,
+  "type": "result",
+  "duration_ms": 214240,
+  "uuid": "8b599f4a-3a12-415e-8241-1cd29239aefa"
+}

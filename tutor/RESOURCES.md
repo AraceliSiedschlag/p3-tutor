@@ -30,6 +30,31 @@
 
 - No community added for this one-off topic.
 
+## Baking and Frosting a Cake (one-off, outside the current mission)
+
+### Knowledge
+
+- [King Arthur Baking: how to measure flour](https://www.kingarthurbaking.com/blog/2023/10/13/how-to-measure-flour)
+  Explains why scooping packs flour down and how spooning-and-leveling or weighing gives a consistent amount. Use for: why measuring technique changes how dense or dry a cake turns out.
+- [King Arthur Baking: creaming butter and sugar](https://www.kingarthurbaking.com/blog/2015/04/27/creaming-butter-sugar)
+  Covers how creaming cuts air pockets into fat for a light crumb. Use for: the mechanism behind creaming and its payoff in the baked cake.
+- [Night Owl Sugar Spell: why creaming butter and sugar matters](https://nightowlsugarspell.com/butter-sugar/)
+  Use for: what goes wrong at both ends, under-creaming and over-creaming.
+- [Wilton: how to level and torte a cake](https://wilton.com/how-to-level-and-torte-a-cake/wltech-427/)
+  Use for: the leveling and torting technique itself.
+- [Fat Daddio's: how to prevent a domed cake every time](https://fatdaddios.com/how-to-prevent-a-domed-cake-every-time/)
+  Use for: the heat and gas mechanism behind why a cake domes.
+- [Culinary Hill: how to frost a cake with a crumb coat](https://www.culinaryhill.com/how-to-frost-a-cake/)
+  Use for: what a crumb coat is and its job before the final coat.
+- [what's in the pan: how to crumb coat a cake (and why you can't skip it)](https://whatsinthepan.com/how-to-crumb-coat-a-cake/)
+  Use for: why the crumb coat needs to chill firm before the final frosting layer.
+- [Bob's Red Mill: Crumb Coating 101](https://www.bobsredmill.com/articles/crumb-coating-101-how-to-frost-your-cakes-like-a-pro)
+  Use for: why frosting adheres better to a set coat than to bare cake.
+
+### Wisdom (Communities)
+
+- No community added for this one-off topic.
+
 ## Dog Training
 
 ### Knowledge

@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Nailed it - d) is the one: what makes something an agent is the loop itself (model picks an action, the program runs it, the result feeds back), repeated until it stops. The insight to keep: a bigger model or a longer prompt still only fires once per turn, so neither one turns a single call into an agent - only that feedback loop does."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Yes, c) is right - when the model decides to use check_calendar, what it actually outputs is a structured request naming the tool and its arguments, not the calendar data itself. Good instinct keeping that boundary clean: the model decides and asks, the program around it is what actually runs the tool and hands back the result. That split is exactly what you'll be drawing on when you write your makerspace assistant's tools."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Your answer assumes that if you just let the stuck agent keep going, it'll eventually fix the bug on its own. That's not how it plays out: the trace shows it repeating the exact same edit against the exact same failing test for 40 steps straight, with nothing changing - so running it longer just burns through your small model budget without getting any closer. The real safeguard is a stopping condition, like a step limit, that cuts the loop off and reports back to a person instead of hoping for a lucky break. It's a tempting read because the model hasn't technically failed yet, it's just stuck - but treat repeated identical steps as your stop signal, not as a reason to wait it out."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your count of 4 is exactly right, and you've got the sequence right too, but the reasoning along the way says the model 'can only run one tool itself' - that's the part to fix. Your answer assumes the model itself carries out check_calendar, search_manuals and check_training_record one at a time; what actually happens is the model only ever requests a tool, and it's your program that executes that request and feeds the result back. It's an easy shorthand to slip into since 'the model runs the tool' describes the end result from the outside - but keeping the verbs separate (model requests, program runs) is exactly what you'll need to explain clearly at your design review."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Spot on, and the group-chat analogy works well: the tool's result gets folded into the model's next input, and the model gets called again with that result in front of it so it can decide its next move or write the final answer. That's the whole engine of the agent loop - result goes back into context, then the model gets another turn - worth keeping as your mental picture for every tool you design."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You're right that the name matters, but that's only half the answer. The model is actually working off the whole tool description it's given - name, what the tool does, and its parameters - and a name alone can mislead if it's vague or two tools sound similar. When you write descriptions for your makerspace assistant's tools, make sure the 'what it does' part is doing real work too, not just a snappy name."
+    }
+  ],
+  "summary": "You've got the core loop down cold - q1, q2 and q5 show you clearly see the model-requests, program-runs, result-comes-back cycle, nice work. The one thing to straighten out next is who actually does the 'running': in q3 you let a stuck loop get the benefit of the doubt instead of flagging it as needing a stopping condition, and in q4 your reasoning briefly had the model running the tool itself rather than just requesting it. Both point at the same seam - the model decides and asks, the program is the one that acts. For a quick next step, trace one makerspace request on paper and label every step as either 'model requests' or 'program runs', including where a step limit would kick in if it got stuck."
+}

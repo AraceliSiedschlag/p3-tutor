@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, it's the loop - the model picks an action, the program runs it, the result comes back, repeat until done. That's the one thing to point to at your design review: a bigger model or a longer prompt can make a single call smarter, but neither turns it into something that can check a calendar and act on what it finds. Only the loop does that."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You picked option a, where the model reads the calendar by opening the booking system on its own - that assumes the model itself carries out the tool call. It doesn't: the model only outputs a structured request naming check_calendar and its arguments, and the surrounding program is what actually opens the booking system, runs the lookup, and hands the result back. It's an easy slip to make because from the outside the exchange feels seamless, like one thing just answered the question. Keep the split clear: the model decides and asks, the program executes and returns."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right - a step limit that stops the loop and reports back is the fix. Worth noting for your budget constraint too: a loop with no stopping condition doesn't just risk never finishing, it burns through your model-call budget while it repeats itself."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You've got the sequence right: three distinct tools used in order, ending with a final answer - that's exactly the shape of this run. Where it goes wrong is the call count: your answer of 1 assumes the model gets called once and then runs the three tools (check_calendar, search_manuals, check_training_record) itself inside that one call. That's not how it works: the model only ever requests one tool at a time, the program runs it and feeds the result back, and the model has to be called again to decide the next step - so three tool round-trips plus the final answer is four calls, not one. It's tempting to think of the whole exchange as one turn because it feels continuous from the outside, but each tool use is its own separate call. Count a call for every decision point: one per tool request, plus one for the final answer."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You've got the \"what\": the result goes back to the model. What's missing is the \"why\" - it goes back as part of the model's next input specifically so the model can use it to decide its next step or write the final answer. Add that reason and it's a complete answer."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "The core of your answer is right: the model picks a tool from the descriptions it's given - name plus what it does - and matches the one that fits the request.\n\nBut you also added that it \"remembers on its own which tool it picked for questions like that in earlier sessions\" - that assumes the model has built-in memory across sessions, which it doesn't. A model only sees what's in its context for that call; anything carried between sessions, like a student's training record, has to be stored and fed back in by the program. It's tempting because sessions can feel continuous from the outside, but that continuity is the program replaying old text, not the model remembering. Keep \"what the model knows\" scoped to its current context window - memory is a feature you build, not one it has for free."
+    }
+  ],
+  "summary": "You've nailed the loop structure itself - q1 and q3 show you clearly see why it's the pick/run/feedback/stop cycle that makes something an agent, not a bigger model or a longer prompt. The thing to clear up next is the boundary between the model and the program: on q2 and q4 you had the model running tools itself, and on q6 you had it remembering things on its own across sessions, but in both cases it's the program, not the model, doing the executing and the carrying-over. A good next step: pick one multi-tool request and write out literally what the model outputs at each call versus what the program does with it - that'll make the split between \"decide and ask\" and \"execute and remember\" concrete before you hit context and memory next."
+}

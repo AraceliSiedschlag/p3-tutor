@@ -1,0 +1,101 @@
+{
+  "is_error": false,
+  "duration_api_ms": 657300,
+  "num_turns": 32,
+  "stop_reason": "end_turn",
+  "session_id": "0b7a00dc-668b-47bc-aaad-006e328c2c35",
+  "total_cost_usd": 1.6619416500000002,
+  "usage": {
+    "input_tokens": 30,
+    "cache_creation_input_tokens": 68159,
+    "cache_read_input_tokens": 774155,
+    "output_tokens": 22449,
+    "output_tokens_details": {
+      "thinking_tokens": 10807
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 68159,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 138,
+        "cache_read_input_tokens": 73342,
+        "cache_creation_input_tokens": 1160,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1160
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "inputTokens": 50,
+      "outputTokens": 56922,
+      "cacheReadInputTokens": 890738,
+      "cacheCreationInputTokens": 103302,
+      "webSearchRequests": 0,
+      "costUSD": 1.6619416500000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-sonnet-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01VXzdiRsZkPcNTWaj8E6gak",
+      "tool_input": {
+        "command": "ls -la && echo \"---lessons---\" && ls lessons 2>/dev/null && echo \"---quizzes---\" && ls quizzes 2>/dev/null && echo \"---keys---\" && ls keys 2>/dev/null && echo \"---learning-records---\" && ls learning-records 2>/dev/null && echo \"---drafts---\" && ls drafts 2>/dev/null",
+        "description": "List workspace structure"
+      }
+    },
+    {
+      "tool_name": "Glob",
+      "tool_use_id": "toolu_01LTPQtxD1NfPkAziq88uAij",
+      "tool_input": {
+        "pattern": "keys/*"
+      }
+    },
+    {
+      "tool_name": "Glob",
+      "tool_use_id": "toolu_01W6GvnoxgeqwnUncwRa9dy8",
+      "tool_input": {
+        "pattern": "keys/*"
+      }
+    },
+    {
+      "tool_name": "Grep",
+      "tool_use_id": "toolu_01134U552P2qBDQXwVZLCMLk",
+      "tool_input": {
+        "pattern": "M[0-9]",
+        "path": "/private/var/folders/ny/45_95jf95vj7z6nh59f5xp5m0000gn/T/p3-_aqyoh3w",
+        "output_mode": "content",
+        "-n": true
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Quiz **0002** is ready at `quizzes/0002.json` (key at `keys/0002.json`), 6 items on O4 — 4 multiple choice, 2 short answer. It went through two reviewer passes and both rounds of findings were fixed.\n\nSince there's no lesson yet for O4 in this workspace, this quiz runs ahead of the lessons — it checks the objective directly rather than against taught material.",
+  "ttft_ms": 3170,
+  "ttft_stream_ms": 2462,
+  "time_to_request_ms": 72,
+  "type": "result",
+  "duration_ms": 659620,
+  "uuid": "5aa89943-7294-403d-ae2a-03b3ebba3127"
+}

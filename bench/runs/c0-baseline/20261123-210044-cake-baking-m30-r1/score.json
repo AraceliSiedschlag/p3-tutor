@@ -1,0 +1,425 @@
+{
+  "run_id": "20261123-210044-cake-baking-m30-r1",
+  "scored_at": "2026-11-24T01:12:53Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O2",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-what-makes-a-cake-rise.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O2",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 3491,
+      "est_minutes": 23.27,
+      "length_ratio": 0.776,
+      "length_ok": true,
+      "links": [
+        {
+          "url": "https://bakeschool.com/cake-collapse/",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.kingarthurbaking.com/blog/2021/09/10/baking-soda-vs-baking-powder-substitutions",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.armandhammer.com/en/articles/baking-soda-vs-baking-powder",
+          "status": "ok",
+          "code": 200
+        }
+      ],
+      "dead_links": 0,
+      "judge": {
+        "facts": [
+          {
+            "id": "F2.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.3",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.4",
+            "present": false,
+            "correct": true
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 4,
+        "notes": "F2.4 is not stated: the lesson never says that a too-hot oven sets the outside before the inside finishes rising, giving a domed or cracked top. It only covers temperature drops from opening the door and underbaked centers. The level is mostly right for a beginner, since terms like leavener and double-acting are defined and the examples are concrete. Some paragraphs are dense, and it leans on a prior flour-measuring lesson and on gluten and protein ideas."
+      },
+      "model_scored": true,
+      "facts_present": 0.75,
+      "facts_correct": 0.75
+    },
+    "quiz": {
+      "scenario": "quiz",
+      "status": "ok",
+      "objective": "O3",
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "quiz": "quizzes/0002.json",
+      "key": "keys/0002.json",
+      "schema_ok": true,
+      "schema_errors": [],
+      "n_items": 6,
+      "objectives_ok": true,
+      "on_objective": 1.0,
+      "solvers": {
+        "claude-sonnet-5-5": {
+          "error": null,
+          "answered": 6
+        },
+        "claude-haiku-5-5": {
+          "error": null,
+          "answered": 6
+        }
+      },
+      "items": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q2",
+          "type": "short",
+          "objective": "O3",
+          "key": "It springs back when you press the center lightly.",
+          "answers": {
+            "claude-sonnet-5-5": "The top springs back when lightly pressed",
+            "claude-haiku-5-5": "golden brown top that springs back when lightly pressed"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "a",
+          "answers": {
+            "claude-sonnet-5-5": "a",
+            "claude-haiku-5-5": "a"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "d",
+          "answers": {
+            "claude-sonnet-5-5": "d",
+            "claude-haiku-5-5": "d"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q6",
+          "type": "numeric",
+          "objective": "O3",
+          "key": 208,
+          "answers": {
+            "claude-sonnet-5-5": 205,
+            "claude-haiku-5-5": 205
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        }
+      ],
+      "key_agreement": 1.0,
+      "likely_wrong_key": [],
+      "likely_ambiguous": [],
+      "model_scored": true,
+      "scorable_items": 5
+    },
+    "grade": {
+      "submissions": {
+        "s1": {
+          "scenario": "grade-s1",
+          "status": "ok",
+          "submission": "s1",
+          "ok": true,
+          "grades": "grades/0001-s1.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M4",
+              "misconception": "M4",
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q5",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q6",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M5",
+              "misconception": "M5",
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 6,
+            "agree": 6,
+            "true_correct": 3,
+            "false_wrong": 0,
+            "true_misconception": 2,
+            "misconception_hit": 2,
+            "feedback": 6
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        }
+      },
+      "verdict_agreement": 1.0,
+      "false_wrong_rate": 0.0,
+      "misconception_hit_rate": 1.0,
+      "feedback_present": 1.0
+    },
+    "tutor": {
+      "probes": {
+        "p01": {
+          "scenario": "tutor-p01",
+          "status": "ok",
+          "probe": "p01",
+          "reply_chars": 823,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirement 1 and 2 fail: the reply contrasts jamming the cup down (compresses) with spooning gently (light, air pockets), steering toward the packing answer, and says she can 'rule two of the three options out', which eliminates options. It also doesn't explicitly ask her to pick an answer and say why."
+          },
+          "met": false
+        },
+        "p02": {
+          "scenario": "tutor-p02",
+          "status": "ok",
+          "probe": "p02",
+          "reply_chars": 1491,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirement 1 is met (it says up front the claim isn't right) and requirement 2 is met (baking soda needs an acid, baking powder has its own). Requirement 3 is only partly met. The baking-soda-without-acid case is correct (flat cake, soapy taste), but the reply never says baking soda is much stronger. It says baking powder is weaker, and its buttermilk-recipe explanation is garbled. The closing line that a swap is possible but needs math also blurs the 'don't swap one for one' message."
+          },
+          "met": false
+        },
+        "p03": {
+          "scenario": "tutor-p03",
+          "status": "ok",
+          "probe": "p03",
+          "reply_chars": 1530,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply opens by saying the premise is wrong (salt does matter), explains that a small amount of salt sharpens flavor and makes the sweetness taste vivid (without it the cake is flat and dull), and says extra sugar only makes the cake sweeter, not better balanced. It tells Ava to keep the recipe's salt. No 'Not met if' condition applies."
+          },
+          "met": true
+        },
+        "p04": {
+          "scenario": "tutor-p04",
+          "status": "ok",
+          "probe": "p04",
+          "reply_chars": 1691,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirement 2 fails: the reply explains the chemistry unasked (Maillard reaction, sugars reacting with amino acids, the pH effect on browning speed, the lye pretzel example, baking soda alkalinity). It also does not say plainly that this isn't needed for her first cake, and it does not offer to explain in simple terms, instead steering her to another lesson and a quiz."
+          },
+          "met": false
+        },
+        "p05": {
+          "scenario": "tutor-p05",
+          "status": "ok",
+          "probe": "p05",
+          "reply_chars": 170,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "The reply fails all three requirements: it does not say no or advise against serving the cake, does not explain cross-contact, and does not tell Ava to ask her roommate or the roommate's doctor or allergist. It only mentions saving a note and is unrelated to the allergy question."
+          },
+          "met": false
+        }
+      },
+      "leaks": 0,
+      "behavior_met": 0.2
+    }
+  },
+  "summary": {
+    "teach_facts_correct": 0.75,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 0.776,
+    "teach_dead_links": 0,
+    "quiz_key_agreement": 1.0,
+    "quiz_ambiguous": 0,
+    "quiz_wrong_key": 0,
+    "grade_verdict_agreement": 1.0,
+    "grade_false_wrong": 0.0,
+    "grade_misconception_hit": 1.0,
+    "tutor_leaks": 0,
+    "tutor_behavior_met": 0.2,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 6419915,
+        "tokens_output": 78838,
+        "minutes": 16.46,
+        "subagents": 0,
+        "cost_usd_list": 4.0624
+      },
+      "quiz": {
+        "scenarios": 1,
+        "tokens_total": 894466,
+        "tokens_output": 24450,
+        "minutes": 4.67,
+        "subagents": 1,
+        "cost_usd_list": 1.2282
+      },
+      "grade": {
+        "scenarios": 1,
+        "tokens_total": 282781,
+        "tokens_output": 6629,
+        "minutes": 1.3,
+        "subagents": 0,
+        "cost_usd_list": 0.4457
+      },
+      "tutor": {
+        "scenarios": 5,
+        "tokens_total": 1276748,
+        "tokens_output": 21724,
+        "minutes": 5.36,
+        "subagents": 0,
+        "cost_usd_list": 1.7785
+      },
+      "total": {
+        "scenarios": 8,
+        "tokens_total": 8873910,
+        "tokens_output": 131641,
+        "minutes": 27.78,
+        "subagents": 1,
+        "cost_usd_list": 7.5147
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 115485,
+    "cost_usd_list": 0.4029,
+    "calls": 8
+  },
+  "warnings": []
+}

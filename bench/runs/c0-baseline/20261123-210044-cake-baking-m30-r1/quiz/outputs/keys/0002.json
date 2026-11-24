@@ -1,0 +1,57 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A fully baked cake's toothpick carries a few moist crumbs but no wet batter; a completely dry, crumb-free toothpick usually means the cake has already overbaked past the point of doneness.",
+      "distractors": {
+        "a": "M7",
+        "d": "M6"
+      }
+    },
+    {
+      "id": "q2",
+      "answer": "It springs back when you press the center lightly.",
+      "accepted": [
+        "The center springs back when touched instead of leaving a dent",
+        "It feels firm and springy in the middle, not wet or jiggly",
+        "The edges have started pulling away from the sides of the pan"
+      ],
+      "rationale": "A done cake's crumb has set enough to spring back under light pressure, and the edges begin to loosen from the pan; an underdone center leaves a dent that does not bounce back."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "Opening the door drops the oven's heat right when the center is still rising and has not set; the structure loses the heat it needs to finish and collapses as it cools. Sinking is a sign of an interrupted or underbaked center, not something that happens on its own to a finished cake.",
+      "distractors": {
+        "b": "M8"
+      }
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Once the toothpick shows moist crumbs, the cake is done; ten more minutes bakes off the moisture the crumb needs to stay tender. Overbaking, not a measuring slip or a cool oven, is the usual cause of a dry cake.",
+      "distractors": {
+        "b": "M5",
+        "d": "M9"
+      }
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "The batter touching the hot pan at the edges sets and stops rising first, while the insulated center is still expanding; with nowhere else to go, it pushes straight up into a dome. A dome by itself does not mean the center is raw -- check it with a toothpick the same way as the rest of the cake.",
+      "distractors": {
+        "a": "M10",
+        "b": "M11",
+        "c": "M12"
+      }
+    },
+    {
+      "id": "q6",
+      "answer": 208,
+      "tolerance": 8,
+      "rationale": "Classic butter, vanilla and chocolate layer cakes are fully baked around 205-210°F at the center. That is well below the oven's 350°F air temperature -- the oven setting and the cake's own doneness temperature are not the same number."
+    }
+  ]
+}

@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="p3-minutes" content="30">
+  <meta name="p3-objective" content="O2">
+  <title>What Makes a Cake Rise</title>
+  <style>
+    :root {
+      --bg: #fffdf8;
+      --text: #1f1d1a;
+      --muted: #6b665e;
+      --rule: #e4dfd4;
+      --accent: #9a4517;
+      --accent-soft: #f7ede4;
+      --warn: #8c2f39;
+      --warn-soft: #f9eaec;
+      --ok: #2f6b3a;
+      --ok-soft: #e7f2e9;
+      --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614;
+        --text: #e9e5dc;
+        --muted: #a49e93;
+        --rule: #36332e;
+        --accent: #eaa77a;
+        --accent-soft: #2c231d;
+        --warn: #f0a3ac;
+        --warn-soft: #2f1f22;
+        --ok: #9fd3a8;
+        --ok-soft: #1c2a1f;
+        --code-bg: #23211e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 19px; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.6; }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    p, li { hyphens: auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+    h1 { font-size: 2.1rem; margin: 0.25rem 0 1rem; }
+    h2 { font-size: 1.45rem; margin: 3rem 0 0.75rem; }
+    h3 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+    .kicker, .label, .meta, .section-time, figcaption, summary, th, nav.toc, footer.closing {
+      font-family: var(--sans);
+    }
+    .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .lead { font-size: 1.15rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--muted);
+            border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 0.5rem 0; margin: 1.5rem 0; }
+    nav.toc { font-size: 0.9rem; margin: 1.5rem 0 2rem; }
+    nav.toc ol { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    .section-time { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+    dfn { font-style: normal; font-weight: 600; }
+    aside.note { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--rule); padding-left: 1rem; margin: 1.25rem 0; }
+    .box { border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .box > :first-child { margin-top: 0; }
+    .box > :last-child { margin-bottom: 0; }
+    .label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .mission { background: var(--accent-soft); }
+    .mission .label { color: var(--accent); }
+    .misconception { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .misconception .label { color: var(--warn); }
+    .worked { border: 1px solid var(--rule); }
+    .worked ol { padding-left: 1.3rem; }
+    .summary { border: 1px solid var(--rule); }
+    figure { margin: 2rem 0; }
+    figure svg { display: block; width: 100%; height: auto; }
+    figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1.5rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    code, pre { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 4px; }
+    code { padding: 0.1em 0.3em; }
+    pre { padding: 1rem; overflow-x: auto; line-height: 1.45; }
+    pre code { padding: 0; background: none; font-size: 1em; }
+    .check { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .check .label { color: var(--accent); }
+    .check p { margin: 0.25rem 0; }
+    .choices { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+    .choices button { width: 100%; text-align: left; font: inherit; font-size: 0.95rem; color: inherit; background: transparent;
+                      border: 1px solid var(--rule); border-radius: 6px; padding: 0.55rem 0.8rem; cursor: pointer; }
+    .choices button:hover { border-color: var(--accent); }
+    .choices button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .choices button.right { border-color: var(--ok); background: var(--ok-soft); }
+    .choices button.wrong { border-color: var(--warn); background: var(--warn-soft); }
+    .feedback { font-size: 0.95rem; margin: 0.6rem 0 0; }
+    .feedback:empty { margin: 0; }
+    details { margin-top: 0.75rem; }
+    summary { font-size: 0.85rem; color: var(--accent); cursor: pointer; }
+    details > :not(summary) { margin: 0.5rem 0 0; }
+    .go-further li { margin-bottom: 0.6rem; }
+    footer.closing { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+    @media (max-width: 32rem) {
+      html { font-size: 17px; }
+      h1 { font-size: 1.75rem; }
+      main { padding-top: 2rem; }
+    }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2;
+              --warn: #000; --warn-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --code-bg: #f2f2f2; }
+      html { font-size: 11.5pt; }
+      main { max-width: none; padding: 0; }
+      nav.toc { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+      .box, .check, figure, table, pre { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="kicker">Lesson 1 &middot; 30 minutes</div>
+    <h1>What Makes a Cake Rise</h1>
+    <p class="lead">By the end of this lesson you can explain what actually lifts a cake, tell baking soda and baking powder apart by what each one needs to work, and name the most likely reason a cake sank instead of staying up.</p>
+    <div class="meta">
+      <span>Objective O2: what makes a cake rise, baking soda vs. baking powder, and what goes wrong</span>
+      <span>About 30 minutes</span>
+      <span>Builds on <a href="../learning-records/0001-measuring-ingredients.md">measuring ingredients precisely</a></span>
+    </div>
+    <div class="box mission">
+      <span class="label">Why this matters for you</span>
+      <p>A cake that sinks in the middle is one of the two things you most want to avoid, and it is almost always a leavening or baking story, not a frosting one: no amount of careful frosting work later fixes a center that fell before it ever reached the cooling rack. Once you know what is really happening inside the batter, air, steam, chemical gas, and the structure that has to trap all three, you can diagnose a sunk or flat cake yourself instead of guessing, the same way you now know to spoon and level flour instead of wondering why a cake came out dry.</p>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="In this lesson">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#warm-up">Warm-up</a></li>
+      <li><a href="#s1">Three things that make a cake rise</a></li>
+      <li><a href="#s2">Baking soda: fast, and it needs an acid</a></li>
+      <li><a href="#s3">Baking powder: it brings its own acid, and acts twice</a></li>
+      <li><a href="#s4">What goes wrong when a cake doesn't rise right</a></li>
+      <li><a href="#practice">Worked example and practice</a></li>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#further">Go further</a></li>
+    </ol>
+  </nav>
+
+  <section id="warm-up">
+    <h2>Warm-up <span class="section-time">2 min</span></h2>
+    <div class="check">
+      <span class="label">Recall</span>
+      <p>When you measure flour for a cake, why do you spoon it loosely into the cup and level it off, instead of scooping straight from the bag?</p>
+      <details>
+        <summary>Check your answer</summary>
+        <p>Scooping packs the flour down, so the cup holds more flour than the recipe actually means, and the extra flour makes the cake dry and dense. That same lesson applies even harder to the ingredients in this lesson: baking soda and baking powder are used in tiny, exact amounts, and today you will see exactly why a little too much or too little changes the whole cake.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s1">
+    <h2>Three things that make a cake rise <span class="section-time">7 min</span></h2>
+    <p>A cake rises because gas bubbles form inside the wet batter, and the batter firms up around them while they are still puffed up, so the shape holds even after the bubbles stop growing. Anything added to a batter to make gas on purpose is called a <dfn>leavener</dfn>. But a leavener is not the only source of lift, and it is not even the first one to act. A cake batter gets gas from three places, starting well before it reaches the oven:</p>
+    <ul>
+      <li><strong>Air:</strong> beating butter and sugar together, or whisking eggs, works thousands of tiny air bubbles into the batter before it ever sees the oven. This is why a recipe insists on beating butter and sugar until the mixture turns pale and fluffy: that pale color is air being worked in, and a cake that skips this step starts with far fewer bubbles to grow later.</li>
+      <li><strong>Steam:</strong> batter is full of water, from milk, eggs and butter. In the oven's heat, that water turns to steam and expands fast, pushing the batter up. Steam is why even a flourless, leavener-free sponge cake can rise: the eggs alone trap enough air and water to puff up on heat.</li>
+      <li><strong>Carbon dioxide:</strong> baking soda or baking powder reacts inside the batter to release CO<sub>2</sub> gas, which is this lesson's main subject, and the one you can actually choose and measure.</li>
+    </ul>
+    <p>None of that gas would help if it just bubbled away, the way it does out of a freshly opened soda bottle. As the oven's heat rises, the proteins from eggs and the gluten in flour, along with the starch, firm up and set into a structure around the bubbles, the way the walls of a balloon hold the air you blow into it, except a cake's "walls" stay put once they set instead of staying stretchy. A cake that cannot build that structure in time cannot hold onto the gas it made, no matter how much of it there is, which is the thread running through the rest of this lesson (<a href="https://bakeschool.com/cake-collapse/">Bake School, "Why do cakes sink or collapse?"</a>).</p>
+
+    <aside class="note">This is also why creaming butter and sugar well, and not over-mixing once the flour goes in, both matter: the first builds air bubbles, and the second keeps the gluten from building too much structure too soon, which can make a cake tough and chewy instead of light. You are already managing one side of this balance every time you measure flour carefully, since too much flour means too much gluten-forming structure fighting against the bubbles you worked so hard to create.</aside>
+
+    <figure>
+      <svg viewBox="0 0 640 260" role="img" aria-labelledby="fig1-title">
+        <title id="fig1-title">Three sources of gas feed into the batter, then heat sets a structure that traps the gas</title>
+        <defs>
+          <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="20" y="20" width="150" height="46" rx="8"/>
+          <rect x="20" y="90" width="150" height="46" rx="8"/>
+          <rect x="20" y="160" width="150" height="46" rx="8"/>
+          <rect x="250" y="90" width="150" height="46" rx="8" style="stroke: var(--accent)"/>
+          <rect x="470" y="90" width="150" height="46" rx="8"/>
+          <line x1="170" y1="43" x2="245" y2="100" marker-end="url(#arrow1)"/>
+          <line x1="170" y1="113" x2="245" y2="113" marker-end="url(#arrow1)"/>
+          <line x1="170" y1="183" x2="245" y2="126" marker-end="url(#arrow1)"/>
+          <line x1="400" y1="113" x2="465" y2="113" marker-end="url(#arrow1)"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="17" text-anchor="middle">
+          <text x="95" y="48">Air, beaten in</text>
+          <text x="95" y="118">Steam, from water</text>
+          <text x="95" y="188">CO&#8322; gas, from leavener</text>
+          <text x="325" y="108" style="fill: var(--accent)">Batter</text>
+          <text x="325" y="128" style="fill: var(--accent)" font-size="14">bubbles form and grow</text>
+          <text x="545" y="108">Heat sets</text>
+          <text x="545" y="128" font-size="14">structure around bubbles</text>
+        </g>
+      </svg>
+      <figcaption>Figure 1. Three sources add gas to the batter; the oven's heat has to set a structure around the bubbles before they can escape.</figcaption>
+    </figure>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Which of these best explains why a vanilla cake rises in the oven?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Air and steam add real lift too; a cake with no chemical leavener at all, like a sponge cake, can still rise mainly on beaten air and steam.">Only the carbon dioxide gas from the baking soda or baking powder</button></li>
+        <li><button type="button" data-correct="true" data-why="Right: air beaten in, steam from the batter's own water, and gas from the leavener all add lift together, and the structure that sets around them is what makes the lift stick.">Air beaten into the batter, steam from its water, and gas from the leavener, all together</button></li>
+        <li><button type="button" data-correct="false" data-why="Steam is one real source of lift, but beaten air and leavener gas matter too, and steam alone cannot explain why leavener amounts change a cake's rise.">Only the steam from the batter's water as it heats up</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Air beaten into the batter, steam from its water, and carbon dioxide from the leavener all add lift together; a cake's structure then has to set around that gas to hold the risen shape.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s2">
+    <h2>Baking soda: fast, and it needs an acid <span class="section-time">6 min</span></h2>
+    <p><dfn>Baking soda</dfn> is sodium bicarbonate, a base. On its own in a dry bowl it does nothing; mixed into a wet batter that also contains an acid, it reacts right away and releases CO<sub>2</sub> gas (<a href="https://www.kingarthurbaking.com/blog/2021/09/10/baking-soda-vs-baking-powder-substitutions">King Arthur Baking, "What's the difference between baking soda and baking powder?"</a>). You have probably seen this reaction before, even outside the kitchen: the classic vinegar-and-baking-soda fizz in a school volcano project is the same acid-base reaction, just faster and more dramatic than it is in a batter.</p>
+    <p>Because baking soda reacts as soon as it meets liquid and acid, and does not keep reacting later, it only gets one real burst of lift, right at the start of baking. That is why a recipe that calls for baking soda almost always also includes an acidic ingredient for it to react with: buttermilk, yogurt, sour cream, brown sugar, lemon juice or cocoa are the usual suspects. Spotting one of those in a recipe is a good clue that the baking soda is not working alone. A chocolate cake built on cocoa powder and buttermilk, for instance, is often leavened with baking soda alone and no baking powder at all, because the cocoa and the buttermilk together already supply plenty of acid for the soda to react with.</p>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>A recipe has no buttermilk, yogurt, brown sugar or any other acidic ingredient, and calls for baking soda by itself. What is most likely to happen?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="true" data-why="Right: baking soda needs an acid to react with. With none in the batter, little gas forms, so the cake rises poorly and can taste bitter or soapy from the leftover, unreacted soda.">The soda has little acid to react with, so the cake rises poorly and may taste bitter or soapy</button></li>
+        <li><button type="button" data-correct="false" data-why="Baking soda does not react with the oven's heat by itself; it needs an acid, not just warmth, to release its gas." >The oven's heat alone sets off the soda, so the cake rises normally either way</button></li>
+        <li><button type="button" data-correct="false" data-why="This is the mix-up to watch for: baking soda is a base and needs an acid in the batter to react; it cannot make gas on its own, with or without acid.">Baking soda reacts the same with or without an acid in the batter</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>With no acid to react with, the baking soda mostly sits unreacted: the cake rises poorly, and any soda left over can leave a bitter or soapy taste.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s3">
+    <h2>Baking powder: it brings its own acid, and acts twice <span class="section-time">7 min</span></h2>
+    <p><dfn>Baking powder</dfn> is a ready-made mix of baking soda, a dry acid (usually cream of tartar), and a starch that keeps the two apart and dry until they are needed (<a href="https://www.kingarthurbaking.com/blog/2021/09/10/baking-soda-vs-baking-powder-substitutions">King Arthur Baking</a>). Because the acid is already in the can, baking powder does not need an acidic ingredient in the batter: it supplies its own, so you will see it in recipes built on milk, butter and flour with nothing particularly acidic in the mix, which is most plain vanilla cakes.</p>
+    <p>Most baking powder sold today is <dfn>double-acting</dfn>: it reacts once as soon as it meets liquid, at room temperature while you mix the batter, and then reacts again once the batter heats up in the oven. The first reaction is why batter sometimes fizzes faintly in the bowl; the second reaction is the one that keeps adding lift later, while the cake's structure is also setting around it (<a href="https://bakeschool.com/cake-collapse/">Bake School</a>). Gram for gram, baking soda is roughly three to four times stronger than baking powder, which is why recipes use noticeably more baking powder than baking soda for a similar lift (<a href="https://www.armandhammer.com/en/articles/baking-soda-vs-baking-powder">Arm &amp; Hammer, "Baking Soda vs. Baking Powder"</a>).</p>
+
+    <table>
+      <caption class="label" style="text-align:left; margin-bottom:0.5rem;">At a glance</caption>
+      <thead>
+        <tr><th>&nbsp;</th><th>Baking soda</th><th>Baking powder</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>What it is</td><td>A base (sodium bicarbonate) on its own</td><td>Baking soda plus a dry acid and starch, already mixed in</td></tr>
+        <tr><td>What it needs to react</td><td>An acidic ingredient already in the batter</td><td>Nothing extra; it carries its own acid</td></tr>
+        <tr><td>When it reacts</td><td>Once, as soon as it meets liquid and acid</td><td>Twice: at mixing, and again from the oven's heat</td></tr>
+        <tr><td>Strength</td><td>Three to four times stronger, gram for gram</td><td>Weaker; recipes use more of it by volume</td></tr>
+        <tr><td>Typical recipe clue</td><td>Buttermilk, yogurt, brown sugar, cocoa or lemon juice nearby</td><td>Plain milk and flour, with nothing especially acidic</td></tr>
+      </tbody>
+    </table>
+
+    <figure>
+      <svg viewBox="0 0 640 230" role="img" aria-labelledby="fig2-title">
+        <title id="fig2-title">Baking soda needs an outside acid and reacts once; baking powder carries its own acid and reacts twice</title>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="16">
+          <text x="10" y="28" font-weight="600">Baking soda</text>
+          <text x="10" y="128" font-weight="600" style="fill: var(--accent)">Baking powder</text>
+        </g>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="10" y="40" width="160" height="42" rx="6"/>
+          <rect x="210" y="40" width="190" height="42" rx="6"/>
+          <line x1="170" y1="61" x2="205" y2="61" marker-end="url(#arrow1)"/>
+          <rect x="440" y="40" width="190" height="42" rx="6"/>
+          <line x1="400" y1="61" x2="435" y2="61" marker-end="url(#arrow1)"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="14" text-anchor="middle">
+          <text x="90" y="65">base, needs acid</text>
+          <text x="305" y="60">+ acid already in</text>
+          <text x="305" y="75">the batter (buttermilk...)</text>
+          <text x="535" y="60">CO&#8322; once,</text>
+          <text x="535" y="75">right away</text>
+        </g>
+        <defs>
+          <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g fill="none" stroke="var(--accent)" stroke-width="1.5">
+          <rect x="10" y="140" width="190" height="42" rx="6"/>
+          <rect x="250" y="140" width="150" height="42" rx="6"/>
+          <line x1="200" y1="161" x2="245" y2="161" marker-end="url(#arrow2)"/>
+          <rect x="450" y="140" width="170" height="42" rx="6"/>
+          <line x1="400" y1="161" x2="445" y2="161" marker-end="url(#arrow2)"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="14" text-anchor="middle">
+          <text x="105" y="165">soda + acid + starch,</text>
+          <text x="105" y="180">already mixed in</text>
+          <text x="325" y="165">reacts mixing</text>
+          <text x="535" y="160">reacts again</text>
+          <text x="535" y="175">with oven heat</text>
+        </g>
+      </svg>
+      <figcaption>Figure 2. Baking soda reacts once, with an acid the recipe supplies; baking powder carries its own acid and starch, and reacts twice: once in the bowl, once in the oven.</figcaption>
+    </figure>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>It is tempting to treat baking soda and baking powder as the same thing, since they look alike as white powders in similar boxes, and both start with "baking." They are not a spoon-for-spoon swap. Baking soda is three to four times stronger, so putting the same amount of baking powder in place of baking soda usually under-rises the cake, and putting baking soda in place of baking powder, without adding an acid for it to react with, can leave the cake flat and taste bitter or soapy, since unreacted baking soda itself tastes distinctly unpleasant. King Arthur Baking's common swap is about three teaspoons of baking powder for every one teaspoon of baking soda, not an even trade, and it is worth writing that ratio down somewhere you will see it again rather than trying to remember it mid-recipe.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>You stir baking powder into milk and see a few bubbles right away. Does that mean all of its lifting power is already used up before it even reaches the oven?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="That would be true of baking soda used alone, but most baking powder is double-acting: the bowl fizz is only its first reaction.">Yes, that first fizz is baking powder's only reaction</button></li>
+        <li><button type="button" data-correct="true" data-why="Right: most baking powder is double-acting. The bowl fizz is its first reaction with liquid; a second reaction happens later, once the oven's heat reaches it." >No, a second reaction happens later, once the batter heats up in the oven</button></li>
+        <li><button type="button" data-correct="false" data-why="You can see it fizz faintly in the bowl, which is the first of its two reactions; it is not waiting silently for heat alone.">No, baking powder never reacts until the oven heats it</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>No: most baking powder is double-acting, so the fizz you see while mixing is only its first reaction, and a second reaction in the oven's heat keeps adding lift later.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s4">
+    <h2>What goes wrong when a cake doesn't rise right <span class="section-time">7 min</span></h2>
+    <p>"Didn't rise right" covers two opposite problems, and both end up looking disappointing for very different reasons, so it is worth telling them apart before you decide what to fix next time.</p>
+    <p><strong>Too little lift</strong> gives a flat, dense, close-crumbed cake, more like a biscuit than a cake. The usual causes are a leavener that has lost its punch (both baking soda and baking powder weaken over months on the shelf, even unopened), a leavener measured too lightly, scooped straight from the tin instead of spooned and leveled, or left out by accident in the rush of a recipe with many small ingredients, or baking soda with too little acid in the batter to react with. None of these show up until the cake is already in the oven, which is exactly why it is worth checking the leavener before you start, not after a flat cake comes out.</p>
+    <p><strong>Too much lift</strong> often looks like the opposite problem by the time the cake is cool: it rises fast, sometimes noticeably higher than a normal cake, and then the center falls in as it cools, leaving a dip ringed by a taller edge. Extra leavener makes more gas than the cake's structure can hold; the structure gives way before it has finished setting, and the middle collapses (<a href="https://bakeschool.com/cake-collapse/">Bake School</a>). The same collapse can happen with the exact right amount of leavener if the center simply never finished baking: pulling the cake out too soon, or opening the oven door and letting cold air in before the center has set, leaves a weak middle that cannot hold its risen shape once it cools, even though the edges and top look perfectly done. "Oven heat is vital for activating baking powder so cakes rise, and for setting the cake structure," as Bake School puts it; take away the heat too early, in the oven or out of it, and the structure never finishes the job the leavener started.</p>
+
+    <figure>
+      <svg viewBox="0 0 640 220" role="img" aria-labelledby="fig3-title">
+        <title id="fig3-title">Three cake cross-sections: too little lift, a well-risen cake, and a cake that rose too fast or underbaked and sank</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M30,170 L30,150 Q110,135 190,150 L190,170 Z"/>
+          <path d="M250,170 L250,150 Q330,95 410,150 L410,170 Z" style="stroke: var(--ok)"/>
+          <path d="M470,170 L470,150 Q510,100 550,145 Q590,100 630,150 L630,170 Z" style="stroke: var(--warn)"/>
+          <line x1="20" y1="170" x2="640" y2="170"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="15" text-anchor="middle">
+          <text x="110" y="195">Too little lift:</text>
+          <text x="110" y="212">flat, dense</text>
+          <text x="330" y="195" style="fill: var(--ok)">Just right:</text>
+          <text x="330" y="212">even dome, structure holds</text>
+          <text x="550" y="195" style="fill: var(--warn)">Too much lift, or</text>
+          <text x="550" y="212">underbaked: sank</text>
+        </g>
+      </svg>
+      <figcaption>Figure 3. Too little leavener leaves a flat, dense cake. The right amount, baked through, domes evenly. Too much leavener, or a center that never finished setting, rises fast and then sinks.</figcaption>
+    </figure>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>It is tempting to think a little extra leavener couldn't hurt, the same way a little extra vanilla or a little extra sugar rarely ruins a cake. Leaveners do not behave like that: they work in small, exact amounts, and a teaspoon that should have been level but came out heaping is not "a little extra," it is enough extra gas to push the cake up fast and then let it fall before the structure can hold it, sometimes with a bitter or soapy aftertaste left behind by all that unspent leavener.</p>
+    </div>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>When a cake comes out flat, it is tempting to just add more leavener next time, reasoning that if a little gives a little lift, more should give more. The more common cause is a leavener that has gone stale, or one that was measured too lightly, not a recipe that truly needed more. Test freshness first: baking soda should fizz briskly in a splash of vinegar, and baking powder should fizz in hot water; a weak, slow fizz means it is on its way out even if the container looks unopened. Measure precisely before you add more, since too much creates the opposite problem: a fast rise that collapses.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>A cake used freshly tested baking powder, measured precisely with a spoon-and-level, in the amount the recipe called for. It still sank in the middle as it cooled. What is the most likely explanation?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Freshness and the amount are both already ruled out in this case, so the leavener itself is not the likely culprit here.">The baking powder must have been stale after all</button></li>
+        <li><button type="button" data-correct="true" data-why="Right: with freshness and the amount already ruled out, the center most likely never finished setting before it came out, or the oven door dropped the temperature before the structure held." >The center was underbaked, or the oven door was opened before the center had set</button></li>
+        <li><button type="button" data-correct="false" data-why="Extra sugar can affect texture and browning, but it is not the usual cause of a cake rising and then sinking in the middle.">There was too much sugar in the batter</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>With the leavener's freshness and amount already ruled out, the likely cause is an underbaked center, or the oven door opened too soon, dropping the temperature before the structure had set.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="practice">
+    <h2>Worked example and practice <span class="section-time">7 min</span></h2>
+    <div class="box worked">
+      <span class="label">Worked example 1: a cake that rose, then sank</span>
+      <p>Ava's vanilla cake rose beautifully through the oven window and looked golden on top, but the center fell as it cooled on the counter. What happened?</p>
+      <ol>
+        <li>She checks the leavener and the measuring first, out of habit: the baking powder was fresh (it fizzed readily in hot water) and measured by spooning and leveling, exactly as the recipe asked. So the amount of lift itself was not unusually large.</li>
+        <li>She checks what she remembers next: when the cake looked done, she tested the center with a toothpick, and it came out with wet batter still clinging to it.</li>
+        <li>That tells her the center had not finished setting when she took the cake out: the outside browned and looked ready before the middle had firmed up enough to hold its risen shape, so it fell in as it cooled, even though nothing was wrong with the leavener at all.</li>
+        <li>So the fix next time is to keep baking a few more minutes, checking the center again with a toothpick until it comes out clean or with only a few moist crumbs, and to leave the oven door shut for the last 10 to 15 minutes so the temperature stays steady while the center finishes.</li>
+      </ol>
+    </div>
+    <div class="box worked">
+      <span class="label">Worked example 2: a cake that barely rose at all</span>
+      <p>A different cake came out short and dense all over, not sunken in the middle, just flat and heavy from edge to edge, even though Ava measured every ingredient precisely, by the recipe.</p>
+      <ol>
+        <li>Because the amount was already right, she starts by testing the leavener itself rather than the oven: a spoonful of baking soda should fizz briskly in a splash of vinegar, and baking powder should fizz in hot water.</li>
+        <li>It barely bubbles. The container had been open on the shelf for almost a year, well past when either leavener keeps its full strength, even sealed.</li>
+        <li>So the amount measured was never the problem; the leavener's strength was. The fix is to replace it with a fresh container, measured the same precise way as before, and to get in the habit of testing an older container before a cake she cares about.</li>
+      </ol>
+    </div>
+    <div class="check">
+      <span class="label">Your turn</span>
+      <p>A third cake domed up nicely for the first twenty minutes, visible through the oven window. Ava opened the door partway through baking to check on it, and closed it again quickly. When the cake finished baking and cooled, the center had sunk slightly, though the leavener was fresh and correctly measured. Using the same approach as the two worked examples, what would you check, and what is the likely cause here?</p>
+      <details>
+        <summary>Show a solution</summary>
+        <p>With the leavener already ruled out (fresh, correctly measured), the next thing to check is whatever changed in the oven itself. Opening the door partway through baking let cold air in and dropped the oven's temperature right when the center was still soft and had not yet set its structure; the sudden swing in heat is enough to let the half-set middle sink before it firms up, even if the cake looks fine again once the door closes and the oven recovers. The fix is to resist opening the door until a cake is far enough along that a toothpick test would come back nearly clean, and to use the oven light and window instead.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary <span class="section-time">2 min</span></h2>
+    <div class="box summary">
+      <ul>
+        <li>A cake rises from three kinds of gas, air beaten in, steam from its own water, and CO<sub>2</sub> from a leavener, and a structure of set protein and starch has to trap that gas before it escapes.</li>
+        <li>Baking soda is a base that needs an acid already in the batter to react, once, right away. Baking powder carries its own acid and starch, so it works alone and reacts twice, once when mixed and again in the oven's heat.</li>
+        <li>Baking soda is three to four times stronger than baking powder, so they are never a plain, equal swap.</li>
+        <li>Too little leavener, often stale rather than truly too little, gives a flat, dense cake. Too much leavener, or a center that never finished setting, gives a cake that rises and then sinks.</li>
+      </ul>
+      <p><strong>Say it in your own words:</strong> without looking back, explain to a friend why a cake needs more than just baking powder to rise, what you would check first if a cake sank in the middle, and what you would check first if a cake came out flat and dense instead. If you can give a different first check for each of those two problems, you have the core of this lesson.</p>
+    </div>
+  </section>
+
+  <section id="further" class="go-further">
+    <h2>Go further</h2>
+    <p><strong>Read or watch next:</strong> <a href="https://www.kingarthurbaking.com/blog/2021/09/10/baking-soda-vs-baking-powder-substitutions">King Arthur Baking, "What's the difference between baking soda and baking powder?"</a>, the clearest, most trusted explanation of how each leavener works and how to substitute one for the other when you are out of one.</p>
+    <ul>
+      <li><a href="https://bakeschool.com/cake-collapse/">Bake School, "Why do cakes sink or collapse?"</a>: a food scientist's walk-through of underbaking, oven temperature and leavening imbalance as causes of a sunken cake.</li>
+      <li><a href="https://www.armandhammer.com/en/articles/baking-soda-vs-baking-powder">Arm &amp; Hammer, "Baking Soda vs. Baking Powder: What's the Difference"</a>: the exact substitution ratios and what happens with too much of each.</li>
+    </ul>
+    <p><strong>Test it with others:</strong> the comment section under the <a href="https://www.kingarthurbaking.com/blog/2021/09/10/baking-soda-vs-baking-powder-substitutions">King Arthur Baking article above</a>, where home bakers ask substitution questions about their own recipes and King Arthur's baking team weighs in.</p>
+    <p>A one-page <a href="../cheatsheets/baking-soda-vs-baking-powder.html">cheat sheet on leaveners and a sunk or flat cake</a> is ready to print or keep open next to the mixing bowl.</p>
+  </section>
+
+  <footer class="closing">
+    <p>Anything unclear? Ask me in the chat; I can explain any part again, another way, or go deeper.</p>
+    <p>A short quiz on this lesson is ready (quiz 0002): ask me for it when you want to check what stuck.</p>
+  </footer>
+
+</main>
+<script>
+  // Practice checks: mark the chosen option and explain it at once.
+  document.querySelectorAll("[data-check]").forEach(function (box) {
+    var buttons = box.querySelectorAll("button[data-correct]");
+    var out = box.querySelector(".feedback");
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.classList.remove("right", "wrong"); });
+        var right = button.getAttribute("data-correct") === "true";
+        button.classList.add(right ? "right" : "wrong");
+        if (out) { out.textContent = (right ? "Yes. " : "Not quite. ") + (button.getAttribute("data-why") || ""); }
+      });
+    });
+  });
+</script>
+</body>
+</html>

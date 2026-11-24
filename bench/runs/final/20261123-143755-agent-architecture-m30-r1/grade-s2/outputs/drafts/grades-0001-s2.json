@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Nice, d is right. What makes it an agent isn't a longer prompt, a bigger model, or memory of old chats - it's the loop where the model picks an action, the program runs it, and the result feeds back in. That loop is exactly what your makerspace assistant needs to actually check a calendar instead of just guessing an answer."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, c is it. The model's own output at that moment is just a structured request naming check_calendar plus the laser cutter and tomorrow's date as arguments - it's the surrounding program that actually goes and runs the lookup. Good instinct to keep 'the model asks, the program does' as two separate steps."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Your answer assumes that if you just let the loop keep running, it will eventually fix the bug on its own. That's not how it plays out: nothing in those 40 identical steps is teaching it to try something different, so it just keeps repeating the same edit against the same failing test - more steps don't equal more insight. It's a tempting thought because a person debugging the same way often does eventually try something new, but an agent with no stopping condition won't automatically start varying its approach. The actual safeguard is a step limit (or similar circuit breaker) that stops the loop and reports back to a person. Treat 'it's stuck repeating itself' as your signal to add a limit, not to add patience."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "You got the number right - 4 - but the reasoning behind it has the model itself running one tool per call, like it's the one opening the calendar and the manual. It isn't: the model's output is always just a request naming a tool and its arguments, and it's the program around it that actually runs check_calendar, search_manuals, and check_training_record, then hands the result back. It's an easy slip, since 'it runs check_calendar' reads like the model did the running. The real reason the count is 4 is that each model call ends in either one tool request or the final answer, so 3 requests plus 1 final answer is 4. Next time, count model calls by counting the inputs the model receives (the question, then each tool result coming back) rather than by imagining it executing the tools."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Spot on - the result goes back in as the model's next input, and it takes another turn with that in front of it. Good way to picture it: the model has no memory of its own between calls, so feeding the result back in is the only way it ever finds out what the tool returned."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You've got half of it: the name check_calendar is part of how the model picks a tool. But a name alone can mislead - the model is actually working off the whole description the program hands it, name plus what the tool does (and ideally its parameters), and matches that against what the request needs. Imagine a tool oddly named save_file that's actually for printing labels; the name would send you the wrong way, but the description wouldn't. Next time, mention the full description rather than just the name."
+    }
+  ],
+  "summary": "You're solid on the core loop and on reading what the model's own output actually is (q1, q2, q5) - that's the backbone of this whole mission. The thing to lock down next is the split between model and program: in q4 you landed on the right number but your reasoning still had the model running the tools itself, and in q3 you leaned on 'just let it keep going' instead of a stopping condition. Try sketching one makerspace request on paper and labeling every step as either 'model output' or 'program action' - that split is what's tripping you up right now, and seeing it on paper should make it click."
+}

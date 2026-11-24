@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O2",
+  "title": "What makes a cake rise",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A cake recipe includes buttermilk, an acidic ingredient, and calls for baking soda as its only leavener. Why does this combination make sense?",
+      "options": [
+        {"id": "a", "text": "The buttermilk supplies the acid that baking soda needs to react and release its lifting gas"},
+        {"id": "b", "text": "Baking soda and baking powder work identically, so swapping one for the other here would change nothing"},
+        {"id": "c", "text": "Baking soda reacts with the oven's heat alone, so the buttermilk is included only for flavor"},
+        {"id": "d", "text": "The acid in buttermilk cancels out baking soda's effect, so the recipe needs more soda to compensate"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "short",
+      "objective": "O2",
+      "stem": "In one sentence, why is most baking powder described as \"double-acting\"?"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "You double the baking powder in a cake recipe by mistake, without changing anything else. What is the most likely result?",
+      "options": [
+        {"id": "a", "text": "The batter rises very quickly, then the structure collapses under the extra gas, often with a bitter taste"},
+        {"id": "b", "text": "The cake rises exactly twice as high and holds that height once it's fully baked and cooled"},
+        {"id": "c", "text": "Nothing changes, since baking powder's amount has no real effect on how high a cake rises"},
+        {"id": "d", "text": "The extra baking powder escapes as gas before baking starts, so the cake rises less than usual"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O2",
+      "stem": "A recipe calls for 1.5 teaspoons of baking soda, but you only have baking powder. Using the common swap of 3 teaspoons of baking powder for every 1 teaspoon of baking soda, how many teaspoons of baking powder should you use?",
+      "unit": "teaspoons"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "Ava's last cake came out short and dense all over, and she measured every ingredient precisely by the recipe. What is the safest first thing to check before assuming she simply needs more baking powder next time?",
+      "options": [
+        {"id": "a", "text": "Whether the baking powder is still fresh, by testing if it fizzes briskly in hot water"},
+        {"id": "b", "text": "Nothing; doubling the baking powder next time is the simplest way to fix a flat cake"},
+        {"id": "c", "text": "Whether the recipe needs more sugar, since sugar also affects how high a cake rises"},
+        {"id": "d", "text": "Whether a bigger cake pan would let the batter spread out and rise more evenly"}
+      ]
+    }
+  ]
+}
